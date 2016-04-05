@@ -1,0 +1,196 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>여행가이드 메인</title>
+		<meta charset="utf-8" />
+		
+		<!-- meta:문서의 기본형식 지정/ 메인 -->
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+			<meta http-equiv="Content-Script-Type" content="text/javascript" />
+			<meta http-equiv="Content-Style-Type" content="text/css" />
+			<meta http-equiv="X-UA-Compatible" content="IE=10" />
+			<link rel="stylesheet" type="text/css" href="basic.css" />
+			<link rel="stylesheet" type="text/css" href="style.css" />
+			
+			<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+			<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<!-- meta:문서의 기본형식 지정/ 메인 -->
+		
+		<!-- inline 팝업창 -->
+			<link rel='stylesheet prefetch' href='http://dimsemenov-static.s3.amazonaws.com/dist/magnific-popup.css'>
+		<!-- inline 팝업창 -->
+		
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	
+	<body class="landing">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html">상단메뉴</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<button class="button special log" id="login-btn">Login</button>
+									
+									<!-- 로그인 레이어 팝업창 -->
+									<form class="white-popup mfp-hide" id="test-form">
+										<h1>Log-In</h1>
+										<ul>
+											<li>
+												<label for="id">ID</label>
+												<input name="id" id="id" required="" type="text" placeholder="ID">
+											</li>
+											<li>
+												<label for="pwd">PWD</label>
+												<input name="pwd" id="pwd" required="" type="password" placeholder="Password">
+											</li>
+											
+											<li>
+												<input name="login" value="login" id="login" type="button">
+												<input name="join" value="join" id="join" type="button">
+											</li>
+											<li>
+												<input name="idfind" value="id찾기" id="login" type="button">
+												<input name="pwdfind" value="pwd찾기" id="pwd" type="button">
+											</li>
+										</ul>
+									</form>
+									<!-- 로그인 레이어 팝업창 -->
+	
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									
+									<div id="menu">												<!-- 팝업메뉴 -->
+										<ul>
+											<li><a href="index.html">Home</a></li>
+											<li><a href="html/introduceSite.html">소개페이지</a></li>
+											<li><a href="html/introduceKor.html">한국소개</a></li>
+											<li><a href="html/guide.html">가이드 찾기</a></li>
+											<li><a href="#">관광객 등록</a></li>
+											<li><a href="#">마이페이지</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<h2>여행가이드사이트</h2>
+							<p>안녕하십니까?<br />
+							저희 사이트에 오신 것을 <br />
+							환영합니다.</p>
+							
+							<ul class="actions">
+								<li><a href="#" class="button special">Activate</a></li>
+							</ul>
+						</div>
+						
+						<a href="#three" class="more scrolly">사이트 구경 하기</a>		<!-- 페이지 스크롤 -->
+					</section>
+
+				<!-- Three -->
+					<section id="three" class="wrapper style3 special">
+						<div class="inner">
+						
+							<header class="major2">
+								<h2>전체메뉴</h2>
+							</header>
+							
+							<ul class="features2">
+								<li>
+									<div class="inner2">
+										<a href="html/introduceSite.html"><p>PageIntroduce</p></a>
+										<img alt="소개" src="images/character.png" />				<!-- alt:이미지없을때 -->
+					  				</div>
+								</li>
+								
+								<li>
+									<div class="inner2">
+										<a href="html/introduceKor.html"><p>KoreaIntroduce</p></a>
+										<img alt="소개" src="images/character.png" />				<!-- alt:이미지없을때 -->
+					  				</div>
+								</li>
+								
+								<li>
+									<div class="inner2">
+										<a href="html/guide.html"><p>Guide</p></a>
+										<img alt="소개" src="images/character.png" />				<!-- alt:이미지없을때 -->
+					  				</div>
+								</li>
+								
+								<li>
+									<div class="inner2">
+										<a href="html/customer.html"><p>Customer</p></a>
+										<img alt="소개" src="images/character.png" />				<!-- alt:이미지없을때 -->
+					  				</div>
+								</li>
+								
+								
+							</ul>
+						</div>
+					</section>
+			
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+
+
+
+			<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			
+				
+				<!-- inline 로그인 팝업창 -->
+				<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+				<script src='http://dimsemenov-static.s3.amazonaws.com/dist/jquery.magnific-popup.min.js'></script>
+				<!-- inline 로그인 팝업창 -->
+				
+				<!-- inline 로그인 팝업창 -->
+				<script type="text/javascript">
+				$(document).ready(function() {
+					$('#login-btn').magnificPopup({
+						items :{src:'#test-form',type : 'inline'},
+								preloader: false,focus: '#name',
+								callbacks: {beforeOpen: function() {
+									if($(window).width() < 700) {
+										this.st.focus = false;
+									} else {
+										this.st.focus = '#name';
+									}
+								}
+						}
+					});
+				});
+				</script>
+				<!-- inline 로그인 팝업창 -->
+
+	</body>
+</html>
