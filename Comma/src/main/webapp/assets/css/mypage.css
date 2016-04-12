@@ -1,0 +1,47 @@
+@CHARSET "EUC-KR";
+
+/* 원형 이미지 마스크 (url:http://blog.readiz.com/116#.VwnIPPmLTIU) */
+.mypicture img{
+	height: 200px;							/* 썸네일 크기 */
+	width: 200px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius:50px;
+	border-radius: 110px;
+	margin: 2em 1.5em 2em 1.5em;
+}
+
+.mypicture{
+	width:250px;
+	height: 320px;
+	background-color: navy;
+
+}
+.mypicture2{
+	width:250px;
+	height:50px;
+	background-color: green;
+}
+
+/* 마이페이지 정보수정 테이블 */
+.infomodify{
+	
+}
+.infomodify tr{
+	padding:0.5em 0.5em;
+	height: 2em;
+	
+}
+
+.infomodify th{
+	width:6em;
+	text-align: right;
+	padding:0 0 0 0;
+}
+
+.infomodify td{
+	width:20em;
+	padding:0.5em 0.5em;
+	height: 2em;
+}
+
+

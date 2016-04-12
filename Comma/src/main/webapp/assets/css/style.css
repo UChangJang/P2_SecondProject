@@ -1,0 +1,52 @@
+#nav2{
+	margin-top:0px;
+    height:60px;
+    position:fixed;
+    left:0px;
+    right:0px;
+    background:#8080c0 url(../images/nav.png) repeat-x center left;
+	opacity:0;
+	z-index: 100;
+    font-family: FontAwesome;
+}
+#nav2 ul{
+    height:38px;
+    list-style:none;
+    margin:6px auto 0px auto;
+    width:900px;   
+}
+#nav2 ul li{
+    display:inline;
+    float:left;
+    margin:0px 4px;
+}
+#nav2 a{
+    font-size:15px;
+    font-weight:bold;
+    float:left;/* 
+    padding: 2px 4px; */
+    color:#ffffff;
+    text-decoration: none;
+   /*  cursor: pointer; */
+ /*    background:transparent url(../images/overlay.png) repeat-x center left; */
+    height:35px;
+   /*  line-height:35px; */
+}
+#nav2 a:hover{
+    background:#408080 none;
+    color: #fff;
+}
+/* 
+#nav2 a.top span, #nav2 a.bottom span{
+    float:left;
+    width:35px;
+    height:35px;
+}
+#nav2 a.top span{				화살표위
+    background:transparent url(../images/top.png) no-repeat center center;
+}
+#nav2 a.bottom span{				화살표아래
+    background:transparent url(../images/bottom.png) no-repeat center center;
+}
+ */
+

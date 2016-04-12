@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comma.sist.user.dao.user-mapper">
+	
+	<!-- id는 메서드명, resultType은 리턴형, parameterType은 매개변수 -->
+	<sql id="where-no">
+		where no=#{no}
+	</sql>
+	<select id="userAllData" resultType="User">
+		select * from users
+	</select>
+	
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
