@@ -11,7 +11,8 @@ public class FileConfig {
 		
 		try{
 			
-			String path = "C:\\springDev\\springStudy\\Comma\\src\\main\\java\\";
+			//String path = "C:\\springDev\\springStudy\\Comma\\src\\main\\java\\";
+			String path = "C:\\Users\\sist\\git\\P2_SecondProject\\Comma\\src\\main\\java\\";
 			path = path+pack.replace('.', '\\');
 			
 			File dir = new File(path);
