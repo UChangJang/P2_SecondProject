@@ -7,12 +7,7 @@
 		<title>guideBoard</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="../assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-		
-		
 		<link rel="stylesheet" href="../assets/css/mytest.css" />
 		
 		<style>
@@ -63,21 +58,37 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="index.jsp">Spectral</a></h1>
+						<h1><a href="../index.jsp">Spectral</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
+									<!-- 사이드메뉴 -->
+									<div id="menu" class="group g1">												
 										<ul>
-											<li><a href="../index.jsp">Home</a></li>
-											<li><a href="../intro/introduceSite.jsp">소개페이지</a></li>
-											<li><a href="../intro/introduceKor.jsp">한국소개</a></li>
-											<li><a href="guide.jsp">가이드 찾기</a></li>
-											<li><a href="../tourist/tourist.jsp">관광객 등록</a></li>
-											<li><a href="#">마이페이지</a></li>
+											<div class="box"><li><a href="../index.jsp">Home</a></li></div>
+											<div class="box"><li><a href="intro/introduceSite.jsp">소개페이지</a></li></div>
+											<div class="box"><li><a href="intro/introduceKor.jsp">한국소개</a></li></div>
+											
+											<div class="box">
+											    <li class="title"><a href="#">가이드</a></li>
+											    <div class="cont">
+											    	<li><a href="guide/guide.jsp">1.가이드목록</a></li>
+											    	<li><a href="guide/guideWrite.jsp">2.가이드글쓰기</a></li>
+											    </div>
+											 </div>
+											
+											<div class="box">
+											    <li class="title"><a href="#">관광객</a></li>
+											    <div class="cont">
+											    	<li><a href="guide/guide.jsp">1.관광객목록</a></li>
+											    </div>
+											 </div>
+											 <div class="box">
+											 <li><a href="mypage/mypage.jsp">마이페이지</a></li>
+											 </div>
 										</ul>
-									</div>
+									</div> 
 								</li>
 							</ul>
 						</nav>
@@ -337,15 +348,16 @@
 			<!-- jQuery library (served from Google) -->
 			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 			<!-- bxSlider Javascript file -->
-			<script src="../jquery.bxslider.min.js"></script>
+			<script src="../js/jquery.bxslider.min.js"></script>
 			<!-- bxSlider CSS file -->
-			<link href="../jquery.bxslider.css" rel="stylesheet" />
+			<link href="../assets/css/jquery.bxslider.css" rel="stylesheet" />
 			
 			<script type="text/javascript">
 			$(document).ready(function(){
 			  $('.bxslider').bxSlider();
 			});
+			</script>
+			
 			<!-- 이미지슬라이드 -->
-</script>
 	</body>
 </html>

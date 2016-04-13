@@ -50,6 +50,7 @@ public class DispatcherServlet extends HttpServlet {
 						String jsp = (String)m.invoke(obj, request);
 						RequestDispatcher rd = request.getRequestDispatcher(jsp);
 						rd.forward(request, response);
+					
 						return;
 					}
 				}

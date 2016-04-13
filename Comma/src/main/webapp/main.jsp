@@ -34,6 +34,74 @@
 		 <!-- 마우스오버시 메뉴나옴 -->
 		 
 		 <link rel="stylesheet" type="text/css" href="assets/css/mytest.css" />
+		 
+		 
+		 <!-- 메인4개 이미지 효과 -->
+		 <script type="text/javascript" charset="utf-8" src='js/jquery.js'></script>
+		<script type="text/javascript" charset="utf-8">
+		$(window).load(function(){
+			
+			//set and get some variables
+			var thumbnail = {
+				imgIncrease : 100, /* 이미지 증가 크기 */
+				effectDuration : 400, /* 이미지 증가 시간 */
+				imgWidth : $('#mainImg .spotlight .image').find('img').width(), /* 이미지 가로 길이 */
+				imgHeight : $('#mainImg .spotlight .image').find('img').height() /* 이미지 세로길이 */
+				
+			};
+			
+			/* //make the list items same size as the images
+			$('#mainImg .spotlight .image').css({ 
+				
+				'width' : thumbnail.imgWidth, 
+				'height' : thumbnail.imgHeight 
+				
+			}); */
+			
+			//when mouse over the list item...
+			$('#mainImg .spotlight .image').hover(function(){
+				
+				$(this).find('img').stop().animate({
+					
+					/* increase the image width for the zoom effect*/
+					width: parseInt(thumbnail.imgWidth) + thumbnail.imgIncrease,
+					/* we need to change the left and top position in order to 
+					have the zoom effect, so we are moving them to a negative
+					position of the half of the imgIncrease */
+					left: thumbnail.imgIncrease/2*(-1),
+					top: thumbnail.imgIncrease/2*(-1)
+					
+				},{ 
+					
+					"duration": thumbnail.effectDuration,
+					"queue": false
+					
+				});
+				
+				//show the caption using slideDown event
+				$(this).find('.caption:not(:animated)').slideDown(thumbnail.effectDuration);
+				
+			//when mouse leave...
+			}, function(){
+				
+				//find the image and animate it...
+				$(this).find('img').animate({
+					
+					/* get it back to original size (zoom out) */
+					width: thumbnail.imgWidth,
+					/* get left and top positions back to normal */
+					left: 0,
+					top: 0
+					
+				}, thumbnail.effectDuration);
+				
+				//hide the caption using slideUp event
+				$(this).find('.caption').slideUp(thumbnail.effectDuration);
+				
+			});
+			
+		});
+	</script>
 	</head>
 	
 	
@@ -138,7 +206,7 @@
 											    </div>
 											 </div>
 											 <div class="box">
-											 <li><a href="#">마이페이지</a></li>
+											 <li><a href="mypage/mypage.jsp">마이페이지</a></li>
 											 </div>
 										</ul>
 									</div> 
@@ -160,37 +228,65 @@
 								</div>
 							</ul>
 							
-							<ul class="features9 row uniform">
+							
+							
+							<section id="mainImg" class="wrapper alt">
+								<section class="spotlight">
+									<div class="image main">
+										<a href="#"><img src="images/flower3.jpg" alt="" /></a>
+										<div class='caption'>
+											<p class='captionInside'>사이트 이용법을 알아보세요</p>
+										</div>
+									</div>
+									
+									<div class="image main">
+										<a href="#"><img src="images/tower.jpg" alt="" /></a>
+										<div class='caption'>
+											<p class='captionInside'>사이트 이용법을 알아보세요</p>
+										</div>
+									</div><div class="image main">
+										<a href="#"><img src="images/costume.jpg" alt="" /></a>
+										<div class='caption'>
+											<p class='captionInside'>사이트 이용법을 알아보세요</p>
+										</div>
+									</div><div class="image main">
+										<a href="#"><img src="images/hight.jpg" alt="" /></a>
+										<div class='caption'>
+											<p class='captionInside'>사이트 이용법을 알아보세요</p>
+										</div>
+									</div>
+								</section>
+							</section>
+							
+							 <!--  <ul class="features9 row uniform">
 								<li>
 									<div class="inner2">
 										<a href="intro/introduceSite.jsp"><p>PageIntroduce</p></a>
-										<img alt="소개" src="images/character.png" />				<!-- alt:이미지없을때 -->
+										<img alt="소개" src="images/character.png" />				
 					  				</div>
 								</li>
 								
 								<li>
 									<div class="inner2">
 										<a href="intro/introduceKor.jsp"><p>KoreaIntroduce</p></a>
-										<img alt="소개" src="images/character.png" />				<!-- alt:이미지없을때 -->
+										<img alt="소개" src="images/character.png" />		
 					  				</div>
 								</li>
 								
 								<li>
 									<div class="inner2">
 										<a href="guide/guide.jsp"><p>Guide</p></a>
-										<img alt="소개" src="images/character.png" />				<!-- alt:이미지없을때 -->
+										<img alt="소개" src="images/character.png" />				
 					  				</div>
 								</li>
 								
 								<li>
 									<div class="inner2">
 										<a href="tourist/tourist.jsp"><p>Customer</p></a>
-										<img alt="소개" src="images/character.png" />				<!-- alt:이미지없을때 -->
+										<img alt="소개" src="images/character.png" />				
 					  				</div>
 								</li>
-								
-								
-							</ul>
+							</ul> -->
 						</div>
 					</section>
 			

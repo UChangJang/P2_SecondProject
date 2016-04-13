@@ -96,26 +96,26 @@
 									<!-- 사이드메뉴 -->
 									<div id="menu" class="group g1">												
 										<ul>
-											<div class="box"><li><a href="../index.html">Home</a></li></div>
-											<div class="box"><li><a href="introduceSite.html">소개페이지</a></li></div>
-											<div class="box"><li><a href="introduceKor.html">한국소개</a></li></div>
+											<div class="box"><li><a href="../index.jsp">Home</a></li></div>
+											<div class="box"><li><a href="intro/introduceSite.jsp">소개페이지</a></li></div>
+											<div class="box"><li><a href="intro/introduceKor.jsp">한국소개</a></li></div>
 											
 											<div class="box">
 											    <li class="title"><a href="#">가이드</a></li>
 											    <div class="cont">
-											    	<li><a href="guide.html">1.가이드목록</a></li>
-											    	<li><a href="guideWrite.html">2.가이드글쓰기</a></li>
+											    	<li><a href="guide/guide.jsp">1.가이드목록</a></li>
+											    	<li><a href="guide/guideWrite.jsp">2.가이드글쓰기</a></li>
 											    </div>
 											 </div>
 											
 											<div class="box">
 											    <li class="title"><a href="#">관광객</a></li>
 											    <div class="cont">
-											    	<li><a href="customer.html">1.관광객목록</a></li>
+											    	<li><a href="guide/guide.jsp">1.관광객목록</a></li>
 											    </div>
 											 </div>
 											 <div class="box">
-											 <li><a href="elements.html">마이페이지</a></li>
+											 <li><a href="mypage/mypage.jsp">마이페이지</a></li>
 											 </div>
 										</ul>
 									</div> 
@@ -162,7 +162,7 @@
 						</section>
 						
 								
-						<iframe src="mypage_infoCorrection.html" width="100%" height="1600em" scrolling=no></iframe>
+						<iframe src="mypage_infoCorrection.jsp" width="100%" height="1600em" scrolling=no></iframe>
 						
 					</article>
 
