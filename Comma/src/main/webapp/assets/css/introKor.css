@@ -1,0 +1,11 @@
+@CHARSET "EUC-KR";
+
+/* .image {
+    position:relative;
+    float:left; optional
+} */
+.image .text {
+    position:absolute;
+    top:10px; 
+    left:10px;
+    width:300px; 
