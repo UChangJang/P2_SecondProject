@@ -20,7 +20,7 @@
 										
 											<div class="4u">
 												<span class="image fit a">
-													<a href="guide/guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
+													<a href="guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
 													<div class="listText"  id="testtest"></div>
 													<div class="listText2">
 														<div>
@@ -42,7 +42,7 @@
 											
 											<div class="4u">
 												<span class="image fit a">
-													<a href="guide/guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
+													<a href="guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
 													<div class="listText"></div>
 													<div class="listText2">
 														<div>
@@ -63,7 +63,7 @@
 											</div>
 											<div class="4u">
 												<span class="image fit a">
-													<a href="guide/guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
+													<a href="guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
 													<div class="listText"></div>
 													<div class="listText2">
 														<div>
@@ -85,7 +85,7 @@
 											
 											<div class="4u">
 												<span class="image fit a">
-													<a href="guide/guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
+													<a href="guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
 													<div class="listText"></div>
 													<div class="listText2">
 														<div>
@@ -106,7 +106,7 @@
 											</div>
 											<div class="4u">
 												<span class="image fit a">
-													<a href="guide/guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
+													<a href="guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
 													<div class="listText"></div>
 													<div class="listText2">
 														<div>
@@ -127,7 +127,7 @@
 											</div>
 											<div class="4u">
 												<span class="image fit a">
-													<a href="guide/guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
+													<a href="guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
 													<div class="listText"></div>
 													<div class="listText2">
 														<div>
@@ -148,7 +148,7 @@
 											</div>
 											<div class="4u">
 												<span class="image fit a">
-													<a href="guide/guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
+													<a href="guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
 													<div class="listText"></div>
 													<div class="listText2">
 														<div>
@@ -169,7 +169,7 @@
 											</div>
 											<div class="4u">
 												<span class="image fit a">
-													<a href="guide/guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
+													<a href="guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
 													<div class="listText"></div>
 													<div class="listText2">
 														<div>
@@ -190,7 +190,7 @@
 											</div>
 											<div class="4u">
 												<span class="image fit a">
-													<a href="guide/guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
+													<a href="guideBoard.jsp" target="_top"><img src="../images/pic01.jpg" alt=""/></a>
 													<div class="listText"></div>
 													<div class="listText2">
 														<div>

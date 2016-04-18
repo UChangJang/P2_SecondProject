@@ -14,6 +14,11 @@
 		<!-- 달력css -->
 		<link rel="stylesheet" href="../assets/css/dcalendar.picker.css">
 
+		<!-- 마우스오버시 메뉴나옴 -->
+			<script type="text/javascript" src="./jquery.js"></script>
+	        <link href="style.css" rel="stylesheet" type="text/css">
+		 	<script type="text/javascript" src="./menu.js"></script>			
+		 <!-- 마우스오버시 메뉴나옴 -->
 	</head>
 	<body>
 
@@ -27,16 +32,33 @@
 							<ul>
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
+									<!-- 사이드메뉴 -->
+									<div id="menu" class="group g1">												
 										<ul>
-											<li><a href="../index.jsp">Home</a></li>
-											<li><a href="../intro/introduceSite.jsp">소개페이지</a></li>
-											<li><a href="../intro/introduceKor.jsp">한국소개</a></li>
-											<li><a href="../guide/guide.jsp">가이드 찾기</a></li>
-											<li><a href="tourist.jsp">관광객 등록</a></li>
-											<li><a href="#">마이페이지</a></li>
+											<div class="box"><li><a href="../index.jsp">Home</a></li></div>
+											<div class="box"><li><a href="intro/introduceSite.jsp">소개페이지</a></li></div>
+											<div class="box"><li><a href="intro/introduceKor.jsp">한국소개</a></li></div>
+											
+											<div class="box">
+											    <li class="title"><a href="#">가이드</a></li>
+											    <div class="cont">
+											    	<li><a href="guide/guide.jsp">1.가이드목록</a></li>
+											    	<li><a href="guide/guideWrite.jsp">2.가이드글쓰기</a></li>
+											    </div>
+											 </div>
+											
+											<div class="box">
+											    <li class="title"><a href="#">관광객</a></li>
+											    <div class="cont">
+											    	<li><a href="tourist.jsp">1.관광객목록</a></li>
+											    	<li><a href="touristWrite.jsp">2.관광객글쓰기</a></li>
+											    </div>
+											 </div>
+											 <div class="box">
+											 <li><a href="mypage/mypage.jsp">마이페이지</a></li>
+											 </div>
 										</ul>
-									</div>
+									</div> 
 								</li>
 							</ul>
 						</nav>
@@ -255,6 +277,63 @@
 				$('#dt').dcalendarpicker();
 				</script> 
 			
+			<!-- 사이드 메뉴 -->
+				<script type="text/javascript">
+				$(function() {
+
+				  var group = $(".group");
+				
+				  group.each(function() {
+				    var _group = new GroupBox(this);
+				  });
+				
+				  // 사용자 정의 생성자 함수 정의
+				  function GroupBox(groupElement) {
+				
+				    var box = $(groupElement).find(".box");
+				    var title = $(groupElement).find(".box .title a");
+				
+				    box.each(function(idx) {
+				      var newBox = new RootBox(this);
+				      if (idx > 0) {
+				        newBox.siblingsClose();
+				      }
+				    });
+				  }
+				
+				  // 사용자 정의 생성자 함수 정의
+				  function RootBox(boxElement) {
+				    var _this = this;
+				    var boxEl = $(boxElement);
+				    var target = $(boxEl).find(".title a");
+				    var cont = $(boxEl).find(".cont");
+				
+				    // _groupParent = $(boxEl).parent();
+				
+				    target.on("click", anchorClickEvent);
+				
+				    function anchorClickEvent() {
+				
+				      if (cont.is(':hidden')) {
+				        _this.open();
+				      } else {
+				        _this.close();
+				      }
+				    }
+				
+				    _this.siblingsClose = function() {
+				      cont.css('display', 'none');
+				    };
+				
+				    _this.open = function() {
+				      cont.slideDown();
+				    };
+				    _this.close = function() {
+				      cont.slideUp();
+				    }
+				  }
+				});
+				</script>
 
 	</body>
 </html></html>

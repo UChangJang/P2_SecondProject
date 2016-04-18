@@ -22,21 +22,37 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="index.jsp">Home</a></h1>
+						<h1><a href="../index.jsp">Home</a></h1>
 						<nav id="nav">
 							<ul>
 								<li class="special">
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
-									<div id="menu">
+									<!-- 사이드메뉴 -->
+									<div id="menu" class="group g1">												
 										<ul>
-											<li><a href="../index.jsp">Home</a></li>
-											<li><a href="../intro/introduceSite.jsp">소개페이지</a></li>
-											<li><a href="../intro/introduceKor.jsp">한국소개</a></li>
-											<li><a href="guide.jsp">가이드 찾기</a></li>
-											<li><a href="../tourist/tourist.jsp">관광객 등록</a></li>
-											<li><a href="#">마이페이지</a></li>
+											<div class="box"><li><a href="main.do">Home</a></li></div>
+											<div class="box"><li><a href="intro/introduceSite.jsp">소개페이지</a></li></div>
+											<div class="box"><li><a href="intro/introduceKor.jsp">한국소개</a></li></div>
+											
+											<div class="box">
+											    <li class="title"><a href="#">가이드</a></li>
+											    <div class="cont">
+											    	<li><a href="guide.jsp">1.가이드목록</a></li>
+											    	<li><a href="guideWrite.jsp">2.가이드글쓰기</a></li>
+											    </div>
+											 </div>
+											
+											<div class="box">
+											    <li class="title"><a href="#">관광객</a></li>
+											    <div class="cont">
+											    	<li><a href="../tourist/tourist.jsp">1.관광객목록</a></li>
+											    </div>
+											 </div>
+											 <div class="box">
+											 <li><a href="../mypage/mypage.jsp">마이페이지</a></li>
+											 </div>
 										</ul>
-									</div>
+									</div> 
 								</li>
 							</ul>
 						</nav>

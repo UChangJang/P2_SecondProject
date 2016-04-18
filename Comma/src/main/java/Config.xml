@@ -26,6 +26,6 @@
 		</environment>  
 	</environments>  
 	<mappers>    
-		<mapper resource="comma/sist/user/dao/user-mapper.xml"/>  
+		<mapper resource="comma\sist\user\dao\user-mapper.xml"/>  
 	</mappers> 
 </configuration>

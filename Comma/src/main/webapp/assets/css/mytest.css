@@ -1,5 +1,40 @@
 @CHARSET "EUC-KR";
 
+
+
+
+/* 가이드 글쓰기 페이지 *//* 가이드 글쓰기 페이지 *//* 가이드 글쓰기 페이지 */
+
+.my-thumb-1,.test1{
+	display: inline-block;
+	
+}
+.my-thumb-1{
+	width: 120px;
+}
+.test1{
+	width: 100%;
+}
+/*테이블 라벨 글자 정렬 오른쪽*/
+.gWrite_left{
+	text-align: right;
+}
+
+
+/* 이미지업로드사진크기조절 */
+#blah,#blah2,#blah3{
+	width: 120px;
+	height: 150px;
+}
+.gWrbtn{
+	padding-left: 5em;
+	padding-right: 5em;
+}
+
+
+
+/* 가이드 글쓰기 페이지 *//* 가이드 글쓰기 페이지 *//* 가이드 글쓰기 페이지 */
+
  .wrapper .inner .2u{
 	text-align: right;
 	text-shadow: black;
@@ -198,6 +233,30 @@
 } 
 
 /*메인화면 4개영역 이미지 *//*메인화면 4개영역 이미지 *//*메인화면 4개영역 이미지 *//*메인화면 4개영역 이미지 *//*메인화면 4개영역 이미지 */
+
+/* 메인 이미지 4개*/
+.caption{
+			position:absolute; 
+			top:0px; 
+			left:0px; 
+			width:100%; 
+			 display:none;
+			/* styling bellow */
+			background:#0c4b62;
+			color:white;
+			opacity:0.5;
+			height: 70%;
+		}
+		
+.image.main{
+	position:relative; /* so we can use top and left positioning */
+	overflow:hidden;
+}		
+.image.main img{
+	width: 100%;
+}	
+
+
 .features9 {
 			display: -moz-flex;
 			display: -webkit-flex;
@@ -215,7 +274,7 @@
 			width: 100%;
 			height: 40em;	
 			padding-bottom: 3em;
-			padding-top: 3em;		/*이미지4개배경높이*/
+			/*padding-top: 3em;이미지4개배경높이*/
 			margin-left:-5em;
 		}
 
@@ -470,7 +529,7 @@
 		justify-content: center;
 		cursor: default;
 		height: 50vh;						/*메인 제목 높이 줄임*/
-		min-height: 15em;					/*메인 제목 높이 줄임*/
+		min-height: 8em;					/*메인 제목 높이 줄임*/
 		overflow: hidden;
 		position: relative;
 		text-align: center;
@@ -709,7 +768,7 @@
 /* banner1 */
 
 	#banner1 {
-		 padding: 4em 0 2em 0 ;
+		 padding: 3em 0 2em 0 ;
 		height: auto;
 	}
 
