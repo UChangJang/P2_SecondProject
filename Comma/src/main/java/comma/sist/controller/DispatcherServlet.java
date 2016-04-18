@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.util.*;
 import java.lang.reflect.*;
 
@@ -22,7 +23,7 @@ public class DispatcherServlet extends HttpServlet {
 		String path = config.getInitParameter("contextConfigLocation");
 		wc = new WebApplicationContext(path);
 		list = wc.getFileName();
-		
+		System.out.println(list);
 	}
 
 	
