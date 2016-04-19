@@ -1,8 +1,7 @@
 package comma.sist.user.dao;
 
 import java.io.Reader;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
