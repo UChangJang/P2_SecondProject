@@ -6,11 +6,10 @@
 	<sql id="where-no">
 		where no=#{no}
 	</sql>
+	
 	<select id="userAllData" resultType="User">
 		select * from users
-	</select>
-	
-	
+	</select> 
 	
 </mapper>
 

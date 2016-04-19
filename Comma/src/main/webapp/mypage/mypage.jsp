@@ -6,10 +6,10 @@
 		<title>mypage</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
-		<link rel="stylesheet" href="../assets/css/mytest.css" />
-		<link rel="stylesheet" href="../assets/css/mytest2(danbi_mypage)" /> 
-		<link rel="stylesheet" href="../assets/css/mypage.css" /> 
+		<link rel="stylesheet" href="../controller/assets/css/main.css" />
+		<link rel="stylesheet" href="../controller/assets/css/mytest.css" />
+		<link rel="stylesheet" href="../controller/assets/css/mytest2(danbi_mypage)" /> 
+		<link rel="stylesheet" href="../controller/assets/css/mypage.css" /> 
 		
 		<!-- inline 팝업창 -->
 			<link rel='stylesheet prefetch' href='http://dimsemenov-static.s3.amazonaws.com/dist/magnific-popup.css'>
@@ -135,25 +135,26 @@
 							
 								<!-- 메뉴 작성 -->
 								<section>
-									
 									<h4>Mypage</h4>								<!-- 제목 왼쪽정렬 -->
 									<div class="row uniform">							
 										<div class="4u 12u$(small)">			<!-- 1 왼쪽 -->
 											<div class="mypicture">
-												<img src="../images/character.png">
+												<img src="../controller/images/character.png">
 											</div>
-											<div class="mypicture2">보잉</div>
+											<div class="mypictureCaption">
+												<h3>보잉</h3>
+												<h4>3가이드 4관광</h4>	
+											</div>
 										</div>
 										
-										<div class="8u 12u$(small)">				<!-- 2 오른쪽 -->
-											<h5>Alternate</h5>
+										<div class="7u$ 12u$(small)">				<!-- 2 오른쪽 -->
 											<ul class="alt">
-												<li><a href="mypage_wishList.html"><h3>위시리스트</h3></a></li>
-												<li><a href="mypage_myWriting.html">내가 쓴 글</a></li>
-												<li><a href="mypage_bookingList.html">예약리스트</a></li>
-												<li><a href="mypage_infoCorrection.html">정보수정</a></li>
-												<li><a href="mypage_opinion.html">후기들</a></li>
-												<li><a href="mypage_letter.html">쪽지함</a></li>
+												<li><a href="mypage_wishList.html"><h5>위시리스트</h5></a></li>
+												<li><a href="mypage_myWriting.html"><h5>내가 쓴 글</h5></a></li>
+												<li><a href="mypage_bookingList.html"><h5>예약리스트</h5></a></li>
+												<li><a href="mypage_infoCorrection.html"><h5>정보수정</h5></a></li>
+												<li><a href="mypage_opinion.html"><h5>후기들</h5></a></li>
+												<li><a href="mypage_letter.html"><h5>쪽지함</h5></a></li>
 											</ul>
 										</div>
 									</div>
@@ -161,9 +162,12 @@
 							</div>
 						</section>
 						
-								
-						<iframe src="mypage_infoCorrection.jsp" width="100%" height="1600em" scrolling=no></iframe>
-						
+						<!-- include -->
+						<%-- <jsp:include page="mypage_infoCorrection.jsp"></jsp:include>
+						<jsp:include page="mypage_wishlist.jsp"></jsp:include>
+						<jsp:include page="mypage_comment.jsp"></jsp:include>
+						<jsp:include page="mypage_letter.jsp"></jsp:include>--%>
+						<jsp:include page="mypage_reserve.jsp"></jsp:include>
 					</article>
 
 				<!-- Footer -->
@@ -183,13 +187,12 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/jquery.scrollex.min.js"></script>
-			<script src="../assets/js/jquery.scrolly.min.js"></script>
-			<script src="../assets/js/skel.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-			<script src="../assets/js/main.js"></script>
+			<script src="../controller/assets/js/jquery.min.js"></script>
+			<script src="../controller/assets/js/jquery.scrollex.min.js"></script>
+			<script src="../controller/assets/js/jquery.scrolly.min.js"></script>
+			<script src="../controller/assets/js/skel.min.js"></script>
+			<script src="../controller/assets/js/util.js"></script>
+			<script src="../controller/assets/js/main.js"></script>
 			
 			
 				<!-- inline 로그인 팝업창 -->
