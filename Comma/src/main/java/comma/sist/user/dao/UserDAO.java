@@ -1,8 +1,7 @@
 package comma.sist.user.dao;
 
 import java.io.Reader;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -33,5 +32,28 @@ public class UserDAO {
 		return list;
 	} // userAllData(Map map)
 	
+	public static String userLogin(String id, String pwd){
+		
+		String res = "";
+		SqlSession session = ssf.openSession();
+		int countID = session.selectOne("userCountID",id);
+		
+		if(countID==0) res = "NOID";
+		else{
+			UserVO vo = session.selectOne("userInfo",id);
+			
+			if(pwd.equals(vo.getUser_pwd())){
+				res = vo.getUser_name();
+			}else{
+				res = "NOPWD";
+			}
+			
+		}
+		session.close();
+		
+		return res;
+	}
+	
+
 	
 }

@@ -13,14 +13,17 @@ public class IntroController {
 	
 	@RequestMapping("main.do")
 	public String mainStart(HttpServletRequest request){
+			
+		/*List<UserVO> list = UserDAO.userAllData();
 		List<UserVO> list = UserDAO.userAllData();
+
 		System.out.println(list.size());
 		for(UserVO vo:list){
 			System.out.println(vo.getUser_id());
 			System.out.println(vo.getUser_name());
-			System.out.println(vo.getUser_sex());
+			System.out.println(vo.getUser_pwd());
 			System.out.println("====================");
-		}
+		}*/
 		
 		return "main.jsp";
 	}

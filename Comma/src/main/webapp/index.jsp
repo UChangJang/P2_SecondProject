@@ -2,6 +2,5 @@
     pageEncoding="EUC-KR"%>
 <%
 	response.sendRedirect("main.do");
-
 %>
 <!-- ¼öÁ¤ 1-->
