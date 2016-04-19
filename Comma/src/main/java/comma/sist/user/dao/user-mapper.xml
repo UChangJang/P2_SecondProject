@@ -6,6 +6,7 @@
 	<sql id="where-no">
 		where no=#{no}
 	</sql>
+	
 	<select id="userAllData" resultType="User">
 		select * from users
 	</select>
@@ -17,6 +18,7 @@
 	<select id="userInfo" resultType="User" parameterType="String">
 		select user_pwd,user_name from users where user_id=#{id}
 	</select>
+
 	
 </mapper>
 

@@ -8,7 +8,7 @@ import java.io.*;
 
 public class WebApplicationContext {
 
-	List<String> packList = new ArrayList<String>();
+	List<String> packList = new ArrayList<String>();	//packlist=comma.sist.model
 	
 	public WebApplicationContext(String path){
 		
@@ -20,7 +20,7 @@ public class WebApplicationContext {
 			HandlerMapping hm = new HandlerMapping();
 			sp.parse(new File(path), hm);
 			
-			packList = hm.packList;
+			packList = hm.packList;	
 			
 		}catch(Exception ex){}
 		
@@ -31,7 +31,7 @@ public class WebApplicationContext {
 		List<String> list = new ArrayList<String>();
 		
 		for(String packName:packList){ // 패키지당
-			List<String> fList = FileConfig.getFileName(packName); //comma.~.~
+			List<String> fList = FileConfig.getFileName(packName); //flist=comma.sist.model.introController
 			
 			for(String fileName:fList){
 				list.add(fileName);

@@ -20,10 +20,11 @@ public class DispatcherServlet extends HttpServlet {
 	
 	public void init(ServletConfig config) throws ServletException {
 		
-		String path = config.getInitParameter("contextConfigLocation");
+		String path = config.getInitParameter("contextConfigLocation");	//path=application.xmlÀÇ À§Ä¡
 		wc = new WebApplicationContext(path);
 		list = wc.getFileName();
 		System.out.println(list);
+
 	}
 
 	
@@ -33,7 +34,6 @@ public class DispatcherServlet extends HttpServlet {
 			
 			String cmd = request.getRequestURI();
 			cmd = cmd.substring(request.getContextPath().length()+1);
-			
 			for(String strCls:list){
 				
 				Class clsName = Class.forName(strCls);
@@ -43,15 +43,13 @@ public class DispatcherServlet extends HttpServlet {
 				
 				Method[] methods = clsName.getDeclaredMethods();
 				for(Method m:methods){
-					
+
 					RequestMapping rm = m.getAnnotation(RequestMapping.class);
 					if(rm.value().equals(cmd)){
 						Object obj = clsName.newInstance();
-						
 						String jsp = (String)m.invoke(obj, request);
 						RequestDispatcher rd = request.getRequestDispatcher(jsp);
 						rd.forward(request, response);
-					
 						return;
 					}
 				}

@@ -2672,7 +2672,7 @@ header.major2 h2:after, header.major2 h3:after, header.major2 h4:after, header.m
 	
 
 		.wrapper > .inner {								/*페이지 내용 양 옆 폭!!*//*페이지 내용 양 옆 폭!!*/
-			 width: 55em; 				
+			 width: 60em; 				
 			margin: 0 auto;
 		}
 		/*메인_이미지 간격조절*/
@@ -2862,7 +2862,8 @@ header.major2 h2:after, header.major2 h3:after, header.major2 h4:after, header.m
 
 			}
 
-		.wrapper.style2 {
+		.wrapper.
+ {
 			background-color: #2e3842;
 		}
 
