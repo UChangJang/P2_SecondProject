@@ -9,11 +9,12 @@ import comma.sist.controller.RequestMapping;
 public class GuideController {
 
 	
-	@RequestMapping("guide_Insert")
+	@RequestMapping("guide_Insert.do")
 	public String guide_Insert(HttpServletRequest request){
 		
+		System.out.println("111");
 		
-		return "";
+		return "guide/guide.jsp";
 	}
 	
 }

@@ -129,7 +129,7 @@
 
 
 			<section> <!-- 글쓰기 -->
-			<form method="post" action="#">
+			<form method="post" action="guide_Insert.do">
 				<div class="row uniform">
 					<div class="2u 12u$(xsmall) gWrite_left">
 						<!-- 1 왼쪽 : 제목-->
@@ -137,18 +137,8 @@
 					</div>
 					<div class="10u$ 12u$(xsmall)">
 						<!-- 2 오른쪽 -->
-						<input type="text" name="demo-name" id="demo-name" value=""
-							placeholder="Name" />
-					</div>
-
-					<div class="2u 12u$(xsmall) gWrite_left">
-						<!-- 1 왼쪽 : 가이드소개-->
-						<h5>가이드소개</h5>
-					</div>
-					<div class="10u$ 12u$(xsmall)">
-						<!-- 1 오른쪽 -->
-						<textarea name="demo-message" id="demo-message"
-							placeholder="Enter your message" rows="6"></textarea>
+						<input type="text" name="guide_subject" id="demo-name" value=""
+							placeholder="Subject" />
 					</div>
 
 					<div class="2u 12u$(xsmall) gWrite_left">
@@ -157,8 +147,8 @@
 					</div>
 					<div class="10u$ 12u$(xsmall)">
 						<!-- 2 오른쪽 -->
-						<textarea name="demo-message" id="demo-message"
-							placeholder="Enter your message" rows="6"></textarea>
+						<textarea name="guide_loc_intro" id="demo-message"
+							placeholder="Write your trip plan" rows="6"></textarea>
 					</div>
 
 					<div class="2u 12u$(xsmall) gWrite_left">
@@ -197,8 +187,8 @@
 					</div>
 					<div class="10u$ 12u$(xsmall)">
 						<!-- 4 오른쪽 -->
-						<textarea name="demo-message" id="demo-message"
-							placeholder="Enter your message" rows="6"></textarea>
+						<textarea name="guide_detail" id="demo-message"
+							placeholder="Enter your message detail" rows="6"></textarea>
 					</div>
 
 					<div class="2u 12u$(xsmall) gWrite_left">
@@ -208,7 +198,7 @@
 					<div class="10u$ 12u$(xsmall)">
 						<!-- 4 오른쪽 -->
 						<textarea name="demo-message" id="demo-message"
-							placeholder="Enter your message" rows="6"></textarea>
+							placeholder="Enter your message detail" rows="6"></textarea>
 					</div>
 
 					<div class="2u 12u$(xsmall) gWrite_left">
@@ -218,7 +208,7 @@
 					<div class="10u$ 12u$(xsmall)">
 						<!-- 4 오른쪽 -->
 						<textarea name="demo-message" id="demo-message"
-							placeholder="Enter your message" rows="6"></textarea>
+							placeholder="Enter your message detail" rows="6"></textarea>
 					</div>
 
 					<div class="2u 12u$(xsmall) gWrite_left">
@@ -228,7 +218,7 @@
 					<div class="4u 12u$(xsmall)">
 						<!-- 5 오른쪽 -->
 						<div class="select-wrapper">
-							<select name="demo-category" id="demo-category">
+							<select name="text_loc" id="demo-category">
 								<option value="">- 지역 -</option>
 								<option value="1">서울</option>
 								<option value="1">부산</option>
@@ -245,18 +235,18 @@
 					<div class="5u$ 12u$(xsmall)">
 						<!-- 5-1 오른쪽 -->
 						<div class="select-wrapper">
-							<select name="demo-category" id="demo-category">
+							<select name="text_total_person" id="demo-category">
 								<option value="">- 모집인원 -</option>
-								<option value="1">1</option>
-								<option value="1">2</option>
-								<option value="1">3</option>
-								<option value="1">4</option>
-								<option value="1">5</option>
-								<option value="1">6</option>
-								<option value="1">7</option>
-								<option value="1">8</option>
-								<option value="1">9</option>
-								<option value="1">10</option>
+								<option value="1">1명</option>
+								<option value="1">2명</option>
+								<option value="1">3명</option>
+								<option value="1">4명</option>
+								<option value="1">5명</option>
+								<option value="1">6명</option>
+								<option value="1">7명</option>
+								<option value="1">8명</option>
+								<option value="1">9명</option>
+								<option value="1">10명</option>
 							</select>
 						</div>
 					</div>
@@ -268,8 +258,8 @@
 					</div>
 					<div class="10u$ 12u$(xsmall)">
 						<!-- 6 오른쪽 -->
-						<input type="text" name="demo-name" id="demo-name" value=""
-							placeholder="Name" />
+						<input type="text" name="text_cost" id="demo-name" value=""
+							placeholder="Cost" />
 					</div>
 
 					<div class="2u 12u$(xsmall) gWrite_left">
@@ -278,8 +268,8 @@
 					</div>
 					<div class="10u$ 12u$(xsmall)">
 						<!-- 7 오른쪽 -->
-						<textarea name="demo-message" id="demo-message"
-							placeholder="Enter your message" rows="6"></textarea>
+						<textarea name="guide_cost_detail" id="demo-message"
+							placeholder="Enter your cost message" rows="6"></textarea>
 					</div>
 
 					<div class="2u 12u$(xsmall) gWrite_left">
@@ -288,15 +278,13 @@
 					</div>
 					<div class="10u$ 12u$(xsmall)">
 						<!-- 8 오른쪽 -->
-						<input type="radio" id="walking" name="demo-priority" checked>
-						<label for="walking">walking</label> <input type="radio" id="car"
-							name="demo-priority" checked> <label for="car">car</label>
-						<input type="radio" id="bicycle" name="demo-priority" checked>
-						<label for="bicycle">bicycle</label>
+						<input type="radio" id="walking" name="text_move" checked>
+							<label for="walking">walking</label> 
+						<input type="radio" id="car" name="demo-priority"> 
+							<label for="car">car</label>
+						<input type="radio" id="bicycle" name="demo-priority">
+							<label for="bicycle">bicycle</label>
 					</div>
-
-
-
 
 					<div class="2u 12u$(xsmall) gWrite_left">
 						<!-- 5 왼쪽 : 시간-->
@@ -305,7 +293,7 @@
 					<div class="4u 12u$(xsmall)">
 						<!-- 5 오른쪽 -->
 						<div class="select-wrapper">
-							<select name="demo-category" id="demo-category">
+							<select name="text_time1" id="demo-category">
 								<option value="">- 시간 -</option>
 								<option value="1">1</option>
 								<option value="1">2</option>
@@ -330,7 +318,7 @@
 					<div class="5u$ 12u$(xsmall)">
 						<!-- 5-1 오른쪽 -->
 						<div class="select-wrapper">
-							<select name="demo-category" id="demo-category">
+							<select name="text_time2" id="demo-category">
 								<option value="">- 시간 -</option>
 								<option value="1">1</option>
 								<option value="1">2</option>
@@ -354,8 +342,8 @@
 					</div>
 					<div class="10u$ 12u$(xsmall)">
 						<!-- 2 오른쪽 -->
-						<input type="text" name="demo-name" id="demo-name" value=""
-							placeholder="Name" />
+						<input type="text" name="guide_meet" id="demo-name" value=""
+							placeholder="Meet place" />
 					</div>
 
 
@@ -365,18 +353,17 @@
 					</div>
 					<div class="10u$ 12u$(xsmall)">
 						<!-- 7 오른쪽 -->
-						<input type="text" id="dt" placeholder="날짜선택">
-						<div id="dd"></div>
+						<input type="text" id="dt" name="text_date" placeholder="Select Date">
 					</div>
 				</div>
-			</form>
-
-
-
+			<br>
 			<ul class="actions fit small gWrbtn">
-				<li><a href="#" class="button special fit small">등록</a></li>
-				<li><a href="#" class="button fit small">취소</a></li>
+				<li><button class="button special fit small">등록</button></li>
+				<li><button class="button fit small">취소</button></li>
+				<!-- <li><a href="#" class="button special fit small">등록</a></li>
+				<li><a href="#" class="button fit small">취소</a></li> -->
 			</ul>
+			</form>
 			</section></article>
 
 		<!-- Footer -->
