@@ -3,6 +3,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="comma.sist.user.dao.UserVO" alias="User"/>
+		<typeAlias type="comma.sist.guide.dao.GuideVO" alias="Guide"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -27,5 +28,6 @@
 	</environments>  
 	<mappers>    
 		<mapper resource="comma\sist\user\dao\user-mapper.xml"/>  
+		<mapper resource="comma\sist\guide\dao\guide-mapper.xml"/> 
 	</mappers> 
 </configuration>
