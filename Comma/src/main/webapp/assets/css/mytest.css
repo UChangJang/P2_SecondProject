@@ -397,7 +397,7 @@
 		text-align: center;
 	}
 
-		#banner1 h2 {										/*1.'제목' 애니메이션 효과*/
+		#banner1 h3 {										/*1.'제목' 애니메이션 효과*/
 			-moz-transform: scale(1);
 			-webkit-transform: scale(1);
 			-ms-transform: scale(1);
@@ -824,16 +824,35 @@
 		
 /* mainMenu */
 #mainMenu{
-	background-color: #408080;
+	background-color: #FED53E;
 	height: 3em;
 	color: black;
 	vertical-align: middle;
+	padding:0.5em;
+}
+#mainMenu span{
+	color: #403A3A;
+	font-weight: bold; 
+	margin: 3em;
+}
+#mainMenu span a{
+	text-decoration:none;
+}
+#mainMenu span a:hover{
+	
+	color: #487D38;
+	font-weight: bold; 
 }
 
 #mainSearch{
-	background-color: #400040;
+	background-color: #F5F4EF;
 	width: 100%;
 	padding: 1em;
+	
+	/* 모서리 라운딩 처리 */
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
 }
 
 .mainSearch1{

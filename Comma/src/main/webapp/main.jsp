@@ -166,9 +166,11 @@
 				</div>
 			</ul>
 
-			<div id="mainMenu">
-				&nbsp;&nbsp; <span>사이트소개</span>&nbsp;&nbsp; <span>한국소개</span>&nbsp;&nbsp;
-				<span>가이드</span>&nbsp;&nbsp; <span>관광객</span>
+			<div id="mainMenu">&nbsp;&nbsp; 
+				<span><a href="#">사이트소개</a></span>&nbsp;&nbsp; 
+				<span><a href="#">한국소개</a></span>&nbsp;&nbsp;
+				<span><a href="#">가이드</a></span>&nbsp;&nbsp; 
+				<span><a href="#">관광객</a></span>
 			</div>
 		</section>
 
@@ -181,7 +183,8 @@
 					
 						<div class="3u 12u$(small)">								<!-- 1 왼쪽 -->
 							<div id="mainSearch">
-								<div class="mainSearch1">[EASY SEARCH]</div>
+								<div class="mainSearch1" style="color: #53565B; font-style: bold">
+								<img src="images/search.png">&nbsp;&nbsp;EASY SEARCH</div>
 								<input type="text" name="demo-name" id="demo-name" value=""
 									placeholder="지역 검색" class="mainSearch1"/> 
 								<input type="text" id="dt" placeholder="날짜선택" class="mainSearch1"/>
@@ -202,9 +205,9 @@
 						<div class="7u 12u$(small)">								<!-- 2 가운데 -->
 							<span class="image fit a">
 								<div id="main_bn">
-									<li><img src="images/character.png" alt="" /></li>		<!-- 이미지 character과 맞추기!!! -->
-									<li><img src="images/character.png" alt="" /></li>
-									<li><img src="images/character.png" alt="" /></li>
+									<li><img src="images/guide_banner.jpg" alt="" /></li>		<!-- 이미지 character과 맞추기!!! -->
+									<li><img src="images/tour_banner.jpg" alt="" /></li>
+									<li><img src="images/korea_banner.jpg" alt="" /></li>
 									<li><img src="images/character.png" alt="" /></li>
 								</div>
 							</span>
