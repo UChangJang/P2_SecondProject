@@ -365,7 +365,7 @@
 	}
 		
 .wrapper.widthsiz3{
-		padding: 0 0 2em 0 ;
+		padding: 1em 0 2em 0 ;
 		margin-top: 0;
 	}
 	
@@ -869,40 +869,28 @@
 
 .mainRight1{
 	padding-left: -10px;
+	margint-left:-10px;
 	height: 100%;
 }
 .mainRight{
 	 width: 100%;
 	 height: 100%;
 }
-
+/* 메인_best guide 6명 */
+.secondPart{
+	height: 18em;
+	
+}
 #guideRanking span img{
 	width: 33.3%;
+	height:33.3%;
 	float:left;
 }
 #guideRanking .ranking1 img{
 	width: 66.4%;
-	height: 100%;
+	height: 66.4%;
 }
-#HotSpot{
-}
-#HotSpot div{
-	width: 100%;
-	float:left;
-	height: 5em;
-	background-color: #400080;
 
-}
-#HotSpot div h3{
-	vertical-align: middle;
-		text-align: right;
-}
-#HotSpot div.second{
-	width: 100%;
-	float:left;
-	height: 5em;
-	background-color: #400040;
-}
 
 #guideNew span img{
 	width: 20%;
@@ -931,8 +919,34 @@
 	height: 5em;
 }   
 
+/* 메인 실시간 인기 테이블 */
 #guideRanking h4,#HotSpot h4{
 	background-color: #800000;
 	margin:0;
 	line-height:2em;
 }
+#HotSpot span table{
+	float:left;
+	text-align: left;
+}
+#HotSpot span p{
+	margin-bottom: 0;
+}
+
+#newest1 td:hover{
+	background-color: olive;
+	height: 100%;
+	
+}
+#newest1{
+	width: 40%;
+	display: inline-block;
+	float:left;
+	
+}
+#newest2{
+	width: 60%;
+	display: inline-block;
+	float:left;
+}
+

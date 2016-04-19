@@ -13,8 +13,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=10" />
 		<link rel="stylesheet" type="text/css" href="assets/css/basic.css" />
 		<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/mytest.css" />
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" type="text/css" href="assets/css/mytest.css" />		
+				
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -154,7 +155,7 @@
 		</header>
 
 
-		<!-- Three -->
+		<!-- Main -->
 		<section id="three" class="wrapper style2 special widthsiz1">
 			<!-- style3:배경,폰트...색상 -->
 
@@ -230,24 +231,101 @@
 			<div class="inner">
 				<section>
 					<!-- 제목 왼쪽정렬 -->
-					<div class="row uniform">
-					<div class="6u 12u$(small)" id="guideRanking"> 
+				<div class="row uniform">
+					<div class="6u 12u$(small) secondPart" id="guideRanking"> 
 						<h4>Best Guide 6</h4>
 						<span class="ranking1"><img src="images/character.png" alt="" /></span>
-						<span><img src="images/character.png" alt="" /></span>
-						<span><img src="images/character.png" alt="" /></span>
+						<span><img src="images/flower.jpg" alt="" /></span>
+						<span><img src="images/costume.jpg" alt="" /></span>
 						<span><img src="images/character.png" alt="" /></span>
 						<span><img src="images/character.png" alt="" /></span>
 						<span><img src="images/character.png" alt="" /></span>
 					</div>
 
-					<div class="6u$ 12u$(small)" id="HotSpot">
-						<h4>Best Guide Spot 5</h4>
-						<div><h3>seoul</h3></div>
-						<div class="second"><h3>busan</h3></div>
-						<div><h3>jeju</h3></div>					
+					<div class="6u$ 12u$(small) secondPart" id="HotSpot">
+						<h4>실시간 인기 지역&가이드글</h4>
+							<!-- <span>
+								<table class="searchFisrt" id="newest">
+									<tr><td><a href="#1">1.서울</a></td></tr>
+									<tr><td><a href="#2">2.서울</a></td></tr>
+									<tr><td><a href="#3">3.서울</a></td></tr>
+									<tr><td><a href="#4">4.서울</a></td></tr>
+									<tr><td><a href="#5">5.서울</a></td></tr>
+								</table>
+							</span>
+							
+							<span>		
+								<table class="searchSecond">
+									<tr><td>4월7일/먹방투어/2000원</td></tr>
+									<tr><td>4월7일/먹방투어/2000원</td></tr>
+									<tr><td>4월7일/먹방투어/2000원</td></tr>
+									<tr><td>4월7일/먹방투어/2000원</td></tr>
+									<tr><td>4월7일/먹방투어/2000원</td></tr>
+								</table>
+							</span> -->
+							
+							<!--
+								<div id="main_bn">
+									<li><img src="images/character.png" alt="" /></li>		
+									<li><img src="images/character.png" alt="" /></li>
+									<li><img src="images/character.png" alt="" /></li>
+									<li><img src="images/character.png" alt="" /></li>
+								</div>	
+									
+								<div id="mainRight">
+									<div><a href="#1">Home</a></div>
+									<div><a href="#2">사이트소개</a></div>
+									<div><a href="#3">한국소개</a></div>
+									<div><a href="#4">가이드글</a></div>
+									<div><a href="#5">관광객글</a></div>
+								</div> 
+								
+							-->
+							
+							<div id="newest1">
+								<table class="searchFisrt" >
+									<tr><td><a href="#1">1.서울</a></td></tr>
+									<tr><td><a href="#2">2.서울</a></td></tr>
+									<tr><td><a href="#3">3.서울</a></td></tr>
+									<tr><td><a href="#4">4.서울</a></td></tr>
+									<tr><td><a href="#5">5.서울</a></td></tr>
+								</table>
+							</div>
+							
+							<div id="newest2">
+								<li>
+									<img src="" alt="4월7일2/먹방투어/2000원" />
+									<img src="" alt="4월7일2/먹방투어/2000원" />
+									<img src="" alt="4월7일2/먹방투어/2000원" />
+									<img src="" alt="4월7일2/먹방투어/2000원" />
+									<img src="" alt="4월7일2/먹방투어/2000원" />
+								</li>		
+								<li>
+									<img src="" alt="4월8일2/먹방투어/2000원" />
+									<img src="" alt="4월8일2/먹방투어/2000원" />
+									<img src="" alt="4월8일2/먹방투어/2000원" />
+									<img src="" alt="4월8일2/먹방투어/2000원" />
+									<img src="" alt="4월8일2/먹방투어/2000원" />
+								</li>
+								<li>
+									<img src="" alt="4월9일2/먹방투어/2000원" />
+									<img src="" alt="4월9일2/먹방투어/2000원" />
+									<img src="" alt="4월9일2/먹방투어/2000원" />
+									<img src="" alt="4월9일2/먹방투어/2000원" />
+									<img src="" alt="4월9일2/먹방투어/2000원" />
+								</li>
+								<li>
+									<img src="" alt="4월11일2/먹방투어/2000원" />
+									<img src="" alt="4월11일2/먹방투어/2000원" />
+									<img src="" alt="4월11일2/먹방투어/2000원" />
+									<img src="" alt="4월11일2/먹방투어/2000원" />
+									<img src="" alt="4월11일2/먹방투어/2000원" />
+								</li>	
+								
+							</div>
+							
 					</div>
-					</div>
+				</div>
 					
 				</section>
 			</div>
@@ -322,9 +400,11 @@
 	<script src="assets/js/main.js"></script>
 
 
+
 	<!-- inline 로그인 팝업창 -->
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src='http://dimsemenov-static.s3.amazonaws.com/dist/jquery.magnific-popup.min.js'></script>
+	
 	<script type="text/javascript">
 				$(document).ready(function() {
 					$('#login-btn').magnificPopup({
@@ -354,6 +434,7 @@
 					});
 				});
 	</script>
+	
 	
 	<!-- 사이드 메뉴 -->
 	<script type="text/javascript">
@@ -413,22 +494,30 @@
 				});
 	</script>
 
-
 	<!-- 메인 배너 슬라이드 -->
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript" src="js/jquery.ulslide.js"></script>
-
 	<script type="text/javascript">
-            $(function() {
-                $('#main_bn').ulslide({
-                    statusbar: true,
-                    affect: 'slide',
-                    axis: 'x',
-                    navigator: '#mainRight a',
-                    duration: 300,
-					autoslide: 3000
-                });
-            });
-        </script>
+	 $(function() {
+         $('#main_bn').ulslide({
+             statusbar: true,
+             affect: 'slide',
+             axis: 'x',
+             navigator: '#mainRight a',
+             duration: 300,
+				autoslide: 3000
+         });
+         
+         /* newest테이블 */
+         $('#newest2').ulslide({
+             statusbar: true,
+             affect: 'slide',
+             axis: 'x',
+             navigator: '#newest1 a',
+             duration: 300,
+			autoslide: 3000
+         });
+     });
+    </script>
 </body>
 </html>
