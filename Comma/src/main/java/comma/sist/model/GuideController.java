@@ -4,15 +4,33 @@ import javax.servlet.http.HttpServletRequest;
 
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
+import comma.sist.guide.dao.*;
+import java.util.*;
 
 @Controller("gc")
 public class GuideController {
 
 	
 	@RequestMapping("guide_Insert.do")
-	public String guide_Insert(HttpServletRequest request){
+	public String guide_Insert(HttpServletRequest request) throws Exception{
 		
-		System.out.println("111");
+		request.setCharacterEncoding("EUC-KR");
+		
+		String guide_subject = request.getParameter("guide_subject");
+		String guide_loc_intro = request.getParameter("guide_loc_intro");
+		
+		
+		
+		
+		
+		GuideVO vo = new GuideVO();
+		vo.setGuide_subject(guide_subject);
+		vo.setGuide_loc_intro(guide_loc_intro);
+		
+		
+		
+		
+		GuideDAO.guideInsert(vo);
 		
 		return "guide/guide.jsp";
 	}

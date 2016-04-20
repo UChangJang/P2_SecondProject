@@ -13,9 +13,16 @@ public class GuideVO {
 	private String	guide_meet;
 	private String	guide_img;
 	private String	guide_map;
+	private String	guide_cost_detail;
 	private TextVO	textVO;
 	
 	
+	public String getGuide_cost_detail() {
+		return guide_cost_detail;
+	}
+	public void setGuide_cost_detail(String guide_cost_detail) {
+		this.guide_cost_detail = guide_cost_detail;
+	}
 	public TextVO getTextVO() {
 		return textVO;
 	}

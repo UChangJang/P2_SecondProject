@@ -24,7 +24,7 @@ private static SqlSessionFactory	ssf;
 	}
 	
 	
-	public List<GuideVO> guideAllData(){
+	public static List<GuideVO> guideAllData(){
 		
 		SqlSession session = ssf.openSession();
 		List<GuideVO> list = session.selectList("guideAllData");
@@ -34,9 +34,23 @@ private static SqlSessionFactory	ssf;
 		
 	} // guideAllData()
 	
+	public static GuideVO guideInfoData(int no){
+		
+		SqlSession session = ssf.openSession();
+		GuideVO vo = session.selectOne("guideInfo",no);
+		session.close();
+		
+		return vo;
+		
+	} // guideAllData()
 	
-	
-	
+	public static void guideInsert(GuideVO vo){
+		
+		SqlSession session = ssf.openSession(true);
+		session.insert("guideInsert",vo);
+		session.close();
+		
+	} // guideInsert(GuideVO vo)
 	
 	
 }
