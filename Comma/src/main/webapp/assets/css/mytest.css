@@ -365,7 +365,7 @@
 	}
 		
 .wrapper.widthsiz3{
-		padding: 0 0 2em 0 ;
+		padding: 1em 0 2em 0 ;
 		margin-top: 0;
 	}
 	
@@ -829,11 +829,13 @@
 	color: black;
 	vertical-align: middle;
 	padding:0.5em;
+	text-decoration:none;
 }
 #mainMenu span{
 	color: #403A3A;
 	font-weight: bold; 
 	margin: 3em;
+	text-decoration:none;
 }
 #mainMenu span a{
 	text-decoration:none;
@@ -842,6 +844,41 @@
 	
 	color: #487D38;
 	font-weight: bold; 
+}
+
+#mainRight{
+	font-size: 13px;
+}
+#mainRight div{
+	margin-left:0;
+	width: 15em;
+	height: 1em;
+}
+#mainRight #mainRight_home{
+	padding-right: 2.5em;
+}
+#mainRight #mainRight_comma{
+	padding-right:0.3em;
+}
+
+#mainRight div{
+	padding: 0.7em;
+	background-color: #400080;
+	height: 100%;
+	
+}
+#mainRight div:hover{
+	padding: 1em;
+	background-color: olive;
+	height: 100%;
+	
+}
+#mainRight_home{
+	margin-left: 0;
+	margin-right:0.8em;
+} 
+.mainRight_span img{
+	margin-right:0.5em
 }
 
 #mainSearch{
@@ -868,19 +905,6 @@
 	 width: 100%;
 	 height: 100%;
 }
-#mainRight div{
-	padding: 1em;
-	background-color: #400080;
-	height: 100%;
-	
-}
-#mainRight div:hover{
-	padding: 1em;
-	background-color: olive;
-	height: 100%;
-	
-}
-
 
 #mainRight a, #mainRight a:hover, #mainRight a:visited{
 	text-decoration:none; 
@@ -888,70 +912,64 @@
 
 .mainRight1{
 	padding-left: -10px;
+	margint-left:-10px;
 	height: 100%;
 }
 .mainRight{
 	 width: 100%;
 	 height: 100%;
 }
-
+/* 메인_best guide 6명 */
+.secondPart{
+	height: 18em;
+	
+}
 #guideRanking span img{
 	width: 33.3%;
+	height:33.3%;
 	float:left;
 }
 #guideRanking .ranking1 img{
 	width: 66.4%;
-	height: 100%;
-}
-#HotSpot{
-}
-#HotSpot div{
-	width: 100%;
-	float:left;
-	height: 5em;
-	background-color: #400080;
-
-}
-#HotSpot div h3{
-	vertical-align: middle;
-		text-align: right;
-}
-#HotSpot div.second{
-	width: 100%;
-	float:left;
-	height: 5em;
-	background-color: #400040;
+	height: 66.4%;
 }
 
-#guideNew span img{
-	width: 20%;
-	height:15em;
-	float:left;
-}
-
-/* 메인에서 신규등록가이드글 5개 */
-.image.fit1 {
-    display: block;
-    width: 100%;
-    height: 50%;
-    position: relative;
-}
-.image.fit1 img {
-				width: 100%;
-			}
-.listTextMain{
-	width:100%;
-	background-color:black;
-	opacity: 0.4;
-	position: absolute;
-	left:0;
-	top:0;
-	top: 55%;
-	height: 5em;
-}   
-
+/* 메인 실시간 인기 테이블 */
 #guideRanking h4,#HotSpot h4{
 	background-color: #800000;
 	margin:0;
 	line-height:2em;
 }
+#HotSpot span table{
+	float:left;
+	text-align: left;
+}
+#HotSpot span p{
+	margin-bottom: 0;
+}
+
+#newest1 td:hover{
+	background-color: olive;
+	height: 100%;
+	
+}
+#newest1{
+	width: 40%;
+	display: inline-block;
+	float:left;
+	
+}
+#newest2{
+	width: 60%;
+	display: inline-block;
+	float:left;
+}
+/* 메인 날씨 */
+#weatherMain img{
+	height:26em;
+	
+}
+.guideRanking{
+	height: 26em;
+}
+

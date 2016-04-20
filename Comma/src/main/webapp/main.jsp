@@ -12,10 +12,12 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="X-UA-Compatible" content="IE=10" />
+
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/mytest.css" />
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/basic.css" />
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/style.css" />
 		<link rel="stylesheet" href="../controller/assets/css/main.css" />		
+
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -82,44 +84,37 @@
 						</form>  
 						
 						<!-- 2추가:회원가입 레이어 팝업창-->
-						<form class="white-popup mfp-hide" id="join-form">
+						<form class="white-popup mfp-hide" id="join-form" action="join.do" method="post">
 							<h1>Join-us</h1>
 							<div>
-								<input name="id" id="id1" required="" type="text"
-									placeholder="ID"><span><input name="id2" value="확인" id="id2"
-									type="button"></span>
+								<input name="id" id="join_id" required="" type="text" placeholder="ID"><span>
+								<input name="id_check" value="확인" id="id_check"type="button"></span>
 							</div>
 							<br>
 							<div>
-								<input name="pwd" id="pwd1" required="" type="password"
-									placeholder="Password">
+								<input name="pwd" id="join_pwd" required="" type="password"	placeholder="Password">
 							</div>
 							<br>
 							<div>
-								<input name="pwd" id="pwd2" required="" type="password"
-									placeholder="Password">
+								<input name="pwd" id="join_pwd_check" required="" type="password" placeholder="Password">
 							</div>
 							<br>
 							<div>
-								<input name="name" id="name" required="" type="text"
-									placeholder="Name">
+								<input name="name" id="join_name" required="" type="text" placeholder="Name">
 							</div>
 							<br>
 							<div>
-								<input name="nickName" id="nickName" required="" type="text"
-									placeholder="NickName"> <input name="id2" value="확인"
-									id="id2" type="button">
+								<input name="nick" id="join_nick" required="" type="text" placeholder="NickName"> 
+								<input name="nick_check" value="확인" id="id2" type="button">
 							</div>
 							<br>
 							<div>
-								<input name="email" id="email" required="" type="text"
-									placeholder="E-mail">
+								<input name="email" id="join_email" required="" type="text" placeholder="E-mail">
 							</div>
 							<br>
 							<div class="joinBtn">
 								<input name="join" value="join" id="join" type="button">
-							</div>
-							
+							</div>							
 						</form> 
 						</c:if>
 						<!-- 3사이드메뉴 -->
@@ -162,7 +157,7 @@
 		</header>
 
 
-		<!-- Three -->
+		<!-- Main -->
 		<section id="three" class="wrapper style2 special widthsiz1">
 			<!-- style3:배경,폰트...색상 -->
 
@@ -224,11 +219,24 @@
 						
 						<div class="2u$ 12u$(small) mainRight1">					<!-- 3 오른쪽 -->
 							<div id="mainRight">
-								<div><a href="#1">Home</a></div>
-								<div><a href="#2">사이트소개</a></div>
-								<div><a href="#3">한국소개</a></div>
-								<div><a href="#4">가이드글</a></div>
-								<div><a href="#5">관광객글</a></div>
+								<div id="mainRight_home"><a href="#1">									<!-- logo정렬 필수! 해라해라 -->
+									<span class="mainRight_span"><img src="images/home.png"></span>
+									Home</a></div>
+								<div id="mainRight_comma"><a href="#2">									<!-- comma 위치선정! -->
+									<span class="mainRight_span"><img src="images/comma.png"></span>
+									사이트소개</a></div>
+								<div><a href="#3">
+									<span class="mainRight_span"><img src="images/korea.png"></span>
+									한국소개</a></div>
+								<div><a href="#4">
+									<span class="mainRight_span"><img src="images/guide.png"></span>
+									가이드글</a></div>
+								<div><a href="#5">
+									<span class="mainRight_span"><img src="images/tour.png"></span>
+									관광객글</a></div>
+								<div><a href="#5">
+									<span class="mainRight_span"><img src="images/commu.png"></span>
+									커뮤니티</a></div>	
 							</div>
 						</div>
 					</div>
@@ -242,60 +250,131 @@
 			<div class="inner">
 				<section>
 					<!-- 제목 왼쪽정렬 -->
-					<div class="row uniform">
-					<div class="6u 12u$(small)" id="guideRanking"> 
+				<div class="row uniform">
+					<div class="6u 12u$(small) secondPart" id="guideRanking"> 
 						<h4>Best Guide 6</h4>
 						<span class="ranking1"><img src="images/character.png" alt="" /></span>
+
 						<span><img src="images/incheon1.jpg" alt="" /></span>
 						<span><img src="images/incheon2.jpg" alt="" /></span>
 						<span><img src="images/incheon3.jpg" alt="" /></span>
 						<span><img src="images/seoul1.jpg" alt="" /></span>
 						<span><img src="images/seoul3.jpg" alt="" /></span>
+
 					</div>
 
-					<div class="6u$ 12u$(small)" id="HotSpot">
-						<h4>Best Guide Spot 5</h4>
-						<div><h3>seoul</h3></div>
-						<div class="second"><h3>busan</h3></div>
-						<div><h3>jeju</h3></div>					
+					<div class="6u$ 12u$(small) secondPart" id="HotSpot">
+						<h4>실시간 인기 지역&가이드글</h4>
+							<!-- <span>
+								<table class="searchFisrt" id="newest">
+									<tr><td><a href="#1">1.서울</a></td></tr>
+									<tr><td><a href="#2">2.서울</a></td></tr>
+									<tr><td><a href="#3">3.서울</a></td></tr>
+									<tr><td><a href="#4">4.서울</a></td></tr>
+									<tr><td><a href="#5">5.서울</a></td></tr>
+								</table>
+							</span>
+							
+							<span>		
+								<table class="searchSecond">
+									<tr><td>4월7일/먹방투어/2000원</td></tr>
+									<tr><td>4월7일/먹방투어/2000원</td></tr>
+									<tr><td>4월7일/먹방투어/2000원</td></tr>
+									<tr><td>4월7일/먹방투어/2000원</td></tr>
+									<tr><td>4월7일/먹방투어/2000원</td></tr>
+								</table>
+							</span> -->
+							
+							<!--
+								<div id="main_bn">
+									<li><img src="images/character.png" alt="" /></li>		
+									<li><img src="images/character.png" alt="" /></li>
+									<li><img src="images/character.png" alt="" /></li>
+									<li><img src="images/character.png" alt="" /></li>
+								</div>	
+									
+								<div id="mainRight">
+									<div><a href="#1">Home</a></div>
+									<div><a href="#2">사이트소개</a></div>
+									<div><a href="#3">한국소개</a></div>
+									<div><a href="#4">가이드글</a></div>
+									<div><a href="#5">관광객글</a></div>
+								</div> 
+								
+							-->
+							
+							<div id="newest1">
+								<table class="searchFisrt" >
+									<tr><td><a href="#1">1.서울</a></td></tr>
+									<tr><td><a href="#2">2.서울</a></td></tr>
+									<tr><td><a href="#3">3.서울</a></td></tr>
+									<tr><td><a href="#4">4.서울</a></td></tr>
+									<tr><td><a href="#5">5.서울</a></td></tr>
+								</table>
+							</div>
+							
+							<div id="newest2">
+								<li>
+									<img src="" alt="4월7일2/먹방투어/2000원" />
+									<img src="" alt="4월7일2/먹방투어/2000원" />
+									<img src="" alt="4월7일2/먹방투어/2000원" />
+									<img src="" alt="4월7일2/먹방투어/2000원" />
+									<img src="" alt="4월7일2/먹방투어/2000원" />
+								</li>		
+								<li>
+									<img src="" alt="4월8일2/먹방투어/2000원" />
+									<img src="" alt="4월8일2/먹방투어/2000원" />
+									<img src="" alt="4월8일2/먹방투어/2000원" />
+									<img src="" alt="4월8일2/먹방투어/2000원" />
+									<img src="" alt="4월8일2/먹방투어/2000원" />
+								</li>
+								<li>
+									<img src="" alt="4월9일2/먹방투어/2000원" />
+									<img src="" alt="4월9일2/먹방투어/2000원" />
+									<img src="" alt="4월9일2/먹방투어/2000원" />
+									<img src="" alt="4월9일2/먹방투어/2000원" />
+									<img src="" alt="4월9일2/먹방투어/2000원" />
+								</li>
+								<li>
+									<img src="" alt="4월11일2/먹방투어/2000원" />
+									<img src="" alt="4월11일2/먹방투어/2000원" />
+									<img src="" alt="4월11일2/먹방투어/2000원" />
+									<img src="" alt="4월11일2/먹방투어/2000원" />
+									<img src="" alt="4월11일2/먹방투어/2000원" />
+								</li>	
+								
+							</div>
+							
 					</div>
-					</div>
+				</div>
 					
 				</section>
 			</div>
 	</section>
 
 
-<section id="three" class="wrapper style2 special widthsiz3">
+	<section id="three" class="wrapper style2 special widthsiz1">
 			<div class="inner">
 				<section>
-				<h4>신규 등록 글</h4>
-					<div class="row uniform">
+				<div class="box alt">
+				<div class="row uniform guideRanking">
+					<div class="6u 12u$(small)" id="guideRanking"> 
+						<h4>지역 날씨 정보</h4>
+						<div class="row uniform" id="weatherMain">
+							<img src="images/weathermap.png" alt="" />
+							<c:forEach var="vo" items="${wlist }">
+								<p>${vo.loc }</p>
+								<p>${vo.tempera}</p>
+							</c:forEach>
+						</div>
+					</div>
 					
-					<div class="12u$ 12u$(small)" id="guideNew"> 
-							<span class="image fit1"> 
-								<img src="../controller/images/character.png" alt="" />
-								<div class="listTextMain"></div>
-							</span>
-							<span class="image fit1"> 
-								<img src="../controller/images/character.png" alt="" />
-								<div class="listTextMain"></div>
-							</span>
-							<span class="image fit1"> 
-								<img src="../controller/images/character.png" alt="" />
-								<div class="listTextMain"></div>
-							</span>
-							<span class="image fit1"> 
-								<img src="../controller/images/character.png" alt="" />
-								<div class="listTextMain"></div>
-							</span>
-							<span class="image fit1"> 
-								<img src="../controller/images/character.png" alt="" />
-								<div class="listTextMain"></div>
-							</span>
-							
+					<div class="6u$ 12u$(small)" id="guideRanking"> 
+						<h4>가이드를 찾아요</h4>
+						
 					</div>
-					</div>
+				</div>
+				</div>
 				</section>
 			</div>
 	</section>
@@ -334,8 +413,11 @@
 	<script src="assets/js/main.js"></script>
 
 
+
 	<!-- inline 로그인 팝업창 -->
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<!--  <script src='http://dimsemenov-static.s3.amazonaws.com/dist/jquery.magnific-popup.min.js'></script>-->
+
 	
 	<script type="text/javascript">
 				$(document).ready(function() {
@@ -386,8 +468,39 @@
 								}
 						}
 					});
+					$('#join').click(function(){
+						var id = $('#join_id').val();
+						var pwd = $('#join_pwd').val();
+						var nick = $('#join_nick').val();
+						var name = $('#join_name').val();
+						var email = $('#join_email').val();
+						if(id.trim()==""){
+							$('#join_id').focus();
+							return;
+						}
+						if(pwd.trim()==""){
+							$('#join_pwd').focus();
+							return;
+						}
+						if(name.trim()==""){
+							$('#join_name').focus();
+							return;
+						}
+						if(nick.trim()==""){
+							$('#join_nick').focus();
+							return;
+						}				
+						if(email.trim()==""){
+							$('#join_email').focus();
+							return;
+						}
+						$('#join-form').submit();
+						
+						
+					})
 				});
 	</script>
+	
 	
 	<!-- 사이드 메뉴 -->
 	<script type="text/javascript">
@@ -447,22 +560,33 @@
 				});
 	</script>
 
-
 	<!-- 메인 배너 슬라이드 -->
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript" src="js/jquery.ulslide.js"></script>
+
 	<script src='http://dimsemenov-static.s3.amazonaws.com/dist/jquery.magnific-popup.min.js'></script>
+
 	<script type="text/javascript">
-            $(function() {
-                $('#main_bn').ulslide({
-                    statusbar: true,
-                    affect: 'slide',
-                    axis: 'x',
-                    navigator: '#mainRight a',
-                    duration: 300,
-					autoslide: 3000
-                });
-            });
-        </script>
+	 $(function() {
+         $('#main_bn').ulslide({
+             statusbar: true,
+             affect: 'slide',
+             axis: 'x',
+             navigator: '#mainRight a',
+             duration: 300,
+				autoslide: 3000
+         });
+         
+         /* newest테이블 */
+         $('#newest2').ulslide({
+             statusbar: true,
+             affect: 'slide',
+             axis: 'x',
+             navigator: '#newest1 a',
+             duration: 300,
+			autoslide: 3000
+         });
+     });
+    </script>
 </body>
 </html>
