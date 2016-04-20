@@ -166,8 +166,8 @@
 						<%-- <jsp:include page="mypage_infoCorrection.jsp"></jsp:include>
 						<jsp:include page="mypage_wishlist.jsp"></jsp:include>
 						<jsp:include page="mypage_comment.jsp"></jsp:include>
-						<jsp:include page="mypage_letter.jsp"></jsp:include>--%>
-						<jsp:include page="mypage_reserve.jsp"></jsp:include>
+						<jsp:include page="mypage_reserve.jsp"></jsp:include>--%>
+						<jsp:include page="mypage_letter.jsp"></jsp:include>
 					</article>
 
 				<!-- Footer -->

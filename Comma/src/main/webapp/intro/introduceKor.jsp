@@ -12,7 +12,6 @@
 <link rel="stylesheet" href="../controller/assets/css/introKor.css" />
 
 
-
 <!-- 마우스클릭시 서브메뉴나옴 -->
 		<script type="text/javascript" src="./jquery.js"></script>
 	    <link href="style.css" rel="stylesheet" type="text/css">
@@ -805,13 +804,13 @@
 
 
 		<!-- Scripts -->
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/jquery.scrollex.min.js"></script>
-			<script src="../assets/js/jquery.scrolly.min.js"></script>
-			<script src="../assets/js/skel.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
-			<script src="../assets/js/introKor.js"></script>
+			<script src="../controller/assets/js/jquery.min.js"></script>
+			<script src="../controller/assets/js/jquery.scrollex.min.js"></script>
+			<script src="../controller/assets/js/jquery.scrolly.min.js"></script>
+			<script src="../controller/assets/js/skel.min.js"></script>
+			<script src="../controller/assets/js/util.js"></script>
+			<script src="../controller/assets/js/main.js"></script>
+			<script src="../controller/assets/js/introKor.js"></script>
 			
 			<!-- 숨김상단메뉴 -->
 			<script type="text/javascript" src="jquery-1.3.2.js"></script>

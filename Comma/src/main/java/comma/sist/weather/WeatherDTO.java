@@ -6,7 +6,14 @@ public class WeatherDTO {
 	private String loc;			//지역
 	private double tempera;		//온도
 	private String weatherWord;	//구름많음,적음..
+	private String weaAddr;		//날씨 이미지 주소
 	
+	public String getWeaAddr() {
+		return weaAddr;
+	}
+	public void setWeaAddr(String weaAddr) {
+		this.weaAddr = weaAddr;
+	}
 	public int getNo() {
 		return no;
 	}
