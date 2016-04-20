@@ -84,44 +84,37 @@
 						</form>  
 						
 						<!-- 2추가:회원가입 레이어 팝업창-->
-						<form class="white-popup mfp-hide" id="join-form">
+						<form class="white-popup mfp-hide" id="join-form" action="join.do" method="post">
 							<h1>Join-us</h1>
 							<div>
-								<input name="id" id="id1" required="" type="text"
-									placeholder="ID"><span><input name="id2" value="확인" id="id2"
-									type="button"></span>
+								<input name="id" id="join_id" required="" type="text" placeholder="ID"><span>
+								<input name="id_check" value="확인" id="id_check"type="button"></span>
 							</div>
 							<br>
 							<div>
-								<input name="pwd" id="pwd1" required="" type="password"
-									placeholder="Password">
+								<input name="pwd" id="join_pwd" required="" type="password"	placeholder="Password">
 							</div>
 							<br>
 							<div>
-								<input name="pwd" id="pwd2" required="" type="password"
-									placeholder="Password">
+								<input name="pwd" id="join_pwd_check" required="" type="password" placeholder="Password">
 							</div>
 							<br>
 							<div>
-								<input name="name" id="name" required="" type="text"
-									placeholder="Name">
+								<input name="name" id="join_name" required="" type="text" placeholder="Name">
 							</div>
 							<br>
 							<div>
-								<input name="nickName" id="nickName" required="" type="text"
-									placeholder="NickName"> <input name="id2" value="확인"
-									id="id2" type="button">
+								<input name="nick" id="join_nick" required="" type="text" placeholder="NickName"> 
+								<input name="nick_check" value="확인" id="id2" type="button">
 							</div>
 							<br>
 							<div>
-								<input name="email" id="email" required="" type="text"
-									placeholder="E-mail">
+								<input name="email" id="join_email" required="" type="text" placeholder="E-mail">
 							</div>
 							<br>
 							<div class="joinBtn">
 								<input name="join" value="join" id="join" type="button">
-							</div>
-							
+							</div>							
 						</form> 
 						</c:if>
 						<!-- 3사이드메뉴 -->
@@ -475,6 +468,36 @@
 								}
 						}
 					});
+					$('#join').click(function(){
+						var id = $('#join_id').val();
+						var pwd = $('#join_pwd').val();
+						var nick = $('#join_nick').val();
+						var name = $('#join_name').val();
+						var email = $('#join_email').val();
+						if(id.trim()==""){
+							$('#join_id').focus();
+							return;
+						}
+						if(pwd.trim()==""){
+							$('#join_pwd').focus();
+							return;
+						}
+						if(name.trim()==""){
+							$('#join_name').focus();
+							return;
+						}
+						if(nick.trim()==""){
+							$('#join_nick').focus();
+							return;
+						}				
+						if(email.trim()==""){
+							$('#join_email').focus();
+							return;
+						}
+						$('#join-form').submit();
+						
+						
+					})
 				});
 	</script>
 	

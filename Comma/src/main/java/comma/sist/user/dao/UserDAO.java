@@ -53,6 +53,11 @@ public class UserDAO {
 		
 		return res;
 	}
+	public static void userJoin(UserVO vo){
+		SqlSession session=ssf.openSession(true);	
+		session.insert("userJoin",vo);
+		
+	}
 	
 
 	
