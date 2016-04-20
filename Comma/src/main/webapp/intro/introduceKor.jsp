@@ -2,7 +2,7 @@
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
 <html>
-<<<<<<< HEAD
+
 <head>
 <title>[소개]한국소개</title>
 <meta charset="utf-8" />
@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="../controller/assets/css/main.css" />		
 <link rel="stylesheet" href="../controller/assets/css/mytest.css" /> 
 <link rel="stylesheet" href="../controller/assets/css/introKor.css" />
+
 
 
 <!-- 마우스클릭시 서브메뉴나옴 -->
@@ -69,10 +70,9 @@
 						</div>
 					</li>
 				</ul>
+			</nav>
+		</header>
 
-						</nav>
-					</header>
-					
 
 		<div id="nav2">
 			<ul>
@@ -87,6 +87,7 @@
 				<li><a class="scrolly" href="#kwangju">kwangju</a></li>
 			</ul>
 		</div>
+
 
 	<!-- Main -->
 					<article id="main">
@@ -802,6 +803,7 @@
 		</footer>
 
 
+
 		<!-- Scripts -->
 			<script src="../assets/js/jquery.min.js"></script>
 			<script src="../assets/js/jquery.scrollex.min.js"></script>
@@ -882,7 +884,9 @@
 				      cont.slideUp();
 				    }
 				  }
+
 				});
+
 	</script>
 				  
 

@@ -3,6 +3,7 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="comma.sist.user.dao.UserVO" alias="User"/>
+		<typeAlias type="comma.sist.guide.dao.GuideVO" alias="Guide"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -19,7 +20,7 @@
 				JNDI 	 => 미리 톰캣에 만들어 놓고 연결만 하는 프로그램
 			 -->
 				<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-				<property name="url" value="jdbc:oracle:thin:@211.238.142.74:1521:ORCL"/>	<!--  -->
+				<property name="url" value="jdbc:oracle:thin:@211.238.142.74:1521:ORCL"/>
 				<property name="username" value="scott"/>
 				<property name="password" value="tiger"/>
 			</dataSource>    
@@ -27,5 +28,6 @@
 	</environments>  
 	<mappers>    
 		<mapper resource="comma\sist\user\dao\user-mapper.xml"/>  
+		<mapper resource="comma\sist\guide\dao\guide-mapper.xml"/> 
 	</mappers> 
 </configuration>
