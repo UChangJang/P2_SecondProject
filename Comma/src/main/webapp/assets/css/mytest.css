@@ -829,11 +829,13 @@
 	color: black;
 	vertical-align: middle;
 	padding:0.5em;
+	text-decoration:none;
 }
 #mainMenu span{
 	color: #403A3A;
 	font-weight: bold; 
 	margin: 3em;
+	text-decoration:none;
 }
 #mainMenu span a{
 	text-decoration:none;
@@ -842,6 +844,41 @@
 	
 	color: #487D38;
 	font-weight: bold; 
+}
+
+#mainRight{
+	font-size: 13px;
+}
+#mainRight div{
+	margin-left:0;
+	width: 15em;
+	height: 1em;
+}
+#mainRight #mainRight_home{
+	padding-right: 2.5em;
+}
+#mainRight #mainRight_comma{
+	padding-right:0.3em;
+}
+
+#mainRight div{
+	padding: 0.7em;
+	background-color: #400080;
+	height: 100%;
+	
+}
+#mainRight div:hover{
+	padding: 1em;
+	background-color: olive;
+	height: 100%;
+	
+}
+#mainRight_home{
+	margin-left: 0;
+	margin-right:0.8em;
+} 
+.mainRight_span img{
+	margin-right:0.5em
 }
 
 #mainSearch{
@@ -868,19 +905,6 @@
 	 width: 100%;
 	 height: 100%;
 }
-#mainRight div{
-	padding: 1em;
-	background-color: #400080;
-	height: 100%;
-	
-}
-#mainRight div:hover{
-	padding: 1em;
-	background-color: olive;
-	height: 100%;
-	
-}
-
 
 #mainRight a, #mainRight a:hover, #mainRight a:visited{
 	text-decoration:none; 

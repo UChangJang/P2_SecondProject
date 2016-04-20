@@ -224,11 +224,24 @@
 						
 						<div class="2u$ 12u$(small) mainRight1">					<!-- 3 오른쪽 -->
 							<div id="mainRight">
-								<div><a href="#1">Home</a></div>
-								<div><a href="#2">사이트소개</a></div>
-								<div><a href="#3">한국소개</a></div>
-								<div><a href="#4">가이드글</a></div>
-								<div><a href="#5">관광객글</a></div>
+								<div id="mainRight_home"><a href="#1">									<!-- logo정렬 필수! 해라해라 -->
+									<span class="mainRight_span"><img src="images/home.png"></span>
+									Home</a></div>
+								<div id="mainRight_comma"><a href="#2">									<!-- comma 위치선정! -->
+									<span class="mainRight_span"><img src="images/comma.png"></span>
+									사이트소개</a></div>
+								<div><a href="#3">
+									<span class="mainRight_span"><img src="images/korea.png"></span>
+									한국소개</a></div>
+								<div><a href="#4">
+									<span class="mainRight_span"><img src="images/guide.png"></span>
+									가이드글</a></div>
+								<div><a href="#5">
+									<span class="mainRight_span"><img src="images/tour.png"></span>
+									관광객글</a></div>
+								<div><a href="#5">
+									<span class="mainRight_span"><img src="images/commu.png"></span>
+									커뮤니티</a></div>	
 							</div>
 						</div>
 					</div>
