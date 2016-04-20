@@ -7,12 +7,13 @@ import comma.sist.user.dao.UserDAO;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
 import comma.sist.user.dao.*;
+import comma.sist.weather.*;
 
 @Controller("IC")
 public class IntroController {
 	
 	@RequestMapping("main.do")
-	public String mainStart(HttpServletRequest request){
+	public String mainStart(HttpServletRequest req){
 			
 		/*List<UserVO> list = UserDAO.userAllData();
 		List<UserVO> list = UserDAO.userAllData();
@@ -24,6 +25,11 @@ public class IntroController {
 			System.out.println(vo.getUser_pwd());
 			System.out.println("====================");
 		}*/
+		
+		WeatherManager wm=new WeatherManager();
+		List<WeatherDTO> wlist=wm.weatherAllData();
+		
+		req.setAttribute("wlist", wlist);
 		
 		return "main.jsp";
 	}
