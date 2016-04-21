@@ -37,14 +37,6 @@
 		<script type="text/javascript" src="./jquery.js"></script>
 	    <link href="style.css" rel="stylesheet" type="text/css">
 		<script type="text/javascript" src="./menu.js"></script>			
-
-
-
-
-
-
-
-
 </head>
 	
 
@@ -186,6 +178,38 @@
 				<span><a href="#">한국소개</a></span>&nbsp;&nbsp;
 				<span><a href="#">가이드</a></span>&nbsp;&nbsp; 
 				<span><a href="#">관광객</a></span>
+				<span><a href="#">커뮤니티</a></span>
+			</div>
+		</section>
+		
+		<!-- mainmenu 마우스 오버시 출력될 섹션 -->
+		<section id="mainMenu_hover">
+			<div id="mainMenu_nav">
+				<ul>
+					<li><a href=""><b>사이트소개</b></a></li>
+					<li>What about 'Comma'</li>
+					<li>Information</li>
+				</ul>
+				<ul>
+					<li><a href=""><b>한국소개</b></a></li>
+					<li>What about 'Comma'</li>
+					<li>Information</li>
+				</ul>
+				<ul>
+					<li><a href=""><b>가이드</b></a></li>
+					<li>What about 'Comma'</li>
+					<li>Information</li>
+				</ul>
+				<ul>
+					<li><a href=""><b>관광객</b></a></li>
+					<li>What about 'Comma'</li>
+					<li>Information</li>
+				</ul>
+				<ul>
+					<li><a href=""><b>커뮤니티</b></a></li>
+					<li>What about 'Comma'</li>
+					<li>Information</li>
+				</ul>
 			</div>
 		</section>
 
@@ -229,22 +253,22 @@
 						
 						<div class="2u$ 12u$(small) mainRight1">					<!-- 3 오른쪽 -->
 							<div id="mainRight">
-								<div id="mainRight_home"><a href="#1">									<!-- logo정렬 필수! 해라해라 -->
+								<div id="mainRight_home"><a id="a_home" href="#1">									
 									<span class="mainRight_span"><img src="images/home.png"></span>
 									Home</a></div>
-								<div id="mainRight_comma"><a href="#2">									<!-- comma 위치선정! -->
+								<div id="mainRight_comma"><a id="a_comma" href="#2">									
 									<span class="mainRight_span"><img src="images/comma.png"></span>
 									사이트소개</a></div>
-								<div><a href="#3">
+								<div ><a id="a_korea" href="#3">
 									<span class="mainRight_span"><img src="images/korea.png"></span>
 									한국소개</a></div>
-								<div><a href="#4">
+								<div><a id="a_guide" href="#4">
 									<span class="mainRight_span"><img src="images/guide.png"></span>
 									가이드글</a></div>
-								<div><a href="#5">
+								<div><a id="a_tour" href="#5">
 									<span class="mainRight_span"><img src="images/tour.png"></span>
 									관광객글</a></div>
-								<div><a href="#5">
+								<div><a id="a_commu" href="#5">
 									<span class="mainRight_span"><img src="images/commu.png"></span>
 									커뮤니티</a></div>	
 							</div>

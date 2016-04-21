@@ -1,94 +1,67 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
+	<head>
+		<title>[소개]한국소개</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../controller/assets/css/main.css" />
+		<link rel="stylesheet" href="../controller/assets/css/mytest.css" /> 
+		<link rel="stylesheet" href="../controller/assets/css/introKor.css" /> 
+		
 
-<head>
-<title>[소개]한국소개</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="../controller/assets/css/main.css" />		
-<link rel="stylesheet" href="../controller/assets/css/mytest.css" /> 
-<link rel="stylesheet" href="../controller/assets/css/introKor.css" />
+	</head>
+	<body>
 
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
 
-<!-- 마우스클릭시 서브메뉴나옴 -->
-		<script type="text/javascript" src="./jquery.js"></script>
-	    <link href="style.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="./menu.js"></script>
-</head>
-<body>
-
-	<!-- Page Wrapper -->
-	<div id="page-wrapper">
-
-		<!-- Header -->
-		<!-- 모든페이지의 공통부분 -->
-		<header id="header">
-			<h1>
-				<a href="index.jsp">Home</a>
-			</h1>
-			<nav id="nav">
-				<ul>
-					<li class="special">
-						
-						<!-- 3사이드메뉴 --> 
-						<a href="#menu" class="menuToggle"><span>Menu</span></a>
-						<div id="menu" class="group g1">
+				<!-- Header -->			<!-- 모든페이지의 공통부분 -->
+					<header id="header">
+						<h1><a href="index.jsp">Home</a></h1>
+						<nav id="nav">
 							<ul>
-								<div class="box">
-									<li><a href="main.do">Home</a></li>
-								</div>
-								<div class="box">
-									<li><a href="introduceSite.do">소개페이지</a></li>
-								</div>
-								<div class="box">
-									<li><a href="introduceKor.do">한국소개</a></li>
-								</div>
-
-								<div class="box">
-									<li class="title"><a href="#">가이드</a></li>
-									<div class="cont">
-										<li><a href="guide.do">1.가이드목록</a></li>
-										<li><a href="guideWrite.do">2.가이드글쓰기</a></li>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="../index.jsp">Home</a></li>
+											<li><a href="introduceSite.jsp">소개페이지</a></li>
+											<li><a href="introduceKor.jsp">한국소개</a></li>
+											<li><a href="../guide/guide.jsp">가이드 찾기</a></li>
+											<li><a href="../tourist/tourist.jsp">관광객 등록</a></li>
+											<li><a href="#">마이페이지</a></li>
+										</ul>
 									</div>
-								</div>
-
-								<div class="box">
-									<li class="title"><a href="#">관광객</a></li>
-									<div class="cont">
-										<li><a href="tourist.do">1.관광객목록</a></li>
-										<li><a href="touristWrite.do">2.관광객글쓰기</a></li>
-									</div>
-								</div>
-								<div class="box">
-									<li><a href="mypage.do">마이페이지</a></li>
-								</div>
+								</li>
 							</ul>
+						</nav>
+					</header>
+					
+					
+					<div id="nav2">
+            			<ul>
+            				 <li><a class="scrolly" href="#incheon">INCHEON</a></li>
+               				 <li><a class="scrolly" href="#seoul">SEOUL</a></li>
+                			 <li><a class="scrolly" href="#chuncheon">CHUNCHEON</a></li>
+                			 <li><a class="scrolly" href="#boryeong">BORYEONG</a></li>
+                			 <li><a class="scrolly" href="#jeonju">JEONJU</a></li>
+                			  <li><a class="scrolly" href="#gyeongju">GYEONGJU</a></li>
+                			 <li><a class="scrolly" href="#busan">BUSAN</a></li>
+                			 <li><a class="scrolly" href="#yeosu">YEOSU</a></li>
+                			 <li><a class="scrolly" href="#jeju">JEJU</a></li>
 
-						</div>
-					</li>
-				</ul>
-			</nav>
-		</header>
+            			</ul>
+        			</div>
+					
 
-
-		<div id="nav2">
-			<ul>
-				<li><a class="scrolly" href="#seoul">seoul</a></li>
-				<li><a class="scrolly" href="#jeju">jeju</a></li>
-				<li><a class="scrolly" href="#inchkeongi">inchkeongi</a></li>
-				<li><a class="scrolly" href="#busan">busan</a></li>
-				<li><a class="scrolly" href="#jeonju">jeonju</a></li>
-				<li><a class="scrolly" href="#daegu">daegu</a></li>
-				<li><a class="scrolly" href="#kangwondo">kangwondo</a></li>
-				<li><a class="scrolly" href="#daejeon">daejeon</a></li>
-				<li><a class="scrolly" href="#kwangju">kwangju</a></li>
-			</ul>
-		</div>
-
-
-	<!-- Main -->
+				<!-- Main -->
 					<article id="main">
 						<header id="test">
 							<h2>About Korea</h2>
@@ -107,49 +80,27 @@
 									<h5>Fit</h5>
 									<div class="box alt">
 										<div class="row uniform 50%">
-			<!-- <script type="text/javascript" src="jquery-1.3.2.js"></script>
-        	<script type="text/javascript">
-       			$(document).ready(function(){
-			$("4u").on("mouseenter",function(){
-			$("4u").animate({"width":"500px","height":"500px"},800);
-			});
-			$("4u").on("mouseleave",function(){
-			$("4u").animate({"width":"300px","height":"300px"},800);
-			});
-		}); </script> -->
-											<!-- <div class="image">
-  												<img alt="" src="http://www.kavoir.com/img/text-over-image.jpg" />
- 												 <div class="text">
-    												<p>This lovely image gladly demonstrates how I (this text) can be flying over her face.</p>
-  													<p>It's very kind of her but don't you agree that this place needs a camp fire and a little love?</p>
- 												 </div>
-											</div> -->
-											
-												
-											<!-- <div class="4u" ><span class="image fit" >
-												<a href="#incheon" class="more scrolly"><img src="../images/incheon1.jpg" alt="" id="box"/>
-												<div class="text"><h4>TEST  TEST</h4></div></a>
-											</span></div> -->
+		
 											
 											
-									 	     <div class="4u"><span class="image fit">
-												<a href="#incheon" class="more scrolly"><img src="../controller/images/incheon1.jpg" alt="" id="box"/><div class="text"><h4>INCHEON</h4></div></a></span></div>
-											<div class="4u"><span class="image fit">
-												<a href="#seoul" class="more scrolly"><img src="../controller/images/seoul1.jpg" alt="" /><div class="text"><h4>SEOUL</h4></div></a></span></div>
-											<div class="4u"><span class="image fit">
-												<a href="#chuncheon" class="more scrolly"><img src="../controller/images/chuncheon1.jpg" alt="" /><div class="text"><h4>CHUNCHEON</h4></div></a></span></div>
-											<div class="4u"><span class="image fit">
-												<a href="#boryeong" class="more scrolly"><img src="../controller/images/pic02.jpg" alt="" /><div class="text"><h4>BORYEONG</h4></div></a></span></div>	
-											<div class="4u"><span class="image fit">
-												<a href="#jeonju" class="more scrolly"><img src="../controller/images/pic03.jpg" alt="" /><div class="text"><h4>JEONJU</h4></div></a></span></div>
-											<div class="4u"><span class="image fit">
-												<a href="#gyeongju" class="more scrolly"><img src="../controller/images/pic03.jpg" alt="" /><div class="text"><h4>GYEONGJU</h4></div></a></span></div>
-												<div class="4u"><span class="image fit">
-												<a href="#busan" class="more scrolly"><img src="../controller/images/pic03.jpg" alt="" /><div class="text"><h4>BUSAN</h4></div></a></span></div>
-											<div class="4u"><span class="image fit">
-												<a href="#yeosu" class="more scrolly"><img src="../controller/images/pic02.jpg" alt="" /><div class="text"><h4>YEOSU</h4></div></a></span></div>
-											<div class="4u"><span class="image fit">
-												<a href="#jeju" class="more scrolly"><img src="../controller/images/pic02.jpg" alt="" /><div class="text"><h4>JEJU</h4></div></a></span></div>
+									 	     <div class="4u "><span class="image fit img-wrapper">
+												<a href="#incheon" class="more scrolly"><img src="images/incheon1.jpg" alt="" class="img-responsive"/><div class="text">INCHEON</div></a></span></div>
+											<div class="4u "><span class="image fit img-wrapper">
+												<a href="#seoul" class="more scrolly"><img src="images/seoul1.jpg" alt="" class="img-responsive"/><div class="text">SEOUL</div></a></span></div>
+											<div class="4u "><span class="image fit img-wrapper">
+												<a href="#chuncheon" class="more scrolly"><img src="images/chuncheon1.jpg" alt="" class="img-responsive"/><div class="text">CHUNCHEON</div></a></span></div>
+											<div class="4u "><span class="image fit img-wrapper">
+												<a href="#boryeong" class="more scrolly"><img src="images/boryeong1.jpg" alt="" class="img-responsive"/><div class="text">BORYEONG</div></a></span></div>	
+											<div class="4u "><span class="image fit img-wrapper">
+												<a href="#jeonju" class="more scrolly"><img src="images/jeonju01.jpg" alt="" class="img-responsive"/><div class="text">JEONJU</div></a></span></div>
+											<div class="4u "><span class="image fit img-wrapper">
+												<a href="#gyeongju" class="more scrolly"><img src="images/gyeongju1.jpg" alt="" class="img-responsive"/><div class="text">GYEONGJU</div></a></span></div>
+												<div class="4u "><span class="image fit img-wrapper">
+												<a href="#busan" class="more scrolly"><img src="images/busan1.jpg" alt="" class="img-responsive"/><div class="text">BUSAN</div></a></span></div>
+											<div class="4u "><span class="image fit img-wrapper">
+												<a href="#yeosu" class="more scrolly"><img src="images/yeosu1.jpg" alt="" class="img-responsive"/><div class="text">YEOSU</div></a></span></div>
+											<div class="4u "><span class="image fit img-wrapper">
+												<a href="#jeju" class="more scrolly"><img src="images/pic02.jpg" alt="" class="img-responsive"/><div class="text">JEJU</div></a></span></div>
 											
 											
 											
@@ -161,647 +112,99 @@
 									<h3>incheon</h3>
 									<!-- <h5>Fit</h5>
 									<h5>Left &amp; Right</h5> -->
-									<p><span class="image left"><img src="../controller/images/incheon3.jpg" alt="" /></span>Incheon Coast east coast fish market one pier and all attractions are also Wolmido Island Jung bukseongdong crowds looking for. Incheon has many attractions related to the sea because the port abutting the ocean and city. Stairway to Heaven, sad love songs, such as Silmido known Muuido, Shinto, try, such as Silmido island off the coast of Incheon in various dramas and movies have become the famous backlot of the island are frequented vacationer. Jung bukseongdong Wolmido street culture is also one of the highlights is a crowd looking for. October 2009, completed the Incheon Bridge is the longest bridge in the world and a long bridge to seventh in the Republic of Korea and to connect gu okryeondong Yeongjongdo. There are many hanok Ganghwa oldest cathedral of the Anglican Cathedral and strengthen yongheunggung, chojijin, gwangseongbo of modern history and cultural heritage in the Republic of Korea. Recently, songwoldong fairytale town also appeared in various media and turned the visiting crowds increased, depending on the popularity and to the toktok a contribution to tourism activation of Dongincheon gaining popularity as Songdo Central Park and Canal Walk sightseeing points according to Songdo International City Development .
+									<p><span class="image left"><img src="images/incheon3.jpg" alt="" /></span>Incheon Coast east coast fish market one pier and all attractions are also Wolmido Island Jung bukseongdong crowds looking for. Incheon has many attractions related to the sea because the port abutting the ocean and city. Stairway to Heaven, sad love songs, such as Silmido known Muuido, Shinto, try, such as Silmido island off the coast of Incheon in various dramas and movies have become the famous backlot of the island are frequented vacationer. Jung bukseongdong Wolmido street culture is also one of the highlights is a crowd looking for. October 2009, completed the Incheon Bridge is the longest bridge in the world and a long bridge to seventh in the Republic of Korea and to connect gu okryeondong Yeongjongdo. There are many hanok Ganghwa oldest cathedral of the Anglican Cathedral and strengthen yongheunggung, chojijin, gwangseongbo of modern history and cultural heritage in the Republic of Korea. Recently, songwoldong fairytale town also appeared in various media and turned the visiting crowds increased, depending on the popularity and to the toktok a contribution to tourism activation of Dongincheon gaining popularity as Songdo Central Park and Canal Walk sightseeing points according to Songdo International City Development .
 									</p>
-									<p><span class="image right"><img src="../controller/images/incheon2.jpg" alt="" /></span>Food specialties of Incheon and the like noodle Eastern hwapyeongdong sesut basin, located in Jung-gu sinpodong began in Sinpo famous market and the aid Sinpo dalgangjeong jjolmyeon, soba noodles, Jung seonrindong jajangmyeon of Chinatown as a representative. Especially if a lot of the food had spread nationally at the Incheon cuisine which is influenced by Chinese culture spread to start from Incheon it started after the opening of the opening of Incheon's Chinatown. Salons distance salons distance in front of Jung-gu, Incheon Coast east coast fish market one pier and all attractions are also Wolmido Island Jung bukseongdong crowds looking for.</p>
+									<p><span class="image right"><img src="images/incheon2.jpg" alt="" /></span>Food specialties of Incheon and the like noodle Eastern hwapyeongdong sesut basin, located in Jung-gu sinpodong began in Sinpo famous market and the aid Sinpo dalgangjeong jjolmyeon, soba noodles, Jung seonrindong jajangmyeon of Chinatown as a representative. Especially if a lot of the food had spread nationally at the Incheon cuisine which is influenced by Chinese culture spread to start from Incheon it started after the opening of the opening of Incheon's Chinatown. Salons distance salons distance in front of Jung-gu, Incheon Coast east coast fish market one pier and all attractions are also Wolmido Island Jung bukseongdong crowds looking for.</p>
 								</section>
 								<section class="style7" id="seoul">	<!-- 안에 내용 배경색 style7,8번갈아 쓰기 style7,8아직 미지정-->
 									<h3>SEOUL</h3>
 									<!-- <h5>Fit</h5>
 									<h5>Left &amp; Right</h5> -->
-									<p><span class="image left"><img src="../controller/images/seoul2.jpg" alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
-									<p><span class="image right"><img src="../controller/images/seoul3.jpg" alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius. Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam, tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin mauris dui.</p>
+									<p><span class="image left"><img src="images/seoul2.jpg" alt="" /></span>AS THE MODERN capital of South KOREA, Seoul has a varied and vibrant character that reflects an ancient heritage as well as rebuilding and urban development in the post-World War II period. It ranks as the fifthlargest city in the world and has a population of some 10.8 million. It is situated in the Han River basin near the coast in the northwest province of Kyonggi-do and lies some 38 mi (60 km) south of the demilitarized zone (DMZ), which has separated North and South Korea since the end of the Korean War in 1953. Seoul enjoys a temperate climate with an average temperature ranging from 7.3 degrees F (-13.7 degrees C) in January to 97 degrees F (36.1 degrees C) in July; there is an annual precipitation of 47.2 in (121 cm), which falls mainly during the late summer monsoon months.</p>
+									<p><span class="image right"><img src="images/seoul3.jpg" alt="" /></span>Its many hotels attest to affluence, the importance of tourism and its role as the commercial center of Korea. It has industrial, commercial, and retail areas juxtaposed with restored buildings, such as Kyongbok-kung palace, originally constructed in the 14th century. It is a center of culture and learning with no less than 33 universities and many museums, including one dedicated to war that contains poignant reminders of the two Koreas' and Seoul's war-ravaged past.</p>
 								</section>
 								<section class="style8" id="chuncheon">	<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
 									<h3>chuncheon</h3>
 									<h5>Fit</h5>
 									<h5>Left &amp; Right</h5>
-									<p><span class="image left"><img src="../images/chuncheon4.jpg" alt="" /></span>Chuncheon, uiamho chuncheonho, widely known as the country due to the lakeside city of Soyang each year many tourists come to find and there are plenty of tourism income reaches 1000 people per year in thousand. Soyanggang picked up around the tourist routes have been developed in the naeseolak and cementing the city as a tourist aspects. Tourist facilities are well-equipped and comfortable transportation, including the various flights. In addition there are scenic spots such as Lake Amusement Park, Alpine gongjicheon sogeumgang, chugok divisor, dorsal margin falls, nine waterfalls. In addition there are attractions such as the prehistoric sites, the middle Nami Island in Chuncheon, including lakeside, cheongpyeongsa. In the spring, the Chuncheon International Mime Festival is held, as well as the Spring Season Art Festival. In the summer, the Chuncheon Puppet Festival takes place. There is also a Makguksu festival; a cold noodle dish that originated in Chuncheon. Also celebrated in the summer is the International Animation Festival. The city has had its own annual marathon race since 1946; the Chuncheon Marathon is held every October. In winter, snow and ice festivals are organized.</p>
-									<p><span class="image right"><img src="../images/chuncheon3.jpg" alt="" /></span>According to the legend surrounding Cheongpyeongsa temple in Chuncheon-si, a man loved a princess so much that he became a snake and wouldn't leave her alone. When she begged leave to collect rice from the temple, the snake let her go but then went looking for her, only to be struck dead by lightning. The princess then buried him at the temple. The city was historically known as a chicken farming region and is famous for "dak galbi", which translates as chicken ribs. It consists of chicken, sliced cabbage, sweet potatoes, tteok (rice cakes), and scallions, mixed with a spicy sauce heavy on gochujang. It is usually cooked in a big iron pan in the center of the table, but the original method is over charcoal. Despite the name, the dish is traditionally made from leg meat, not ribs. There is even a street in the city dedicated to restaurants serving the dish, with some 25 restaurants populating the area.</p>
+									<p><span class="image left"><img src="images/chuncheon5.jpg" alt="" /></span>Chuncheon, uiamho chuncheonho, widely known as the country due to the lakeside city of Soyang each year many tourists come to find and there are plenty of tourism income reaches 1000 people per year in thousand. Soyanggang picked up around the tourist routes have been developed in the naeseolak and cementing the city as a tourist aspects. Tourist facilities are well-equipped and comfortable transportation, including the various flights. In addition there are scenic spots such as Lake Amusement Park, Alpine gongjicheon sogeumgang, chugok divisor, dorsal margin falls, nine waterfalls. In addition there are attractions such as the prehistoric sites, the middle Nami Island in Chuncheon, including lakeside, cheongpyeongsa. In the spring, the Chuncheon International Mime Festival is held, as well as the Spring Season Art Festival. In the summer, the Chuncheon Puppet Festival takes place. There is also a Makguksu festival; a cold noodle dish that originated in Chuncheon. Also celebrated in the summer is the International Animation Festival. The city has had its own annual marathon race since 1946; the Chuncheon Marathon is held every October. In winter, snow and ice festivals are organized.</p>
+									<p><span class="image right"><img src="images/chuncheon3.jpg" alt="" /></span>According to the legend surrounding Cheongpyeongsa temple in Chuncheon-si, a man loved a princess so much that he became a snake and wouldn't leave her alone. When she begged leave to collect rice from the temple, the snake let her go but then went looking for her, only to be struck dead by lightning. The princess then buried him at the temple. The city was historically known as a chicken farming region and is famous for "dak galbi", which translates as chicken ribs. It consists of chicken, sliced cabbage, sweet potatoes, tteok (rice cakes), and scallions, mixed with a spicy sauce heavy on gochujang. It is usually cooked in a big iron pan in the center of the table, but the original method is over charcoal. Despite the name, the dish is traditionally made from leg meat, not ribs. There is even a street in the city dedicated to restaurants serving the dish, with some 25 restaurants populating the area.</p>
 								</section>
 								<section class="style8" id="boryeong">	<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
 									<h3>boryeong</h3>
 									<h5>Fit</h5>
 									<h5>Left &amp; Right</h5>
-									<p><span class="image left"><img src="../controller/images/pic04.jpg" alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
-									<p><span class="image right"><img src="../controller/images/pic05.jpg" alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius. Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam, tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin mauris dui.</p>
+									<p><span class="image left"><img src="images/boryeong2.jpg" alt="" /></span>Boryeong area is an interesting location where mountains, fields and sea are harmonized. It is a four-season tourist destination with its 78 islands, Sungju mountain, Oseo mountain and various cultural properties such as Sungjusaji, Ocheonsung, Galmaemot Martyrium, etc.
+										Boryeong is known around Korea for its beaches, particularly Daecheon Beach, and its annual mud festival. The city's beach-mud is widely touted for its cosmetic properties. As elsewhere along the southwest coast of the Korean peninsula, there are numerous small islands, many of which are connected by ferry to Daecheon Port.
+									    Around mid-July every year, a fantastic mud festival is held at Daecheon Beach.In summer, a variety of exciting festivals take place across the beach. In particular, the Boryeong Mud Festival, in which visitors can experience the wondrous health and cosmetic effects of mud, is the pride of Daecheon Beach. Come and enjoy the world’s finest Boryeong mud and make unforgettable memories.</p>
+									<p><span class="image right"><img src="images/boryeong3.jpg" alt="" /></span>There are many restaurants in Boryeong. Most of them offer fresh seafood. 
+In fall, the Cheonbuk Oyster Food Alley offers fresh, delicious oysters. Oysters are good for young children, elderly adults and sick people with soft tissues and high digestion & absorption rates of protein and other nutrients.  
+During the festival, visitors can enjoy fantastic grilled Cheonbuk oyster and a variety of tasty oyster dishes. In addition, various fun and exciting programs and events are also held.</p>
 								</section>
 								<section class="style8" id="jeonju">	<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
 									<h3>jeonju</h3>
 									<h5>Fit</h5>
 									<h5>Left &amp; Right</h5>
-									<p><span class="image left"><img src="../controller/images/pic04.jpg" alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
-									<p><span class="image right"><img src="../controller/images/pic05.jpg" alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius. Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam, tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin mauris dui.</p>
+									<p><span class="image left"><img src="images/jeonju02.jpg" alt="" /></span>In Jeonju, Most famous place is Jeonju Hanok village Jeonju Hanok village is especially beautiful for its roof curves. The roof edges being slightly raised to the sky is unique. Hanok houses are generally divided into two sections, Anchae and Sarangchae. Anchae is also known as Gyusu room, and is furnished accordingly. Sarangchae is where the men dwell, and is referred to as the Seonbi room. Because men and women have to remain separate, Anchae is situated deep inside the house so that it is secretive and quiet. </p>
+									<p><span class="image right"><img src="images/jeonju03.jpg" alt="" /></span>Another trait of Hanok is that all the houses are heated with the ondol system, a unique sub-flooring heating system. Since Koreans enjoy sitting, eating, and sleeping on the floor, it needs to remain heated. A part of Hanok has been set aside so that tourists can experience traditional Korean life, called Hanok Life Experience Hall. You can enter the Seonbi room and the Gyusu room to experience the warm floor first-hand. An advantage of this system is that it is warm in the winter and cool in the summer. The food provided is very traditional, which adds to the traditional ambience. At Jeonju Hanok Village, visitors can enjoy traditional Korean life and traditional foods like bibimbap, the most well known dish from the Jeonju region.</p>
 								</section>
+
 								<section class="style8" id="gyeongju">	<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
 									<h3>gyeongju</h3>
 									<h5>Fit</h5>
 									<h5>Left &amp; Right</h5>
-									<p><span class="image left"><img src="../images/pic04.jpg" alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
-									<p><span class="image right"><img src="../images/pic05.jpg" alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius. Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam, tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin mauris dui.</p>
+									<p><span class="image left"><img src="images/gyeongju.jpg" alt="" /></span>There has been human settlement at and around the site of the present-day town of Kyongju from the prehistoric period. The Shilla clan became the rulers of the south-eastern part of the peninsula in 57 BCE. They chose Kyongju as their capital. There followed a long period of internal struggles between rival kingdoms. With the help of the Tang Dynasty in China, the Shilla Kingdom defeated its rivals in the 7th century and established its rule over most of the peninsula; this remained unchallenged until the beginning of the 10th century.</p>
+									<p><span class="image right"><img src="images/gyeongju3.jpg" alt="" /></span>The Shilla rulers embellished their city with many public buildings, palaces, temples, and fortresses. Their tombs are to be found in the surroundings of the ancient city.
+Mahayana Buddhism spread from China into Korea during the course of the 7th century and was adopted by the Shilla Kingdom. Mount Namsan, which had been venerated by the existing cults of Korea, became a Buddhist sacred mountain and attracted its adherents, who employed the most outstanding architects and craftsmen of the day to create temples, shrines, and monasteries.
+With the end of the Shilla Kingdom, Korea underwent a further period of internal strife. It was unified again under Korean rule by the Yi (Chosun) Dynasty, which reigned until 1910. However, the country was invaded and devastated by the Japanese in the late 16th century and the Manchu in the 18th century, before being annexed by Japan in 1910. Throughout this long period, Kyongju has maintained its urban identity, though many of its major buildings have suffered degradation and demolition.nd General Kim Yu-sin.</p>
 								</section>
 								<section class="style7" id="busan">	<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
 									<h3>busan</h3>
 									<h5>Fit</h5>
 									<h5>Left &amp; Right</h5>
-									<p><span class="image left"><img src="../controller/images/pic04.jpg" alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
-									<p><span class="image right"><img src="../controller/images/pic05.jpg" alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius. Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam, tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin mauris dui.</p>
+									<p><span class="image left"><img src="images/busan2.jpg" alt="" /></span>South Korea's second-largest city -- it's home to 3.7 million residents -- Busan is filled with towering apartments, crowded streets, and a modern subway system. That description may remind you a bit of Seoul, but don't be fooled -- this is a very different city. The people of Busan are in some ways more formal and traditional, but in other ways more easygoing and open. Busan's residents are not what you'd expect of those living in a modern metropolis, exhibiting the same friendliness you'll encounter in most rural towns, but that's just part of the city's charm.</p>
+									<p><span class="image right"><img src="images/busan3.jpg" alt="" /></span>The area around Busan's ports bustles with energy as boats arrive daily from all over Asia, and nearby Nampo-dong is home to the massive Jagalchi seafood market. The tourist center of Haeundae boasts some of the country's finest resort hotels, while the Seomyeon neighborhood is a paradise for shoppers. The old city center, Dongnae, in the north toward the mountains, is a great place to experience hot springs and Korean-style bathhouses. 
+It can thank its major international port for its modern growth, and its cultural festivals and natural seaside beauty for its attraction as a major tourist destination. I hope you'll enjoy not just the beaches and cafe culture here, but the genuine warmth and hospitality of the people.</p>
 								</section>
 								<section class="style8" id="yeosu">	<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
 									<h4>yeosu</h4>
 									<h5>Fit</h5>
 									<h5>Left &amp; Right</h5>
-									<p><span class="image left"><img src="../controller/images/pic04.jpg" alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
-									<p><span class="image right"><img src="../controller/images/pic05.jpg" alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius. Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam, tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin mauris dui.</p>
+									<p><span class="image left"><img src="images/yeosu2.jpg" alt="" /></span>Yeosu, meaning "good water in Korean," is a maritime city renowned for its pristine coastal scenery and a seemingly endless stretch of coastline. The city has become a rising tourist destination since hosting the 2012 World Expo, which promoted the importance of marine resources worldwide.
+In addition to its scenic seascape, Yeosu has an archipelago of over 300 picturesque islands surrounding it.
+There are big aquarium called Hanhwa aqua planet. It has four exhibition halls - marine life, aqua forest, ocean life and alive museum. In main water tank, there are some performances such as synchronized swimming and Pierrot's acrobatic.
+Manseongri Beach, with volcanic 'black' sand near Yeosu that is popular with Korean tourists. There are public showers and restrooms as well as on-duty lifeguards. Many restaurants located along the beach have beach-side tables and serve various seafood dishes. It is also possible to take ferries to many local islands for an authentic taste of rural Korea.</p>
+									<p><span class="image right"><img src="images/yeosu3.jpg" alt="" /></span>Dolsan bridge has changing lights at night. It is a bridge connecting downtown and Dolsan Island with lengh of 450m. Dolsan Park , overlooks Dolsan bridge. The bridge is cable-stayed with 28 steel cables with diameters of 56-87mm wired to 62m steel tower at the each end of the bridge. The bridge is 20m above the sea. There are lots of seafood restaurants and romantic cafes around the area. * The Odongdo Island of Yeosu is one of the most spectacular spots to appreciate camelias. There are 70 species of wild flowers that flourish here, a hill commemorating the plantation of the very first tree and a spacious grassy field making this place great for ecological education. Small population of local Finless Porpoises are present here.
+Gejang, or marinated raw crab is a representative speciality of Yeosu and a traditional Jeolla cuisine dish.
+Dolsan 'gat kimchi' is also a speciality of Yeosu.</p>
 								</section>
 								<section class="style8" id="jeju">	<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
 									<h4>jeju</h4>
 									<h5>Fit</h5>
 									<h5>Left &amp; Right</h5>
-									<p><span class="image left"><img src="../controller/images/pic04.jpg" alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
-									<p><span class="image right"><img src="../controller/images/pic05.jpg" alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum porttitor mollis id vel diam. Praesent sit amet posuere risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui eget interdum. Fusce lectus magna, sagittis at facilisis vitae, pellentesque at etiam. Quisque posuere leo quis sem commodo, vel scelerisque nisi scelerisque. Suspendisse id quam vel tortor tincidunt suscipit. Nullam auctor orci eu dolor consectetur, interdum ullamcorper ante tincidunt. Mauris felis nec felis elementum varius. Nam sapien ante, varius in pulvinar vitae, rhoncus id massa. Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam, semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum nisl. Aenean erat diam, tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut. Phasellus rutrum cursus velit, eget condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis fermentum. Proin mauris dui.</p>
+									<p><span class="image left"><img src="images/pic04.jpg" alt="" /></span></p>
+									<p><span class="image right"><img src="images/pic05.jpg" alt="" /></span></p>
 								</section>
 								<!-- new -->
-
 							</div>
-						</div>
-					</section>
+						</section>
+					</article>
 
-					<section class="style7" id="seoul">
-						<!-- 안에 내용 배경색 style7,8번갈아 쓰기 style7,8아직 미지정-->
-						<h4>seoul</h4>
-						<h5>Fit</h5>
-						<h5>Left &amp; Right</h5>
-						<p>
-							<span class="image left"><img src="../controller/images/pic04.jpg"
-								alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius
-							pellentesque velit convallis. Aenean tincidunt lectus auctor
-							mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et
-							ex tincidunt, quis lacinia velit aliquet. Duis non efficitur
-							nisi, id malesuada justo. Maecenas sagittis felis ac sagittis
-							semper. Curabitur purus leo, tempus sed finibus eget, fringilla
-							quis risus. Maecenas et lorem quis sem varius sagittis et a est.
-							Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt
-							bibendum. Interdum et malesuada fames ac ante ipsum primis in
-							faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer
-							eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-							Aliquam eleifend ligula non velit accumsan cursus. Etiam ut
-							gravida sapien. Morbi mattis mi consectetur tortor elementum,
-							varius pellentesque velit convallis. Aenean tincidunt lectus
-							auctor mauris maximus, ac scelerisque ipsum tempor. Duis
-							vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis
-							non efficitur nisi, id malesuada justo. Maecenas sagittis felis
-							ac sagittis semper. Curabitur purus leo, tempus sed finibus eget,
-							fringilla quis risus. Maecenas et lorem quis sem varius sagittis
-							et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu
-							tincidunt bibendum. Interdum et malesuada fames ac ante ipsum
-							primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum.
-							Integer eget ultricies odio. Nam vel ex a orci fringilla
-							tincidunt. Aliquam eleifend ligula non velit accumsan cursus.
-							Etiam ut gravida sapien.
-						</p>
-						<p>
-							<span class="image right"><img src="../controller/images/pic05.jpg"
-								alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit
-							massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at
-							ipsum porttitor mollis id vel diam. Praesent sit amet posuere
-							risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar
-							ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui
-							eget interdum. Fusce lectus magna, sagittis at facilisis vitae,
-							pellentesque at etiam. Quisque posuere leo quis sem commodo, vel
-							scelerisque nisi scelerisque. Suspendisse id quam vel tortor
-							tincidunt suscipit. Nullam auctor orci eu dolor consectetur,
-							interdum ullamcorper ante tincidunt. Mauris felis nec felis
-							elementum varius. Nam sapien ante, varius in pulvinar vitae,
-							rhoncus id massa. Donec varius ex in mauris ornare, eget euismod
-							urna egestas. Etiam lacinia tempor ipsum, sodales porttitor
-							justo. Aliquam dolor quam, semper in tortor eu, volutpat
-							efficitur quam. Fusce nec fermentum nisl. Aenean erat diam,
-							tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra
-							libero rhoncus ut. Phasellus rutrum cursus velit, eget
-							condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam
-							ante, vulputate et imperdiet eget, fermentum non dolor. Ut
-							eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus
-							justo. Duis neque ligula, elementum ut enim vel, posuere finibus
-							justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque
-							hendrerit in ipsum id tellus facilisis fermentum. Proin mauris
-							dui.
-						</p>
-					</section>
-					<section class="style8" id="jeju">
-						<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
-						<h4>jeju</h4>
-						<h5>Fit</h5>
-						<h5>Left &amp; Right</h5>
-						<p>
-							<span class="image left"><img src="../controller/images/pic04.jpg"
-								alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius
-							pellentesque velit convallis. Aenean tincidunt lectus auctor
-							mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et
-							ex tincidunt, quis lacinia velit aliquet. Duis non efficitur
-							nisi, id malesuada justo. Maecenas sagittis felis ac sagittis
-							semper. Curabitur purus leo, tempus sed finibus eget, fringilla
-							quis risus. Maecenas et lorem quis sem varius sagittis et a est.
-							Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt
-							bibendum. Interdum et malesuada fames ac ante ipsum primis in
-							faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer
-							eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-							Aliquam eleifend ligula non velit accumsan cursus. Etiam ut
-							gravida sapien. Morbi mattis mi consectetur tortor elementum,
-							varius pellentesque velit convallis. Aenean tincidunt lectus
-							auctor mauris maximus, ac scelerisque ipsum tempor. Duis
-							vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis
-							non efficitur nisi, id malesuada justo. Maecenas sagittis felis
-							ac sagittis semper. Curabitur purus leo, tempus sed finibus eget,
-							fringilla quis risus. Maecenas et lorem quis sem varius sagittis
-							et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu
-							tincidunt bibendum. Interdum et malesuada fames ac ante ipsum
-							primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum.
-							Integer eget ultricies odio. Nam vel ex a orci fringilla
-							tincidunt. Aliquam eleifend ligula non velit accumsan cursus.
-							Etiam ut gravida sapien.
-						</p>
-						<p>
-							<span class="image right"><img src="../controller/images/pic05.jpg"
-								alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit
-							massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at
-							ipsum porttitor mollis id vel diam. Praesent sit amet posuere
-							risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar
-							ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui
-							eget interdum. Fusce lectus magna, sagittis at facilisis vitae,
-							pellentesque at etiam. Quisque posuere leo quis sem commodo, vel
-							scelerisque nisi scelerisque. Suspendisse id quam vel tortor
-							tincidunt suscipit. Nullam auctor orci eu dolor consectetur,
-							interdum ullamcorper ante tincidunt. Mauris felis nec felis
-							elementum varius. Nam sapien ante, varius in pulvinar vitae,
-							rhoncus id massa. Donec varius ex in mauris ornare, eget euismod
-							urna egestas. Etiam lacinia tempor ipsum, sodales porttitor
-							justo. Aliquam dolor quam, semper in tortor eu, volutpat
-							efficitur quam. Fusce nec fermentum nisl. Aenean erat diam,
-							tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra
-							libero rhoncus ut. Phasellus rutrum cursus velit, eget
-							condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam
-							ante, vulputate et imperdiet eget, fermentum non dolor. Ut
-							eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus
-							justo. Duis neque ligula, elementum ut enim vel, posuere finibus
-							justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque
-							hendrerit in ipsum id tellus facilisis fermentum. Proin mauris
-							dui.
-						</p>
-					</section>
-					<section class="style8" id="inchkeongi">
-						<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
-						<h4>inchkeongi</h4>
-						<h5>Fit</h5>
-						<h5>Left &amp; Right</h5>
-						<p>
-							<span class="image left"><img src="../controller/images/pic04.jpg"
-								alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius
-							pellentesque velit convallis. Aenean tincidunt lectus auctor
-							mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et
-							ex tincidunt, quis lacinia velit aliquet. Duis non efficitur
-							nisi, id malesuada justo. Maecenas sagittis felis ac sagittis
-							semper. Curabitur purus leo, tempus sed finibus eget, fringilla
-							quis risus. Maecenas et lorem quis sem varius sagittis et a est.
-							Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt
-							bibendum. Interdum et malesuada fames ac ante ipsum primis in
-							faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer
-							eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-							Aliquam eleifend ligula non velit accumsan cursus. Etiam ut
-							gravida sapien. Morbi mattis mi consectetur tortor elementum,
-							varius pellentesque velit convallis. Aenean tincidunt lectus
-							auctor mauris maximus, ac scelerisque ipsum tempor. Duis
-							vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis
-							non efficitur nisi, id malesuada justo. Maecenas sagittis felis
-							ac sagittis semper. Curabitur purus leo, tempus sed finibus eget,
-							fringilla quis risus. Maecenas et lorem quis sem varius sagittis
-							et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu
-							tincidunt bibendum. Interdum et malesuada fames ac ante ipsum
-							primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum.
-							Integer eget ultricies odio. Nam vel ex a orci fringilla
-							tincidunt. Aliquam eleifend ligula non velit accumsan cursus.
-							Etiam ut gravida sapien.
-						</p>
-						<p>
-							<span class="image right"><img src="../controller/images/pic05.jpg"
-								alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit
-							massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at
-							ipsum porttitor mollis id vel diam. Praesent sit amet posuere
-							risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar
-							ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui
-							eget interdum. Fusce lectus magna, sagittis at facilisis vitae,
-							pellentesque at etiam. Quisque posuere leo quis sem commodo, vel
-							scelerisque nisi scelerisque. Suspendisse id quam vel tortor
-							tincidunt suscipit. Nullam auctor orci eu dolor consectetur,
-							interdum ullamcorper ante tincidunt. Mauris felis nec felis
-							elementum varius. Nam sapien ante, varius in pulvinar vitae,
-							rhoncus id massa. Donec varius ex in mauris ornare, eget euismod
-							urna egestas. Etiam lacinia tempor ipsum, sodales porttitor
-							justo. Aliquam dolor quam, semper in tortor eu, volutpat
-							efficitur quam. Fusce nec fermentum nisl. Aenean erat diam,
-							tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra
-							libero rhoncus ut. Phasellus rutrum cursus velit, eget
-							condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam
-							ante, vulputate et imperdiet eget, fermentum non dolor. Ut
-							eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus
-							justo. Duis neque ligula, elementum ut enim vel, posuere finibus
-							justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque
-							hendrerit in ipsum id tellus facilisis fermentum. Proin mauris
-							dui.
-						</p>
-					</section>
-					<section class="style7" id="busan">
-						<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
-						<h4>busan</h4>
-						<h5>Fit</h5>
-						<h5>Left &amp; Right</h5>
-						<p>
-							<span class="image left"><img src="../controller/images/pic04.jpg"
-								alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius
-							pellentesque velit convallis. Aenean tincidunt lectus auctor
-							mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et
-							ex tincidunt, quis lacinia velit aliquet. Duis non efficitur
-							nisi, id malesuada justo. Maecenas sagittis felis ac sagittis
-							semper. Curabitur purus leo, tempus sed finibus eget, fringilla
-							quis risus. Maecenas et lorem quis sem varius sagittis et a est.
-							Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt
-							bibendum. Interdum et malesuada fames ac ante ipsum primis in
-							faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer
-							eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-							Aliquam eleifend ligula non velit accumsan cursus. Etiam ut
-							gravida sapien. Morbi mattis mi consectetur tortor elementum,
-							varius pellentesque velit convallis. Aenean tincidunt lectus
-							auctor mauris maximus, ac scelerisque ipsum tempor. Duis
-							vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis
-							non efficitur nisi, id malesuada justo. Maecenas sagittis felis
-							ac sagittis semper. Curabitur purus leo, tempus sed finibus eget,
-							fringilla quis risus. Maecenas et lorem quis sem varius sagittis
-							et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu
-							tincidunt bibendum. Interdum et malesuada fames ac ante ipsum
-							primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum.
-							Integer eget ultricies odio. Nam vel ex a orci fringilla
-							tincidunt. Aliquam eleifend ligula non velit accumsan cursus.
-							Etiam ut gravida sapien.
-						</p>
-						<p>
-							<span class="image right"><img src="../controller/images/pic05.jpg"
-								alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit
-							massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at
-							ipsum porttitor mollis id vel diam. Praesent sit amet posuere
-							risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar
-							ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui
-							eget interdum. Fusce lectus magna, sagittis at facilisis vitae,
-							pellentesque at etiam. Quisque posuere leo quis sem commodo, vel
-							scelerisque nisi scelerisque. Suspendisse id quam vel tortor
-							tincidunt suscipit. Nullam auctor orci eu dolor consectetur,
-							interdum ullamcorper ante tincidunt. Mauris felis nec felis
-							elementum varius. Nam sapien ante, varius in pulvinar vitae,
-							rhoncus id massa. Donec varius ex in mauris ornare, eget euismod
-							urna egestas. Etiam lacinia tempor ipsum, sodales porttitor
-							justo. Aliquam dolor quam, semper in tortor eu, volutpat
-							efficitur quam. Fusce nec fermentum nisl. Aenean erat diam,
-							tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra
-							libero rhoncus ut. Phasellus rutrum cursus velit, eget
-							condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam
-							ante, vulputate et imperdiet eget, fermentum non dolor. Ut
-							eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus
-							justo. Duis neque ligula, elementum ut enim vel, posuere finibus
-							justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque
-							hendrerit in ipsum id tellus facilisis fermentum. Proin mauris
-							dui.
-						</p>
-					</section>
-					<section class="style8" id="jeonju">
-						<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
-						<h4>jeonju</h4>
-						<h5>Fit</h5>
-						<h5>Left &amp; Right</h5>
-						<p>
-							<span class="image left"><img src="../controller/images/pic04.jpg"
-								alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius
-							pellentesque velit convallis. Aenean tincidunt lectus auctor
-							mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et
-							ex tincidunt, quis lacinia velit aliquet. Duis non efficitur
-							nisi, id malesuada justo. Maecenas sagittis felis ac sagittis
-							semper. Curabitur purus leo, tempus sed finibus eget, fringilla
-							quis risus. Maecenas et lorem quis sem varius sagittis et a est.
-							Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt
-							bibendum. Interdum et malesuada fames ac ante ipsum primis in
-							faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer
-							eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-							Aliquam eleifend ligula non velit accumsan cursus. Etiam ut
-							gravida sapien. Morbi mattis mi consectetur tortor elementum,
-							varius pellentesque velit convallis. Aenean tincidunt lectus
-							auctor mauris maximus, ac scelerisque ipsum tempor. Duis
-							vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis
-							non efficitur nisi, id malesuada justo. Maecenas sagittis felis
-							ac sagittis semper. Curabitur purus leo, tempus sed finibus eget,
-							fringilla quis risus. Maecenas et lorem quis sem varius sagittis
-							et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu
-							tincidunt bibendum. Interdum et malesuada fames ac ante ipsum
-							primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum.
-							Integer eget ultricies odio. Nam vel ex a orci fringilla
-							tincidunt. Aliquam eleifend ligula non velit accumsan cursus.
-							Etiam ut gravida sapien.
-						</p>
-						<p>
-							<span class="image right"><img src="../controller/images/pic05.jpg"
-								alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit
-							massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at
-							ipsum porttitor mollis id vel diam. Praesent sit amet posuere
-							risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar
-							ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui
-							eget interdum. Fusce lectus magna, sagittis at facilisis vitae,
-							pellentesque at etiam. Quisque posuere leo quis sem commodo, vel
-							scelerisque nisi scelerisque. Suspendisse id quam vel tortor
-							tincidunt suscipit. Nullam auctor orci eu dolor consectetur,
-							interdum ullamcorper ante tincidunt. Mauris felis nec felis
-							elementum varius. Nam sapien ante, varius in pulvinar vitae,
-							rhoncus id massa. Donec varius ex in mauris ornare, eget euismod
-							urna egestas. Etiam lacinia tempor ipsum, sodales porttitor
-							justo. Aliquam dolor quam, semper in tortor eu, volutpat
-							efficitur quam. Fusce nec fermentum nisl. Aenean erat diam,
-							tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra
-							libero rhoncus ut. Phasellus rutrum cursus velit, eget
-							condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam
-							ante, vulputate et imperdiet eget, fermentum non dolor. Ut
-							eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus
-							justo. Duis neque ligula, elementum ut enim vel, posuere finibus
-							justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque
-							hendrerit in ipsum id tellus facilisis fermentum. Proin mauris
-							dui.
-						</p>
-					</section>
-					<section class="style8" id="daegu">
-						<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
-						<h4>daegu</h4>
-						<h5>Fit</h5>
-						<h5>Left &amp; Right</h5>
-						<p>
-							<span class="image left"><img src="../controller/images/pic04.jpg"
-								alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius
-							pellentesque velit convallis. Aenean tincidunt lectus auctor
-							mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et
-							ex tincidunt, quis lacinia velit aliquet. Duis non efficitur
-							nisi, id malesuada justo. Maecenas sagittis felis ac sagittis
-							semper. Curabitur purus leo, tempus sed finibus eget, fringilla
-							quis risus. Maecenas et lorem quis sem varius sagittis et a est.
-							Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt
-							bibendum. Interdum et malesuada fames ac ante ipsum primis in
-							faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer
-							eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-							Aliquam eleifend ligula non velit accumsan cursus. Etiam ut
-							gravida sapien. Morbi mattis mi consectetur tortor elementum,
-							varius pellentesque velit convallis. Aenean tincidunt lectus
-							auctor mauris maximus, ac scelerisque ipsum tempor. Duis
-							vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis
-							non efficitur nisi, id malesuada justo. Maecenas sagittis felis
-							ac sagittis semper. Curabitur purus leo, tempus sed finibus eget,
-							fringilla quis risus. Maecenas et lorem quis sem varius sagittis
-							et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu
-							tincidunt bibendum. Interdum et malesuada fames ac ante ipsum
-							primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum.
-							Integer eget ultricies odio. Nam vel ex a orci fringilla
-							tincidunt. Aliquam eleifend ligula non velit accumsan cursus.
-							Etiam ut gravida sapien.
-						</p>
-						<p>
-							<span class="image right"><img src="../controller/images/pic05.jpg"
-								alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit
-							massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at
-							ipsum porttitor mollis id vel diam. Praesent sit amet posuere
-							risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar
-							ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui
-							eget interdum. Fusce lectus magna, sagittis at facilisis vitae,
-							pellentesque at etiam. Quisque posuere leo quis sem commodo, vel
-							scelerisque nisi scelerisque. Suspendisse id quam vel tortor
-							tincidunt suscipit. Nullam auctor orci eu dolor consectetur,
-							interdum ullamcorper ante tincidunt. Mauris felis nec felis
-							elementum varius. Nam sapien ante, varius in pulvinar vitae,
-							rhoncus id massa. Donec varius ex in mauris ornare, eget euismod
-							urna egestas. Etiam lacinia tempor ipsum, sodales porttitor
-							justo. Aliquam dolor quam, semper in tortor eu, volutpat
-							efficitur quam. Fusce nec fermentum nisl. Aenean erat diam,
-							tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra
-							libero rhoncus ut. Phasellus rutrum cursus velit, eget
-							condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam
-							ante, vulputate et imperdiet eget, fermentum non dolor. Ut
-							eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus
-							justo. Duis neque ligula, elementum ut enim vel, posuere finibus
-							justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque
-							hendrerit in ipsum id tellus facilisis fermentum. Proin mauris
-							dui.
-						</p>
-					</section>
-					<section class="style8" id="kangwondo">
-						<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
-						<h4>kangwondo</h4>
-						<h5>Fit</h5>
-						<h5>Left &amp; Right</h5>
-						<p>
-							<span class="image left"><img src="../controller/images/pic04.jpg"
-								alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius
-							pellentesque velit convallis. Aenean tincidunt lectus auctor
-							mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et
-							ex tincidunt, quis lacinia velit aliquet. Duis non efficitur
-							nisi, id malesuada justo. Maecenas sagittis felis ac sagittis
-							semper. Curabitur purus leo, tempus sed finibus eget, fringilla
-							quis risus. Maecenas et lorem quis sem varius sagittis et a est.
-							Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt
-							bibendum. Interdum et malesuada fames ac ante ipsum primis in
-							faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer
-							eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-							Aliquam eleifend ligula non velit accumsan cursus. Etiam ut
-							gravida sapien. Morbi mattis mi consectetur tortor elementum,
-							varius pellentesque velit convallis. Aenean tincidunt lectus
-							auctor mauris maximus, ac scelerisque ipsum tempor. Duis
-							vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis
-							non efficitur nisi, id malesuada justo. Maecenas sagittis felis
-							ac sagittis semper. Curabitur purus leo, tempus sed finibus eget,
-							fringilla quis risus. Maecenas et lorem quis sem varius sagittis
-							et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu
-							tincidunt bibendum. Interdum et malesuada fames ac ante ipsum
-							primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum.
-							Integer eget ultricies odio. Nam vel ex a orci fringilla
-							tincidunt. Aliquam eleifend ligula non velit accumsan cursus.
-							Etiam ut gravida sapien.
-						</p>
-						<p>
-							<span class="image right"><img src="../controller/images/pic05.jpg"
-								alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit
-							massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at
-							ipsum porttitor mollis id vel diam. Praesent sit amet posuere
-							risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar
-							ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui
-							eget interdum. Fusce lectus magna, sagittis at facilisis vitae,
-							pellentesque at etiam. Quisque posuere leo quis sem commodo, vel
-							scelerisque nisi scelerisque. Suspendisse id quam vel tortor
-							tincidunt suscipit. Nullam auctor orci eu dolor consectetur,
-							interdum ullamcorper ante tincidunt. Mauris felis nec felis
-							elementum varius. Nam sapien ante, varius in pulvinar vitae,
-							rhoncus id massa. Donec varius ex in mauris ornare, eget euismod
-							urna egestas. Etiam lacinia tempor ipsum, sodales porttitor
-							justo. Aliquam dolor quam, semper in tortor eu, volutpat
-							efficitur quam. Fusce nec fermentum nisl. Aenean erat diam,
-							tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra
-							libero rhoncus ut. Phasellus rutrum cursus velit, eget
-							condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam
-							ante, vulputate et imperdiet eget, fermentum non dolor. Ut
-							eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus
-							justo. Duis neque ligula, elementum ut enim vel, posuere finibus
-							justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque
-							hendrerit in ipsum id tellus facilisis fermentum. Proin mauris
-							dui.
-						</p>
-					</section>
-					<section class="style8" id="daejeon">
-						<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
-						<h4>daejeon</h4>
-						<h5>Fit</h5>
-						<h5>Left &amp; Right</h5>
-						<p>
-							<span class="image left"><img src="../controller/images/pic04.jpg"
-								alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius
-							pellentesque velit convallis. Aenean tincidunt lectus auctor
-							mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et
-							ex tincidunt, quis lacinia velit aliquet. Duis non efficitur
-							nisi, id malesuada justo. Maecenas sagittis felis ac sagittis
-							semper. Curabitur purus leo, tempus sed finibus eget, fringilla
-							quis risus. Maecenas et lorem quis sem varius sagittis et a est.
-							Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt
-							bibendum. Interdum et malesuada fames ac ante ipsum primis in
-							faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer
-							eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-							Aliquam eleifend ligula non velit accumsan cursus. Etiam ut
-							gravida sapien. Morbi mattis mi consectetur tortor elementum,
-							varius pellentesque velit convallis. Aenean tincidunt lectus
-							auctor mauris maximus, ac scelerisque ipsum tempor. Duis
-							vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis
-							non efficitur nisi, id malesuada justo. Maecenas sagittis felis
-							ac sagittis semper. Curabitur purus leo, tempus sed finibus eget,
-							fringilla quis risus. Maecenas et lorem quis sem varius sagittis
-							et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu
-							tincidunt bibendum. Interdum et malesuada fames ac ante ipsum
-							primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum.
-							Integer eget ultricies odio. Nam vel ex a orci fringilla
-							tincidunt. Aliquam eleifend ligula non velit accumsan cursus.
-							Etiam ut gravida sapien.
-						</p>
-						<p>
-							<span class="image right"><img src="../controller/images/pic05.jpg"
-								alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit
-							massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at
-							ipsum porttitor mollis id vel diam. Praesent sit amet posuere
-							risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar
-							ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui
-							eget interdum. Fusce lectus magna, sagittis at facilisis vitae,
-							pellentesque at etiam. Quisque posuere leo quis sem commodo, vel
-							scelerisque nisi scelerisque. Suspendisse id quam vel tortor
-							tincidunt suscipit. Nullam auctor orci eu dolor consectetur,
-							interdum ullamcorper ante tincidunt. Mauris felis nec felis
-							elementum varius. Nam sapien ante, varius in pulvinar vitae,
-							rhoncus id massa. Donec varius ex in mauris ornare, eget euismod
-							urna egestas. Etiam lacinia tempor ipsum, sodales porttitor
-							justo. Aliquam dolor quam, semper in tortor eu, volutpat
-							efficitur quam. Fusce nec fermentum nisl. Aenean erat diam,
-							tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra
-							libero rhoncus ut. Phasellus rutrum cursus velit, eget
-							condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam
-							ante, vulputate et imperdiet eget, fermentum non dolor. Ut
-							eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus
-							justo. Duis neque ligula, elementum ut enim vel, posuere finibus
-							justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque
-							hendrerit in ipsum id tellus facilisis fermentum. Proin mauris
-							dui.
-						</p>
-					</section>
-					<section class="style8" id="kwangju">
-						<!-- 안에 내용 배경색 style7,8번갈아 쓰기 -->
-						<h4>kwangju</h4>
-						<h5>Fit</h5>
-						<h5>Left &amp; Right</h5>
-						<p>
-							<span class="image left"><img src="../controller/images/pic04.jpg"
-								alt="" /></span>Morbi mattis mi consectetur tortor elementum, varius
-							pellentesque velit convallis. Aenean tincidunt lectus auctor
-							mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et
-							ex tincidunt, quis lacinia velit aliquet. Duis non efficitur
-							nisi, id malesuada justo. Maecenas sagittis felis ac sagittis
-							semper. Curabitur purus leo, tempus sed finibus eget, fringilla
-							quis risus. Maecenas et lorem quis sem varius sagittis et a est.
-							Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt
-							bibendum. Interdum et malesuada fames ac ante ipsum primis in
-							faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer
-							eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-							Aliquam eleifend ligula non velit accumsan cursus. Etiam ut
-							gravida sapien. Morbi mattis mi consectetur tortor elementum,
-							varius pellentesque velit convallis. Aenean tincidunt lectus
-							auctor mauris maximus, ac scelerisque ipsum tempor. Duis
-							vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis
-							non efficitur nisi, id malesuada justo. Maecenas sagittis felis
-							ac sagittis semper. Curabitur purus leo, tempus sed finibus eget,
-							fringilla quis risus. Maecenas et lorem quis sem varius sagittis
-							et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu
-							tincidunt bibendum. Interdum et malesuada fames ac ante ipsum
-							primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum.
-							Integer eget ultricies odio. Nam vel ex a orci fringilla
-							tincidunt. Aliquam eleifend ligula non velit accumsan cursus.
-							Etiam ut gravida sapien.
-						</p>
-						<p>
-							<span class="image right"><img src="../controller/images/pic05.jpg"
-								alt="" /></span>Vestibulum ultrices risus velit, sit amet blandit
-							massa auctor sit amet. Sed eu lectus sem. Phasellus in odio at
-							ipsum porttitor mollis id vel diam. Praesent sit amet posuere
-							risus, eu faucibus lectus. Vivamus ex ligula, tempus pulvinar
-							ipsum in, auctor porta quam. Proin nec dui cursus, posuere dui
-							eget interdum. Fusce lectus magna, sagittis at facilisis vitae,
-							pellentesque at etiam. Quisque posuere leo quis sem commodo, vel
-							scelerisque nisi scelerisque. Suspendisse id quam vel tortor
-							tincidunt suscipit. Nullam auctor orci eu dolor consectetur,
-							interdum ullamcorper ante tincidunt. Mauris felis nec felis
-							elementum varius. Nam sapien ante, varius in pulvinar vitae,
-							rhoncus id massa. Donec varius ex in mauris ornare, eget euismod
-							urna egestas. Etiam lacinia tempor ipsum, sodales porttitor
-							justo. Aliquam dolor quam, semper in tortor eu, volutpat
-							efficitur quam. Fusce nec fermentum nisl. Aenean erat diam,
-							tempus aliquet erat. Etiam iaculis nulla ipsum, et pharetra
-							libero rhoncus ut. Phasellus rutrum cursus velit, eget
-							condimentum nunc blandit vel. In at pulvinar lectus. Morbi diam
-							ante, vulputate et imperdiet eget, fermentum non dolor. Ut
-							eleifend sagittis tincidunt. Sed viverra commodo mi, ac rhoncus
-							justo. Duis neque ligula, elementum ut enim vel, posuere finibus
-							justo. Vivamus facilisis maximus nibh quis pulvinar. Quisque
-							hendrerit in ipsum id tellus facilisis fermentum. Proin mauris
-							dui.
-						</p>
-					</section>
-					<!-- new -->
-				</div>
-			</section>
-		</article>
+				<!-- Footer -->		<!-- 모든페이지의 공통부분 -->
+					<footer id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						</ul>
+					</footer>
 
-		<!-- Footer -->
-		<!-- 모든페이지의 공통부분 -->
-		<footer id="footer">
-			<ul class="icons">
-				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-				<li><a href="#" class="icon fa-facebook"><span
-						class="label">Facebook</span></a></li>
-				<li><a href="#" class="icon fa-instagram"><span
-						class="label">Instagram</span></a></li>
-				<li><a href="#" class="icon fa-dribbble"><span
-						class="label">Dribbble</span></a></li>
-				<li><a href="#" class="icon fa-envelope-o"><span
-						class="label">Email</span></a></li>
-			</ul>
-			<ul class="copyright">
-				<li>&copy; Untitled</li>
-				<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</footer>
-
-
+			</div>
 
 		<!-- Scripts -->
 			<script src="../controller/assets/js/jquery.min.js"></script>
@@ -822,73 +225,9 @@
 						$('#nav2').stop().animate({'opacity':'1'},400);
 					else	
 						$('#nav2').stop().animate({'opacity':'0'},5);
-
 				});
             });
-
-	</script>
-	
-	<!-- 사이드 메뉴 -->
-	<script type="text/javascript">
-				$(function() {
-
-				  var group = $(".group");
-				
-				  group.each(function() {
-				    var _group = new GroupBox(this);
-				  });
-				
-				  // 사용자 정의 생성자 함수 정의
-				  function GroupBox(groupElement) {
-				
-				    var box = $(groupElement).find(".box");
-				    var title = $(groupElement).find(".box .title a");
-				
-				    box.each(function(idx) {
-				      var newBox = new RootBox(this);
-				      if (idx > 0) {
-				        newBox.siblingsClose();
-				      }
-				    });
-				  }
-				
-				  // 사용자 정의 생성자 함수 정의
-				  function RootBox(boxElement) {
-				    var _this = this;
-				    var boxEl = $(boxElement);
-				    var target = $(boxEl).find(".title a");
-				    var cont = $(boxEl).find(".cont");
-				
-				    // _groupParent = $(boxEl).parent();
-				
-				    target.on("click", anchorClickEvent);
-				
-				    function anchorClickEvent() {
-				
-				      if (cont.is(':hidden')) {
-				        _this.open();
-				      } else {
-				        _this.close();
-				      }
-				    }
-				
-				    _this.siblingsClose = function() {
-				      cont.css('display', 'none');
-				    };
-				
-				    _this.open = function() {
-				      cont.slideDown();
-				    };
-				    _this.close = function() {
-				      cont.slideUp();
-				    }
-				  }
-
-				});
-
-	</script>
-				  
-
-</body>
-
+       		</script>
+       	
+	</body>
 </html>

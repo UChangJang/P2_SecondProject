@@ -899,16 +899,17 @@
 		#banner1:after {
 			display: none;
 		}
-		
+
 /* mainMenu */
 #mainMenu{
 	background-color: #FED53E;
 	height: 3em;
 	color: black;
 	vertical-align: middle;
-	padding:0.5em;
+	padding:0.7em;
 	text-decoration:none;
 }
+
 #mainMenu span{
 	color: #403A3A;
 	font-weight: bold; 
@@ -924,6 +925,15 @@
 	font-weight: bold; 
 }
 
+/* mainMenu_hover */
+#mainMenu_hover{
+	font-size: 14px;
+}
+#mainnMenu_nav ul li b{
+	font-size: 20px;
+}
+
+/* mainRight */
 #mainRight{
 	font-size: 13px;
 }
@@ -940,8 +950,8 @@
 }
 
 #mainRight div{
-	padding: 0.7em;
-	background-color: #400080;
+	padding: 1em;
+	background-color: #6B625B;
 	height: 100%;
 	
 }
@@ -949,6 +959,15 @@
 	padding: 1em;
 	background-color: olive;
 	height: 100%;
+	width: 16em;
+	
+	-webkit-border-top-right-radius: 0.5em;
+	-moz-border-top-right-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+	
+	-webkit-bottom-right-radius: 0.5em;
+	-moz-bottom-right-radius: 0.5em;
+	border-bottom-right-radius: 0.5em;
 	
 }
 #mainRight_home{
