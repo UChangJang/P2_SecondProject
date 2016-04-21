@@ -4,8 +4,33 @@
     position:relative;
     float:left; optional
 } */
-.image .text {
-    position:absolute;
-    top:10px; 
-    left:10px;
-    width:300px; 
+.image .text{ 
+position:absolute;
+background-color:#ffffff;
+font-size:25px;
+font-weight:bold;
+top:40%; 
+text-align: center;
+opacity:0.5;}
+
+.img-wrapper {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+    vertical-align: middle;
+}
+
+.img-wrapper img:hover {
+    transform:scale(2);
+    -ms-transform:scale(2); /* IE 9 */
+    -moz-transform:scale(2); /* Firefox */
+    -webkit-transform:scale(2); /* Safari and Chrome */
+    -o-transform:scale(2); /* Opera */
+}

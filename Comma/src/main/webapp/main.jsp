@@ -19,8 +19,8 @@
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/mytest.css" />
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/basic.css" />
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/style.css" />
-		<link rel="stylesheet" href="../controller/assets/css/main.css" />		
-		<link rel="stylesheet" href="../controller/assets/css/tabControl.css" />	
+		<link rel="stylesheet" type="text/css" href="../controller/assets/css/main.css" />		
+		<link rel="stylesheet" type="text/css" href="../controller/assets/css/tabControl.css" />	
 
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -273,11 +273,11 @@
 					<div class="6u$ 12u$(small) secondPart tabControlWrap" id="tabControlWrap">
 						<h4>Best Guide spot</h4>
 						<ul class="tabControlTabs">
-							<li class="tabControlTab selected">1.서울</li>
-							<li class="tabControlTab">2.서울</li>
-							<li class="tabControlTab">3.서울</li>
-							<li class="tabControlTab">4.서울</li>
-							<li class="tabControlTab">5.서울</li>
+							<li class="tabControlTab selected"><p>1.서울</p></li>
+							<li class="tabControlTab"><p>1.서울</p></li>
+							<li class="tabControlTab"><p>1.서울</p></li>
+							<li class="tabControlTab"><p>1.서울</p></li>
+							<li class="tabControlTab"><p>1.서울</p></li>
 						</ul>
 						<ul class="tabControlBodys">
 							<li class="tabControlBody selected"
@@ -334,7 +334,7 @@
 
 					<div class="box alt">
 						<div class="row uniform">
-							<div class="4u 12u$(small) thirdPart" id="guideRanking">
+							<div class="3u 12u$(small) thirdPart" id="guideRanking">
 								<h4>지역 날씨 정보</h4>
 								<div id="weather">
 									<c:forEach var="vo" items="${wlist }">
@@ -346,7 +346,7 @@
 								</div>
 							</div>
 
-							<div class="8u$ 12u$(small) thirdPart" id="guideRanking">
+							<div class="9u$ 12u$(small) thirdPart" id="guideRanking">
 								<h4>가이드를 찾아요</h4>
 								<table>
 									<tr>
@@ -408,12 +408,12 @@
 
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/jquery.scrolly.min.js"></script>
-	<script src="assets/js/skel.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+	<script src="../controller/assets/js/jquery.min.js"></script>
+	<script src="../controller/assets/js/jquery.scrollex.min.js"></script>
+	<script src="../controller/assets/js/jquery.scrolly.min.js"></script>
+	<script src="../controller/assets/js/skel.min.js"></script>
+	<script src="../controller/assets/js/util.js"></script>
+	<script src="../controller/assets/js/main.js"></script>
 
 
 
@@ -564,7 +564,7 @@
 
 	<!-- 메인 배너 슬라이드 -->
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-	<script type="text/javascript" src="js/jquery.ulslide.js"></script>
+	<script type="text/javascript" src="../controller/js/jquery.ulslide.js"></script>
 
 	<script src='http://dimsemenov-static.s3.amazonaws.com/dist/jquery.magnific-popup.min.js'></script>
 
@@ -596,7 +596,7 @@
 	<!-- <script type="text/javascript"
 		src="assets/js/jquery-1.4.1.min.js"></script> -->
 	<script type="text/javascript"
-		src="assets/js/tabControl.js"></script>
+		src="../controller/assets/js/tabControl.js"></script>
 	<!-- 메인 hot글 배너 스크롤  -->
 	<script type="text/javascript">
 		$(function() {

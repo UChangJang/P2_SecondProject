@@ -109,6 +109,36 @@
 
 					<!-- <section class="style5"> -->
 					<div class="row side0">
+					
+					
+						<div class="3u 12u$(small)">								<!-- 1 왼쪽 -->
+							<div id="topBoardShort1">
+								<div>가이드</div>		
+								<div class="topBoardShort">안보영</div>							
+							</div>
+						</div>
+						<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
+							<div id="">
+								<div>여행규모</div>		
+								<div class="topBoardShort">3명</div>							
+							</div>
+						</div>
+						<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
+							<div id="">
+								<div>소요시간</div>		
+								<div class="topBoardShort">6시간</div>							
+							</div>
+						</div>
+						<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
+							<div id="">
+								<div>이동수단</div>		
+								<div class="topBoardShort">자동차</div>							
+							</div>
+						</div>
+						<div class="3u$ 12u$(small)">								
+						</div>
+						
+						
 						<div class="9u 12u$(medium) side1">
 							<hr />
 							<h5>가이드소개</h5>
@@ -132,10 +162,10 @@
 							<h5>Fit</h5>
 							<ul class="bxslider">
 
-								<li><img src="../images/character.png" /></li>
-								<li><img src="../images/character.png" /></li>
-								<li><img src="../images/character.png" /></li>
-								<li><img src="../images/character.png" /></li>
+								<li><img src="../controller/images/character.png" /></li>
+								<li><img src="../controller/images/character.png" /></li>
+								<li><img src="../controller/images/character.png" /></li>
+								<li><img src="../controller/images/character.png" /></li>
 							</ul>
 
 							<hr />
@@ -214,7 +244,7 @@
 
 									<div class="2u">
 										<span class="image fit"> <a href="guideWrite.jsp"><img
-												src="../images/banner.jpg" alt="" /></a>
+												src="../controller/images/banner.jpg" alt="" /></a>
 										</span>
 									</div>
 
@@ -236,7 +266,7 @@
 
 									<div class="2u">
 										<span class="image fit"> <a href="guideWrite.html"><img
-												src="../images/banner.jpg" alt="" /></a>
+												src="../controller/images/banner.jpg" alt="" /></a>
 										</span>
 									</div>
 
@@ -258,7 +288,7 @@
 
 									<div class="2u">
 										<span class="image fit"> <a href="guideWrite.html"><img
-												src="../images/banner.jpg" alt="" /></a>
+												src="../controller/images/banner.jpg" alt="" /></a>
 										</span>
 									</div>
 
@@ -280,7 +310,7 @@
 
 									<div class="2u">
 										<span class="image fit"> <a href="guideWrite.html"><img
-												src="../images/banner.jpg" alt="" /></a>
+												src="../controller/images/banner.jpg" alt="" /></a>
 										</span>
 									</div>
 
@@ -313,7 +343,9 @@
 
 						<!-- 사이드메뉴! -->
 						<div class="3u$ side2">
-							<img src="../controller/images/map.png">
+							<div id="guideBoardSide">
+								
+							</div>
 						</div>
 					</div>
 
@@ -356,7 +388,7 @@
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<!-- bxSlider Javascript file -->
-	<script src="../js/jquery.bxslider.min.js"></script>
+	<script src="../controller/js/jquery.bxslider.min.js"></script>
 	<!-- bxSlider CSS file -->
 	<link href="../controller/assets/css/jquery.bxslider.css"
 		rel="stylesheet" />

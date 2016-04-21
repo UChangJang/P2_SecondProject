@@ -74,15 +74,23 @@ public class WeatherManager {
 			String weaword="";
 			
 			if(word.equals("구름조금")){		
-				weaword="images/pic04.jpg";
+				weaword="images/sun_cloud";
 			}else if(word.equals("구름많음")){
-				weaword="images/pic05.jpg";
+				weaword="images/cloud.png";
 			}else if(word.equals("비")){
-				weaword="images/pic04.jpg";
+				weaword="images/rain.png";
 			}else if(word.equals("흐림")){
-				weaword="images/pic05.jpg";
+				weaword="images/sun_cloud.png";
 			}else if(word.equals("맑음")){
-				weaword="images/pic04.jpg";
+				weaword="images/sun.png";
+			}else if(word.equals("눈")){
+				weaword="images/snow.png";
+			}
+			else if(word.equals("천둥")){
+				weaword="images/thunder.png";
+			}
+			else if(word.equals("안개")){
+				weaword="images/sun_cloud";
 			}else{								//없는 단어
 				weaword="images/character.png";
 			}
