@@ -3,8 +3,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="comma.sist.user.dao.UserVO" alias="User"/>
+		<typeAlias type="comma.sist.common.TextVO" alias="Text"/>
 		<typeAlias type="comma.sist.guide.dao.GuideVO" alias="Guide"/>
 		<typeAlias type="comma.sist.tourist.dao.TouristVO" alias="Tourist"/>
+		
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

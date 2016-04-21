@@ -14,9 +14,18 @@ public class GuideVO {
 	private String	guide_img;
 	private String	guide_map;
 	private String	guide_cost_detail;
+	
 	private TextVO	textVO;
+	private int		filesize;
 	
 	
+	
+	public int getFilesize() {
+		return filesize;
+	}
+	public void setFilesize(int filesize) {
+		this.filesize = filesize;
+	}
 	public String getGuide_cost_detail() {
 		return guide_cost_detail;
 	}

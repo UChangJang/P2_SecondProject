@@ -421,7 +421,12 @@
 		<artifactId>jsoup</artifactId>
 		<version>1.8.3</version>
 	  </dependency>
-              
+      <!-- cos -->
+      <dependency>
+		<groupId>com.servlets</groupId>
+		<artifactId>cos</artifactId>
+		<version>05Nov2002</version>
+	  </dependency>
    </dependencies>
 	
 	

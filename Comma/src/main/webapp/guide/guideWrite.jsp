@@ -129,7 +129,7 @@
 
 
 			<section> <!-- 글쓰기 -->
-			<form method="post" action="guide_Insert.do">
+			<form method="post" action="guide_Insert.do" enctype="multipart/form-data">
 				<div class="row uniform">
 					<div class="2u 12u$(xsmall) gWrite_left">
 						<!-- 1 왼쪽 : 제목-->
@@ -158,7 +158,7 @@
 					<div class="10u$ 12u$(xsmall)">
 						<span class="my-thumb-1">
 							<div>
-								<input type='file' id="profile_img" />
+								<input type='file' id="profile_img" name="guide_img"/>
 							</div>
 							<div>
 								<img id="blah" src="#" alt="" />

@@ -6,11 +6,19 @@
 		select guide_no,guide_subject from guide where guide_no=#{guide_no}
 	</select>
 	
+	
+	<!-- 글 추가시 -->
+	<insert id="TextInsert" parameterType="Text">
+		insert into text values((select NVL(max(text_no)+1,1) from text),#{text_loc},#{text_cost},#{text_total_person},
+		#{text_date},#{text_time},#{text_move},#{text_hit},#{text_end})
+	</insert>
+	
 	<!-- 가이드 글 추가 -->
 	<insert id="guideInsert" parameterType="Guide">
 		insert into guide(guide_no,guide_subject,guide_loc_intro) 
 			values((select NVL(max(guide_no)+1,1) from guide),#{guide_subject},#{guide_loc_intro})
 	</insert>
+	
 	
 </mapper>
 
