@@ -82,6 +82,13 @@
 				<div class="inner">
 					<form method="post" action="#">
 						<div class="row uniform">
+							<div id="hotkeyword_guide">
+							<span><b>Hot Keyword</b></span>&nbsp;&nbsp;&nbsp;&nbsp;
+							<span>seoul</span>&nbsp;&nbsp;<span>jeju</span>
+							&nbsp;&nbsp;<span>daegu</span>&nbsp;&nbsp;
+							<span>gwangju</span>&nbsp;&nbsp;<span>busan</span>
+							</div>
+							
 							<div class="9u 12u$(xsmall)">
 								<input type="text" name="demo-name" id="demo-name" value=""
 									placeholder="지역 검색" />
@@ -105,7 +112,7 @@
 
 							<div class="12u$ 12u$(xsmall)">
 								<!-- 2. 상세체크 -->
-								<div class="selectGuidepeople">
+								<div class="selectGuideMethod">
 									<input type="radio" id="demo-priority-low"
 									name="demo-priority" checked class="guideLabel"> 
 									<label for="demo-priority-low">걷기</label> <input type="radio"
@@ -116,7 +123,7 @@
 									</div>
 								<div class="select-wrapper" id="guide_howmany">
 									<select name="demo-category" id="demo-category">
-										<option value="">인원선택</option>
+										<option value="">people&nbsp;&nbsp;&nbsp;&nbsp;</option>
 										<option value="1">1명</option>
 										<option value="1">2</option>
 										<option value="1">3</option>

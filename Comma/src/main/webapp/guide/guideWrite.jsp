@@ -64,6 +64,8 @@
 	}
 </script>
 
+
+
 <!-- 마우스오버시 메뉴나옴 -->
 <script type="text/javascript" src="./jquery.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -130,7 +132,7 @@
 
 			<section> <!-- 글쓰기 -->
 			<form method="post" action="guide_Insert.do">
-				<div class="row uniform">
+				<div class="row uniform" id="guideWrite_text">
 					<div class="2u 12u$(xsmall) gWrite_left">
 						<!-- 1 왼쪽 : 제목-->
 						<h5>제목</h5>
@@ -151,8 +153,86 @@
 							placeholder="Write your trip plan" rows="6"></textarea>
 					</div>
 
-					<div class="2u 12u$(xsmall) gWrite_left">
-						<!-- 3 왼쪽 : 관광지세부사진-->
+
+
+
+
+				 	<div class="2u 12u$(xsmall) gWrite_left">
+						<h5>세부소개1</h5>
+					</div>
+					<div class="3u 12u$(xsmall)">
+						<span class="my-thumb-1">
+							<div>
+								<input type='file' id="profile_img" />
+							</div>
+							<div>
+								<img id="blah" src="#" alt="" />
+							</div>
+
+						</span>
+					</div>
+					<div class="7u$ 12u$(xsmall)">
+						<textarea name="guide_detail" id="demo-message"
+							placeholder="Enter your message detail" rows="6"></textarea>
+					</div>
+					
+					<div class="2u 12u$(xsmall)">
+					</div>
+					<div class="10u$ 12u$(xsmall)" id="plusdelbtn">
+						<div class="plusBtn">내용추가&nbsp;&nbsp;</div>
+						<div class="deleteBtn">내용삭제</div>
+					</div>
+					
+					
+					<!-- 22222222222222222222222222222222222222222222222222 -->
+					<div class="2u 12u$(xsmall) gWrite_left plusWrite1">
+						<h5>세부소개2</h5>
+					</div>
+					<div class="3u 12u$(xsmall) plusWrite1">
+						<span class="my-thumb-1">
+							<div>
+								<input type='file' id="profile_img2" />
+							</div>
+							<div>
+								<img id="blah2" src="#" alt="" />
+							</div>
+
+						</span>
+					</div>
+					<div class="7u$ 12u$(xsmall) plusWrite1">
+						<textarea name="guide_detail" id="demo-message"
+							placeholder="Enter your message detail" rows="6"></textarea>
+					</div>
+					
+					<!-- 3333333333333333333333333333333333333333333333333-->
+					<div class="2u 12u$(xsmall) gWrite_left plusWrite2">
+						<h5>세부소개3</h5>
+					</div>
+					<div class="3u 12u$(xsmall) plusWrite2">
+						<span class="my-thumb-1">
+							<div>
+								<input type='file' id="profile_img3" />
+							</div>
+							<div>
+								<img id="blah3" src="#" alt="" />
+							</div>
+
+						</span>
+					</div>
+					<div class="7u$ 12u$(xsmall) plusWrite2">
+						<textarea name="guide_detail" id="demo-message"
+							placeholder="Enter your message detail" rows="6"></textarea>
+					</div>
+
+					
+
+
+
+
+
+
+					<!-- <div class="2u 12u$(xsmall) gWrite_left">
+						3 왼쪽 : 관광지세부사진
 						<h5>세부관광지_사진</h5>
 					</div>
 					<div class="10u$ 12u$(xsmall)">
@@ -182,34 +262,34 @@
 					</div>
 
 					<div class="2u 12u$(xsmall) gWrite_left">
-						<!-- 4 왼쪽 : 세부관광지소개-->
+						4 왼쪽 : 세부관광지소개
 						<h5>세부소개1</h5>
 					</div>
 					<div class="10u$ 12u$(xsmall)">
-						<!-- 4 오른쪽 -->
+						4 오른쪽
 						<textarea name="guide_detail" id="demo-message"
 							placeholder="Enter your message detail" rows="6"></textarea>
 					</div>
 
 					<div class="2u 12u$(xsmall) gWrite_left">
-						<!-- 4 왼쪽 : 세부관광지소개-->
+						4 왼쪽 : 세부관광지소개
 						<h5>세부소개2</h5>
 					</div>
 					<div class="10u$ 12u$(xsmall)">
-						<!-- 4 오른쪽 -->
+						4 오른쪽
 						<textarea name="demo-message" id="demo-message"
 							placeholder="Enter your message detail" rows="6"></textarea>
 					</div>
 
 					<div class="2u 12u$(xsmall) gWrite_left">
-						<!-- 4 왼쪽 : 세부관광지소개-->
+						4 왼쪽 : 세부관광지소개
 						<h5>세부소개3</h5>
 					</div>
 					<div class="10u$ 12u$(xsmall)">
-						<!-- 4 오른쪽 -->
+						4 오른쪽
 						<textarea name="demo-message" id="demo-message"
 							placeholder="Enter your message detail" rows="6"></textarea>
-					</div>
+					</div> -->
 
 					<div class="2u 12u$(xsmall) gWrite_left">
 						<!-- 5 왼쪽 : 지역-->
@@ -290,10 +370,10 @@
 						<!-- 5 왼쪽 : 시간-->
 						<h5>시간</h5>
 					</div>
-					<div class="4u 12u$(xsmall)">
+					<div class="2u 12u$(xsmall)">
 						<!-- 5 오른쪽 -->
 						<div class="select-wrapper">
-							<select name="text_time1" id="demo-category">
+							<select name="text_time1" id="demo-category1">
 								<option value="">- 시간 -</option>
 								<option value="1">1</option>
 								<option value="1">2</option>
@@ -310,15 +390,22 @@
 							</select>
 						</div>
 					</div>
-
-					<div class="1u 12u$(xsmall) gWrite_left">
-						<!-- 5-1 왼쪽 : 모집인원-->
-						<h5>~</h5>
+					<div class="2u 12u$(xsmall)">
+						<div class="select-wrapper">
+							<select name="text_time2" id="demo-category2">
+								<option value="">- 시간 -</option>
+								<option value="1">AM</option>
+								<option value="1">PM</option>
+							</select>
+						</div>
 					</div>
-					<div class="5u$ 12u$(xsmall)">
+					<div class="1u 12u$(xsmall)" id="timeflow">
+						<b>~</b>
+					</div>
+					<div class="2u 12u$(xsmall)">
 						<!-- 5-1 오른쪽 -->
 						<div class="select-wrapper">
-							<select name="text_time2" id="demo-category">
+							<select name="text_time3" id="demo-category3">
 								<option value="">- 시간 -</option>
 								<option value="1">1</option>
 								<option value="1">2</option>
@@ -332,6 +419,15 @@
 								<option value="1">10</option>
 								<option value="1">11</option>
 								<option value="1">12</option>
+							</select>
+						</div>
+					</div>
+					<div class="2u$ 12u$(xsmall)">
+						<div class="select-wrapper">
+							<select name="text_time4" id="demo-category4">
+								<option value="">- 시간 -</option>
+								<option value="1">AM</option>
+								<option value="1">PM</option>
 							</select>
 						</div>
 					</div>
@@ -458,6 +554,40 @@
 			}
 		});
 	</script>
+	
+	<!-- 세부내용 추가 jquery -->
+<script type="text/javascript" src="http://code.jquery.com.jquery.js"></script>
+<script type="text/javascript">
+
+	var p=0;
+	
+	$(function(){
+		$('.plusBtn').click(function(){
+			if(p==0){
+				$('.plusWrite1').show();
+				p=1;
+			}else if(p==1){
+				$('.plusWrite2').show();
+				p=2;
+			}else{
+				alert("더이상 추가 할 수 없습니다.");
+			}
+		});
+		
+		$('.deleteBtn').click(function(){
+			if(p==1){
+				$('.plusWrite1').hide();
+				p=0;
+			}else if(p==2){
+				$('.plusWrite2').hide();
+				p=1;
+			}else{
+				alert("삭제할 것이 없습니다.");
+			}
+		});
+		
+	});
+</script>
 
 </body>
 </html>
