@@ -36,20 +36,7 @@
 		<!-- 마우스오버시 메뉴나옴 -->
 		<script type="text/javascript" src="./jquery.js"></script>
 	    <link href="style.css" rel="stylesheet" type="text/css">
-<<<<<<< HEAD
-		<script type="text/javascript" src="./menu.js"></script>	
-		
-=======
 		<script type="text/javascript" src="./menu.js"></script>			
-
-
-
-
-
-
-
-
->>>>>>> refs/remotes/origin/master
 </head>
 	
 
