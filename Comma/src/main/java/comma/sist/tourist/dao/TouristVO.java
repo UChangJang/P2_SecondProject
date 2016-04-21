@@ -6,6 +6,7 @@ public class TouristVO {
 	private int text_no;//fk
 	private String tour_theme ;
 	private String tour_detail ;
+	
 	public int getTour_no() {
 		return tour_no;
 	}

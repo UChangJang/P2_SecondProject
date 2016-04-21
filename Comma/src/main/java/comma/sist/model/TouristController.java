@@ -5,6 +5,8 @@ import javax.servlet.http.HttpSession;
 
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
+import comma.sist.tourist.dao.TouristDAO;
+import comma.sist.tourist.dao.TouristVO;
 
 @Controller("tc")
 public class TouristController {
@@ -17,5 +19,8 @@ public class TouristController {
 		
 		return "tourist/tourist.jsp";
 	}
+	
+	
+	
 
 }

@@ -5,9 +5,6 @@
 <html>
 	<head>
 		<title>여행가이드 메인</title>
-		
-
-
 		<meta charset="utf-8" />
 		
 		<!-- meta:문서의 기본형식 지정/ 메인 -->
@@ -44,9 +41,10 @@
 
 	<!-- Page Wrapper -->
 	<div id="page-wrapper">
-
+		<jsp:include page="${ menu} "/>
+		
 		<!-- Header -->
-		<header id="header" class="alt">
+		<%-- <header id="header" class="alt">
 			<h1>
 				<a href="main.do">상단메뉴</a>
 			</h1>
@@ -158,7 +156,7 @@
 					</li>
 				</ul>
 			</nav>
-		</header>
+		</header> --%>
 
 
 		<!-- Main -->

@@ -66,7 +66,7 @@
 					<article id="main">
 						<header>
 							<h2>가이드찾기 글쓰기</h2>
-							<p>Aliquam ut ex ut interdum donec amet imperdiet eleifend</p>
+							<p>I Love You</p>
 						</header>
 						
 						<section class="wrapper style5">
@@ -82,7 +82,7 @@
 												<h3>제목</h3>
 											</div>
 											<div class="9u 12u$(xsmall)">
-												<input type="text" name="demo-name" id="demo-name" value="" placeholder="제목" />
+												<input type="text" name="tourist_theme" id="demo-name" value="" placeholder="제목" />
 											</div>
 											
 											
@@ -93,7 +93,7 @@
 												<div class="select-wrapper">
 													<select name="demo-category" id="demo-category">
 														<option value="">- Category -</option>
-														<option value="1">서울</option>
+														<option value="서울">서울</option>
 														<option value="1">대전</option>
 														<option value="1">대구</option>
 														<option value="1">부산</option>
@@ -195,11 +195,11 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/jquery.scrollex.min.js"></script>
-			<script src="../assets/js/jquery.scrolly.min.js"></script>
-			<script src="../assets/js/skel.min.js"></script>
-			<script src="../assets/js/util.js"></script>
+			<script src="../controller/assets/js/jquery.min.js"></script>
+			<script src="../controller/assets/js/jquery.scrollex.min.js"></script>
+			<script src="../controller/assets/js/jquery.scrolly.min.js"></script>
+			<script src="../controller/assets/js/skel.min.js"></script>
+			<script src="../controller/assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="../assets/js/main.js"></script>
 			

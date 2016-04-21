@@ -30,7 +30,7 @@ public class IntroController {
 		List<WeatherDTO> wlist=wm.weatherAllData();
 		
 		req.setAttribute("wlist", wlist);
-		
+		req.setAttribute("menu", "menu_include/sidemenu.jsp");
 		return "main.jsp";
 	}
 	
