@@ -101,30 +101,32 @@
 						</div>
 
 						<div class="row uniform" id="panel">
-							<!-- 상세검색div -->
-							<div class="6u 12u$(xsmall)">
-								<span class="image fit"> <img
-									src="../controller/images/map.png" alt="" /> <!-- 1. 지도 -->
-								</span>
-							</div>
+							<!-- 상세검색div -->						
 
-							<div class="6u$ 12u$(xsmall)">
+							<div class="12u$ 12u$(xsmall)">
 								<!-- 2. 상세체크 -->
-								<br> <input type="radio" id="demo-priority-low"
-									name="demo-priority" checked> <label
-									for="demo-priority-low">걷기</label> <input type="radio"
+								<div class="selectGuidepeople">
+									<input type="radio" id="demo-priority-low"
+									name="demo-priority" checked class="guideLabel"> 
+									<label for="demo-priority-low">걷기</label> <input type="radio"
 									id="demo-priority-normal" name="demo-priority"> <label
 									for="demo-priority-normal">자동차</label> <input type="radio"
 									id="demo-priority-high" name="demo-priority"> <label
-									for="demo-priority-high">자전거</label> <br>
-								<br>
-								<div class="select-wrapper">
+									for="demo-priority-high">자전거</label> 
+									</div>
+								<div class="select-wrapper" id="guide_howmany">
 									<select name="demo-category" id="demo-category">
 										<option value="">인원선택</option>
 										<option value="1">1명</option>
-										<option value="1">5명이하</option>
-										<option value="1">10명이하</option>
-										<option value="1">단체</option>
+										<option value="1">2</option>
+										<option value="1">3</option>
+										<option value="1">4</option>
+										<option value="1">5</option>
+										<option value="1">6</option>
+										<option value="1">7</option>
+										<option value="1">8</option>
+										<option value="1">9</option>
+										<option value="1">10</option>
 									</select>
 								</div>
 
@@ -132,6 +134,7 @@
 									<input type="text" id="dt" placeholder="날짜선택">
 									<div id="dd"></div>
 								</div>
+								
 							</div>
 						</div>
 					</form>

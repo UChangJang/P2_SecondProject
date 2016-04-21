@@ -170,39 +170,59 @@
 	background-color: #c0c0c0;
 }
 
-#demo{
-	margin-top: 3em;
-}
 
 #wrapdetail{
 	width:100%;height: 100%;position:relative;	
 }
 
 #bt{
-	left:60%;border:1px solid #2e2e2e; width:5em;height:3em; 	
-	margin-top:4em;
+	left:60%;width:5em;height:3em; 	
+	margin-top:2em;
 	margin-bottom:3em;
 	margin-left:40%;
 	margin-right:60%;
     padding: 5px;
     width:6em;
     text-align: center;
-    background-color: #000;
-    border: solid 1px #000;
 	cursor:pointer;
-	color:#fff;
+	color:#400040;
 }
+#bt:hover{
+	color: #ff8040;
+}
+
+
 #panel {
     padding-bottom:2em;
     display: none;
+    background-color: #c0c0c0;
+    border-radius: 3px;
+    color: white;
+}
+
+/* 가이드찾기 상세정보 */
+#guide_howmany{
+ width:33%;
+ display: inline-block;
+ float: left;
+ margin-right: 2em;
+}
+#demo{
+	width:33%;
+    display: inline-block;
+    float: left;
+}
+.selectGuidepeople{
+	width:33%;
 }
 
 
-
-
 /* 가이드 3x3: 이미지 + 상세정보*/
+#guideListSection{
+	padding-top: 3em;
+}
 .image.fit.a img{
-	height: 23em;	
+	height: 21em;	
 }
 .listText{
 	width:100%;
@@ -365,10 +385,11 @@
 	}
 		
 .wrapper.widthsiz3{
-		padding: 1em 0 2em 0 ;
-		margin-top: 0;
+		padding: 2em 0 2em 0 ;
 	}
-	
+.wrapper.widthsiz4{
+		padding: 2em 0 0 0 ;
+	}	
 
 
 
@@ -821,16 +842,17 @@
 		#banner1:after {
 			display: none;
 		}
-		
+
 /* mainMenu */
 #mainMenu{
 	background-color: #FED53E;
 	height: 3em;
 	color: black;
 	vertical-align: middle;
-	padding:0.5em;
+	padding:0.7em;
 	text-decoration:none;
 }
+
 #mainMenu span{
 	color: #403A3A;
 	font-weight: bold; 
@@ -846,6 +868,15 @@
 	font-weight: bold; 
 }
 
+/* mainMenu_hover */
+#mainMenu_hover{
+	font-size: 14px;
+}
+#mainnMenu_nav ul li b{
+	font-size: 20px;
+}
+
+/* mainRight */
 #mainRight{
 	font-size: 13px;
 }
@@ -862,8 +893,8 @@
 }
 
 #mainRight div{
-	padding: 0.7em;
-	background-color: #400080;
+	padding: 1em;
+	background-color: #6B625B;
 	height: 100%;
 	
 }
@@ -871,6 +902,15 @@
 	padding: 1em;
 	background-color: olive;
 	height: 100%;
+	width: 16em;
+	
+	-webkit-border-top-right-radius: 0.5em;
+	-moz-border-top-right-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+	
+	-webkit-bottom-right-radius: 0.5em;
+	-moz-bottom-right-radius: 0.5em;
+	border-bottom-right-radius: 0.5em;
 	
 }
 #mainRight_home{
@@ -898,7 +938,7 @@
 
 #mainTop{
 	height: 20em;
-	margin: 2em 0 2em 0;
+	/* margin: 2em 0 2em 0; */
 }
 
 #mainTop .image.fit.a img{
@@ -920,7 +960,7 @@
 	 height: 100%;
 }
 /* 메인_best guide 6명 */
-.secondPart{
+.secondPart, .thirdPart{
 	height: 18em;
 	
 }
@@ -935,16 +975,16 @@
 }
 
 /* 메인 실시간 인기 테이블 */
-#guideRanking h4,#HotSpot h4{
+#guideRanking h4,#tabControlWrap h4{
 	background-color: #800000;
 	margin:0;
 	line-height:2em;
 }
-#HotSpot span table{
+#tabControlWrap span table{
 	float:left;
 	text-align: left;
 }
-#HotSpot span p{
+#tabControlWrap span p{
 	margin-bottom: 0;
 }
 
@@ -953,23 +993,44 @@
 	height: 100%;
 	
 }
-#newest1{
+.tabControlTabs{	/* 111 hot 리스트 지역*/
 	width: 40%;
-	display: inline-block;
 	float:left;
 	
 }
-#newest2{
-	width: 60%;
-	display: inline-block;
-	float:left;
-}
-/* 메인 날씨 */
-#weatherMain img{
-	height:26em;
-	
-}
-.guideRanking{
-	height: 26em;
+.tabControlTabs tr{
+	cursor:pointer;
 }
 
+
+.tabControlBodys table{ /* 222 hot 리스트 내용*/
+ 	display:none; 
+}
+
+.tabControlBodys table.selected{ /* 222 hot 리스트 내용*/
+ 	display:table; 
+}
+
+.tabControlBody{ /* 222 hot 리스트 내용*/
+	width: 60%;
+	float:left;
+}
+
+/* 메인 날씨 */
+
+#weather li{
+	margin-top: 1em;
+	
+}
+#weather li img{
+	width: 100%;
+	height: 17em;
+}
+#weather li p{
+	background-color: gray;
+	font-size: 1.5em;
+	
+}
+.thirdPart table tr td{
+    padding: 0.45em 0.35em;
+}
