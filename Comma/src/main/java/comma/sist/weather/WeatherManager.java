@@ -42,9 +42,10 @@ public class WeatherManager {
 					d.setNo(i+1);		//추가
 					d.setLoc(locem.text());
 					d.setTempera(Double.parseDouble(tempem.text()));
-					d.setWeatherWord(imgem.attr("alt"));
+					d.setWeatherWord(imgem.attr("alt"));			//날씨상황텍스트
+					d.setWeaAddr(weatherImg(imgem.attr("alt")));	//날씨이미지 주소
 					list.add(d);
-					System.out.println(d.getLoc()+","+d.getTempera()+","+d.getWeatherWord());
+					System.out.println(d.getLoc()+","+d.getTempera()+","+d.getWeatherWord()+","+d.getWeaAddr());
 				}
 				
 			}catch(Exception e){
@@ -65,6 +66,28 @@ public class WeatherManager {
 				}
 			}
 			return d;
+		}
+		
+		/* 날씨별 이미지 저장 */
+		public String weatherImg(String word){
+			
+			String weaword="";
+			
+			if(word.equals("구름조금")){		
+				weaword="images/pic04.jpg";
+			}else if(word.equals("구름많음")){
+				weaword="images/pic05.jpg";
+			}else if(word.equals("비")){
+				weaword="images/pic04.jpg";
+			}else if(word.equals("흐림")){
+				weaword="images/pic05.jpg";
+			}else if(word.equals("맑음")){
+				weaword="images/pic04.jpg";
+			}else{								//없는 단어
+				weaword="images/character.png";
+			}
+			
+			return weaword;
 		}
 	
 	}

@@ -1,0 +1,16 @@
+.tabControlTab {cursor:pointer;}
+.tabControlBodys li {display:none;}
+ .tabControlBodys li.selected {display:block;} 
+
+		body {margin:0px; padding:0px;}/**/
+        ul,li { list-style:none; margin:0px; padding:0px; font-size:12px; }/**/
+		.tabControlWrap {/* width:500px; */}/**/
+		.tabControlTabs {float:left; height: 100%}/**/
+		.tabControlTab { background-color:#808040; width:100%;  height: 20%;  line-height:1em; vertical-align:middle; text-align:center; font-size:2em;}
+		.tabControlTabs .selected {background-color:gray; color:#fff;}/**/
+		.tabControlBodys {height: 100%;}
+		.tabControlBody {width:100; height:100%; line-height:1em; font-size:1.5em; font-weight:bold; text-align:center; color:#fff;}
+		.tabControlBody p{
+			height: 20%; 
+			margin: 0;
+		}

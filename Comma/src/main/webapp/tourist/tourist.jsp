@@ -8,11 +8,11 @@
 		
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
-		<link rel="stylesheet" href="../assets/css/mytest.css" />
+		<link rel="stylesheet" href="../controller/assets/css/main.css" />
+		<link rel="stylesheet" href="../controller/assets/css/mytest.css" />
 		
 		<!-- 달력css -->
-		<link rel="stylesheet" href="../assets/css/dcalendar.picker.css">
+		<link rel="stylesheet" href="../controller/assets/css/dcalendar.picker.css">
 
 		<!-- 마우스오버시 메뉴나옴 -->
 			<script type="text/javascript" src="./jquery.js"></script>
@@ -77,7 +77,7 @@
 									<div class="row uniform">					<!-- 상세검색div -->
 										<div class="6u 12u$(xsmall)">
 											<span class="image fit">
-												<img src="../images/map.png" alt=""/>		<!-- 1. 지도 -->
+												<img src="../controller/images/map.png" alt=""/>		<!-- 1. 지도 -->
 											</span>
 										</div>
 										
@@ -102,7 +102,7 @@
 											
 											<div class="3u">					<!-- 사진 -->
 												<span class="image fit">
-													<img src="../images/pic01.jpg" alt=""/>
+													<img src="../controller/images/pic01.jpg" alt=""/>
 												</span>	
 											</div>
 											<div class="9u">					<!-- 리스트 -->
@@ -127,7 +127,7 @@
 											
 											<div class="3u">					<!-- 사진 -->
 												<span class="image fit">
-													<img src="../images/pic01.jpg" alt=""/>
+													<img src="../controller/images/pic01.jpg" alt=""/>
 												</span>	
 											</div>
 											<div class="9u">					<!-- 리스트 -->
@@ -152,7 +152,7 @@
 											
 											<div class="3u">					<!-- 사진 -->
 												<span class="image fit">
-													<img src="../images/pic01.jpg" alt=""/>
+													<img src="../controller/images/pic01.jpg" alt=""/>
 												</span>	
 											</div>
 											<div class="9u">					<!-- 리스트 -->
@@ -177,7 +177,7 @@
 											
 											<div class="3u">					<!-- 사진 -->
 												<span class="image fit">
-													<img src="../images/pic01.jpg" alt=""/>
+													<img src="../controller/images/pic01.jpg" alt=""/>
 												</span>	
 											</div>
 											<div class="9u">					<!-- 리스트 -->
@@ -202,7 +202,7 @@
 											
 											<div class="3u">					<!-- 사진 -->
 												<span class="image fit">
-													<img src="../images/pic01.jpg" alt=""/>
+													<img src="../controller/images/pic01.jpg" alt=""/>
 												</span>	
 											</div>
 											<div class="9u">					<!-- 리스트 -->

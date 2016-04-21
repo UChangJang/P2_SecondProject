@@ -12,7 +12,7 @@
 <body>
 
 
-	<section class="wrapper style5" id="two">
+	<section class="wrapper style5" id="guideListSection">
 		<div class="inner">
 			<h4>가이드리스트</h4>
 			<div class="box alt">

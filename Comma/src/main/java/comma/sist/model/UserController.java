@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.user.dao.UserDAO;
+import comma.sist.user.dao.UserVO;
 
 @Controller("uc")
 public class UserController {
@@ -40,7 +41,32 @@ public class UserController {
 		
 		return "user/logout.jsp";
 	}
-	
+	@RequestMapping("join.do")
+	public String memberJoinOk(HttpServletRequest req) throws Exception{
+		HttpSession session=req.getSession();
+		req.setCharacterEncoding("EUC-KR");
+		String id=req.getParameter("id");
+		String name=req.getParameter("name");
+		String pwd=req.getParameter("pwd");
+		String mail=req.getParameter("email");
+		String nick=req.getParameter("nick");		
+		
+		UserVO vo=new UserVO();
+		vo.setUser_id(id);
+		vo.setUser_pwd(pwd);
+		vo.setUser_name(name);
+		vo.setUser_nick(nick);
+		vo.setUser_mail(mail);
+		System.out.println(vo.getUser_name());
+		System.out.println(vo.getUser_id());
+		System.out.println(vo.getUser_pwd());
+		System.out.println(vo.getUser_nick());
+		System.out.println(vo.getUser_mail());	
+		UserDAO.userJoin(vo);
+		
+
+		return "user/join.jsp";
+	}
 	
 	
 	
