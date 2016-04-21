@@ -606,9 +606,9 @@
              navigator: '#mainRight a',
              duration: 300,
 			autoslide: 3000
+			
          });
          
-        
          $('#weather').ulslide({		/* 날씨 슬라이드 */
              statusbar: true,
              affect: 'slide',

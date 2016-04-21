@@ -14,29 +14,79 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 <script type=text/javascript>
-	$(document).ready(function() {
+/*	 $(document).ready(function() {
 
-		var nav = $('.side2');
-		var navoffset = $('.side2').offset();
-		/* offset을 이용하여 .menu(메뉴영역)의 위치값을 알아내어 navoffset에 넣어둔다 */
-
+		var nav = $('#guideBoardSide');
+		var navoffset = $('#guideBoardSide').offset();
+		
 		$(window).scroll(function() {
-			//var width1 = $(this).Window.width;
+			var width1 = $(this).window.width();
+			
+			if($(this).scrollTop() >= 200) { 	//스크롤 내렸을 때
 
-			if ($(this).scrollTop() >= navoffset.top) { /* 화면 스크롤 값이 메뉴영역의 top보다 값이 커지면*/ 
-				/* if(width1==100){
-					nav.css('position','relative').css('top',0);
-				}else { */
-				nav.css('top', $(this).scrollTop() - 530); /* 화면 위쪽에 고정시킨다.*/
-				//}
-
-			} else {
-				nav.css('position', 'relative').css('top', 0); /* 처음 메뉴영역의 top 값으로 돌리기 */
+			 	if(width1>1600){	//1.화면이 클 때
+					//nav.css('position','fixed').css('top',20);
+				 	nav.css('top', $(this).scrollTop()-560);
+				 	alert(width1+"1");
+			 		//nav.css('position','fixed').css('top',20).css('width',200);
+				}else if(1600>=width1>1200){ 			//2.화면이 작을때
+					//nav.css('top', $(this).scrollTop());
+					//nav.css('position', 'relative').css('top', 0); 
+					nav.css('top', $(this).scrollTop()-560);
+					alert(width1+"2");
+				}else if(1200>=width1>800){ 			//2.화면이 작을때
+					//nav.css('top', $(this).scrollTop());
+					//nav.css('position', 'relative').css('top', 0); 
+					nav.css('top', $(this).scrollTop()-460);
+					alert(width1+"3");
+				}
+				else { 			//2.화면이 작을때
+					//nav.css('top', $(this).scrollTop());
+					//nav.css('position', 'relative').css('top', 0); 
+					nav.css('top', $(this).scrollTop()-460);
+					alert(width1+"6");
+				}
+			} else {									//스크롤 안내렸을 때
+				nav.css('position', 'relative').css('top', 0); 
+				alert(width1+"4");
 			} 
-			
-			
 		});
-	});
+	});*/
+	
+		 $(function(){
+			var width1=$(window).width();
+			var navoffset = $('#guideBoardSide').offset();
+
+			$(window).scroll(function(){  //스크롤하면 아래 코드 실행
+				
+				
+			       var num = $(this).scrollTop();  // 스크롤값
+			       if( num >= 530 && width1>=2000){  			// 스크롤을 36이상 했을 때
+			    	   $("#guideBoardSide").css("position","fixed").css("width","13em").css("top","5em");
+			    	}
+			       if( num >= 530 && width1>1680){  			// 스크롤을 36이상 했을 때
+			    	   $("#guideBoardSide").css("position","fixed").css("width","13em").css("top","5em");
+			    	}else if(num >= 530 && width1>1280){
+			    		   $("#guideBoardSide").css("position","fixed").css("width","12.5em").css("top","5em");
+			    	}else if(num >= 530 && width1>1100){
+			    		   $("#guideBoardSide").css("position","fixed").css("width","14em").css("top","5em");
+			    	}
+			    	else if(num >= 530 && width1>980){
+			    		   $("#guideBoardSide").css("position","fixed").css("width","16em").css("top","4em");
+			    	}else if(num >= 530 && width1>780){
+			    		   $("#guideBoardSide").css("position","fixed").css("width","14em").css("top","4em");
+			    	}	         
+			       
+					if(num<530){				//스크롤 값이 낮을때
+			          $("#guideBoardSide").css("position","relative").css("width","100%");
+			       }  
+					
+					if(width1<980){				//가로길이 짧아지면 사라지자
+						 $(".side2").css("display","none");
+					}
+			  });
+		}); 
+
 </script>
 
 
@@ -52,7 +102,7 @@
 		<!-- Header -->
 		<header id="header">
 			<h1>
-				<a href="../index.jsp">Spectral</a>
+				<a href="main.do">Home</a>
 			</h1>
 			<nav id="nav">
 				<ul>
@@ -112,7 +162,7 @@
 					
 					
 						<div class="3u 12u$(small)">								<!-- 1 왼쪽 -->
-							<div id="topBoardShort1">
+							<div id="">
 								<div>가이드</div>		
 								<div class="topBoardShort">안보영</div>							
 							</div>
@@ -135,7 +185,8 @@
 								<div class="topBoardShort">자동차</div>							
 							</div>
 						</div>
-						<div class="3u$ 12u$(small)">								
+						<div class="3u$ 12u$(small)">	
+																				
 						</div>
 						
 						
@@ -344,7 +395,14 @@
 						<!-- 사이드메뉴! -->
 						<div class="3u$ side2">
 							<div id="guideBoardSide">
-								
+								<div id="reservenow">RESERVE NOW</div>	
+								<div class="BoardSide1">신나는 서울 야경 투어</div>
+								<hr>
+								<div class="BoardSide1">가격:20000원</div>
+								<div class="BoardSide1">날짜:2016-04-24</div>
+								<div class="BoardSide1">인원:3명</div>
+								<div class="BoardSide1">수단:자동차</div>
+								<div class="BoardSide1"><input type="button" value="reserve"></div>
 							</div>
 						</div>
 					</div>
