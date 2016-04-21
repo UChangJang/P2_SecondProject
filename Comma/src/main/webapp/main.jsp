@@ -167,8 +167,8 @@
 
 			<ul id="banner1">
 				<div class="inner">
-					<br>
-					<h2>여행가이드사이트</h2>
+					<br style="display: black!important">
+					<h2 style="color:#8D7979">여행가이드사이트</h2>
 					<br>
 				</div>
 			</ul>
@@ -177,41 +177,13 @@
 				<span><a href="#">사이트소개</a></span>&nbsp;&nbsp; 
 				<span><a href="#">한국소개</a></span>&nbsp;&nbsp;
 				<span><a href="#">가이드</a></span>&nbsp;&nbsp; 
-				<span><a href="#">관광객</a></span>
-				<span><a href="#">커뮤니티</a></span>
+				<span><a href="#">관광객</a></span>&nbsp;&nbsp; 
+				<span><a href="#">커뮤니티</a></span>&nbsp;&nbsp; 
 			</div>
+			<span><img src="http://file.theskinfood.com/resources/common/img/dep2bg.png" width="100%" height="37" alt=""></span>
 		</section>
 		
-		<!-- mainmenu 마우스 오버시 출력될 섹션 -->
-		<section id="mainMenu_hover">
-			<div id="mainMenu_nav">
-				<ul>
-					<li><a href=""><b>사이트소개</b></a></li>
-					<li>What about 'Comma'</li>
-					<li>Information</li>
-				</ul>
-				<ul>
-					<li><a href=""><b>한국소개</b></a></li>
-					<li>What about 'Comma'</li>
-					<li>Information</li>
-				</ul>
-				<ul>
-					<li><a href=""><b>가이드</b></a></li>
-					<li>What about 'Comma'</li>
-					<li>Information</li>
-				</ul>
-				<ul>
-					<li><a href=""><b>관광객</b></a></li>
-					<li>What about 'Comma'</li>
-					<li>Information</li>
-				</ul>
-				<ul>
-					<li><a href=""><b>커뮤니티</b></a></li>
-					<li>What about 'Comma'</li>
-					<li>Information</li>
-				</ul>
-			</div>
-		</section>
+		
 
 
 		<section id="three" class="wrapper style2 special widthsiz2">
@@ -221,8 +193,8 @@
 					<div class="row uniform" id="mainTop">
 						<div class="3u 12u$(small)">								<!-- 1 왼쪽 -->
 							<div id="mainSearch">
-								<div class="mainSearch1" style="color: #53565B; font-style: bold">
-								<img src="images/search.png">&nbsp;&nbsp;EASY SEARCH</div>
+								<div style="color: #53565B; font-style: bold">
+								<p><img src="images/search.png">&nbsp;&nbsp;EASY SEARCH</p></div>
 								<input type="text" name="demo-name" id="demo-name" value=""
 									placeholder="지역 검색" class="mainSearch1"/> 
 								<input type="text" id="dt" placeholder="날짜선택" class="mainSearch1"/>
@@ -239,7 +211,7 @@
 
 							</div>
 						</div>
-
+						
 						<div class="7u 12u$(small)">								<!-- 2 가운데 -->
 							<span class="image fit a">
 								<div id="main_bn">
@@ -273,6 +245,7 @@
 									커뮤니티</a></div>	
 							</div>
 						</div>
+						
 					</div>
 				</section>
 			</div>

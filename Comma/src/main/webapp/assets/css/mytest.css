@@ -534,6 +534,7 @@
 				height: 2px;
 				position: absolute;
 				width: 100%;
+				
 			}
 
 			#banner1 h2:before {							/*1.'力格'惑窜 临*/
@@ -927,7 +928,6 @@
 			display: none;
 		}
 
-/* mainMenu */
 #mainMenu{
 	background-color: #FED53E;
 	height: 3em;
@@ -950,25 +950,33 @@
 	
 	color: #487D38;
 	font-weight: bold; 
-}
-
-/* mainMenu_hover */
-#mainMenu_hover{
-	font-size: 14px;
-}
-#mainnMenu_nav ul li b{
-	font-size: 20px;
-}
+} 
 
 /* mainRight */
 #mainRight{
-	font-size: 13px;
+	font-size:13px;
+	background-color: #5E3327;
+	width: 100%;
+	padding: 1em;
+	
+	padding:0;
+	
+	margin-bottom: 1em;
+	
+	/* 葛辑府 扼款爹 贸府 */
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	border-radius:5px;
 }
-#mainRight div{
+/* #mainRight{
+	font-size: 13px;
+} */
+/* #mainRight div{
 	margin-left:0;
 	width: 15em;
 	height: 1em;
-}
+} */
+
 #mainRight #mainRight_home{
 	padding-right: 2.5em;
 }
@@ -977,29 +985,32 @@
 }
 
 #mainRight div{
-	padding: 1em;
-	background-color: #6B625B;
-	height: 100%;
-	
+	padding: 0.8em;
+	background-color: #5E3327;
+	height: 80%;
 }
 #mainRight div:hover{
-	padding: 1em;
 	background-color: olive;
 	height: 100%;
-	width: 16em;
 	
-	-webkit-border-top-right-radius: 0.5em;
+	font-weight: bold;
+	
+	-webkit-border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+	border-radius: 0.5em;
+	
+/* 	-webkit-border-top-right-radius: 0.5em;
 	-moz-border-top-right-radius: 0.5em;
 	border-top-right-radius: 0.5em;
 	
 	-webkit-bottom-right-radius: 0.5em;
 	-moz-bottom-right-radius: 0.5em;
-	border-bottom-right-radius: 0.5em;
+	border-bottom-right-radius: 0.5em; */
 	
 }
 #mainRight_home{
 	margin-left: 0;
-	margin-right:0.8em;
+	/* margin-right:0.8em; */
 } 
 .mainRight_span img{
 	margin-right:0.5em
@@ -1010,12 +1021,23 @@
 	width: 100%;
 	padding: 1em;
 	
+	font-size: 0.8em;
+	font-weight: bold;
+	
+	color:#5E3327;
+	
 	/* 葛辑府 扼款爹 贸府 */
 	-webkit-border-radius:5px;
 	-moz-border-radius:5px;
 	border-radius:5px;
+	
+	padding-top: 0.6em;
+	padding-bottom: 0.6em;
 }
-
+#mainSearch div p{
+	margin-top: 0.2em;
+	margin-bottom: 0.8em;
+}
 .mainSearch1{
 	margin-bottom: 1em;
 }
