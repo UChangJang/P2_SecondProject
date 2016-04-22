@@ -30,42 +30,54 @@ public class IntroController {
 		List<WeatherDTO> wlist=wm.weatherAllData();
 		
 		req.setAttribute("wlist", wlist);
-		req.setAttribute("menu", "menu_include/sidemenu.jsp");
+		req.setAttribute("jsp", "section.jsp");
 		return "main.jsp";
 	}
 	
 	@RequestMapping("introduceSite.do")
 	public String introduceSite(HttpServletRequest request){
-		System.out.println("introduceSite俊 立加");		
-		return "intro/introduceSite.jsp";
+		request.setAttribute("jsp", "intro/introduceSite.jsp");
+		return "main.jsp";
 	}
 	@RequestMapping("introduceKor.do")
 	public String introduceKor(HttpServletRequest request){
-		System.out.println("introduceKor俊 立加");		
-		return "intro/introduceKor.jsp";
+		request.setAttribute("jsp", "intro/introduceKor.jsp");
+		return "main.jsp";
 	}
 	
 	@RequestMapping("guide.do")
 	public String guide(HttpServletRequest request){
-		System.out.println("guide俊 立加");		
-		return "guide/guide.jsp";
+		request.setAttribute("jsp", "guide/guide.jsp");	
+		return "main.jsp";
 	}
 	
 	@RequestMapping("guideWrite.do")
 	public String guideWrite(HttpServletRequest request){
-		System.out.println("guideWrite俊 立加");		
-		return "guide/guideWrite.jsp";
+		request.setAttribute("jsp", "guide/guideWrite.jsp");		
+		return "main.jsp";
 	}
 	
 	@RequestMapping("guideBoard.do")
 	public String guideBoard(HttpServletRequest request){
-		System.out.println("guideBoard俊 立加");		
-		return "guide/guideBoard.jsp";
+		request.setAttribute("jsp", "guide/guideBoard.jsp");			
+		return "main.jsp";
 	}
 	
 	@RequestMapping("mypage.do")
 	public String mypage(HttpServletRequest request){
-		System.out.println("mypage俊 立加");		
-		return "mypage/mypage.jsp";
+		request.setAttribute("jsp", "mypage/mypage.jsp");	
+		return "main.jsp";
+	}
+	
+	@RequestMapping("tourist.do")
+	public String tourist(HttpServletRequest request){
+		request.setAttribute("jsp", "tourist/tourist.jsp");	
+		return "main.jsp";
+	}
+	
+	@RequestMapping("touristWrite.do")
+	public String touristWrite(HttpServletRequest request){
+		request.setAttribute("jsp", "tourist/touristWrite.jsp");	
+		return "main.jsp";
 	}
 }
