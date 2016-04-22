@@ -150,12 +150,18 @@
 										
 										<div class="7u$ 12u$(small)">				<!-- 2 오른쪽 -->
 											<ul class="alt">
-												<li><a href="mypage_wishList.html"><h5>위시리스트</h5></a></li>
+												<form method='POST' name="mywish" style="margin:0" onsubmit="wish_form()">
+													<input type="hidden" value="${sessionScope.id }" name="userid">		
+													<li><a href="#none"><h5>위시리스트</h5></a></li>
+												</form>
 												<li><a href="mypage_myWriting.html"><h5>내가 쓴 글</h5></a></li>
 												<li><a href="mypage_bookingList.html"><h5>예약리스트</h5></a></li>
-												<li><a href="mypage_infoCorrection.html"><h5>정보수정</h5></a></li>
+												<form method='POST' name="mydetail" style="margin:0" onsubmit="check_form1()">										
+													<input type="hidden" value="${sessionScope.id }" name="userid">
+													<li><a href="#none" onclick="check_form1()"><h5>정보수정</h5></a></li>
+												</form>
 												<li><a href="mypage_opinion.html"><h5>후기들</h5></a></li>																		
-												<form method='POST' name="fname" style="margin:0" onsubmit="check_form()">
+												<form method='POST' name="mymessage" style="margin:0" onsubmit="check_form()">
 												<input type="hidden" value="${sessionScope.id }" name="userid">												
  												  <li><a href="#none" onclick="check_form()"><h5>메세지함</h5></a></li>																								 
 												</form>
@@ -172,8 +178,10 @@
 						<%-- <jsp:include page="mypage_infoCorrection.jsp"></jsp:include>
 						<jsp:include page="mypage_wishlist.jsp"></jsp:include>
 						<jsp:include page="mypage_comment.jsp"></jsp:include>
-						<jsp:include page="mypage_reserve.jsp"></jsp:include>--%>				
-						<jsp:include page="mypage_letter.jsp"></jsp:include>
+						<jsp:include page="mypage_reserve.jsp"></jsp:include>--%>
+								
+						<jsp:include page="${jsp }"></jsp:include>
+
 					</article>
 
 				<!-- Footer -->
@@ -237,9 +245,19 @@
 				});
 				
 				function check_form(){
-				  var m = document.fname;
+				  var m = document.mymessage;
 				  m.action = "mypage_letter.do";
 				  m.submit();
+				}
+				function wish_form(){
+					var m = document.mywish;
+					m.action = "mypage_wishlist.do";
+					m.submit();
+				}
+				function check_form1(){
+					var m = document.mydetail;
+					m.action = "mypage_infoCorrection.do";
+					m.submit();
 				}
 				
 				</script> 

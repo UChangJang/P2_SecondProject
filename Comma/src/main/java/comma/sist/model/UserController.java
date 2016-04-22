@@ -1,5 +1,7 @@
 package comma.sist.model;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -66,6 +68,15 @@ public class UserController {
 		
 
 		return "user/join.jsp";
+	}
+	@RequestMapping("mypage_infoCorrection.do")
+	public String mypage_detail(HttpServletRequest req){
+		String id=req.getParameter("userid");
+		System.out.println(id);
+		UserVO vo = UserDAO.userProfile(id);
+		req.setAttribute("vo", vo);
+		req.setAttribute("jsp", "mypage_infoCorrection.jsp");
+		return "mypage/mypage.jsp";
 	}
 	
 	

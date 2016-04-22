@@ -58,6 +58,12 @@ public class UserDAO {
 		session.insert("userJoin",vo);
 		
 	}
+	public static UserVO userProfile(String id){
+		SqlSession session=ssf.openSession();
+		UserVO vo =session.selectOne("userProfile",id);
+		return vo;
+		
+	}
 	
 
 	

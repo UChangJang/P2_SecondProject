@@ -65,7 +65,8 @@ public class IntroController {
 	
 	@RequestMapping("mypage.do")
 	public String mypage(HttpServletRequest request){
-		System.out.println("mypage俊 立加");		
+		System.out.println("mypage俊 立加");	
+		request.setAttribute("jsp", "default.jsp");
 		return "mypage/mypage.jsp";
 	}
 }

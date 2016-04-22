@@ -19,7 +19,6 @@ public class MessageController {
 		String id=req.getParameter("userid");
 		List<MessageVO> recvo=MessageDAO.receiveMessageAllData(id);
 		List<MessageVO> sendvo=MessageDAO.sendMessageAllData(id);
-	
 		req.setAttribute("recvo", recvo);
 		req.setAttribute("sendvo", sendvo);
 		req.setAttribute("jsp", "mypage_letter.jsp");
