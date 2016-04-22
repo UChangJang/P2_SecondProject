@@ -5,6 +5,7 @@
 		<typeAlias type="comma.sist.user.dao.UserVO" alias="User"/>
 		<typeAlias type="comma.sist.guide.dao.GuideVO" alias="Guide"/>
 		<typeAlias type="comma.sist.tourist.dao.TouristVO" alias="Tourist"/>
+		<typeAlias type="comma.sist.message.dao.MessageVO" alias="Message"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -31,5 +32,6 @@
 		<mapper resource="comma\sist\user\dao\user-mapper.xml"/>  
 		<mapper resource="comma\sist\guide\dao\guide-mapper.xml"/> 
 		<mapper resource="comma\sist\tourist\dao\tourist-mapper.xml"/> 
+		<mapper resource="comma\sist\message\dao\message-mapper.xml"/> 
 	</mappers> 
 </configuration>

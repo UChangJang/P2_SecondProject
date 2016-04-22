@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,45 +20,25 @@
 			
 			<div class="table-wrapper tabscontents t1">
 				<table class="alt">
-					<thead>
+					<thead>					
 						<tr>
 							<th width="10%">제목</th>
 							<th width="40%">내용</th>
 							<th width="10%">별명</th>
 							<th width="10%">날짜</th>
 							<th width="7%">답장</th>
-						</tr>
+						</tr>					
 					</thead>
 					<tbody>
+					<c:forEach var="recvo" items="${recvo }">
 						<tr>
-							<td>[서울]</td>
-							<td>여행에 관련해서 문의드립니다. 가격 좀 낮춰 주실 수 있으신가요?
-							여행에 관련해서 문의드립니다. 가격 좀 낮춰 주실 수 있으신가요?</td>
-							<td>보잉</td>
-							<td>2016-4-20</td>
+							<td>${recvo.message_check }</td>
+							<td>${recvo.message_text }</td>
+							<td>${recvo.message_send }</td>
+							<td>${recvo.message_time }</td>
 							<td><input type="button" value="답장"></td>
 						</tr>
-						<tr>
-							<td>[서울]</td>
-							<td>여행에 관련해서 문의드립니다. 가격 좀 낮춰 주실 수 있으신가요?</td>
-							<td>보잉</td>
-							<td>2016-4-20</td>
-							<td><input type="button" value="답장"></td>
-						</tr>
-						<tr>
-							<td>[서울]</td>
-							<td>여행에 관련해서 문의드립니다. 가격 좀 낮춰 주실 수 있으신가요?</td>
-							<td>보잉</td>
-							<td>2016-4-20</td>
-							<td><input type="button" value="답장"></td>
-						</tr>
-						<tr>
-							<td>[서울]</td>
-							<td>여행에 관련해서 문의드립니다. 가격 좀 낮춰 주실 수 있으신가요?</td>
-							<td>보잉</td>
-							<td>2016-4-20</td>
-							<td><input type="button" value="답장"></td>
-						</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -74,35 +55,15 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach var="sendvo" items="${sendvo }">
 						<tr>
-							<td>[서울]</td>
-							<td>여행에 관련해서 문의드립니다. 가격 좀 낮춰 주실 수 있으신가요?
-							여행에 관련해서 문의드립니다. 가격 좀 낮춰 주실 수 있으신가요?</td>
-							<td>보잉</td>
-							<td>2016-4-20</td>
+							<td>${sendvo.message_check }</td>
+							<td>${sendvo.message_text }</td>
+							<td>${sendvo.message_receive }</td>
+							<td>${sendvo.message_time }</td>
 							<td><input type="button" value="답장"></td>
 						</tr>
-						<tr>
-							<td>[서울]</td>
-							<td>여행에 관련해서 문의드립니다. 가격 좀 낮춰 주실 수 있으신가요?</td>
-							<td>보잉</td>
-							<td>2016-4-20</td>
-							<td><input type="button" value="답장"></td>
-						</tr>
-						<tr>
-							<td>[서울]</td>
-							<td>여행에 관련해서 문의드립니다. 가격 좀 낮춰 주실 수 있으신가요?</td>
-							<td>보잉</td>
-							<td>2016-4-20</td>
-							<td><input type="button" value="답장"></td>
-						</tr>
-						<tr>
-							<td>[서울]</td>
-							<td>여행에 관련해서 문의드립니다. 가격 좀 낮춰 주실 수 있으신가요?</td>
-							<td>보잉</td>
-							<td>2016-4-20</td>
-							<td><input type="button" value="답장"></td>
-						</tr>
+					</c:forEach>						
 					</tbody>
 				</table>
 			</div>
