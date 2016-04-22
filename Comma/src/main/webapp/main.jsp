@@ -167,18 +167,18 @@
 
 			<ul id="banner1">
 				<div class="inner">
-					<br style="display: black!important">
-					<h2 style="color:#8D7979">여행가이드사이트</h2>
+					<img src="images/comma_logo.png">
 					<br>
+					<h2 style="color:#8D7979">Comma in your Life.</h2>
 				</div>
 			</ul>
 
 			<div id="mainMenu">&nbsp;&nbsp; 
-				<span><a href="#">사이트소개</a></span>&nbsp;&nbsp; 
-				<span><a href="#">한국소개</a></span>&nbsp;&nbsp;
-				<span><a href="#">가이드</a></span>&nbsp;&nbsp; 
-				<span><a href="#">관광객</a></span>&nbsp;&nbsp; 
-				<span><a href="#">커뮤니티</a></span>&nbsp;&nbsp; 
+				<span><a href="#">Comma</a></span>&nbsp;&nbsp; 
+				<span><a href="#">Introduce Korea</a></span>&nbsp;&nbsp;
+				<span><a href="#">Tour Find</a></span>&nbsp;&nbsp; 
+				<span><a href="#">Tour Request</a></span>&nbsp;&nbsp; 
+				<span><a href="#">Community</a></span>&nbsp;&nbsp; 
 			</div>
 			<span><img src="http://file.theskinfood.com/resources/common/img/dep2bg.png" width="100%" height="37" alt=""></span>
 		</section>
@@ -196,15 +196,15 @@
 								<div style="color: #53565B; font-style: bold">
 								<p><img src="images/search.png">&nbsp;&nbsp;EASY SEARCH</p></div>
 								<input type="text" name="demo-name" id="demo-name" value=""
-									placeholder="지역 검색" class="mainSearch1"/> 
-								<input type="text" id="dt" placeholder="날짜선택" class="mainSearch1"/>
+									placeholder="SPOT" class="mainSearch1"/> 
+								<input type="text" id="dt" placeholder="DATE" class="mainSearch1"/>
 								<div class="select-wrapper">
 									<select name="demo-category" id="demo-category" class="mainSearch1">
-										<option value="">인원선택</option>
-										<option value="1">1명</option>
-										<option value="1">2명</option>
-										<option value="1">3명</option>
-										<option value="1">4명</option>
+										<option value="">PEOPLE</option>
+										<option value="1">1 person</option>
+										<option value="1">2 persons</option>
+										<option value="1">3 persons</option>
+										<option value="1">4 persons</option>
 									</select> 
 								<input type="submit" value="SEARCH" class="special mainSearch1" />
 								</div>
@@ -224,26 +224,28 @@
 						</div>
 						
 						<div class="2u$ 12u$(small) mainRight1">					<!-- 3 오른쪽 -->
-							<div id="mainRight">
-								<div id="mainRight_home"><a id="a_home" href="#1">									
-									<span class="mainRight_span"><img src="images/home.png"></span>
-									Home</a></div>
-								<div id="mainRight_comma"><a id="a_comma" href="#2">									
-									<span class="mainRight_span"><img src="images/comma.png"></span>
-									사이트소개</a></div>
-								<div ><a id="a_korea" href="#3">
-									<span class="mainRight_span"><img src="images/korea.png"></span>
-									한국소개</a></div>
-								<div><a id="a_guide" href="#4">
-									<span class="mainRight_span"><img src="images/guide.png"></span>
-									가이드글</a></div>
-								<div><a id="a_tour" href="#5">
-									<span class="mainRight_span"><img src="images/tour.png"></span>
-									관광객글</a></div>
-								<div><a id="a_commu" href="#5">
-									<span class="mainRight_span"><img src="images/commu.png"></span>
-									커뮤니티</a></div>	
-							</div>
+							<table id="mainRight">
+								<tr>
+								  <td><span class="mainRight_span"><img src="images/home.png"></span></td>
+								  <th><a href="#">Home</a></th>
+								</tr>
+								<tr>
+								  <td><span class="mainRight_span"><img src="images/comma.png"></span></td>
+								  <th><a href="#">Comma</a></th>
+								</tr>
+								<tr>
+								  <td><span class="mainRight_span"><img src="images/korea.png"></span></td>
+								  <th><a href="#">Tour</a></th>
+								</tr>
+								<tr>
+								  <td><span class="mainRight_span"><img src="images/guide.png"></span></td>
+								  <th><a href="#">Request</a></th>
+								</tr>
+								<tr>
+								  <td><span class="mainRight_span"><img src="images/commu.png"></span></td>
+								  <th><a href="#">Community</a></th>
+								</tr>
+							</table>
 						</div>
 						
 					</div>
@@ -267,7 +269,27 @@
 						<span><img src="images/incheon3.jpg" alt="" /></span>
 						<span><img src="images/seoul1.jpg" alt="" /></span>
 						<span><img src="images/seoul3.jpg" alt="" /></span>
-
+						<table>
+							<thead>Best Guide</thead>
+							<tbody>
+							  <tr>
+							    <td>1st</td>
+							    <td>2nd</td>
+							    <td>3th</td>
+							  </tr>
+							  <tr>
+							    <td><img src="images/"></td>
+							    <td><img src="images/"></td>
+							    <td><img src="images/"></td>
+							  </tr>
+							  <tr>
+							    <td></td>
+							    <td></td>
+							    <td></td>
+							  </tr>
+							</tbody>
+							<tfoot>>> view more</tfoot>
+						</table>
 					</div>
 					
 					<div class="6u$ 12u$(small) secondPart tabControlWrap" id="tabControlWrap">
