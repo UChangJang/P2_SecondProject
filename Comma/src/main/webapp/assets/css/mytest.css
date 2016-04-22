@@ -1,6 +1,51 @@
 @CHARSET "EUC-KR";
 
+.BoardSide1{
+   text-align: center;
+}
+.BoardSide{
+   text-align: center;
+   font-size: 1em;
+}
+#guideBoardSide hr{
+   margin: 1em 0;
+}
 
+.topBoardShort{
+   font-weight: bold;
+}
+/* 가이드 board 사이드메뉴 */
+#guideBoardSide{
+   width:100%;
+   height: 20em;
+   background-color: #82d0e3;
+   border-radius:0.6em;
+}
+#reservenow{
+   text-align: center;
+   font-weight: bold;
+   padding-top: 1em;
+   padding-bottom: 1em;
+   
+}
+#guideBoardSide input{
+   margin-top: 2em;
+}
+/*가이드 글쓰기 내용 추가*/
+.plusWrite1,.plusWrite2{
+   display: none;   
+   
+}
+.plusBtn,.deleteBtn{
+   display: inline-block;
+   float: left;
+}
+
+
+/*가이드글쓰기 ~ 표시 가운데 정렬*/
+#timeflow{
+   text-align: center;
+}
 
 /* 가이드보드 사이드메뉴 */
 .side2 {
@@ -79,8 +124,8 @@
 }
  /*상단 사이드 메뉴2*/
  #nav2{
-	margin-top:0px;
-    height:60px;
+	margin-top:45px;
+    height:40px;
     position:fixed;
     left:0px;
     right:0px;
