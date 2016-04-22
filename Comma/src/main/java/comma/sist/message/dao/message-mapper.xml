@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comma.sist.message.dao.message-mapper">
+
+ 	<select id="receiveMessageAllData" parameterType="String" resultType="Message">
+ 		select message_send,message_text,message_time,message_check from message where message_receive=#{id}
+ 	</select>
+ 	<select id="sendMessageAllData" parameterType="String" resultType="Message">
+ 		select message_receive,message_text,message_time,message_check from message where message_send=#{id}
+ 	</select>
+ 	
+</mapper>

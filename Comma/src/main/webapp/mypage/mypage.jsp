@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -23,109 +24,104 @@
 
 				<!-- Header -->
 					<header id="header">
-						<h1><a href="main.do">Home</a></h1>
+						<h1><a href="../index.html">Home</a></h1>
 						<nav id="nav">
 							<ul>
-					<li class="special">
-
-						<button class="button special log" id="login-btn">Login</button> <!-- 1추가:로그인 레이어 팝업창 -->
-						<form class="white-popup mfp-hide" id="login-form">
-							<h1>Log-In</h1>
-							<div>
-								<input name="id" id="id" required="" type="text"
-									placeholder="ID">
-							</div>
-							<br>
-							<div>
-								<input name="pwd" id="pwd" required="" type="password"
-									placeholder="Password">
-							</div>
-							<br>
-							<div class="logbtn">
-								<input name="login" value="login" id="login-btn" type="button">
-								<input name="join" value="join" id=join-btn type="button">
-							</div>
-							<br>
-							<div class="logbtn">
-								<input name="idfind" value="id찾기" id="login-btn" type="button">
-								<input name="pwdfind" value="pwd찾기" id="pwd-btn" type="button">
-							</div>
-							</ol>
-						</form> <!-- 로그인 레이어 팝업창 --> <!-- 2추가:회원가입 레이어 팝업창 -->
-						<form class="white-popup mfp-hide" id="join-form">
-							<h1>Join-us</h1>
-							<div>
-								<input name="id" id="id" required="" type="text"
-									placeholder="ID"> <input name="id2" value="확인" id="id2"
-									type="button">
-							</div>
-							<br>
-							<div>
-								<input name="pwd" id="pwd" required="" type="password"
-									placeholder="Password">
-							</div>
-							<br>
-							<div>
-								<input name="pwd" id="pwd" required="" type="password"
-									placeholder="Password">
-							</div>
-							<br>
-							<div>
-								<input name="name" id="name" required="" type="text"
-									placeholder="Name">
-							</div>
-							<br>
-							<div>
-								<input name="nickName" id="nickName" required="" type="text"
-									placeholder="NickName"> <input name="id2" value="확인"
-									id="id2" type="button">
-							</div>
-							<br>
-							<div>
-								<input name="email" id="email" required="" type="text"
-									placeholder="E-mail">
-							</div>
-							<br>
-							<div class="logbtn">
-								<input name="join" value="join" id="join" type="button">
-							</div>
-							</ol>
-						</form> <!-- 회원가입 레이어 팝업창 --> <a href="#menu" class="menuToggle"><span>Menu</span></a>
-						<!-- 사이드메뉴 -->
-						<div id="menu" class="group g1">
-							<ul>
-								<div class="box">
-									<li><a href="main.do">Home</a></li>
-								</div>
-								<div class="box">
-									<li><a href="introduceSite.do">소개페이지</a></li>
-								</div>
-								<div class="box">
-									<li><a href="introduceKor.do">한국소개</a></li>
-								</div>
-
-								<div class="box">
-									<li class="title"><a href="#">가이드</a></li>
-									<div class="cont">
-										<li><a href="guide.do">1.가이드목록</a></li>
-										<li><a href="guideWrite.do">2.가이드글쓰기</a></li>
-									</div>
-								</div>
-
-								<div class="box">
-									<li class="title"><a href="#">관광객</a></li>
-									<div class="cont">
-										<li><a href="tourist.do">1.관광객목록</a></li>
-										<li><a href="touristWrite.do">2.관광객글쓰기</a></li>
-									</div>
-								</div>
-								<div class="box">
-									<li><a href="mypage.do">마이페이지</a></li>
-								</div>
+								<li class="special">
+								
+									<button class="button special log" id="login-btn">Login</button>
+									
+									<!-- 1추가:로그인 레이어 팝업창 -->
+									<form class="white-popup mfp-hide" id="login-form">
+										<h1>Log-In</h1>
+											<div>
+												<input name="id" id="id" required="" type="text" placeholder="ID">
+											</div>
+											<br>
+											<div>
+												<input name="pwd" id="pwd" required="" type="password" placeholder="Password">
+											</div>
+											<br>
+											<div class="logbtn">
+												<input name="login" value="login" id="login-btn" type="button">
+												<input name="join" value="join" id=join-btn type="button">
+											</div>
+											<br>
+											<div class="logbtn">
+												<input name="idfind" value="id찾기" id="login-btn" type="button">
+												<input name="pwdfind" value="pwd찾기" id="pwd-btn" type="button">
+											</div>
+										</ol>
+									</form>
+									<!-- 로그인 레이어 팝업창 -->
+									
+									
+									<!-- 2추가:회원가입 레이어 팝업창 -->
+									<form class="white-popup mfp-hide" id="join-form">
+										<h1>Join-us</h1>
+											<div>
+												<input name="id" id="id" required="" type="text" placeholder="ID">
+												<input name="id2" value="확인" id="id2" type="button">
+											</div>
+											<br>
+											<div>
+												<input name="pwd" id="pwd" required="" type="password" placeholder="Password">
+											</div>
+											<br>
+											<div>
+												<input name="pwd" id="pwd" required="" type="password" placeholder="Password">
+											</div>
+											<br>
+											<div>
+												<input name="name" id="name" required="" type="text" placeholder="Name">
+											</div>
+											<br>
+											<div>
+												<input name="nickName" id="nickName" required="" type="text" placeholder="NickName">
+												<input name="id2" value="확인" id="id2" type="button">
+											</div>
+											<br>
+											<div>
+												<input name="email" id="email" required="" type="text" placeholder="E-mail">
+											</div>
+											<br>
+											<div class="logbtn">
+												<input name="join" value="join" id="join" type="button">
+											</div>
+										</ol>
+									</form>
+									
+									<!-- 회원가입 레이어 팝업창 -->
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									
+									<!-- 사이드메뉴 -->
+									<div id="menu" class="group g1">												
+										<ul>
+											<div class="box"><li><a href="../index.jsp">Home</a></li></div>
+											<div class="box"><li><a href="intro/introduceSite.jsp">소개페이지</a></li></div>
+											<div class="box"><li><a href="intro/introduceKor.jsp">한국소개</a></li></div>
+											
+											<div class="box">
+											    <li class="title"><a href="#">가이드</a></li>
+											    <div class="cont">
+											    	<li><a href="guide/guide.jsp">1.가이드목록</a></li>
+											    	<li><a href="guide/guideWrite.jsp">2.가이드글쓰기</a></li>
+											    </div>
+											 </div>
+											
+											<div class="box">
+											    <li class="title"><a href="#">관광객</a></li>
+											    <div class="cont">
+											    	<li><a href="guide/guide.jsp">1.관광객목록</a></li>
+											    </div>
+											 </div>
+											 <div class="box">
+											 <li><a href="mypage/mypage.jsp">마이페이지</a></li>
+											 </div>
+										</ul>
+									</div> 
+								</li>
 							</ul>
-						</div>
-					</li>
-				</ul>
 						</nav>
 					</header>
 
@@ -147,7 +143,7 @@
 												<img src="../controller/images/character.png">
 											</div>
 											<div class="mypictureCaption">
-												<h3>보잉</h3>
+												<h3>${sessionScope.id }</h3>
 												<h4>3가이드 4관광</h4>	
 											</div>
 										</div>
@@ -158,8 +154,13 @@
 												<li><a href="mypage_myWriting.html"><h5>내가 쓴 글</h5></a></li>
 												<li><a href="mypage_bookingList.html"><h5>예약리스트</h5></a></li>
 												<li><a href="mypage_infoCorrection.html"><h5>정보수정</h5></a></li>
-												<li><a href="mypage_opinion.html"><h5>후기들</h5></a></li>
-												<li><a href="mypage_letter.html"><h5>쪽지함</h5></a></li>
+												<li><a href="mypage_opinion.html"><h5>후기들</h5></a></li>																		
+												<form method='POST' name="fname" style="margin:0" onsubmit="check_form()">
+												<input type="hidden" value="${sessionScope.id }" name="userid">												
+ 												  <li><a href="#none" onclick="check_form()"><h5>메세지함</h5></a></li>																								 
+												</form>
+												
+												
 											</ul>
 										</div>
 									</div>
@@ -171,7 +172,7 @@
 						<%-- <jsp:include page="mypage_infoCorrection.jsp"></jsp:include>
 						<jsp:include page="mypage_wishlist.jsp"></jsp:include>
 						<jsp:include page="mypage_comment.jsp"></jsp:include>
-						<jsp:include page="mypage_reserve.jsp"></jsp:include>--%>
+						<jsp:include page="mypage_reserve.jsp"></jsp:include>--%>				
 						<jsp:include page="mypage_letter.jsp"></jsp:include>
 					</article>
 
@@ -234,6 +235,13 @@
 						}
 					});
 				});
+				
+				function check_form(){
+				  var m = document.fname;
+				  m.action = "mypage_letter.do";
+				  m.submit();
+				}
+				
 				</script> 
 				<!-- inline 로그인 팝업창 -->
 
