@@ -63,9 +63,21 @@ public class IntroController {
 		return "main.jsp";
 	}
 	
+	@RequestMapping("tourist.do")
+	public String tourist(HttpServletRequest request){
+		request.setAttribute("jsp", "tourist/tourist.jsp");		
+		return "main.jsp";
+	}
+	
+	@RequestMapping("touristWrite.do")
+	public String touristWrite(HttpServletRequest request){
+		request.setAttribute("jsp", "tourist/touristWrite.jsp");		
+		return "main.jsp";
+	}
+	
 	@RequestMapping("mypage.do")
 	public String mypage(HttpServletRequest request){	
-		request.setAttribute("jsp", "default.jsp");
-		return "mypage/mypage.jsp";
+		request.setAttribute("jsp", "mypage/mypage.jsp");
+		return "main.jsp";
 	}
 }

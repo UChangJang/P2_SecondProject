@@ -21,7 +21,8 @@ public class MessageController {
 		List<MessageVO> sendvo=MessageDAO.sendMessageAllData(id);
 		req.setAttribute("recvo", recvo);
 		req.setAttribute("sendvo", sendvo);
-		req.setAttribute("jsp", "mypage_letter.jsp");
-		return "mypage/mypage.jsp";
+		req.setAttribute("jsp", "mypage/mypage.jsp");
+		req.setAttribute("mypage", "mypage/mypage_letter.jsp");
+		return "main.jsp";
 	}
 }

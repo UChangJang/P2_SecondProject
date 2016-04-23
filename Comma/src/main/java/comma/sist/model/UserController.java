@@ -75,8 +75,10 @@ public class UserController {
 		System.out.println(id);
 		UserVO vo = UserDAO.userProfile(id);
 		req.setAttribute("vo", vo);
-		req.setAttribute("jsp", "mypage_infoCorrection.jsp");
-		return "mypage/mypage.jsp";
+		req.setAttribute("jsp", "mypage/mypage.jsp");
+		req.setAttribute("mypage", "mypage/mypage_infoCorrection.jsp");
+		//return "mypage/mypage.jsp";
+		return "main.jsp";
 	}
 	
 	

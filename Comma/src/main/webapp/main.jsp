@@ -155,7 +155,7 @@
 
 		<!-- Main -->
 		<jsp:include page="${jsp }"></jsp:include>
-	
+		<jsp:include page="${mypage }"></jsp:include>
 
 		<!-- Footer -->
 		<jsp:include page="footer.jsp"></jsp:include>

@@ -7,12 +7,6 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="../assets/css/main.css" />
-<link rel="stylesheet" href="../assets/css/mytest.css" />
-<link rel="stylesheet" href="../assets/css/mypage.css" />
-<!-- 달력css -->
-<link rel="stylesheet" href="../assets/css/dcalendar.picker.css">
 
 <!-- 프로필 사진 삽입 코드 (url:http://touchsoul.tistory.com/84) -->
 <!-- 		<script type="text/javascript">
@@ -38,7 +32,6 @@
 </head>
 <body>
 	<h3>복구중....</h3>
-
 
 	<section class="wrapper style5" id="two">		
 		<div class="inner">
@@ -133,15 +126,6 @@
 			</div>
 		</div>
 	</section>
- -->
-	
-			<!-- 달력 
-			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-			<script src="../assets/js/dcalendar.picker.js"></script>
-				<script>
-				$('#calendar-demo').dcalendar();
-				$('#dt').dcalendarpicker();
-				</script> -->
-			
+		
 </body>
 </html>
