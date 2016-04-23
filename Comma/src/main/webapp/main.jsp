@@ -5,10 +5,8 @@
 <html>
 	<head>
 		<title>여행가이드 메인</title>
-		<meta charset="utf-8" />
-		
 		<!-- meta:문서의 기본형식 지정/ 메인 -->
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+		<meta charset="utf-8" />
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="X-UA-Compatible" content="IE=10" />
@@ -43,7 +41,12 @@
 	<div id="page-wrapper">
 
 		<!-- Header -->
+		<c:if test="${jsp eq 'section.jsp' }">
 		<header id="header" class="alt">
+		</c:if>
+		<c:if test="${jsp ne 'section.jsp' }">
+		<header id="header">
+		</c:if>
 			<h1>
 				<a href="main.do">상단메뉴</a>
 			</h1>
@@ -264,6 +267,22 @@
 				});
 	</script>
 	
+	<!-- 숨김상단메뉴 -->
+	<script type="text/javascript">
+		$(function() {
+			$(window).scroll(function() {
+				var scrollTop = $(window).scrollTop();
+				if (scrollTop > 380)
+					$('#nav2').stop().animate({
+						'opacity' : '1'
+					}, 400);
+				else
+					$('#nav2').stop().animate({
+						'opacity' : '0'
+					}, 5);
+			});
+		});
+	</script>
 	
 	<!-- 사이드 메뉴 -->
 	<script type="text/javascript">
