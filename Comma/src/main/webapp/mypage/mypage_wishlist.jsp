@@ -1,9 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
 </head>
 <body>
 	<section class="wrapper style5">
@@ -21,7 +26,7 @@
 			<table class="alt">
 				<thead>
 					<tr>
-						<th width="10%">지역</th>
+						<th width="10%">번호</th>
 						<th width="30%">제목</th>
 						<th width="10%">별명</th>
 						<th width="10%">날짜</th>
@@ -30,46 +35,16 @@
 					</tr>
 				</thead>
 				<tbody>
+				<c:forEach var="guidevo" items="${guidevo }">
 					<tr>
-						<td>서울</td>
+						<td>${guidevo.wish_no }</td>
 						<td>서울 문화 기행</td>
 						<td>보잉</td>
 						<td>2016-4-20</td>
 						<td>5명</td>
 						<td><input type="button" value="삭제"></td>
 					</tr>
-					<tr>
-						<td>서울</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
-						<td><input type="button" value="삭제"></td>
-					</tr>
-					<tr>
-						<td>서울</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
-						<td><input type="button" value="삭제"></td>
-					</tr>
-					<tr>
-						<td>서울</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
-						<td><input type="button" value="삭제"></td>
-					</tr>
-					<tr>
-						<td>서울</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
-						<td><input type="button" value="삭제"></td>
-					</tr>
+					</c:forEach>
 				</tbody>
 			</table>
 		</div>
@@ -87,46 +62,16 @@
 					</tr>
 				</thead>
 				<tbody>
+				<c:forEach var="touristvo" items="${touristvo }">
 					<tr>
-						<td>서울</td>
+						<td>${touristvo.wish_no }</td>
 						<td>서울 문화 기행</td>
 						<td>보잉</td>
 						<td>2016-4-20</td>
 						<td>5명</td>
 						<td><input type="button" value="삭제"></td>
-					</tr>
-					<tr>
-						<td>서울</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
-						<td><input type="button" value="삭제"></td>
-					</tr>
-					<tr>
-						<td>서울</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
-						<td><input type="button" value="삭제"></td>
-					</tr>
-					<tr>
-						<td>서울</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
-						<td><input type="button" value="삭제"></td>
-					</tr>
-					<tr>
-						<td>서울</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
-						<td><input type="button" value="삭제"></td>
-					</tr>
+					</tr>	
+				</c:forEach>		
 				</tbody>
 			</table>
 		</div>

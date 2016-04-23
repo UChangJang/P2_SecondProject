@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<center><h3>마이 페이지 복구중</h3></center>
 </body>
 </html>

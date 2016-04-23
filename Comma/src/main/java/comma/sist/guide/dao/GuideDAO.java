@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import comma.sist.wish.dao.WishVO;
+
 
 public class GuideDAO {
 
@@ -52,5 +54,11 @@ private static SqlSessionFactory	ssf;
 		
 	} // guideInsert(GuideVO vo)
 	
+	public static List<WishVO> myAllGuide(String id){
+		SqlSession session = ssf.openSession();
+		List<WishVO> vo=session.selectList("myAllGudie",id);	
+		session.close();
+		return vo;
+	}
 	
 }

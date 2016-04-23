@@ -1,20 +1,14 @@
-package comma.sist.tourist.dao;
+package comma.sist.review.dao;
 
 import java.io.Reader;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import comma.sist.controller.RequestMapping;
-import comma.sist.wish.dao.WishVO;
-
-public class TouristDAO {
+public class ReviewDAO {
 private static SqlSessionFactory	ssf;
 	
 	static{
@@ -28,18 +22,10 @@ private static SqlSessionFactory	ssf;
 		}
 	}
 	
-	@RequestMapping("tourist.do")
-	public String tour_list(HttpServletRequest req){
-		HttpSession session=req.getSession();
-		
-		
-		return "tourist/tourist.jsp";
-	}
-	public static List<WishVO> myAllTorist(String id){
-		SqlSession session = ssf.openSession();
-		List<WishVO> vo=session.selectList("myAllTorist",id);
+	public static List<ReviewVO> myAllReview(String id){
+		SqlSession session=ssf.openSession();
+		List<ReviewVO> vo = session.selectList("myAllReview",id);
 		session.close();
 		return vo;
 	}
-	
 }

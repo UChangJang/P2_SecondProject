@@ -12,5 +12,8 @@
 			values((select NVL(max(guide_no)+1,1) from guide),#{guide_subject},#{guide_loc_intro})
 	</insert>
 	
+	<select id="myAllGudie" parameterType="String" resultType="Wish">
+		select wish_no from wish where user_id=#{id}
+	</select>
 </mapper>
 

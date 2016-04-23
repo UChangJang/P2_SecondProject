@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>MyPage</title>
+	<link rel="stylesheet" href="../controller/assets/css/mypage.css" /> 
 	<!-- <link rel="stylesheet" href="../controller/assets/css/mytest2(danbi_mypage)" />  -->
 </head>
 <body>
@@ -33,21 +34,27 @@
 					
 					<div class="7u$ 12u$(small)">				<!-- 2 오른쪽 -->
 						<ul class="alt">
-							<form method='POST' name="mywish" style="margin:0" onsubmit="wish_form()">
-								<input type="hidden" value="${sessionScope.id }" name="userid">		
-								<li><a href="#none"><h5>위시리스트</h5></a></li>
-							</form>
-							<li><a href="mypage_myWriting.html"><h5>내가 쓴 글</h5></a></li>
-							<li><a href="mypage_bookingList.html"><h5>예약리스트</h5></a></li>
-							<form method='POST' name="mydetail" style="margin:0" onsubmit="check_form1()">										
-								<input type="hidden" value="${sessionScope.id }" name="userid">
-								<li><a href="#none" onclick="check_form1()"><h5>정보수정</h5></a></li>
-							</form>
-							<li><a href="mypage_opinion.html"><h5>후기들</h5></a></li>																		
-							<form method='POST' name="mymessage" style="margin:0" onsubmit="check_form()">
-							<input type="hidden" value="${sessionScope.id }" name="userid">												
-								  <li><a href="#none" onclick="check_form()"><h5>메세지함</h5></a></li>																								 
-							</form>
+							<form method='POST' name="mywish" style="margin:0">
+													<input type="hidden" value="${sessionScope.id }" name="userid">		
+													<li><a href="#none" onclick="wish_form()"><h5>위시리스트</h5></a></li>
+												</form>												
+												<li><a href="mypage_myWriting.html"><h5>내가 쓴 글</h5></a></li>
+												<form method='POST' name="myreservation" style="margin:0">				
+													<input type="hidden" value="${sessionScope.id }" name="userid">											
+													<li><a href="#none" onclick="reservation_form()"><h5>예약리스트</h5></a></li>
+												</form>												
+												<form method='POST' name="mydetail" style="margin:0">										
+													<input type="hidden" value="${sessionScope.id }" name="userid">
+													<li><a href="#none" onclick="infoCorrection_form()"><h5>정보수정</h5></a></li>
+												</form>												
+												<form method='POST' name="myreview" style="margin:0">
+												<input type="hidden" value="${sessionScope.id }" name="userid">
+													<li><a href="#none" onclick="review_form()"><h5>후기들</h5></a></li>
+												</form>																													
+												<form method='POST' name="mymessage" style="margin:0">
+													<input type="hidden" value="${sessionScope.id }" name="userid">												
+ 													<li><a href="#none" onclick="message_form()"><h5>메세지함</h5></a></li>																								 
+												</form>
 
 						</ul>
 					</div>
@@ -61,22 +68,32 @@
 </article>
 
 <script type="text/javascript">		
-		function check_form(){
-		  var m = document.mymessage;
-		  m.action = "mypage_letter.do";
-		  m.submit();
-		}
-		function wish_form(){
-			var m = document.mywish;
-			m.action = "mypage_wishlist.do";
-			m.submit();
-		}
-		function check_form1(){
-			var m = document.mydetail;
-			m.action = "mypage_infoCorrection.do";
-			m.submit();
-		}
-		
+function message_form(){
+	  var m = document.mymessage;
+	  m.action = "mypage_letter.do";
+	  m.submit();
+	}
+	function wish_form(){
+		var m = document.mywish;
+		m.action = "mypage_wishlist.do";
+		m.submit();
+	}
+	function infoCorrection_form(){
+		var m = document.mydetail;
+		m.action = "mypage_infoCorrection.do";
+		m.submit();
+	}
+	function review_form(){
+		var m =document.myreview;
+		m.action = "mypage_review.do";
+		m.submit();
+	}
+	function reservation_form(){
+		var m =document.myreservation;
+		m.action = "mypage_reservation.do";
+		m.submit();
+	}
+	
 </script> 
 </body>
 </html>
