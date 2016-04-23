@@ -16,22 +16,14 @@
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/main.css" />		
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/tabControl.css" />	
-
+		<link rel="stylesheet" href="../controller/assets/css/introKor.css" />
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-		<!-- meta:문서의 기본형식 지정/ 메인 -->
+		<!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
 		
 		<!-- 메인 자동 스크롤 배너--> 
 		<link rel='stylesheet prefetch' href='http://dimsemenov-static.s3.amazonaws.com/dist/magnific-popup.css'>
-
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		
-		
-		<!-- 마우스오버시 메뉴나옴 -->
-		<script type="text/javascript" src="./jquery.js"></script>
-	    <link href="style.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" src="./menu.js"></script>			
+					
 </head>
 	
 
