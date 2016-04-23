@@ -17,9 +17,10 @@
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/main.css" />		
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/tabControl.css" />	
 		<link rel="stylesheet" href="../controller/assets/css/introKor.css" />
+		<link rel="stylesheet" href="../controller/assets/css/dcalendar.picker.css">
+		<link href="../controller/assets/css/jquery.bxslider.css" rel="stylesheet" />
 		
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-		<!-- <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> -->
 		
 		<!-- 메인 자동 스크롤 배너--> 
 		<link rel='stylesheet prefetch' href='http://dimsemenov-static.s3.amazonaws.com/dist/magnific-popup.css'>
@@ -28,7 +29,6 @@
 	
 
 <body class="landing">
-
 	<!-- Page Wrapper -->
 	<div id="page-wrapper">
 
@@ -170,93 +170,92 @@
 	<script src="../controller/assets/js/skel.min.js"></script>
 	<script src="../controller/assets/js/util.js"></script>
 	<script src="../controller/assets/js/main.js"></script>
-
-
+	<script src="../controller/js/jquery.bxslider.min.js"></script>
 
 	<!-- inline 로그인 팝업창 -->
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
 	
 	<script type="text/javascript">
-				$(document).ready(function() {
-					$('#login-btn').magnificPopup({
-						items :{src:'#login-form',type : 'inline'},
-								preloader: false,focus: '#name',
-								callbacks: {beforeOpen: function() {
-									if($(window).width() < 700) {
-										this.st.focus = false;
-									} else {
-										this.st.focus = '#name';
-									}
-								}
+	$(document).ready(function() {
+		$('#login-btn').magnificPopup({
+			items :{src:'#login-form',type : 'inline'},
+					preloader: false,focus: '#name',
+					callbacks: {beforeOpen: function() {
+						if($(window).width() < 700) {
+							this.st.focus = false;
+						} else {
+							this.st.focus = '#name';
 						}
-					});
-					
-					$('#log-btn').click(function(){
-						
-						var id = $('#id').val();
-						if(id.trim()==""){
-							$('#id').focus();
-							return;
+					}
+			}
+		});
+		
+		$('#log-btn').click(function(){
+			
+			var id = $('#id').val();
+			if(id.trim()==""){
+				$('#id').focus();
+				return;
+			}
+			
+			var pwd = $('#pwd').val();
+			if(pwd.trim()==""){
+				$('#pwd').focus();
+				return;
+			}
+			
+			$('#login-form').submit();						
+		});
+		
+		$('#logout-btn').click(function(){
+			$('#logout-frm').submit();											
+		});
+		
+		
+		$('#join-btn').magnificPopup({
+			items :{src:'#join-form',type : 'inline'},
+					preloader: false,focus: '#name',
+					callbacks: {beforeOpen: function() {
+						if($(window).width() < 700) {
+							this.st.focus = false;
+						} else {
+							this.st.focus = '#name';
 						}
-						
-						var pwd = $('#pwd').val();
-						if(pwd.trim()==""){
-							$('#pwd').focus();
-							return;
-						}
-						
-						$('#login-form').submit();						
-					});
-					
-					$('#logout-btn').click(function(){
-						$('#logout-frm').submit();											
-					});
-					
-					
-					$('#join-btn').magnificPopup({
-						items :{src:'#join-form',type : 'inline'},
-								preloader: false,focus: '#name',
-								callbacks: {beforeOpen: function() {
-									if($(window).width() < 700) {
-										this.st.focus = false;
-									} else {
-										this.st.focus = '#name';
-									}
-								}
-						}
-					});
-					$('#join').click(function(){
-						var id = $('#join_id').val();
-						var pwd = $('#join_pwd').val();
-						var nick = $('#join_nick').val();
-						var name = $('#join_name').val();
-						var email = $('#join_email').val();
-						if(id.trim()==""){
-							$('#join_id').focus();
-							return;
-						}
-						if(pwd.trim()==""){
-							$('#join_pwd').focus();
-							return;
-						}
-						if(name.trim()==""){
-							$('#join_name').focus();
-							return;
-						}
-						if(nick.trim()==""){
-							$('#join_nick').focus();
-							return;
-						}				
-						if(email.trim()==""){
-							$('#join_email').focus();
-							return;
-						}
-						$('#join-form').submit();
-						
-						
-					})
-				});
+					}
+			}
+		});
+		$('#join').click(function(){
+			var id = $('#join_id').val();
+			var pwd = $('#join_pwd').val();
+			var nick = $('#join_nick').val();
+			var name = $('#join_name').val();
+			var email = $('#join_email').val();
+			if(id.trim()==""){
+				$('#join_id').focus();
+				return;
+			}
+			if(pwd.trim()==""){
+				$('#join_pwd').focus();
+				return;
+			}
+			if(name.trim()==""){
+				$('#join_name').focus();
+				return;
+			}
+			if(nick.trim()==""){
+				$('#join_nick').focus();
+				return;
+			}				
+			if(email.trim()==""){
+				$('#join_email').focus();
+				return;
+			}
+			$('#join-form').submit();
+			
+			
+		});
+		
+	});
 	</script>
 	
 	<!-- 숨김상단메뉴 -->
@@ -340,7 +339,12 @@
 
 	<script src='http://dimsemenov-static.s3.amazonaws.com/dist/jquery.magnific-popup.min.js'></script>
 
-
+	<!-- 달력 -->
+	<script src="../controller/assets/js/dcalendar.picker.js"></script>
+	<script type="text/javascript">
+		$('#calendar-demo').dcalendar();
+		$('#dt').dcalendarpicker();
+	</script>
 	
 	<script type="text/javascript">
 	 $(function() {
@@ -375,7 +379,15 @@
 			$("#tabControlWrap").tabControls();
 		})
 	</script>
-
+	
+	<!-- 펼치기 -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#bt").click(function() {
+				$("#panel").slideToggle();
+			});
+		});
+	</script>
 
 </body>
 </html>
