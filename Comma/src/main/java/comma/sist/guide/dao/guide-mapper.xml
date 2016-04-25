@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
+
 	
 	<select id="guideInfo" resultType="Guide" parameterType="int">
 		select guide_no,guide_subject from guide where guide_no=#{guide_no}
@@ -12,8 +13,12 @@
 			values((select NVL(max(guide_no)+1,1) from guide),#{guide_subject},#{guide_loc_intro})
 	</insert>
 	
-	<select id="myAllGudie" parameterType="String" resultType="Wish">
+	<select id="myWishGudie" parameterType="String" resultType="Wish">
 		select wish_no from wish where user_id=#{id}
+	</select>
+	
+	<select id="myGuideWriter" parameterType="String" resultType="Guide">
+		select guide_no from guide where user_id='bae'
 	</select>
 </mapper>
 

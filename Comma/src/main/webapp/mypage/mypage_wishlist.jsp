@@ -34,14 +34,14 @@
 						<th width="7%">삭제</th>
 					</tr>
 				</thead>
-				<tbody>
-				<c:forEach var="guidevo" items="${guidevo }">
+				<tbody>	  
+				<c:forEach var="vo" items="${vo }">
 					<tr>
-						<td>${guidevo.wish_no }</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
+						<td>${vo.wish_no }</td>
+						<td>1</td>
+						<td>k</td>
+						<td>1</td>
+						<td>1</td>
 						<td><input type="button" value="삭제"></td>
 					</tr>
 					</c:forEach>
@@ -62,16 +62,16 @@
 					</tr>
 				</thead>
 				<tbody>
-				<c:forEach var="touristvo" items="${touristvo }">
+				
 					<tr>
-						<td>${touristvo.wish_no }</td>
+						<td>zz</td>
 						<td>서울 문화 기행</td>
 						<td>보잉</td>
 						<td>2016-4-20</td>
 						<td>5명</td>
 						<td><input type="button" value="삭제"></td>
 					</tr>	
-				</c:forEach>		
+						
 				</tbody>
 			</table>
 		</div>

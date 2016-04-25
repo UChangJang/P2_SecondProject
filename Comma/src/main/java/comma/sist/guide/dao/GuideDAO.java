@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import comma.sist.reservation.dao.ReservationVO;
 import comma.sist.wish.dao.WishVO;
 
 
@@ -54,11 +55,17 @@ private static SqlSessionFactory	ssf;
 		
 	} // guideInsert(GuideVO vo)
 	
-	public static List<WishVO> myAllGuide(String id){
+	public static List<WishVO> myWishGuide(String id){
 		SqlSession session = ssf.openSession();
-		List<WishVO> vo=session.selectList("myAllGudie",id);	
+		List<WishVO> vo=session.selectList("myWishGudie",id);	
 		session.close();
 		return vo;
 	}
-	
+	public static List<GuideVO> myGuideWriter(String id){
+		SqlSession session=ssf.openSession();
+		List<GuideVO> vo = session.selectList("myGuideWriter",id);
+		session.close();
+		return vo;
+	}
+
 }

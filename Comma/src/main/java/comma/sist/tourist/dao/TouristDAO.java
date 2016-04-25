@@ -12,6 +12,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import comma.sist.controller.RequestMapping;
+import comma.sist.guide.dao.GuideVO;
 import comma.sist.wish.dao.WishVO;
 
 public class TouristDAO {
@@ -35,9 +36,15 @@ private static SqlSessionFactory	ssf;
 		
 		return "tourist/tourist.jsp";
 	}
-	public static List<WishVO> myAllTorist(String id){
+	public static List<WishVO> myWishTorist(String id){
 		SqlSession session = ssf.openSession();
-		List<WishVO> vo=session.selectList("myAllTorist",id);
+		List<WishVO> vo=session.selectList("myWishTorist",id);
+		session.close();
+		return vo;
+	}
+	public static List<TouristVO> myTouristWriter(String id){
+		SqlSession session=ssf.openSession();
+		List<TouristVO> vo = session.selectList("myTouristWriter",id);
 		session.close();
 		return vo;
 	}
