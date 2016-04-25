@@ -22,7 +22,6 @@ public class GuideController {
 		
 		
 		
-		
 		GuideVO vo = new GuideVO();
 		vo.setGuide_subject(guide_subject);
 		vo.setGuide_loc_intro(guide_loc_intro);
@@ -31,8 +30,8 @@ public class GuideController {
 		
 		
 		GuideDAO.guideInsert(vo);
-		
-		return "guide/guide.jsp";
+		request.setAttribute("jsp", "guide/guide.jsp");
+		return "main.jsp";
 	}
 	
 }

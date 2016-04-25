@@ -23,19 +23,19 @@
 		
 	       var num = $(this).scrollTop();  // 스크롤값
 	       if( num >= 530 && width1>=2000){  			// 스크롤을 36이상 했을 때
-	    	   $("#guideBoardSide").css("position","fixed").css("width","13em").css("top","5em");
+	    	   $("#guideBoardSide").css("position","fixed").css("width","13em").css("top","7em");
 	    	}
 	       if( num >= 530 && width1>1680){  			// 스크롤을 36이상 했을 때
-	    	   $("#guideBoardSide").css("position","fixed").css("width","13em").css("top","5em");
+	    	   $("#guideBoardSide").css("position","fixed").css("width","13em").css("top","7em");
 	    	}else if(num >= 530 && width1>1280){
-	    		   $("#guideBoardSide").css("position","fixed").css("width","12.5em").css("top","5em");
+	    		   $("#guideBoardSide").css("position","fixed").css("width","12.5em").css("top","7em");
 	    	}else if(num >= 530 && width1>1100){
-	    		   $("#guideBoardSide").css("position","fixed").css("width","14em").css("top","5em");
+	    		   $("#guideBoardSide").css("position","fixed").css("width","14em").css("top","7em");
 	    	}
 	    	else if(num >= 530 && width1>980){
-	    		   $("#guideBoardSide").css("position","fixed").css("width","16em").css("top","4em");
+	    		   $("#guideBoardSide").css("position","fixed").css("width","16em").css("top","5em");
 	    	}else if(num >= 530 && width1>780){
-	    		   $("#guideBoardSide").css("position","fixed").css("width","14em").css("top","4em");
+	    		   $("#guideBoardSide").css("position","fixed").css("width","14em").css("top","5em");
 	    	}	         
 	       
 			if(num<530){				//스크롤 값이 낮을때
@@ -51,6 +51,18 @@
 </script>
 </head>
 <body>
+
+
+<div id="nav2">
+	<ul>
+	 	 <li><a class="scrolly" href="#intropeople">가이드소개</a></li>
+	 	 <li><a class="scrolly" href="#introplace">관광소개</a></li>
+		 <li><a class="scrolly" href="#pic">주요사진</a></li>
+		 <li><a class="scrolly" href="#detail">상세정보</a></li>
+		 <li><a class="scrolly" href="#mention">후기</a></li>
+	</ul>
+</div>
+
 <!-- Main -->
 <article id="main">
 	<header>
@@ -93,7 +105,7 @@
 				
 				
 				<div class="9u 12u$(medium) side1">
-					<hr />
+					<hr id="intropeople"/>
 					<h5>가이드소개</h5>
 					<blockquote>Fringilla nisl. Donec accumsan interdum
 						nisi, quis tincidunt felis sagittis eget tempus euismod.
@@ -102,7 +114,7 @@
 						faucibus.</blockquote>
 
 
-					<hr />
+					<hr id="introplace" />
 					<h5>관광스타일소개</h5>
 					<blockquote>Fringilla nisl. Donec accumsan interdum
 						nisi, quis tincidunt felis sagittis eget tempus euismod.
@@ -110,20 +122,19 @@
 						adipiscing eu felis iaculis volutpat ac adipiscing accumsan
 						faucibus.</blockquote>
 
-					<hr />
-					<h4>Image</h4>
-					<h5>Fit</h5>
-					<ul class="bxslider">
+					<hr id="pic"/>
+					<h4>Image</h4>					
+					<span class="image fit a">
+					 <div id="main_bn">
+							<li><img src="images/character.png" alt="" /></li>		
+							<li><img src="images/character.png" alt="" /></li>
+							<li><img src="images/character.png" alt="" /></li>
+							<li><img src="images/character.png" alt="" /></li>
+					</div> 
+					</span>
 
-						<li><img src="../controller/images/character.png" /></li>
-						<li><img src="../controller/images/character.png" /></li>
-						<li><img src="../controller/images/character.png" /></li>
-						<li><img src="../controller/images/character.png" /></li>
-					</ul>
-
-					<hr />
-					<h4>Table</h4>
-					<h5>Default</h5>
+					<hr id="detail" />
+					<h5>세부사항</h5>
 					<div class="table-wrapper">
 						<table>
 							<thead>
@@ -171,7 +182,7 @@
 
 
 
-					<hr />
+					<hr id="mention"/>
 					<h5>후기</h5>
 					<div class="box alt">
 						<div class="row uniform 50%">

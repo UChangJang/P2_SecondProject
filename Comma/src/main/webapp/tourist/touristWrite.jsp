@@ -25,20 +25,28 @@
 					<div class="row uniform">
 					
 						<div class="2u 12u$(xsmall)">
-							<h3>제목</h3>
+							<h3>테마</h3>
 						</div>
-						<div class="9u 12u$(xsmall)">
-							<input type="text" name="demo-name" id="demo-name" value="" placeholder="제목" />
+						<div class="10u$">
+							<div class="select-wrapper">
+								<select name="demo-category" id="demo-category">
+									<option value="">- 테마 -</option>
+									<option value="1">먹방</option>
+									<option value="1">관광</option>
+									<option value="1">교육</option>
+									<option value="1">쇼핑</option>
+								</select>
+							</div>
 						</div>
 						
 						
 						<div class="2u 12u$(xsmall)">
 							<h3>여행지</h3>
 						</div>
-						<div class="9u$">
+						<div class="10u$">
 							<div class="select-wrapper">
 								<select name="demo-category" id="demo-category">
-									<option value="">- Category -</option>
+									<option value="">- 지역 -</option>
 									<option value="1">서울</option>
 									<option value="1">대전</option>
 									<option value="1">대구</option>
@@ -46,22 +54,20 @@
 								</select>
 							</div>
 						</div>
-						<div class="12u 12u$(xsmall)">
-							<img src="../images/kormap.jpg"/>
-						</div>
 						
 						
 						<div class="2u 12u$(xsmall)">
 							<h3>날짜</h3>
 						</div>
-						<div class="9u 12u$(xsmall)">
-							<input type="text" name="demo-name" id="demo-name" value="" placeholder="날짜" />
+						<div class="10u 12u$(xsmall)">
+							<input type="text" id="dt" placeholder="날짜선택">
+	   							<div id="dd"></div>
 						</div>
 						
 						<div class="2u 12u$(xsmall)">
 							<h3>비용</h3>
 						</div>
-						<div class="9u 12u$(xsmall)">
+						<div class="10u 12u$(xsmall)">
 							<input type="text" name="demo-name" id="demo-name" value="" placeholder="비용" />
 						</div>
 						
@@ -69,14 +75,20 @@
 						<div class="2u 12u$(xsmall)">
 							<h3>인원</h3>
 						</div>
-						<div class="9u$">
+						<div class="10u$">
 							<div class="select-wrapper">
 								<select name="demo-category" id="demo-category">
 									<option value="">- Category -</option>
 									<option value="1">1명</option>
-									<option value="1">2-3명</option>
+									<option value="1">2명</option>
+									<option value="1">3명</option>
+									<option value="1">4명</option>
 									<option value="1">5명</option>
-									<option value="1">10명이상</option>
+									<option value="1">6명</option>
+									<option value="1">7명</option>
+									<option value="1">8명</option>
+									<option value="1">9명</option>
+									<option value="1">10명</option>
 								</select>
 							</div>
 						</div>
@@ -85,12 +97,67 @@
 						<div class="2u 12u$(xsmall)">
 							<h3>시간</h3>
 						</div>
-						<div class="4u 12u$(xsmall)">
-							<input type="text" name="demo-name" id="demo-name" value="" placeholder="몇시" />
-						</div>
-						<div class="4u 12u$(xsmall)">
-							<input type="text" name="demo-name" id="demo-name" value="" placeholder="몇시" />
-						</div>
+						<div class="2u 12u$(xsmall)">
+				<!-- 5 오른쪽 -->
+				<div class="select-wrapper">
+					<select name="text_time1" id="demo-category1">
+						<option value="">- 시간 -</option>
+						<option value="1">1</option>
+						<option value="1">2</option>
+						<option value="1">3</option>
+						<option value="1">4</option>
+						<option value="1">5</option>
+						<option value="1">6</option>
+						<option value="1">7</option>
+						<option value="1">8</option>
+						<option value="1">9</option>
+						<option value="1">10</option>
+						<option value="1">11</option>
+						<option value="1">12</option>
+					</select>
+				</div>
+			</div>
+			<div class="2u 12u$(xsmall)">
+				<div class="select-wrapper">
+					<select name="text_time2" id="demo-category2">
+						<option value="">- 시간 -</option>
+						<option value="1">AM</option>
+						<option value="1">PM</option>
+					</select>
+				</div>
+			</div>
+			<div class="2u 12u$(xsmall)" id="timeflow">
+				<b>~</b>
+			</div>
+			<div class="2u 12u$(xsmall)">
+				<!-- 5-1 오른쪽 -->
+				<div class="select-wrapper">
+					<select name="text_time3" id="demo-category3">
+						<option value="">- 시간 -</option>
+						<option value="1">1</option>
+						<option value="1">2</option>
+						<option value="1">3</option>
+						<option value="1">4</option>
+						<option value="1">5</option>
+						<option value="1">6</option>
+						<option value="1">7</option>
+						<option value="1">8</option>
+						<option value="1">9</option>
+						<option value="1">10</option>
+						<option value="1">11</option>
+						<option value="1">12</option>
+					</select>
+				</div>
+			</div>
+			<div class="2u$ 12u$(xsmall)">
+				<div class="select-wrapper">
+					<select name="text_time4" id="demo-category4">
+						<option value="">- 시간 -</option>
+						<option value="1">AM</option>
+						<option value="1">PM</option>
+					</select>
+				</div>
+			</div>
 						
 						
 						<div class="4u 12u$(small)">
@@ -110,7 +177,8 @@
 						<div class="12u$">
 							<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
 						</div>
-						<div class="12u$">
+						
+						<div class="12u$" id="tourWriteBtn">
 							<ul class="actions">
 								<li><input type="submit" value="등록" class="special" /></li>
 								<li><input type="reset" value="취소" /></li>

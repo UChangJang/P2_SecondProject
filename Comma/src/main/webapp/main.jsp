@@ -16,7 +16,9 @@
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/main.css" />		
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/tabControl.css" />	
+		<link rel="stylesheet" type="text/css" href="../controller/assets/css/mypage.css" />
 		<link rel="stylesheet" href="../controller/assets/css/introKor.css" />
+		<link rel="stylesheet" type="text/css" href="../controller/assets/css/tourist.css" /><!-- 보영 -->
 		<link rel="stylesheet" href="../controller/assets/css/dcalendar.picker.css">
 		<link href="../controller/assets/css/jquery.bxslider.css" rel="stylesheet" />
 		
@@ -40,7 +42,7 @@
 		<header id="header">
 		</c:if>
 			<h1>
-				<a href="main.do">상단메뉴</a>
+				<a href="main.do">Comma</a>
 			</h1>
 			<nav id="nav">
 				<ul>
@@ -388,6 +390,8 @@
 			});
 		});
 	</script>
+	
+	
 
 </body>
 </html>

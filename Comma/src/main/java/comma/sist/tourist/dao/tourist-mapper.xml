@@ -2,8 +2,9 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.tourist.dao.tourist-mapper">
 	
-	<!-- <select id="">
-	
-	</select> -->
+	<select id="touristAllData" resultType="Tourist">
+		SELECT tour_no,user_id,text_no,tour_theme,tour_detail
+		FROM tour
+	</select>
 	
 </mapper>

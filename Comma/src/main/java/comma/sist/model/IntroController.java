@@ -63,11 +63,6 @@ public class IntroController {
 		return "main.jsp";
 	}
 	
-	@RequestMapping("tourist.do")
-	public String tourist(HttpServletRequest request){
-		request.setAttribute("jsp", "tourist/tourist.jsp");		
-		return "main.jsp";
-	}
 	
 	@RequestMapping("touristWrite.do")
 	public String touristWrite(HttpServletRequest request){
