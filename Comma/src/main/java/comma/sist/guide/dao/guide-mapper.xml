@@ -2,15 +2,61 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
 	
+	<resultMap type="Guide" id="GuideList">
+	  <result column="guide_no" property="guide_no"/>
+	  <result column="user_id" property="user_id"/>
+	  <result column="guide_subject" property="guide_subject"/>
+	  <result column="guide_loc_intro" property="guide_loc_intro"/>
+	  <result column="guide_detail" property="guide_detail"/>
+	  <result column="guide_meet" property="guide_meet"/>
+	  <result column="guide_img" property="guide_img"/>
+	  <result column="guide_map" property="guide_map"/>
+	  <result column="guide_cost_detail" property="guide_cost_detail"/>
+	  <result column="text_no" property="vo.text_no"/>
+	  <result column="text_loc" property="vo.text_loc"/>
+	  <result column="text_cost" property="vo.text_cost"/>
+	  <result column="text_total_person" property="vo.text_total_person"/>
+	  <result column="text_regdate" property="vo.text_regdate"/>
+	  <result column="text_time1" property="vo.text_time1"/>
+	  <result column="text_time2" property="vo.text_time2"/>
+	  <result column="text_move" property="vo.text_move"/>
+	  <result column="text_hit" property="vo.text_hit"/>
+	  <result column="text_end" property="vo.text_end"/>
+	  <result column="text_tour_date" property="vo.text_tour_date"/>
+	</resultMap>
+	
+	
 	<select id="guideInfo" resultType="Guide" parameterType="int">
 		select guide_no,guide_subject from guide where guide_no=#{guide_no}
 	</select>
 	
 	<!-- 가이드 글 추가 -->
-	<insert id="guideInsert" parameterType="Guide">
-		insert into guide(guide_no,guide_subject,guide_loc_intro) 
-			values((select NVL(max(guide_no)+1,1) from guide),#{guide_subject},#{guide_loc_intro})
+	<!-- <insert id="textInsert" parameterType="Text">
+		insert into text values((select NVL(max(text_no)+1,1) from text),#{text_loc},#{text_cost},#{text_total_person},sysdate,
+					#{text_time1},#{text_time2},#{text_move},0,'n',#{text_tour_date})
 	</insert>
+	
+	
+	<insert id="guideInsert" parameterType="Guide">
+		<selectKey keyProperty="text_no" resultType="int" order="BEFORE">
+			select max(text_no) as text_no from text
+		</selectKey>
+	
+		insert into guide(guide_no,user_id,guide_subject,text_no,guide_loc_intro,guide_detail,guide_meet,guide_img,guide_map,guide_cost_detail)
+		 values((select NVL(max(guide_no)+1,1) from guide),
+				#{user_id},#{guide_subject},#{text_no},#{guide_loc_intro},#{guide_detail},
+				#{guide_meet},#{guide_img},#{guide_map},#{guide_cost_detail})
+	</insert> -->
+	
+	<insert id="guideInsert" parameterMap="GuideList">
+	
+		insert into guide(guide_no,user_id,guide_subject,text_no,guide_loc_intro,guide_detail,guide_meet,guide_img,guide_map,guide_cost_detail,
+							)
+		 values((select NVL(max(guide_no)+1,1) from guide),
+				#{user_id},#{guide_subject},#{text_no},#{guide_loc_intro},#{guide_detail},
+				#{guide_meet},#{guide_img},#{guide_map},#{guide_cost_detail})
+	</insert>
+	
 	
 	<select id="myAllGudie" parameterType="String" resultType="Wish">
 		select wish_no from wish where user_id=#{id}

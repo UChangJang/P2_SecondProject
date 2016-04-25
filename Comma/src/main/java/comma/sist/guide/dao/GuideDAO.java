@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import comma.sist.wish.dao.WishVO;
-
+import comma.sist.common.*;
 
 public class GuideDAO {
 
@@ -46,13 +46,41 @@ private static SqlSessionFactory	ssf;
 		
 	} // guideAllData()
 	
+	
+	
+	public static void textInsert(GuideVO vo){
+		TextVO tvo = new TextVO();
+		tvo.setText_loc(vo.getTextvo().getText_loc());
+		tvo.setText_cost(vo.getTextvo().getText_cost());
+		tvo.setText_move(vo.getTextvo().getText_move());
+		tvo.setText_total_person(vo.getTextvo().getText_total_person());
+		tvo.setText_time1(vo.getTextvo().getText_time1());
+		tvo.setText_time2(vo.getTextvo().getText_time2());
+		tvo.setText_tour_date(vo.getTextvo().getText_tour_date());		
+		
+		System.out.println(tvo.getText_move());
+		
+		SqlSession session = ssf.openSession(true);
+		session.insert("textInsert",tvo);
+		session.close();
+		
+	} // guideInsert(GuideVO vo)
+		
+	
 	public static void guideInsert(GuideVO vo){
 		
 		SqlSession session = ssf.openSession(true);
 		session.insert("guideInsert",vo);
 		session.close();
 		
-	} // guideInsert(GuideVO vo)
+	} // guideInsert2(GuideVO vo)
+	
+	
+	
+	
+	
+	
+	
 	
 	public static List<WishVO> myAllGuide(String id){
 		SqlSession session = ssf.openSession();

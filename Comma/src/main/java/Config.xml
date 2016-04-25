@@ -4,6 +4,7 @@
 	<typeAliases>
 		<typeAlias type="comma.sist.user.dao.UserVO" alias="User"/>
 		<typeAlias type="comma.sist.guide.dao.GuideVO" alias="Guide"/>
+		<typeAlias type="comma.sist.common.TextVO" alias="Text"/>
 		<typeAlias type="comma.sist.tourist.dao.TouristVO" alias="Tourist"/>
 		<typeAlias type="comma.sist.message.dao.MessageVO" alias="Message"/>
 		<typeAlias type="comma.sist.wish.dao.WishVO" alias="Wish"/>

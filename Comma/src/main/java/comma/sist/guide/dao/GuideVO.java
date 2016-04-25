@@ -14,7 +14,7 @@ public class GuideVO {
 	private String	guide_img;
 	private String	guide_map;
 	private String	guide_cost_detail;
-	private TextVO	textVO;
+	private TextVO	textvo = new TextVO();
 	
 	
 	public String getGuide_cost_detail() {
@@ -22,12 +22,12 @@ public class GuideVO {
 	}
 	public void setGuide_cost_detail(String guide_cost_detail) {
 		this.guide_cost_detail = guide_cost_detail;
+	}	
+	public TextVO getTextvo() {
+		return textvo;
 	}
-	public TextVO getTextVO() {
-		return textVO;
-	}
-	public void setTextVO(TextVO textVO) {
-		this.textVO = textVO;
+	public void setTextvo(TextVO textvo) {
+		this.textvo = textvo;
 	}
 	public int getGuide_no() {
 		return guide_no;
