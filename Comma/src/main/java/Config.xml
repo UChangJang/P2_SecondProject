@@ -37,5 +37,6 @@
 		<mapper resource="comma\sist\tourist\dao\tourist-mapper.xml"/> 
 		<mapper resource="comma\sist\message\dao\message-mapper.xml"/> 
 		<mapper resource="comma\sist\review\dao\review-mapper.xml"/> 
+		<mapper resource="comma\sist\wish\dao\wish-mapper.xml"/> 
 	</mappers> 
 </configuration>

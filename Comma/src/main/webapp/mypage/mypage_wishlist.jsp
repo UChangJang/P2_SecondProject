@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,7 +31,7 @@
 						<th width="30%">제목</th>
 						<th width="10%">별명</th>
 						<th width="10%">날짜</th>
-						<th width="7%">인원</th>
+						<th width="7%">예약자/총인원</th>
 						<th width="7%">삭제</th>
 					</tr>
 				</thead>
@@ -38,10 +39,12 @@
 				<c:forEach var="vo" items="${vo }">
 					<tr>
 						<td>${vo.wish_no }</td>
-						<td>1</td>
-						<td>k</td>
-						<td>1</td>
-						<td>1</td>
+						<td>${vo.guidevo.guide_subject }</td>
+						<td>${vo.uservo.user_nick }</td>
+						<td>
+						<fmt:formatDate value="${vo.textvo.text_regdate }" pattern="yy/MM/dd"/>
+						</td>
+						<td>${vo.reservationvo.reservation_person}/${vo.textvo.text_total_person}</td>
 						<td><input type="button" value="삭제"></td>
 					</tr>
 					</c:forEach>

@@ -26,9 +26,7 @@ private static SqlSessionFactory	ssf;
 	
 	public static List<WishVO> myAllWish(String id){
 		SqlSession session=ssf.openSession();
-		System.out.println(id);
 		List<WishVO> vo = session.selectList("myAllWish",id);
-		System.out.println(vo);
 		
 		return vo;
 	}
