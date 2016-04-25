@@ -3,6 +3,7 @@
 <mapper namespace="comma.sist.tourist.dao.tourist-mapper">	
 	<resultMap type="tour" id="Tourist">
 	
+
 	 <result property="tour_no" column="tour_no"/>
 	 <result property="user_id" column="user_id"/>
 	 <result property="text_no" column="text_no"/>
@@ -27,15 +28,12 @@
  	WHERE tour.text_no=text.text_no
  	</sql>
 	
-	<select id="tourAlldata" resultMap="Tourist">
-		<include refid="tour_sql"/>
-	</select>
 	
 	<select id="myWishTorist" parameterType="String" resultType="Wish">
-		select wish_no from wish where user_id='bad'	
+		select wish_no from wish where user_id='bae'	
 	</select>
 	<select id="myTouristWriter" parameterType="String" resultType="Tourist">
-		select tour_no from tour where user_id='bad'	
+		select tour_no from tour where user_id='bae'	
 	</select>
 	
 </mapper>

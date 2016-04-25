@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -100,35 +101,20 @@
 					<tr>
 						<th width="30%">제목</th>
 						<th width="10%">별명</th>
-						<th width="10%">날짜</th>
+						<th width="10%">점수</th>
 						<th width="7%">후기</th>
+						
 					</tr>
 				</thead>
 				<tbody>
+				<c:forEach var="vo" items="${vo }">
 					<tr>
-						<td>[서울] 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
+						<td>제목임</td>
+						<td>${vo.user_id }</td>
+						<td>${vo.review_score }</td>
 						<td><input type="button" value="쓰기"></td>
-					</tr>
-					<tr>
-						<td>[서울] 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td><input type="button" value="쓰기"></td>
-					</tr>
-					<tr>
-						<td>[서울] 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td><input type="button" value="쓰기"></td>
-					</tr>
-					<tr>
-						<td>[서울] 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td><input type="button" value="쓰기"></td>
-					</tr>
+					</tr>	
+				</c:forEach>				
 				</tbody>
 			</table>
 		</div>

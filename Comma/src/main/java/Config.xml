@@ -4,8 +4,11 @@
 	<typeAliases>
 		<typeAlias type="comma.sist.user.dao.UserVO" alias="User"/>
 		<typeAlias type="comma.sist.guide.dao.GuideVO" alias="Guide"/>
+		<typeAlias type="comma.sist.common.TextVO" alias="Text"/>
 		<typeAlias type="comma.sist.tourist.dao.TouristVO" alias="Tourist"/>
 		<typeAlias type="comma.sist.message.dao.MessageVO" alias="Message"/>
+		<typeAlias type="comma.sist.wish.dao.WishVO" alias="Wish"/>
+		<typeAlias type="comma.sist.review.dao.ReviewVO" alias="Review"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -33,5 +36,6 @@
 		<mapper resource="comma\sist\guide\dao\guide-mapper.xml"/> 
 		<mapper resource="comma\sist\tourist\dao\tourist-mapper.xml"/> 
 		<mapper resource="comma\sist\message\dao\message-mapper.xml"/> 
+		<mapper resource="comma\sist\review\dao\review-mapper.xml"/> 
 	</mappers> 
 </configuration>
