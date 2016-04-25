@@ -8,11 +8,14 @@ import javax.servlet.http.HttpSession;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.guide.dao.GuideDAO;
+import comma.sist.guide.dao.GuideVO;
 import comma.sist.review.dao.ReviewDAO;
 import comma.sist.review.dao.ReviewVO;
 import comma.sist.tourist.dao.TouristDAO;
+import comma.sist.tourist.dao.TouristVO;
 import comma.sist.user.dao.UserDAO;
 import comma.sist.user.dao.UserVO;
+import comma.sist.wish.dao.WishDAO;
 import comma.sist.wish.dao.WishVO;
 
 @Controller("uc")
@@ -87,10 +90,10 @@ public class UserController {
 	@RequestMapping("mypage_wishlist.do")
 	public String mypage_wishlist(HttpServletRequest req){
 		String id=req.getParameter("userid");		
-		List<WishVO> guidevo=GuideDAO.myAllGuide(id);	
-		List<WishVO> touristvo=TouristDAO.myAllTorist(id);
-		req.setAttribute("guidevo", guidevo);
-		req.setAttribute("touristvo", touristvo);		
+		List<WishVO> vo=WishDAO.myAllWish(id);	
+	
+		req.setAttribute("vo", vo);
+	
 
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_wishlist.jsp");		
@@ -101,22 +104,35 @@ public class UserController {
 		String id=req.getParameter("userid");
 		List<ReviewVO> vo = ReviewDAO.myAllReview(id);	
 		req.setAttribute("vo", vo);
-
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_review.jsp");		
 		return "main.jsp";
 	}
 	@RequestMapping("mypage_reservation.do")
 	public String mypage_reserve(HttpServletRequest req){
-		String id= req.getParameter("userid");
-		System.out.println(id);
-		List<ReviewVO> vo = ReviewDAO.myAllReview(id);		
-		req.setAttribute("vo", vo);
-
+		String id= req.getParameter("userid");		
+		//List<ReservationVO> guidevo = GuideDAO.myGuideReservation(id);	
+		//List<ReservationVO> tourvo = TouristDAO.myTourReservation(id);	
+		
+		//req.setAttribute("guidevo", guidevo);
+		//req.setAttribute("tourvo", tourvo);
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_reservation.jsp");		
 		return "main.jsp";
 		
+	}
+	@RequestMapping("mypage_mywriter.do")
+	public String mypage_mywriter(HttpServletRequest req){
+		String id=req.getParameter("userid");
+		List<GuideVO> guidevo=GuideDAO.myGuideWriter(id);
+		List<TouristVO> touristvo=TouristDAO.myTouristWriter(id);
+		
+		req.setAttribute("guidevo", guidevo);
+		req.setAttribute("touristvo", touristvo);		
+
+		req.setAttribute("jsp", "mypage/mypage.jsp");
+		req.setAttribute("mypage", "mypage/mypage_mywriter.jsp");		
+		return "main.jsp";
 	}
 	
 	

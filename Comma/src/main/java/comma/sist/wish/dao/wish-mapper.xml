@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comma.sist.wish.dao.wish-mapper">
+	<resultMap type="Wish" id="wishList">
+	  <result property="wish_no" column="wish_no"/>
+	  <result property="user_id" column="user_id"/>
+	  <result property="tour_no" column="tour_no"/>
+	  <result property="guide_no" column="guide_no"/>
+	  <result property="hiredate" column="hiredate"/>
+	 
+
+	</resultMap>
+	<!--
+	 <result property="guidevo.guide_subject" column="guidevo.guide_subject"/>
+	  <result property="uservo.user_nick" column="uservo.user_nick"/>
+	  <result property="textvo.text_regdate" column="textvo.text_regdate"/>
+	  <result property="textvo.text_total_person" column="textvo.text_total_person"/>
+	  <result property="reservationvo.reservation_person" column="reservationvo.reservation_person"/> 
+	  -->
+	
+	<select id="myAllWish" parameterType="String" resultType="Wish">
+	select wish_no from wish
+	
+	</select>
+
+
+</mapper>

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
+
 	
 	<resultMap type="Guide" id="GuideList">
 	  <result column="guide_no" property="guide_no"/>
@@ -36,7 +37,6 @@
 					#{text_time1},#{text_time2},#{text_move},0,'n',#{text_tour_date})
 	</insert>
 	
-	
 	<insert id="guideInsert" parameterType="Guide">
 		<selectKey keyProperty="text_no" resultType="int" order="BEFORE">
 			select max(text_no) as text_no from text
@@ -57,9 +57,14 @@
 				#{guide_meet},#{guide_img},#{guide_map},#{guide_cost_detail})
 	</insert>
 	
-	
-	<select id="myAllGudie" parameterType="String" resultType="Wish">
+
+	<select id="myWishGudie" parameterType="String" resultType="Wish">
+
 		select wish_no from wish where user_id=#{id}
+	</select>
+	
+	<select id="myGuideWriter" parameterType="String" resultType="Guide">
+		select guide_no from guide where user_id='bae'
 	</select>
 </mapper>
 
