@@ -10,7 +10,8 @@
 		<meta http-equiv="Content-Script-Type" content="text/javascript" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 		<meta http-equiv="X-UA-Compatible" content="IE=10" />
-
+	
+		<link rel="stylesheet" type="text/css" href="../controller/assets/css/mypage.css" />
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/mytest.css" />
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/basic.css" />
 		<link rel="stylesheet" type="text/css" href="../controller/assets/css/style.css" />
