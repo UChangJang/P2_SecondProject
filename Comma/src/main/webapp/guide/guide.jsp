@@ -85,9 +85,9 @@
 					<div class="select-wrapper tourist_local">
 						<select name="text_loc" id="demo-category">
 							<option value="">- 정렬 -</option>
-							<option value="1">최신순</option>
-							<option value="1">가격순</option>
-							<option value="1">인기가이드순</option>
+							<option value="최신">최신순</option>
+							<option value="가격">가격순</option>
+							<option value="인기가이드">인기가이드순</option>
 						</select>
 					</div>
 				</div>

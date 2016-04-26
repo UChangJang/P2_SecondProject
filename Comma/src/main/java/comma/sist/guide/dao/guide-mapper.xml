@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
+
 	<resultMap type="Guide" id="GuideList">
 	  <result column="guide_no" property="guide_no"/>
 	  <result column="user_id" property="user_id"/>
@@ -30,8 +31,9 @@
 	
 	<!-- 디폴트는 최신순 -->
 	<select id="guideAllData" resultMap="GuideList">
-		select guide.user_id,user_img,user_name,guide_subject,guide.guide_no,text_move,guide.text_no 
-		from guide,text,users
+		select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img
+		from guide,users,text 
+		where guide.user_id=users.user_id and guide.text_no=text.text_no
 	</select>
 	
 	<select id="guideTotalPage" resultType="int">

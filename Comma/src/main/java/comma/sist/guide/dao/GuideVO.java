@@ -18,9 +18,9 @@ public class GuideVO {
 	private String	guide_img;
 	private String	guide_map;
 	private String	guide_cost_detail;
+	
 	private ReservationVO reservationvo=new ReservationVO();
 	private TextVO	textvo = new TextVO();
-
 	private UserVO uservo = new UserVO();
 
 	
