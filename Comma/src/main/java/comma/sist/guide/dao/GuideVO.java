@@ -1,6 +1,7 @@
 package comma.sist.guide.dao;
 
 import comma.sist.common.*;
+import comma.sist.user.dao.UserVO;
 
 public class GuideVO {
 
@@ -15,8 +16,14 @@ public class GuideVO {
 	private String	guide_map;
 	private String	guide_cost_detail;
 	private TextVO	textvo = new TextVO();
+	private UserVO	uservo = new UserVO();
 	
-	
+	public UserVO getUservo() {
+		return uservo;
+	}
+	public void setUservo(UserVO uservo) {
+		this.uservo = uservo;
+	}
 	public String getGuide_cost_detail() {
 		return guide_cost_detail;
 	}

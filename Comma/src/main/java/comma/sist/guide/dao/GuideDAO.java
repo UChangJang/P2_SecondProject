@@ -37,6 +37,16 @@ private static SqlSessionFactory	ssf;
 		
 	} // guideAllData()
 	
+	public static int guideTotalPage(){
+		
+		SqlSession session = ssf.openSession();
+		int total  = session.selectOne("guideTotalPage");
+		session.close();
+		
+		return total;
+		
+	}
+	
 	public static GuideVO guideInfoData(int no){
 		
 		SqlSession session = ssf.openSession();

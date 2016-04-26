@@ -65,7 +65,7 @@
 
 
 	<section> <!-- 글쓰기 -->
-	<form method="post" action="guide_Insert.do" id="guideInsertFmt" enctype="multipart/form-data">
+	<form method="post" action="guideWrite_ok.do" id="guideInsertFmt" enctype="multipart/form-data">
 		<div class="row uniform" id="guideWrite_text">
 			<div class="2u 12u$(xsmall) gWrite_left">
 				<!-- 1 왼쪽 : 제목-->

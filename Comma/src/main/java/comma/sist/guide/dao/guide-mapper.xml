@@ -3,7 +3,7 @@
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
 
 	
-	<!-- <resultMap type="Guide" id="GuideList">
+	<resultMap type="Guide" id="GuideList">
 	  <result column="guide_no" property="guide_no"/>
 	  <result column="user_id" property="user_id"/>
 	  <result column="guide_subject" property="guide_subject"/>
@@ -13,19 +13,31 @@
 	  <result column="guide_img" property="guide_img"/>
 	  <result column="guide_map" property="guide_map"/>
 	  <result column="guide_cost_detail" property="guide_cost_detail"/>
-	  <result column="text_no" property="vo.text_no"/>
-	  <result column="text_loc" property="vo.text_loc"/>
-	  <result column="text_cost" property="vo.text_cost"/>
-	  <result column="text_total_person" property="vo.text_total_person"/>
-	  <result column="text_regdate" property="vo.text_regdate"/>
-	  <result column="text_time1" property="vo.text_time1"/>
-	  <result column="text_time2" property="vo.text_time2"/>
-	  <result column="text_move" property="vo.text_move"/>
-	  <result column="text_hit" property="vo.text_hit"/>
-	  <result column="text_end" property="vo.text_end"/>
-	  <result column="text_tour_date" property="vo.text_tour_date"/>
-	</resultMap> -->
+	  <result column="text_no" property="textvo.text_no"/>
+	  <result column="text_loc" property="textvo.text_loc"/>
+	  <result column="text_cost" property="textvo.text_cost"/>
+	  <result column="text_total_person" property="textvo.text_total_person"/>
+	  <result column="text_regdate" property="textvo.text_regdate"/>
+	  <result column="text_time1" property="textvo.text_time1"/>
+	  <result column="text_time2" property="textvo.text_time2"/>
+	  <result column="text_move" property="textvo.text_move"/>
+	  <result column="text_hit" property="textvo.text_hit"/>
+	  <result column="text_end" property="textvo.text_end"/>
+	  <result column="text_tour_date" property="textvo.text_tour_date"/>
+	  <result column="user_name" property="uservo.user_name"/>
+	  <result column="user_img" property="uservo.user_img"/>
+	  <result column="user_nick" property="uservo.user_nick"/>
+	</resultMap>
 	
+	<!-- 디폴트는 최신순 -->
+	<select id="guideAllData" resultMap="GuideList">
+		select guide.user_id,user_img,user_name,guide_subject,guide.guide_no,text_move,guide.text_no 
+		from guide,text,users
+	</select>
+	
+	<select id="guideTotalPage" resultType="int">
+		select ceil(count(guide_no)/9) from guide 
+	</select>
 	
 	<select id="guideInfo" resultType="Guide" parameterType="int">
 		select guide_no,guide_subject from guide where guide_no=#{guide_no}
