@@ -63,7 +63,7 @@ public class GuideController {
 		String text_time4 = mr.getParameter("text_time4"); // am/pm
 		String guide_meet = mr.getParameter("guide_meet");	
 		String text_tour_date = mr.getParameter("text_tour_date");
-		
+
 		/*System.out.println(text_loc);
 		System.out.println(text_total_person);
 		System.out.println(text_move);
@@ -79,7 +79,7 @@ public class GuideController {
 		System.out.println(text_cost);
 		System.out.println(guide_cost_detail);
 		System.out.println(guide_img);*/
-		
+
 		GuideVO vo = new GuideVO();
 		vo.setGuide_subject(guide_subject);
 		vo.setGuide_loc_intro(guide_loc_intro);
@@ -111,19 +111,21 @@ public class GuideController {
 		GuideDAO.textInsert(vo);
 		System.out.println("222");
 		GuideDAO.guideInsert(vo);
+
 		System.out.println("333");
 		
 		request.setAttribute("jsp", "guide/guide.jsp");
+
 		// ok로 바꾸자
 		return "main.jsp";
 	}
 	
-	
-	
+
 	
 	@RequestMapping("guideBoard.do")
 	public String guideBoard(HttpServletRequest request){
 		request.setAttribute("jsp", "guide/guideBoard.jsp");		
+
 		return "main.jsp";
 	}
 	
