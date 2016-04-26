@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import comma.sist.common.TextVO;
+
 public class ReviewDAO {
 private static SqlSessionFactory	ssf;
 	
@@ -22,9 +24,9 @@ private static SqlSessionFactory	ssf;
 		}
 	}
 	
-	public static List<ReviewVO> myAllReview(String id){
+	public static List<TextVO> myAllReview(String id){
 		SqlSession session=ssf.openSession();
-		List<ReviewVO> vo = session.selectList("myAllReview",id);
+		List<TextVO> vo = session.selectList("myAllReview",id);
 		session.close();
 		return vo;
 	}

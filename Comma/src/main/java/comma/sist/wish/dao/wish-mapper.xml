@@ -1,24 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.wish.dao.wish-mapper">
-<!-- 	<resultMap type="Wish" id="wishList">
-	  <result property="wish_no" column="wish_no"/>
-	  <result property="guidevo.guide_subject" column="guide_subject"/>	 
-	  <result property="uservo.user_nick" column="user_nick"/>
-	  <result property="textvo.text_regdate" column="text_regdate"/>
-	  <result property="textvo.text_total_person" column="text_total_person"/>
-	  <result property="reservationvo.reservation_person" column="reservation_person"/> 
+	<resultMap type="Text" id="wishList">
+<result column="guide_no" property="guidevo.guide_no"/>
+	  <result column="guide.user_id" property="guidevo.user_id"/>
+	  <result column="guide_subject" property="guidevo.guide_subject"/>
+	  <result column="guide_loc_intro" property="guidevo.guide_loc_intro"/>
+	  <result column="guide_detail" property="guidevo.guide_detail"/>
+	  <result column="guide_meet" property="guidevo.guide_meet"/>
+	  <result column="guide_img" property="guidevo.guide_img"/>
+	  <result column="guide_map" property="guidevo.guide_map"/>
+	  <result column="guide_cost_detail" property="guidevo.guide_cost_detail"/>
+	  <result column="text_no" property="text_no"/>
+	  <result column="text_loc" property="text_loc"/>
+	  <result column="text_cost" property="text_cost"/>
+	  <result column="text_total_person" property="text_total_person"/>
+	  <result column="text_regdate" property="text_regdate"/>
+	  <result column="text_time1" property="text_time1"/>
+	  <result column="text_time2" property="text_time2"/>
+	  <result column="text_move" property="text_move"/>
+	  <result column="text_hit" property="text_hit"/>
+	  <result column="text_end" property="text_end"/>
+	  <result column="text_tour_date" property="text_tour_date"/>
+	  <result column="user_name" property="uservo.user_name"/>
+	  <result column="user_img" property="uservo.user_img"/>
+	  <result column="user_nick" property="uservo.user_nick"/>
+	  <result column="reservation_person" property="reservationvo.reservation_person"/> 
+	  <result column="tour_no" property="touristvo.tour_no"/>
+	  <result column="tour.user_id" property="touristvo.user_id"/>
+	  <result column="tour.text_no" property="touristvo.text_no"/>
+	  <result column="tour_theme" property="touristvo.tour_theme"/>
+	  <result column="tour_detail" property="touristvo.tour_detail"/>  
+	  <result column="wish_no" property="wishvo.wish_no"/>  
+	  <result column="wish.user_id" property="wishvo.wish_user_id"/>  
+	  <result column="wish.tour_no" property="wishvo.wish_tour_no"/>  
+	  <result column="wish.guide_no" property="wishvo.wish_guide_no"/>  
 	  </resultMap>
 	
-	<select id="myAllWish" parameterType="String" resultMap="wishList">
-		select rownum as wish_no,
-		(select guide_subject from guide where wish.guide_no=guide.guide_no) as guide_subject,
-		(select user_nick from users where (select user_id from guide where wish.guide_no=guide.guide_no)=user_id) user_nick,
-		(select text_regdate from text where (select text_no from guide where wish.guide_no=guide.guide_no)=text_no) text_regdate,
-		(select sum(reservation_person) from reservation where wish.guide_no=reservation.guide_no) text_total_person,
-		(select text_total_person from text where text.text_no=(select text_no from guide where wish.guide_no=guide.guide_no)) reservation_person
-		from wish where user_id=#{id}	
+	<select id="myWishGuide" parameterType="String" resultMap="wishList">
+		select rownum as wish_no,guide_subject,user_nick,text_regdate,text_total_person,reservation_person
+		from wish,text,guide,users,reservation 
+		where guide.guide_no=reservation.guide_no and text.text_no=guide.text_no and wish.guide_no=guide.guide_no
 	</select>
- -->
+	
+	<select id="myWishTour" parameterType="String" resultMap="wishList">
+		select rownum as wish_no,tour_theme,user_nick,text_regdate,text_total_person,reservation_person
+		from wish,text,tour,users,reservation 
+		where tour.tour_no=reservation.tour_no and text.text_no=tour.text_no and wish.tour_no=tour.tour_no
+	</select>
 
 </mapper>

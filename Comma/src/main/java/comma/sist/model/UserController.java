@@ -93,8 +93,10 @@ public class UserController {
 	@RequestMapping("mypage_wishlist.do")
 	public String mypage_wishlist(HttpServletRequest req){
 		String id=req.getParameter("userid");		
-		List<WishVO> vo=WishDAO.myAllWish(id);	
-		req.setAttribute("vo", vo);
+		List<TextVO> guidevo=WishDAO.myWishGuide(id);
+		List<TextVO> tourvo=WishDAO.myWishTour(id);	
+		req.setAttribute("guidevo", guidevo);
+		req.setAttribute("tourvo", tourvo);
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_wishlist.jsp");		
 		return "main.jsp";
@@ -102,8 +104,8 @@ public class UserController {
 	@RequestMapping("mypage_review.do")
 	public String mypage_review(HttpServletRequest req){
 		String id=req.getParameter("userid");
-		//List<ReviewVO> vo = ReviewDAO.myAllReview(id);	
-		//req.setAttribute("vo", vo);
+		List<TextVO> vo = ReviewDAO.myAllReview(id);	
+		req.setAttribute("vo", vo);
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_review.jsp");		
 		return "main.jsp";
@@ -111,11 +113,11 @@ public class UserController {
 	@RequestMapping("mypage_reservation.do")
 	public String mypage_reserve(HttpServletRequest req){
 		String id= req.getParameter("userid");		
-		//List<ReservationVO> guidevo = ReservationDAO.myGuideReservation(id);	
-		//List<ReservationVO> tourvo = ReservationDAO.myTourReservation(id);	
+		List<TextVO> guidevo = ReservationDAO.myGuideReservation(id);	
+		List<TextVO> tourvo = ReservationDAO.myTourReservation(id);	
 		
-		//req.setAttribute("guidevo", guidevo);
-		//req.setAttribute("tourvo", tourvo);
+		req.setAttribute("guidevo", guidevo);
+		req.setAttribute("tourvo", tourvo);
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_reservation.jsp");		
 		return "main.jsp";
