@@ -23,6 +23,11 @@ public class GuideController {
 		int totalpage = GuideDAO.guideTotalPage();
 		System.out.println("가이드 총 페이지: "+totalpage);
 		
+		
+		
+		
+		
+		request.setAttribute("list", list);
 		request.setAttribute("jsp", "guide/guide.jsp");		
 		return "main.jsp";
 	}
@@ -113,10 +118,9 @@ public class GuideController {
 		GuideDAO.guideInsert(vo);
 		System.out.println("333");
 		
-		request.setAttribute("jsp", "guide/guide.jsp");
 
 		// ok로 바꾸자
-		return "main.jsp";
+		return "guide/guideWriteOk.jsp";
 	}
 	
 
