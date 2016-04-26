@@ -11,7 +11,7 @@ public class FileConfig {
 
 		
 		try{
-			String path = "C:\\Users\\BaeHyunGil\\git\\P2_SecondProject\\Comma\\src\\main\\java\\";		// 단비
+			String path = "C:\\Users\\SEC\\git\\P2_SecondProject\\Comma\\src\\main\\java\\";		// 단비
 
 			path = path+pack.replace('.', '\\');
 			
