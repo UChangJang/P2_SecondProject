@@ -3,7 +3,7 @@
 <mapper namespace="comma.sist.wish.dao.wish-mapper">
 	<resultMap type="Wish" id="wishList">
 	  <result property="wish_no" column="wish_no"/>
-	 <result property="guidevo.guide_subject" column="guide_subject"/>	 
+	  <result property="guidevo.guide_subject" column="guide_subject"/>	 
 	  <result property="uservo.user_nick" column="user_nick"/>
 	  <result property="textvo.text_regdate" column="text_regdate"/>
 	  <result property="textvo.text_total_person" column="text_total_person"/>

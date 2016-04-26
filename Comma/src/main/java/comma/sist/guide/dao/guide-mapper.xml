@@ -10,13 +10,29 @@
 	  <result property="reservationvo.reservation_person" column="reservation_person"/> 
 	  <result property="textvo.text_end" column="text_end"/>
 	</resultMap>
+
 	
 	<select id="guideInfo" resultType="Guide" parameterType="int">
 		select guide_no,guide_subject from guide where guide_no=#{guide_no}
 	</select>
-	<select id="myWishGudie" parameterType="String" resultType="Wish">
-		select wish_no from wish where user_id=#{id}
-	</select>
+	
+	<!-- 가이드 글 추가 -->
+	<insert id="textInsert" parameterType="Text">
+		insert into text values((select NVL(max(text_no)+1,1) from text),#{text_loc},#{text_cost},#{text_total_person},sysdate,
+					#{text_time1},#{text_time2},#{text_move},0,'n',#{text_tour_date})
+	</insert>
+	
+	<insert id="guideInsert" parameterType="Guide">
+		<selectKey keyProperty="text_no" resultType="int" order="BEFORE">
+			select max(text_no) as text_no from text
+		</selectKey>
+	
+		insert into guide(guide_no,user_id,guide_subject,text_no,guide_loc_intro,guide_detail,guide_meet,guide_img,guide_map,guide_cost_detail)
+		 values((select NVL(max(guide_no)+1,1) from guide),
+				#{user_id},#{guide_subject},#{text_no},#{guide_loc_intro},#{guide_detail},
+				#{guide_meet},#{guide_img},#{guide_map},#{guide_cost_detail})
+	</insert>
+	
 	<select id="myGuideWriter" parameterType="String" resultMap="guideList">
 		select rownum guide_no,guide_subject,		
 		(select text_regdate from text where text.text_no=guide.text_no) text_regdate,
