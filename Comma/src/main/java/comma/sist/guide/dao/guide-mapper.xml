@@ -28,8 +28,8 @@
 	  <result column="user_nick" property="uservo.user_nick"/>
 	  <result column="reservation_person" property="reservationvo.reservation_person"/> 
 	</resultMap>
-	
-	<!-- 디폴트는 최신순 -->
+<!-- 	
+	디폴트는 최신순
 	<select id="guideAllData" resultMap="GuideList">
 		select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img
 		from guide,users,text 
@@ -44,7 +44,7 @@
 		select guide_no,guide_subject from guide where guide_no=#{guide_no}
 	</select>
 	
-	<!-- 가이드 글 추가 -->
+	가이드 글 추가
 	<insert id="textInsert" parameterType="Text">
 		insert into text values((select NVL(max(text_no)+1,1) from text),#{text_loc},#{text_cost},#{text_total_person},sysdate,
 					#{text_time1},#{text_time2},#{text_move},0,'n',#{text_tour_date})
@@ -59,7 +59,7 @@
 		 values((select NVL(max(guide_no)+1,1) from guide),
 				#{user_id},#{guide_subject},#{text_no},#{guide_loc_intro},#{guide_detail},
 				#{guide_meet},#{guide_img},#{guide_map},#{guide_cost_detail})
-	</insert>
+	</insert> -->
 	
  	<select id="myGuideWriter" parameterType="String" resultMap="GuideList"> 
 	  select rownum guide_no,guide_subject,text_regdate,user_nick,reservation_person, text_end

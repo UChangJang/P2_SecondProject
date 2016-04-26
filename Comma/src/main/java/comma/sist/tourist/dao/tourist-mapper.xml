@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.tourist.dao.tourist-mapper">	
-<!-- 	<resultMap type="tour" id="Tourist">
+<!--	<resultMap type="tour" id="Tourist">
 	
 
 	 <result property="tour_no" column="tour_no"/>
@@ -26,14 +26,13 @@
  		   text_time1,text_time2,text_move,text_hit,text_end,text_tour_date
  	FROM tour,text
  	WHERE tour.text_no=text.text_no
- 	</sql> -->
-	
+ 	</sql> 
 	
 	<select id="myWishTorist" parameterType="String" resultType="Wish">
 		select wish_no from wish where user_id='bae'	
 	</select>
 	<select id="myTouristWriter" parameterType="String" resultType="Tourist">
 		select tour_no from tour where user_id='bae'	
-	</select>
+	</select> -->
 	
 </mapper>

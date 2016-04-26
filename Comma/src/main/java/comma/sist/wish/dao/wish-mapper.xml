@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.wish.dao.wish-mapper">
-	<resultMap type="Wish" id="wishList">
+<!-- 	<resultMap type="Wish" id="wishList">
 	  <result property="wish_no" column="wish_no"/>
 	  <result property="guidevo.guide_subject" column="guide_subject"/>	 
 	  <result property="uservo.user_nick" column="user_nick"/>
@@ -19,6 +19,6 @@
 		(select text_total_person from text where text.text_no=(select text_no from guide where wish.guide_no=guide.guide_no)) reservation_person
 		from wish where user_id=#{id}	
 	</select>
-
+ -->
 
 </mapper>

@@ -1,5 +1,5 @@
 package comma.sist.tourist.dao;
-import comma.sist.common.*;
+
 
 public class TouristVO {
 	private int tour_no;

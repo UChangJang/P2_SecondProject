@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.review.dao.review-mapper">
-   
+  <!--  
   <resultMap id="reviewMap" type="Review">
 	  <result property="review_no" column="review_no"/>
 	  <result property="guide_no" column="guide_no"/>
@@ -23,6 +23,6 @@
 (select user_nick from users where users.user_id=(select user_id from reservation where reservation.guide_no=guide.guide_no)) 신청자닉네임,
 (select reservation_person from reservation where guide.guide_no=reservation.guide_no) 예약인원 
 from guide where user_id='bae'
-    </select>
+    </select> -->
 
 </mapper>
