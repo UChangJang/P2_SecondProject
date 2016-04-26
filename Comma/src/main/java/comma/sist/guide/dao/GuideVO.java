@@ -18,24 +18,7 @@ public class GuideVO {
 	private String	guide_img;
 	private String	guide_map;
 	private String	guide_cost_detail;
-	private ReservationVO reservationvo=new ReservationVO();
-	private TextVO	textvo = new TextVO();
 
-	private UserVO uservo = new UserVO();
-
-	
-	public UserVO getUservo() {
-		return uservo;
-	}
-	public void setUservo(UserVO uservo) {
-		this.uservo = uservo;
-	}
-	public ReservationVO getReservationvo() {
-		return reservationvo;
-	}
-	public void setReservationvo(ReservationVO reservationvo) {
-		this.reservationvo = reservationvo;
-	}
 
 	public String getGuide_cost_detail() {
 		return guide_cost_detail;
@@ -43,12 +26,6 @@ public class GuideVO {
 	public void setGuide_cost_detail(String guide_cost_detail) {
 		this.guide_cost_detail = guide_cost_detail;
 	}	
-	public TextVO getTextvo() {
-		return textvo;
-	}
-	public void setTextvo(TextVO textvo) {
-		this.textvo = textvo;
-	}
 	public int getGuide_no() {
 		return guide_no;
 	}

@@ -11,13 +11,13 @@
 	  </resultMap>
 	
 	<select id="myAllWish" parameterType="String" resultMap="wishList">
-	select rownum as wish_no,
-	(select guide_subject from guide where wish.guide_no=guide.guide_no) as guide_subject,
-	(select user_nick from users where (select user_id from guide where wish.guide_no=guide.guide_no)=user_id) user_nick,
-	(select text_regdate from text where (select text_no from guide where wish.guide_no=guide.guide_no)=text_no) text_regdate,
-	(select sum(reservation_person) from reservation where wish.guide_no=reservation.guide_no) text_total_person,
-	(select text_total_person from text where text.text_no=(select text_no from guide where wish.guide_no=guide.guide_no)) reservation_person
-	from wish where user_id=#{id}	
+		select rownum as wish_no,
+		(select guide_subject from guide where wish.guide_no=guide.guide_no) as guide_subject,
+		(select user_nick from users where (select user_id from guide where wish.guide_no=guide.guide_no)=user_id) user_nick,
+		(select text_regdate from text where (select text_no from guide where wish.guide_no=guide.guide_no)=text_no) text_regdate,
+		(select sum(reservation_person) from reservation where wish.guide_no=reservation.guide_no) text_total_person,
+		(select text_total_person from text where text.text_no=(select text_no from guide where wish.guide_no=guide.guide_no)) reservation_person
+		from wish where user_id=#{id}	
 	</select>
 
 

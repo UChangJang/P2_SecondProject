@@ -7,7 +7,7 @@ public class TouristVO {
 	private int text_no;
 	private String tour_theme;
 	private String tour_detail;
-	private TextVO vo = new TextVO();
+
 	
 	public int getTour_no() {
 		return tour_no;
@@ -39,13 +39,7 @@ public class TouristVO {
 	public void setTour_detail(String tour_detail) {
 		this.tour_detail = tour_detail;
 	}
-	public TextVO getVo() {
-		return vo;
-	}
-	public void setVo(TextVO vo) {
-		this.vo = vo;
-	}
-	
+
 	
 	
 }

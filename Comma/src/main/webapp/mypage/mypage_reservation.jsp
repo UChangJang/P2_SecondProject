@@ -26,22 +26,24 @@
 			<table class="alt">
 				<thead>
 					<tr>
-						<th width="10%">번호</th>
-						<th width="30%">제목</th>
+						<th width="7%">번호</th>
+						<th width="25%">제목</th>						
 						<th width="10%">별명</th>
 						<th width="10%">날짜</th>
 						<th width="7%">인원</th>
-						<th width="7%">삭제</th>
+						<th width="7%">상태</th>
+						<th width="7%">후기</th>
 					</tr>
 				</thead>
 				<tbody>
 				<c:forEach var="guidevo" items="${guidevo }">
 					<tr>
 						<td>${guidevo.reservation_no }</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
+						<td>${guidevo.guidevo.guide_subject }</td>
+						<td>${guidevo.uservo.user_nick }</td>
+						<td>${guidevo.textvo.text_tour_date }</td>
+						<td>${guidevo.textvo.text_total_person }</td>
+						<td>${guidevo.textvo.text_end }</td>
 						<td><input type="button" value="삭제"></td>
 					</tr>
 					</c:forEach>

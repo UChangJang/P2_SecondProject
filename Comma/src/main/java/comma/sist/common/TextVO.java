@@ -2,6 +2,13 @@ package comma.sist.common;
 
 import java.util.*;
 
+import comma.sist.guide.dao.GuideVO;
+import comma.sist.reservation.dao.ReservationVO;
+import comma.sist.review.dao.ReviewVO;
+import comma.sist.tourist.dao.TouristVO;
+import comma.sist.user.dao.UserVO;
+import comma.sist.wish.dao.WishVO;
+
 public class TextVO {
 
 	private int		text_no;
@@ -15,9 +22,53 @@ public class TextVO {
 	private int		text_hit;
 	private String	text_end;
 	private String	text_tour_date;
+	private GuideVO guidevo=new GuideVO();
+	private UserVO uservo=new UserVO();
+	private TouristVO touristvo=new TouristVO();
+	private ReservationVO reservationvo=new ReservationVO();
+	private ReviewVO reviewvo=new ReviewVO();
+	private WishVO wishvo=new WishVO();
 	
 	
 	
+	
+	public ReservationVO getReservationvo() {
+		return reservationvo;
+	}
+	public void setReservationvo(ReservationVO reservationvo) {
+		this.reservationvo = reservationvo;
+	}
+	public GuideVO getGuidevo() {
+		return guidevo;
+	}
+	public void setGuidevo(GuideVO guidevo) {
+		this.guidevo = guidevo;
+	}
+	public UserVO getUservo() {
+		return uservo;
+	}
+	public void setUservo(UserVO uservo) {
+		this.uservo = uservo;
+	}
+	public TouristVO getTouristvo() {
+		return touristvo;
+	}
+	public void setTouristvo(TouristVO touristvo) {
+		this.touristvo = touristvo;
+	}
+
+	public ReviewVO getReviewvo() {
+		return reviewvo;
+	}
+	public void setReviewvo(ReviewVO reviewvo) {
+		this.reviewvo = reviewvo;
+	}
+	public WishVO getWishvo() {
+		return wishvo;
+	}
+	public void setWishvo(WishVO wishvo) {
+		this.wishvo = wishvo;
+	}
 	public int getText_no() {
 		return text_no;
 	}

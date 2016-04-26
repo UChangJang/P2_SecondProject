@@ -86,13 +86,13 @@ public class GuideController {
 		vo.setGuide_detail(guide_detail);
 		vo.setGuide_cost_detail(guide_cost_detail);
 		vo.setGuide_meet(guide_meet);
-		vo.getTextvo().setText_loc(text_loc);
+/*		vo.getTextvo().setText_loc(text_loc);
 		vo.getTextvo().setText_total_person(Integer.parseInt(text_total_person));
 		vo.getTextvo().setText_cost(text_cost);
 		vo.getTextvo().setText_move(text_move);
 		vo.getTextvo().setText_time1(text_time1);
 		vo.getTextvo().setText_time2(text_time3);
-		vo.getTextvo().setText_tour_date(text_tour_date);
+		vo.getTextvo().setText_tour_date(text_tour_date);*/
 		
 		HttpSession session = request.getSession();
 		String user_id = (String)session.getAttribute("id");
@@ -111,7 +111,6 @@ public class GuideController {
 		GuideDAO.textInsert(vo);
 		System.out.println("222");
 		GuideDAO.guideInsert(vo);
-
 		System.out.println("333");
 		
 		request.setAttribute("jsp", "guide/guide.jsp");

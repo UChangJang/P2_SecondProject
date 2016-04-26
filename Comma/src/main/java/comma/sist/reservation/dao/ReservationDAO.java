@@ -21,10 +21,17 @@ private static SqlSessionFactory	ssf;
 			System.out.println(ex.getMessage());
 		}
 	}
-	public static List<ReservationVO> myGuideReservation(String id){
+/*	public static List<ReservationVO> myGuideReservation(String id){
 		SqlSession session = ssf.openSession();
 		List<ReservationVO> vo =session.selectList("myGuideReservation",id);
 		session.close();
 		return vo;
 	}
+	public static List<ReservationVO> myTourReservation(String id){
+		SqlSession session = ssf.openSession();
+		List<ReservationVO> vo =session.selectList("myGuideReservation",id);
+		session.close();
+		return vo;
+	}*/
+	
 }

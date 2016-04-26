@@ -11,15 +11,8 @@ public class ReviewVO {
 	private String user_id;
 	private int review_score;
 	private String review_text;
-	private List<GuideVO> GuideVO;
 	
 
-	public List<GuideVO> getGuideVO() {
-		return GuideVO;
-	}
-	public void setGuideVO(List<GuideVO> guideVO) {
-		GuideVO = guideVO;
-	}
 
 	public int getReview_no() {
 		return review_no;
