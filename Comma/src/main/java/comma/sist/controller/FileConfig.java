@@ -12,6 +12,7 @@ public class FileConfig {
 		
 		try{
 
+
 			String path = "C:\\Users\\BaeHyunGil\\git\\P2_SecondProject\\Comma\\src\\main\\java\\";
 
 

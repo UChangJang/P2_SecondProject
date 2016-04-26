@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="comma.sist.tourist.dao.tourist-mapper">
+<mapper namespace="comma.sist.tourist.dao.tourist-mapper">	
+<!-- 	<resultMap type="tour" id="Tourist">
+	
+
+	 <result property="tour_no" column="tour_no"/>
+	 <result property="user_id" column="user_id"/>
+	 <result property="text_no" column="text_no"/>
+	 <result property="tour_theme" column="tour_theme"/>
+	 <result property="tour_detail" column="tour_detail"/>
+	 <result property="vo.text_loc" column="vo.text_loc"/>
+	 <result property="vo.text_cost" column="vo.text_cost"/>
+	 <result property="vo.text_total_person" column="vo.text_total_person"/>
+	 <result property="vo.text_regdate" column="vo.text_regdate"/>
+	 <result property="vo.text_time1" column="vo.text_time1"/>
+	 <result property="vo.text_time2" column="vo.text_time2"/>
+	 <result property="vo.text_move" column="vo.text_move"/>
+	 <result property="vo.text_hit" column="vo.text_hit"/>
+	 <result property="vo.text_end" column="vo.text_end"/>
+	 <result property="vo.text_tour_date" column="vo.text_tour_date"/>
+	</resultMap>
+	 <sql id="tour_sql">
+  	SELECT tour_no,user_id,tour.text_no,tour_theme,tour_detail 
+ 		   text_loc,text_cost,text_total_person,text_regdate
+ 		   text_time1,text_time2,text_move,text_hit,text_end,text_tour_date
+ 	FROM tour,text
+ 	WHERE tour.text_no=text.text_no
+ 	</sql> -->
+	
 	
 	<select id="myWishTorist" parameterType="String" resultType="Wish">
 		select wish_no from wish where user_id='bae'	

@@ -1,0 +1,22 @@
+@CHARSET "EUC-KR";
+#detail_textarea textarea{
+	height: 10em;
+	background-color: #d6e9e4;
+}
+#detail_textarea1{
+	height: 5em;
+}
+#detail_textarea1 span{
+	height: 100%;
+	width: 100%;
+	text-align: right;	
+}
+#detail_textarea1 span a:hover{
+	color: #ff0080;
+}
+
+.tourB{
+	display: inline-block;
+    margin: 1em 0 1em 0;
+    width: 32%;
+}

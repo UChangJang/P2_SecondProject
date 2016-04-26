@@ -247,7 +247,7 @@ if (typeof jQuery === 'undefined') { throw new Error('DCalendar.Picker: This plu
 		return $(this).each(function(){
 			var that = $(this);
 			var cal = $('<table class="calendar"></table>'), hovered = false, selectedDate = false;
-			that.wrap($('<div class="datepicker" style="display:inline-block;position:relative;"></div>'));
+			that.wrap($('<div class="datepicker" style="width:100%;position:relative;"></div>'));
 			cal.css({
 				position:'absolute',
 				left:0, display:'none',

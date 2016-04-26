@@ -45,29 +45,8 @@ public class IntroController {
 		return "main.jsp";
 	}
 	
-	@RequestMapping("guide.do")
-	public String guide(HttpServletRequest request){
-		request.setAttribute("jsp", "guide/guide.jsp");		
-		return "main.jsp";
-	}
 	
-	@RequestMapping("guideWrite.do")
-	public String guideWrite(HttpServletRequest request){
-		request.setAttribute("jsp", "guide/guideWrite.jsp");		
-		return "main.jsp";
-	}
 	
-	@RequestMapping("guideBoard.do")
-	public String guideBoard(HttpServletRequest request){
-		request.setAttribute("jsp", "guide/guideBoard.jsp");		
-		return "main.jsp";
-	}
-	
-	@RequestMapping("tourist.do")
-	public String tourist(HttpServletRequest request){
-		request.setAttribute("jsp", "tourist/tourist.jsp");		
-		return "main.jsp";
-	}
 	
 	@RequestMapping("touristWrite.do")
 	public String touristWrite(HttpServletRequest request){

@@ -14,7 +14,26 @@ import java.io.*;
 public class GuideController {
 
 	
-	@RequestMapping("guide_Insert.do")
+	@RequestMapping("guide.do")
+	public String guide(HttpServletRequest request){
+		
+		List<GuideVO> list = GuideDAO.guideAllData();
+		
+		
+		int totalpage = GuideDAO.guideTotalPage();
+		System.out.println("가이드 총 페이지: "+totalpage);
+		
+		request.setAttribute("jsp", "guide/guide.jsp");		
+		return "main.jsp";
+	}
+	
+	@RequestMapping("guideWrite.do")
+	public String guideWrite(HttpServletRequest request){
+		request.setAttribute("jsp", "guide/guideWrite.jsp");		
+		return "main.jsp";
+	}
+		
+	@RequestMapping("guideWrite_ok.do")
 	public String guide_Insert(HttpServletRequest request) throws Exception{
 		
 		request.setCharacterEncoding("EUC-KR");
@@ -44,7 +63,7 @@ public class GuideController {
 		String text_time4 = mr.getParameter("text_time4"); // am/pm
 		String guide_meet = mr.getParameter("guide_meet");	
 		String text_tour_date = mr.getParameter("text_tour_date");
-		
+
 		/*System.out.println(text_loc);
 		System.out.println(text_total_person);
 		System.out.println(text_move);
@@ -60,7 +79,7 @@ public class GuideController {
 		System.out.println(text_cost);
 		System.out.println(guide_cost_detail);
 		System.out.println(guide_img);*/
-		
+
 		GuideVO vo = new GuideVO();
 		vo.setGuide_subject(guide_subject);
 		vo.setGuide_loc_intro(guide_loc_intro);
@@ -92,10 +111,21 @@ public class GuideController {
 		GuideDAO.textInsert(vo);
 		System.out.println("222");
 		GuideDAO.guideInsert(vo);
+
 		System.out.println("333");
 		
 		request.setAttribute("jsp", "guide/guide.jsp");
-		
+
+		// ok로 바꾸자
+		return "main.jsp";
+	}
+	
+
+	
+	@RequestMapping("guideBoard.do")
+	public String guideBoard(HttpServletRequest request){
+		request.setAttribute("jsp", "guide/guideBoard.jsp");		
+
 		return "main.jsp";
 	}
 	
