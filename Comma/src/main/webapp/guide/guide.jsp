@@ -14,7 +14,7 @@
 		<p>가이드찾기설명</p>
 	</header>
 
-	<section class="wrapper style5">
+	<section class="wrapper style5" id="guide_margin">
 		<div class="inner">
 			<form method="post" action="#">
 				<div class="row uniform">
@@ -73,11 +73,22 @@
 							</select>
 						</div>
 
-						<div id="demo">
+						<div id="demo1">
 							<input type="text" id="dt" placeholder="날짜선택">
 							<div id="dd"></div>
 						</div>
 						
+					</div>
+				</div>
+				
+				<div id="sortGuide">
+					<div class="select-wrapper tourist_local">
+						<select name="text_loc" id="demo-category">
+							<option value="">- 정렬 -</option>
+							<option value="최신">최신순</option>
+							<option value="가격">가격순</option>
+							<option value="인기가이드">인기가이드순</option>
+						</select>
 					</div>
 				</div>
 			</form>

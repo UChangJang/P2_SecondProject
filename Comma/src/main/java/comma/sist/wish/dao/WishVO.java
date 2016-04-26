@@ -1,10 +1,17 @@
 package comma.sist.wish.dao;
 
+import comma.sist.common.TextVO;
+import comma.sist.guide.dao.GuideVO;
+import comma.sist.reservation.dao.ReservationVO;
+import comma.sist.tourist.dao.TouristVO;
+import comma.sist.user.dao.UserVO;
+
 public class WishVO {	
 	private int wish_no;
 	private String user_id;
 	private int tour_no;
 	private int guide_no;
+	
 	public int getWish_no() {
 		return wish_no;
 	}

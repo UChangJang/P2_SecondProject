@@ -1,5 +1,10 @@
 package comma.sist.reservation.dao;
 
+import comma.sist.common.TextVO;
+import comma.sist.guide.dao.GuideVO;
+import comma.sist.review.dao.ReviewVO;
+import comma.sist.user.dao.UserVO;
+
 public class ReservationVO {
 	private int reservation_no;
 	private String user_id;
@@ -8,6 +13,7 @@ public class ReservationVO {
 	private int reservation_person;
 	private String reservation_check;
 	private String reservation_cost;
+
 	public int getReservation_no() {
 		return reservation_no;
 	}

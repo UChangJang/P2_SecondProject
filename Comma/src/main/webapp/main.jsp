@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
+
    <head>
       <title>여행가이드 메인</title>
       <!-- meta:문서의 기본형식 지정/ 메인 -->
@@ -17,6 +18,7 @@
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/main.css" />      
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/tabControl.css" />   
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/mypage.css" />
+      <link rel="stylesheet" type="text/css" href="../controller/assets/css/tourist.css" />
       <link rel="stylesheet" href="../controller/assets/css/introKor.css" />
       <link rel="stylesheet" href="../controller/assets/css/dcalendar.picker.css">
       <link href="../controller/assets/css/jquery.bxslider.css" rel="stylesheet" />
@@ -25,7 +27,7 @@
       
       <!-- 메인 자동 스크롤 배너--> 
       <link rel='stylesheet prefetch' href='http://dimsemenov-static.s3.amazonaws.com/dist/magnific-popup.css'>
-               
+
 </head>
    
 
@@ -369,6 +371,7 @@
      });
     </script>
 
+
    <!-- 마우스 오버시 hot 글 보임 -->
    <!-- <script type="text/javascript"
       src="assets/js/jquery-1.4.1.min.js"></script> -->
@@ -389,6 +392,7 @@
          });
       });
    </script>
+
 
 </body>
 </html>

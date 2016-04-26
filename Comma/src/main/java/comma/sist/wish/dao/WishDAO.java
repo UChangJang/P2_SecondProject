@@ -1,14 +1,16 @@
-package comma.sist.reservation.dao;
+package comma.sist.wish.dao;
 
 import java.io.Reader;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-public class ReservationDAO {
+public class WishDAO {
 private static SqlSessionFactory	ssf;
 	
 	static{
@@ -21,17 +23,12 @@ private static SqlSessionFactory	ssf;
 			System.out.println(ex.getMessage());
 		}
 	}
-/*	public static List<ReservationVO> myGuideReservation(String id){
-		SqlSession session = ssf.openSession();
-		List<ReservationVO> vo =session.selectList("myGuideReservation",id);
-		session.close();
+	
+	public static List<WishVO> myAllWish(String id){
+		SqlSession session=ssf.openSession();
+		System.out.println(id);
+		List<WishVO> vo = session.selectList("myAllWish",id);
+		
 		return vo;
 	}
-	public static List<ReservationVO> myTourReservation(String id){
-		SqlSession session = ssf.openSession();
-		List<ReservationVO> vo =session.selectList("myGuideReservation",id);
-		session.close();
-		return vo;
-	}*/
-	
 }

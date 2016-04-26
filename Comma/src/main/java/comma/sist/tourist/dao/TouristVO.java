@@ -1,11 +1,14 @@
 package comma.sist.tourist.dao;
+import comma.sist.common.*;
 
 public class TouristVO {
-	private int tour_no; //pk
-	private String user_id; //fk
-	private int text_no;//fk
-	private String tour_theme ;
-	private String tour_detail ;
+	private int tour_no;
+	private String user_id;
+	private int text_no;
+	private String tour_theme;
+	private String tour_detail;
+
+	
 	public int getTour_no() {
 		return tour_no;
 	}
@@ -36,5 +39,7 @@ public class TouristVO {
 	public void setTour_detail(String tour_detail) {
 		this.tour_detail = tour_detail;
 	}
+
+	
 	
 }

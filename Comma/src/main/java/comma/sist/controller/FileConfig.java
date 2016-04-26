@@ -12,6 +12,7 @@ public class FileConfig {
 		
 		try{
 			String path = "C:\\Users\\sist\\Git\\P2_SecondProject\\Comma\\src\\main\\java\\";		// ´Üºñ
+
 			path = path+pack.replace('.', '\\');
 			
 			File dir = new File(path);
