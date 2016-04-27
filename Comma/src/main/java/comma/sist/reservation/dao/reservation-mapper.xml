@@ -1,49 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.reservation.dao.reservation-mapper">
-
-<resultMap type="Text" id="ReservationList">
-	  <result column="guide_no" property="guidevo.guide_no"/>
-	  <result column="guide.user_id" property="guidevo.user_id"/>
-	  <result column="guide_subject" property="guidevo.guide_subject"/>
-	  <result column="guide_loc_intro" property="guidevo.guide_loc_intro"/>
-	  <result column="guide_detail" property="guidevo.guide_detail"/>
-	  <result column="guide_meet" property="guidevo.guide_meet"/>
-	  <result column="guide_img" property="guidevo.guide_img"/>
-	  <result column="guide_map" property="guidevo.guide_map"/>
-	  <result column="guide_cost_detail" property="guidevo.guide_cost_detail"/>
-	  <result column="text_no" property="text_no"/>
-	  <result column="text_loc" property="text_loc"/>
-	  <result column="text_cost" property="text_cost"/>
-	  <result column="text_total_person" property="text_total_person"/>
-	  <result column="text_regdate" property="text_regdate"/>
-	  <result column="text_time1" property="text_time1"/>
-	  <result column="text_time2" property="text_time2"/>
-	  <result column="text_move" property="text_move"/>
-	  <result column="text_hit" property="text_hit"/>
-	  <result column="text_end" property="text_end"/>
-	  <result column="text_tour_date" property="text_tour_date"/>
-	  <result column="user_name" property="uservo.user_name"/>
-	  <result column="user_img" property="uservo.user_img"/>
-	  <result column="user_nick" property="uservo.user_nick"/>
-	  <result column="reservation_person" property="reservationvo.reservation_person"/> 
-	  <result column="tour_no" property="touristvo.tour_no"/>
-	  <result column="tour.user_id" property="touristvo.user_id"/>
-	  <result column="tour.text_no" property="touristvo.text_no"/>
-	  <result column="tour_theme" property="touristvo.tour_theme"/>
-	  <result column="tour_detail" property="touristvo.tour_detail"/>  
-	</resultMap>
-
 						
-	 <select id="myGuideReservation" resultMap="ReservationList">
+	 <select id="myGuideReservation" resultMap="comma.sist.common.text-mapper.TextList">
 	 	select rownum guide_no, guide_subject,user_nick,text_tour_date,reservation_person
-	 	from guide, users,text,reservation where reservation.guide_no=guide.guide_no and reservation.user_id=users.user_id
+	 	from guide, users,text,reservation 
+	 	where reservation.user_id=users.user_id and reservation.guide_no=guide.guide_no and text.text_no=guide.guide_no
 	 	
 	 	
 	 </select>
-	 <select id="myTourReservation" resultMap="ReservationList">
+	 <select id="myTourReservation" resultMap="comma.sist.common.text-mapper.TextList">
 	 	select rownum tour_no, tour_theme,user_nick,text_tour_date,reservation_person
-	 	from tour, users,text,reservation where reservation.tour_no=tour.tour_no and reservation.user_id=users.user_id	 	
+	 	from tour, users,text,reservation 
+	 	where reservation.user_id=users.user_id and reservation.tour_no=tour.tour_no and text.text_no=tour.tour_no	 	
 	 </select>
 	
 	

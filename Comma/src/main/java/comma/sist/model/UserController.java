@@ -83,9 +83,10 @@ public class UserController {
 	@RequestMapping("mypage_infoCorrection.do")
 	public String mypage_detail(HttpServletRequest req){
 		String id=req.getParameter("userid");
+		System.out.println(id);
 		UserVO vo = UserDAO.userProfile(id);
-		req.setAttribute("vo", vo);
-		
+		System.out.println("out");
+		req.setAttribute("vo", vo);		
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_infoCorrection.jsp");
 		return "main.jsp";
@@ -128,7 +129,6 @@ public class UserController {
 		String id=req.getParameter("userid");
 		System.out.println("id"+id);
 		List<TextVO> guidevo=GuideDAO.myGuideWriter(id);
-		System.out.println("Ελ");
 		//List<TouristVO> touristvo=TouristDAO.myTouristWriter(id);
 		
 		req.setAttribute("guidevo", guidevo);
