@@ -22,6 +22,7 @@
 	  <result column="text_hit" property="text_hit"/>
 	  <result column="text_end" property="text_end"/>
 	  <result column="text_tour_date" property="text_tour_date"/>
+	  <result column="users.user_id" property="uservo.user_id"/>
 	  <result column="user_name" property="uservo.user_name"/>
 	  <result column="user_img" property="uservo.user_img"/>
 	  <result column="user_nick" property="uservo.user_nick"/>
@@ -37,9 +38,53 @@
 	  <result column="review_score" property="reviewvo.review_score"/> 
 	  <result column="review_text" property="reviewvo.review_text"/> 
 	  <result column="wish_no" property="wishvo.wish_no"/>  
-	  <result column="wish.user_id" property="wishvo.wish_user_id"/>  
-	  <result column="wish.tour_no" property="wishvo.wish_tour_no"/>  
-	  <result column="wish.guide_no" property="wishvo.wish_guide_no"/>  
+	  <result column="wish.user_id" property="wishvo.user_id"/>  
+	  <result column="wish.tour_no" property="wishvo.tour_no"/>  
+	  <result column="wish.guide_no" property="wishvo.guide_no"/>  
 	</resultMap>
-
+	
+	
+	
+	<parameterMap type="Text" id="TextList_param">
+		<parameter property="guidevo.guide_no" javaType="Guide"/>
+	  	<parameter property="guidevo.user_id"/>
+	  	<parameter property="guidevo.guide_subject"/>
+	  	<parameter property="guidevo.guide_loc_intro"/>
+	  	<parameter property="guidevo.guide_detail"/>
+	  	<parameter property="guidevo.guide_meet"/>
+	  	<parameter property="guidevo.guide_img"/>
+	  	<parameter property="guidevo.guide_map"/>
+	  	<parameter property="guidevo.guide_cost_detail"/>
+	  	<parameter property="text_no"/>
+	  	<parameter property="text_loc"/>
+	  	<parameter property="text_cost"/>
+	  	<parameter property="text_total_person"/>
+	  	<parameter property="text_regdate"/>
+	  	<parameter property="text_time1"/>
+	  	<parameter property="text_time2"/>
+	  	<parameter property="text_move"/>
+	  	<parameter property="text_hit"/>
+	  	<parameter property="text_end"/>
+	  	<parameter property="text_tour_date"/>
+	  	<parameter property="uservo.user_id" javaType="User"/>
+	  	<parameter property="uservo.user_name"/>
+	  	<parameter property="uservo.user_img"/>
+	  	<parameter property="uservo.user_nick"/>
+	  	<parameter property="reservationvo.reservation_person" javaType="Reservation"/> 
+	  	<parameter property="touristvo.tour_no" javaType="Tourist"/>
+	  	<parameter property="touristvo.user_id"/>
+	  	<parameter property="touristvo.text_no"/>
+	  	<parameter property="touristvo.tour_theme"/>
+	  	<parameter property="touristvo.tour_detail"/> 
+	  	<parameter property="reviewvo.review_no" javaType="Review"/> 
+	  	<parameter property="reviewvo.guide_no"/> 
+	  	<parameter property="reviewvo.user_id"/> 
+	  	<parameter property="reviewvo.review_score"/> 
+	  	<parameter property="reviewvo.review_text"/> 
+	  	<parameter property="wishvo.wish_no" javaType="Wish"/>  
+	  	<parameter property="wishvo.user_id"/>  
+	  	<parameter property="wishvo.tour_no"/>  
+	  	<parameter property="wishvo.guide_no"/>
+	</parameterMap>
+	
 </mapper>
