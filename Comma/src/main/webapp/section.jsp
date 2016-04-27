@@ -6,6 +6,14 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
+	$('#tabControlTab').mouseover(function(){ 
+		var id=$('#spotRank').val();			// DB에서 만들어야함.(hit수, 검색수를 따져서..)
+		$(id).css('background-color','#ED4933')
+	});
+});
+</script>
 </head>
 <body>
 <section id="three" class="wrapper style2 special widthsiz1">
@@ -103,9 +111,12 @@
 
 <section id="three" class="wrapper style2 special widthsiz3">
 		<div id="threeInner" class="inner">
+		
 		<section>
+		<!-- 도움... 누가 이미지 겹치는것좀 ㅎㅎ... -->
+		<!-- <img id="threeImg" src="http://file.theskinfood.com/resources/common/img/map_bg.png" alt="" style="position: relative; z-index: 1;"/> -->
 				<!-- 제목 왼쪽정렬 -->
-		<div id="threeDiv" class="row uniform">
+		<div id="threeDiv" class="row uniform" style="position: relative; z-index: 2;">
 		
 			<div class="6u 12u$(small) secondPart" id="guideRanking"> 
 				<h5>Best Guide 6</h5>
@@ -163,21 +174,21 @@
 			<div class="6u$ 12u$(small) secondPart tabControlWrap" id="tabControlWrap">
 				<h5>Best Guide spot</h5>
 				<ul class="tabControlTabs">
-					<li class="tabControlTab selected"><p><span>&nbsp;1&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab"><p><span>&nbsp;2&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab"><p><span>&nbsp;3&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab"><p><span>&nbsp;4&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab"><p><span>&nbsp;5&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab"><p><span>&nbsp;6&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab"><p><span>&nbsp;7&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab"><p><span>&nbsp;8&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab"><p><span>&nbsp;9&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab"><p><span>10</span>&nbsp;서울</p></li>
+					<li class="tabControlTab selected odd"><p><span id="${spotRank }divChange">&nbsp;1&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab even"><p><span id="divChange${spotRank }">&nbsp;2&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab odd"><p><span id="divChange${spotRank }">&nbsp;3&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab even"><p><span id="divChange${spotRank }">&nbsp;4&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab odd"><p><span id="divChange${spotRank }">&nbsp;5&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab even"><p><span id="divChange${spotRank }">&nbsp;6&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab odd"><p><span id="divChange${spotRank }">&nbsp;7&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab even"><p><span id="divChange${spotRank }">&nbsp;8&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab odd"><p><span id="divChange${spotRank }">&nbsp;9&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab even"><p><span id="divChange${spotRank }">10</span>&nbsp;서울</p></li>
 					
 				</ul>
 				<ul class="tabControlBodys">
 					<li class="tabControlBody selected"
-						style="background-color: blue;">
+						style="background-color: #BAB6A8;">
 						<p>4월7일1/먹방투어/2000원</p>
 						<p>4월7일1/먹방투어/2000원</p>
 						<p>4월7일1/먹방투어/2000원</p>
@@ -190,7 +201,7 @@
 						<p>4월7일1/먹방투어/2000원</p>
 					</li>
 					<li class="tabControlBody"
-						style="background-color: red;">
+						style="background-color: #89867C">
 						<p>4월7일2/먹방투어/2000원</p>
 						<p>4월7일2/먹방투어/2000원</p>
 						<p>4월7일2/먹방투어/2000원</p>
@@ -198,7 +209,7 @@
 						<p>4월7일2/먹방투어/2000원</p>
 					</li>
 					<li class="tabControlBody"
-						style="background-color: blue;">
+						style="background-color: #BAB6A8;">
 						<p>4월7일3/먹방투어/2000원</p>
 						<p>4월7일3/먹방투어/2000원</p>
 						<p>4월7일3/먹방투어/2000원</p>
@@ -206,7 +217,7 @@
 						<p>4월7일3/먹방투어/2000원</p>
 					</li>
 					<li class="tabControlBody"
-						style="background-color: red;">
+						style="background-color: #89867C;">
 						<p>4월7일4/먹방투어/2000원</p>
 						<p>4월7일4/먹방투어/2000원</p>
 						<p>4월7일4/먹방투어/2000원</p>
@@ -214,7 +225,7 @@
 						<p>4월7일4/먹방투어/2000원</p>
 					</li>
 					<li class="tabControlBody"
-						style="background-color: blue;">
+						style="background-color: #BAB6A8;">
 							<p>4월7일5/먹방투어/2000원</p>
 							<p>4월7일5/먹방투어/2000원</p>
 							<p>4월7일5/먹방투어/2000원</p>
@@ -224,7 +235,6 @@
 					</ul>
 				</div>
 			</div>			
-			<img id="threeImg" src="http://file.theskinfood.com/resources/common/img/map_bg.png" alt="" />
 			</section>
 		</div>
 </section>

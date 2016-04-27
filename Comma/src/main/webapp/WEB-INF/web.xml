@@ -6,7 +6,6 @@
     <servlet-class>comma.sist.controller.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-
       <param-value>C:\Users\ANBOYOUNG\git\P2_SecondProject\Comma\src\main\webapp\WEB-INF\application.xml</param-value>
 
     </init-param>
