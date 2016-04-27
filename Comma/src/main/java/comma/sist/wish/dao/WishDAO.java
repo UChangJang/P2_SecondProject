@@ -10,6 +10,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import comma.sist.common.TextVO;
+
 public class WishDAO {
 private static SqlSessionFactory	ssf;
 	
@@ -24,11 +26,18 @@ private static SqlSessionFactory	ssf;
 		}
 	}
 	
-	public static List<WishVO> myAllWish(String id){
+	public static List<TextVO> myWishGuide(String id){
 		SqlSession session=ssf.openSession();
 		System.out.println(id);
-		List<WishVO> vo = session.selectList("myAllWish",id);
+		List<TextVO> vo = session.selectList("myWishGuide",id);
 		
+		return vo;
+	}
+	
+	public static List<TextVO> myWishTour(String id){
+		SqlSession session=ssf.openSession();
+		System.out.println(id);
+		List<TextVO> vo = session.selectList("myWishTour",id);		
 		return vo;
 	}
 }

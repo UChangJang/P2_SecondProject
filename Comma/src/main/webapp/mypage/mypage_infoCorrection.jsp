@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="../assets/css/dcalendar.picker.css">
 
 <!-- 프로필 사진 삽입 코드 (url:http://touchsoul.tistory.com/84) -->
-<!-- 		<script type="text/javascript">
+		<script type="text/javascript">
 	        $(function() {
 	        	
 	            $("#profile_img").on('change', function(){
@@ -34,7 +34,7 @@
 	              reader.readAsDataURL(input.files[0]);
 	            }
 	        }
-	    </script> -->
+	    </script>
 </head>
 <body>
 	<h3>복구중....</h3>
@@ -46,11 +46,21 @@
 			<div class="table-wrapper">
 				<table class="infomodify">
 						<tr>
+							<td rowspan="3">							
+								<input type='file' id="profile_img"/>
+								<img id="blah" src="#" alt="your image"/>							
+							</td>
+						
 							<th>ID</th>							
-								<td><input type="text" id="id" value="${id }" readonly="readonly"></td>
-							
+							<td>
+								<input type="text" id="id" value="${id }" readonly="readonly">
+							</td>
+															
 							<th>Nickname</th>							
-							<td><input type="text" id="id" value="${vo.user_nick }"></td>
+							<td>
+								<input type="text" id="id" value="${vo.user_nick }">
+							</td>
+							
 						</tr>
 						<tr>
 							<th>Password</th>
@@ -66,30 +76,47 @@
 							</td>
 						</tr>
 				</table>
-				<hr/>		구간 나누기
-				<!--
+				<hr/>
+				
 				<h4>추가정보</h4>
 				
 				<table class="infomodify">
-						<tr>
-							<th>프로필사진</th>
-							<td>
-							<div class="my-thumb-1">			
-							
-								<input type='file' id="profile_img"/>
-								<img id="blah" src="#" alt="your image" />
-							
-							</div> 
-							</td>
-						</tr>
+
 						<tr>
 							<th>생년월일</th>
 							<td>
 							<div id="demo">
-								<input type="text" id="dt" placeholder="날짜선택" >
-        						<div id="dd"></div>
+								<select id=year>
+								 <c:forEach begin="1960" end="2010" var="y">
+								   <option value=${y }>${y }년</option>
+								 </c:forEach>
+								 
+								 
+								</select>      						
    							</div>
    							</td>
+   							
+   							<td>
+   							 <div id="demo" >
+   							   <select id=month>
+	   							  <c:forEach begin="1" end="12" var="m">
+									<option value=${m }>${m }월</option>
+								  </c:forEach>
+								 </select>
+							  </div>
+   							</td>
+   							
+   							  
+   							<td>
+   							  <div id="demo" >
+   							    <select id=day>
+	   							 <c:forEach begin="1" end="31" var="d">
+									<option value=${d }>${d }일</option>
+								 </c:forEach>
+								</select>
+							   </div>
+   							</td>
+   							
 						</tr>
 						 <tr>
 							<th>성별</th>
@@ -129,13 +156,13 @@
 						<textarea rows="4" cols="50"></textarea>
 					</tbody>
 					<tfoot/> 
-				</table>-->
+				</table>
 			</div>
 		</div>
 	</section>
 
 	
-			<!-- 달력 
+<!-- 			달력 
 			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 			<script src="../assets/js/dcalendar.picker.js"></script>
 				<script>

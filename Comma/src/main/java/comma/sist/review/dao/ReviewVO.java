@@ -1,9 +1,5 @@
 package comma.sist.review.dao;
 
-import java.util.List;
-
-import comma.sist.guide.dao.GuideVO;
-import comma.sist.tourist.dao.TouristVO;
 
 public class ReviewVO {
 	private int review_no;

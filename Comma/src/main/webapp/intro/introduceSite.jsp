@@ -5,6 +5,7 @@
 <head>
 <title>[소개]사이트 소개</title>
 <meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="../controller/assets/css/introKor.css" />
 </head>
 <body>
 <div id="nav2">
@@ -16,7 +17,7 @@
 
 <!-- Main -->
 <article id="main">
-	<header>
+	<header id="header_siteInto">
 		<h2>사이트소개</h2>
 		<p>간략 설명</p>
 		<a href="#one" class="more scrolly">사이트 소개</a> <a href="#two"

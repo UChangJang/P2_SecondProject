@@ -1,10 +1,6 @@
 package comma.sist.wish.dao;
 
-import comma.sist.common.TextVO;
-import comma.sist.guide.dao.GuideVO;
-import comma.sist.reservation.dao.ReservationVO;
-import comma.sist.tourist.dao.TouristVO;
-import comma.sist.user.dao.UserVO;
+
 
 public class WishVO {	
 	private int wish_no;

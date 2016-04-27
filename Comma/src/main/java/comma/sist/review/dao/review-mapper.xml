@@ -1,28 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.review.dao.review-mapper">
-   
-  <resultMap id="reviewMap" type="Review">
-	  <result property="review_no" column="review_no"/>
-	  <result property="guide_no" column="guide_no"/>
-	  <result property="user_id" column="user_id"/>
-	  <result property="review_score" column="review_score"/>
-	  <result property="review_text" column="review_text"/> 
-	  <collection property="guideList" ofType="Guide">  
-	   <result property="guide_subject" column="guide_subject"/>
-	  </collection>
- </resultMap>
- 
-
-
-
-    
-    
-    <select id="myAllReview" resultMap="reviewMap">
-    	select rownum 번호,
-(select user_nick from users where users.user_id=(select user_id from reservation where reservation.guide_no=guide.guide_no)) 신청자닉네임,
-(select reservation_person from reservation where guide.guide_no=reservation.guide_no) 예약인원 
-from guide where user_id='bae'
+    <select id="myAllReview" resultMap="comma.sist.common.text-mapper.TextList">
+    	select rownum review_no,guide_subject,user_nick ,review_text,review_score  
+		from guide,review,users
+        where review.guide_no=guide.guide_no and review.user_id=users.user_id
     </select>
-
 </mapper>

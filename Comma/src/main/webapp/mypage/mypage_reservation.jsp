@@ -38,12 +38,12 @@
 				<tbody>
 				<c:forEach var="guidevo" items="${guidevo }">
 					<tr>
-						<td>${guidevo.reservation_no }</td>
+						<td>${guidevo.guidevo.guide_no }</td>
 						<td>${guidevo.guidevo.guide_subject }</td>
 						<td>${guidevo.uservo.user_nick }</td>
-						<td>${guidevo.textvo.text_tour_date }</td>
-						<td>${guidevo.textvo.text_total_person }</td>
-						<td>${guidevo.textvo.text_end }</td>
+						<td>${guidevo.text_tour_date }</td>
+						<td>${guidevo.reservationvo.reservation_person }</td>
+						<td>${guidevo.text_end }</td>
 						<td><input type="button" value="삭제"></td>
 					</tr>
 					</c:forEach>
@@ -54,26 +54,33 @@
 		<div class="box alt table-wrapper tabscontents t2">
 			<table class="alt">
 				<thead>
+				 
 					<tr>
-						<th width="10%">지역1</th>
-						<th width="30%">제목1</th>
-						<th width="10%">별명1</th>
-						<th width="10%">날짜1</th>
-						<th width="7%">인원1</th>
-						<th width="7%">삭제1</th>
+						<th width="7%">번호</th>
+						<th width="25%">제목</th>						
+						<th width="10%">별명</th>
+						<th width="10%">날짜</th>
+						<th width="7%">인원</th>
+						<th width="7%">상태</th>
+						<th width="7%">후기</th>
 					</tr>
+				
 				</thead>
 				<tbody>
-				<c:forEach var="touristvo" items="${touristvo }">
+				  <c:forEach var="tourvo" items="${tourvo }">
 					<tr>
-						<td>${touristvo.reservation_no }</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
+						<td>${tourvo.touristvo.tour_no }</td>
+						<td>${tourvo.touristvo.tour_theme }</td>
+						<td>${tourvo.uservo.user_nick }</td>
+						<td>${tourvo.text_tour_date }</td>
+						<td>${tourvo.reservationvo.reservation_person }</td>
+						<td>${tourvo.text_tour_date }</td>
+						
+						
+					
 						<td><input type="button" value="삭제"></td>
 					</tr>	
-				</c:forEach>		
+				  </c:forEach>
 				</tbody>
 			</table>
 		</div>

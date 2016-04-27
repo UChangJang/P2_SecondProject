@@ -36,15 +36,15 @@
 					</tr>
 				</thead>
 				<tbody>	  
-				<c:forEach var="vo" items="${vo }">
+				<c:forEach var="guidevo" items="${guidevo }">
 					<tr>
-						<td>${vo.wish_no }</td>
-						<td>${vo.guidevo.guide_subject }</td>
-						<td>${vo.uservo.user_nick }</td>
+						<td>${guidevo.wishvo.wish_no }</td>
+						<td>${guidevo.guidevo.guide_subject }</td>
+						<td>${guidevo.uservo.user_nick }</td>
 						<td>
-						<fmt:formatDate value="${vo.textvo.text_regdate }" pattern="yy/MM/dd"/>
+						<fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/>
 						</td>
-						<td>${vo.reservationvo.reservation_person}/${vo.textvo.text_total_person}</td>
+						<td>${guidevo.reservationvo.reservation_person}/${guidevo.text_total_person}</td>
 						<td><input type="button" value="삭제"></td>
 					</tr>
 					</c:forEach>
@@ -56,24 +56,28 @@
 			<table class="alt">
 				<thead>
 					<tr>
-						<th width="10%">지역1</th>
-						<th width="30%">제목1</th>
-						<th width="10%">별명1</th>
-						<th width="10%">날짜1</th>
-						<th width="7%">인원1</th>
-						<th width="7%">삭제1</th>
+						<th width="10%">번호</th>
+						<th width="30%">제목</th>
+						<th width="10%">별명</th>
+						<th width="10%">날짜</th>
+						<th width="7%">예약자/총인원</th>
+						<th width="7%">삭제</th>
 					</tr>
 				</thead>
 				<tbody>
 				
+				<c:forEach var="tourvo" items="${tourvo }">
 					<tr>
-						<td>zz</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
+						<td>${tourvo.wishvo.wish_no }</td>
+						<td>${tourvo.touristvo.tour_theme }</td>
+						<td>${tourvo.uservo.user_nick }</td>
+						<td>
+						<fmt:formatDate value="${tourvo.text_regdate }" pattern="yy/MM/dd"/>
+						</td>
+						<td>${tourvo.reservationvo.reservation_person}/${tourvo.text_total_person}</td>
 						<td><input type="button" value="삭제"></td>
-					</tr>	
+					</tr>
+					</c:forEach>
 						
 				</tbody>
 			</table>

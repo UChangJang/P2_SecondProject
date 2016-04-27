@@ -20,33 +20,52 @@ ul, li {
 	padding: 0px;
 	/* font-size: 12px; */
 } /**/
-.tabControlWrap { /* width:500px; */
-	
+#tabControlWrap { /* width:500px; */
+	height: 25em;
 } /**/
 .tabControlTabs {
 	float: left;
 	height: 100%
 } /**/
 .tabControlTab {
-	background-color: #808040;
+	background-color: #F5F4EF;
+	color: #412219;
 	width: 100%;
-	height: 20%;
+	height: 10%;
 	vertical-align: middle;	
 }
 
 .tabControlTab p{
 	vertical-align: middle;		
 	text-align: center;
-	font-size: 1.5em;
+	font-size: 15px;
 	padding: 0.45em 0.35em;
 	
 }
+.tabControlTab p span{
+	background-color: #ffbd0b;
+	text-align:center;
+	color:#fff;
+	border-radius:0.2em;
 	
+}
+
 
 .tabControlTabs .selected {
-	background-color: gray;
+	background-color: #BAB6A8;
 	color: #fff;
-} /**/
+	font-weight: bold;
+}
+.tabControlTabs .odd:hover{
+	background-color: #BAB6A8;
+	color: #fff;
+	font-weight: bold;
+}
+.tabControlTabs .even:hover{
+	background-color: #89867C;
+	color: #fff;
+	font-weight: bold;
+}
 .tabControlBodys {
 	height: 100%;
 }
@@ -62,9 +81,9 @@ ul, li {
 }
 
 .tabControlBody p {
-	height: 20%;
+	height: 10%;
 	margin: 0;
 	padding: 0.45em 0.35em;
-	font-size: 0.85em;
+	font-size: 15px;
 	font-weight: lighter;
 }

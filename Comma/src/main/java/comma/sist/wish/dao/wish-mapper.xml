@@ -1,24 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.wish.dao.wish-mapper">
-	<resultMap type="Wish" id="wishList">
-	  <result property="wish_no" column="wish_no"/>
-	  <result property="guidevo.guide_subject" column="guide_subject"/>	 
-	  <result property="uservo.user_nick" column="user_nick"/>
-	  <result property="textvo.text_regdate" column="text_regdate"/>
-	  <result property="textvo.text_total_person" column="text_total_person"/>
-	  <result property="reservationvo.reservation_person" column="reservation_person"/> 
-	  </resultMap>
 	
-	<select id="myAllWish" parameterType="String" resultMap="wishList">
-		select rownum as wish_no,
-		(select guide_subject from guide where wish.guide_no=guide.guide_no) as guide_subject,
-		(select user_nick from users where (select user_id from guide where wish.guide_no=guide.guide_no)=user_id) user_nick,
-		(select text_regdate from text where (select text_no from guide where wish.guide_no=guide.guide_no)=text_no) text_regdate,
-		(select sum(reservation_person) from reservation where wish.guide_no=reservation.guide_no) text_total_person,
-		(select text_total_person from text where text.text_no=(select text_no from guide where wish.guide_no=guide.guide_no)) reservation_person
-		from wish where user_id=#{id}	
+	<select id="myWishGuide" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList">
+		select rownum as wish_no,guide_subject,user_nick,text_regdate,text_total_person,reservation_person
+		from wish,text,guide,users,reservation 
+		where guide.guide_no=reservation.guide_no and text.text_no=guide.text_no and wish.guide_no=guide.guide_no
 	</select>
-
+	
+	<select id="myWishTour" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList">
+		select rownum as wish_no,tour_theme,user_nick,text_regdate,text_total_person,reservation_person
+		from wish,text,tour,users,reservation 
+		where tour.tour_no=reservation.tour_no and text.text_no=tour.text_no and wish.tour_no=tour.tour_no
+	</select>
 
 </mapper>
