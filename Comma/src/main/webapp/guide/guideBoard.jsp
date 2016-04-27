@@ -107,20 +107,12 @@
 				<div class="9u 12u$(medium) side1">
 					<hr id="intropeople"/>
 					<h5>가이드소개</h5>
-					<blockquote>Fringilla nisl. Donec accumsan interdum
-						nisi, quis tincidunt felis sagittis eget tempus euismod.
-						Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
-						adipiscing eu felis iaculis volutpat ac adipiscing accumsan
-						faucibus.</blockquote>
+					<blockquote></blockquote>
 
 
 					<hr id="introplace" />
 					<h5>관광스타일소개</h5>
-					<blockquote>Fringilla nisl. Donec accumsan interdum
-						nisi, quis tincidunt felis sagittis eget tempus euismod.
-						Vestibulum ante ipsum primis in faucibus vestibulum. Blandit
-						adipiscing eu felis iaculis volutpat ac adipiscing accumsan
-						faucibus.</blockquote>
+					<blockquote></blockquote>
 
 					<hr id="pic"/>
 					<h4>Image</h4>					
@@ -146,35 +138,31 @@
 							<tbody>
 								<tr>
 									<td>지역</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td>비용</td>
-									<td>Vis ac commodo adipiscing arcu aliquet.</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td>포함사항</td>
-									<td>Morbi faucibus arcu accumsan lorem.</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td>여행규모</td>
-									<td>Vitae integer tempus condimentum.</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td>관광날짜</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td>관광시간</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
-								</tr>
-								<tr>
-									<td>이동시간</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
+									<td></td>
 								</tr>
 								<tr>
 									<td>만날장소</td>
-									<td>Ante turpis integer aliquet porttitor.</td>
+									<td></td>
 								</tr>
 							</tbody>
 						</table>
@@ -315,6 +303,7 @@
 						<div class="BoardSide1">날짜:2016-04-24</div>
 						<div class="BoardSide1">인원:3명</div>
 						<div class="BoardSide1">수단:자동차</div>
+						<div class="BoardSide1">조회수:1</div>
 						<div class="BoardSide1"><input type="button" value="reserve"></div>
 					</div>
 				</div>

@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-   <title>tourWrite</title>
+   <title>customerWrite</title>
    
    <!-- <link rel="stylesheet" href="../controller/assets/css/guide.css" /> -->
 </head>
@@ -21,7 +21,7 @@
 
          <section>
             <h2>°¡ÀÌµå¸¦ Ã£¾Æ¿ä!</h2>
-            <form method="post" action="touristInsert.do">
+            <form method="post" action="touristWrite_Ok.do">
                <div class="row uniform">
                
                   <div class="2u 12u$(xsmall)">
@@ -31,8 +31,8 @@
                      <div class="select-wrapper">
                         <select name="tour_theme" id="demo-category">
                            <option value="">- Å×¸¶ -</option>
-                           <option value="¸Ô¹æ">¸Ô¹æ</option>
-                           <option value="°ü±¤">°ü±¤</option>
+                           <option value="1">¸Ô¹æ</option>
+                           <option value="1">°ü±¤</option>
                            <option value="1">±³À°</option>
                            <option value="1">¼îÇÎ</option>
                         </select>

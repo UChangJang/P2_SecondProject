@@ -28,8 +28,8 @@ public class GuideController {
 		int rowSize = 9;
 		
 		
-		
-		
+		String path = "\\\\211.238.142.74\\images\\";
+		request.setAttribute("path", path);
 		request.setAttribute("list", list);
 		request.setAttribute("jsp", "guide/guide.jsp");		
 		return "main.jsp";
@@ -113,15 +113,18 @@ public class GuideController {
 			vo.getGuidevo().setGuide_img("");
 		}else{
 			File f = new File(path+"\\"+guide_img);
+			String s = f.getAbsolutePath();
+			System.out.println(s);
+			request.setAttribute("imgPath", s);
 			vo.getGuidevo().setGuide_img(guide_img);
 		}
 		
-		System.out.println("111");
+		System.out.println("gcReady");
 		GuideDAO.textInsert(vo);
-		System.out.println("222");
+		System.out.println("gcIng");
 		GuideDAO.guideInsert(vo);
-		System.out.println("333");
-
+		System.out.println("gcEnd");
+		
 		return "guide/guideWriteOk.jsp";
 	}
 	
@@ -129,6 +132,13 @@ public class GuideController {
 	
 	@RequestMapping("guideBoard.do")
 	public String guideBoard(HttpServletRequest request){
+		
+		String no = request.getParameter("no");
+		
+		TextVO vo = GuideDAO.guideInfoData(Integer.parseInt(no));
+		
+		
+		request.setAttribute("vo", vo);
 		request.setAttribute("jsp", "guide/guideBoard.jsp");		
 
 		return "main.jsp";
