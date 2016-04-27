@@ -1,7 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="comma.sist.tourist.dao.tourist-mapper">	
+<mapper namespace="comma.sist.tourist.dao.tourist-mapper">
+   
+   <resultMap type="Text" id="TourList">
+	  <result column="user_id" property="touristvo.user_id"/>
+	  <result column="text_no" property="text_no"/>
+	  <result column="text_loc" property="text_loc"/>
+	  <result column="text_cost" property="text_cost"/>
+	  <result column="text_total_person" property="text_total_person"/>
+	  <result column="text_regdate" property="text_regdate"/>
+	  <result column="text_time1" property="text_time1"/>
+	  <result column="text_time2" property="text_time2"/>
+	  <result column="text_move" property="text_move"/>
+	  <result column="text_hit" property="text_hit"/>
+	  <result column="text_end" property="text_end"/>
+	  <result column="text_tour_date" property="text_tour_date"/>
+	  <result column="user_name" property="uservo.user_name"/>
+	  <result column="user_img" property="uservo.user_img"/>
+	  <result column="user_nick" property="uservo.user_nick"/>
+	  <result column="reservation_person" property="reservationvo.reservation_person"/> 
+	</resultMap>   
+   
+   <!-- 1.tourist 목록(5개 뽑아내기)-->
+   <select id="touristFiveData" resultType="Tourist" parameterType="java.util.Map">
+      SELECT tour_no,user_id,text_no,tour_theme,tour_detail,num               
+      FROM (SELECT tour_no,user_id,text_no,tour_theme,tour_detail,rownum as num
+            FROM (SELECT tour_no,user_id,text_no,tour_theme,tour_detail
+                  FROM tour ORDER BY tour_no DESC))
+      WHERE num BETWEEN #{start} AND #{end}      
+   </select>
+   
+   <!-- 2.user에서 데이터가져오기 -->
+   <select id="touristUserData" resultType="User" parameterType="String">
+      SELECT user_nick,user_img,user_sex,user_birth         
+      FROM users
+      WHERE user_id=#{did}
+   </select>
+   
+   <!-- 3.text에서 데이터 가져오기 -->
+   <select id="touristTextData" resultType="Text" parameterType="int">
+      SELECT text_loc,text_cost,text_total_person,text_time1,text_time2,text_tour_date      
+      FROM text
+      WHERE text_no=#{uno}
+   </select>
+   
+   
+   <!-- 1. tourist게시판 글 수  -->
+   <select id="tourRowCount" resultType="int">   
+      SELECT COUNT(*) FROM tour
+   </select>
+   
+   <!-- tourist게시판 글쓰기 --> 
+   <insert id="textInsert1" parameterType="Text">
+		insert into text values((select NVL(max(text_no)+1,1) from text),#{text_loc},#{text_cost},#{text_total_person},sysdate,
+					#{text_time1},#{text_time2},#{text_move},0,'n',#{text_tour_date})
+   </insert>
 	
-	
-	
+  
+   <insert id="touristInsert" parameterMap="TourList">
+		insert into tour(tour_no,user_id,text_no,tour_theme,tour_detail)
+		values((select NVL(max(tour_no)+1,1) from tour),
+		#{user_id},(select max(text_no) as text_no from text),#{tour_theme},#{tour_detail})
+   </insert>  
+   	 
+   
+<!--    
+   <select id="myWishTorist" parameterType="String" resultType="Wish">
+      select wish_no from wish where user_id='bad'   
+   </select>
+   <select id="myTouristWriter" parameterType="String" resultType="Tourist">
+      select tour_no from tour where user_id='bad'   
+   </select> -->
+   
 </mapper>

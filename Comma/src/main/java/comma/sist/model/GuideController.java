@@ -7,6 +7,7 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.guide.dao.*;
+import comma.sist.common.*;
 import java.util.*;
 import java.io.*;
 
@@ -17,12 +18,19 @@ public class GuideController {
 	@RequestMapping("guide.do")
 	public String guide(HttpServletRequest request){
 		
-		List<GuideVO> list = GuideDAO.guideAllData();
+		List<TextVO> list = GuideDAO.guideAllData();
 		
 		
 		int totalpage = GuideDAO.guideTotalPage();
 		System.out.println("∞°¿ÃµÂ √— ∆‰¿Ã¡ˆ: "+totalpage);
 		
+		
+		int rowSize = 9;
+		
+		
+		
+		
+		request.setAttribute("list", list);
 		request.setAttribute("jsp", "guide/guide.jsp");		
 		return "main.jsp";
 	}
@@ -80,44 +88,41 @@ public class GuideController {
 		System.out.println(guide_cost_detail);
 		System.out.println(guide_img);*/
 
-		GuideVO vo = new GuideVO();
-		vo.setGuide_subject(guide_subject);
-		vo.setGuide_loc_intro(guide_loc_intro);
-		vo.setGuide_detail(guide_detail);
-		vo.setGuide_cost_detail(guide_cost_detail);
-		vo.setGuide_meet(guide_meet);
-		vo.getTextvo().setText_loc(text_loc);
-		vo.getTextvo().setText_total_person(Integer.parseInt(text_total_person));
-		vo.getTextvo().setText_cost(text_cost);
-		vo.getTextvo().setText_move(text_move);
-		vo.getTextvo().setText_time1(text_time1);
-		vo.getTextvo().setText_time2(text_time3);
-		vo.getTextvo().setText_tour_date(text_tour_date);
+		TextVO vo = new TextVO();
+		vo.getGuidevo().setGuide_subject(guide_subject);
+		vo.getGuidevo().setGuide_loc_intro(guide_loc_intro);
+		vo.getGuidevo().setGuide_detail(guide_detail);
+		vo.getGuidevo().setGuide_cost_detail(guide_cost_detail);
+		vo.getGuidevo().setGuide_meet(guide_meet);
+		vo.setText_loc(text_loc);
+		vo.setText_total_person(Integer.parseInt(text_total_person));
+		vo.setText_cost(text_cost);
+		vo.setText_move(text_move);
+		vo.setText_time1(text_time1);
+		vo.setText_time2(text_time3);
+		vo.setText_tour_date(text_tour_date);
+		
 		
 		HttpSession session = request.getSession();
 		String user_id = (String)session.getAttribute("id");
-		vo.setUser_id(user_id);
+		vo.getGuidevo().setUser_id(user_id);
 		System.out.println(user_id);
-		vo.setGuide_map("¿”Ω√øÎ"); // πŸ≤„æﬂµ 
+		vo.getGuidevo().setGuide_map("¿”Ω√øÎ"); // πŸ≤„æﬂµ 
 		
 		if(guide_img==null){
-			vo.setGuide_img("");
+			vo.getGuidevo().setGuide_img("");
 		}else{
 			File f = new File(path+"\\"+guide_img);
-			vo.setGuide_img(guide_img);
+			vo.getGuidevo().setGuide_img(guide_img);
 		}
 		
 		System.out.println("111");
 		GuideDAO.textInsert(vo);
 		System.out.println("222");
 		GuideDAO.guideInsert(vo);
-
 		System.out.println("333");
-		
-		request.setAttribute("jsp", "guide/guide.jsp");
 
-		// ok∑Œ πŸ≤Ÿ¿⁄
-		return "main.jsp";
+		return "guide/guideWriteOk.jsp";
 	}
 	
 

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -37,11 +38,13 @@
 				<tbody>
 				<c:forEach var="guidevo" items="${guidevo }">
 					<tr>
-						<td>${guidevo.guide_no }</td>
-						<td>서울 문화 기행</td>
-						<td>보잉</td>
-						<td>2016-4-20</td>
-						<td>5명</td>
+						<td>${guidevo.guidevo.guide_no }</td>
+						<td>${guidevo.guidevo.guide_subject }</td>
+						<td>${guidevo.uservo.user_nick }</td>
+						<td>
+						<fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/>
+						</td>
+						<td>${guidevo.reservationvo.reservation_person }</td>
 						<td><input type="button" value="삭제"></td>
 					</tr>
 					</c:forEach>

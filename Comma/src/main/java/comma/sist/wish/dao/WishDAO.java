@@ -28,7 +28,6 @@ private static SqlSessionFactory	ssf;
 		SqlSession session=ssf.openSession();
 		System.out.println(id);
 		List<WishVO> vo = session.selectList("myAllWish",id);
-		System.out.println(vo);
 		
 		return vo;
 	}
