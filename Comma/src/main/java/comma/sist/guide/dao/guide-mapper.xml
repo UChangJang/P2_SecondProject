@@ -2,40 +2,14 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
 
-	<resultMap type="Guide" id="GuideList">
-	  <result column="guide_no" property="guide_no"/>
-	  <result column="user_id" property="user_id"/>
-	  <result column="guide_subject" property="guide_subject"/>
-	  <result column="guide_loc_intro" property="guide_loc_intro"/>
-	  <result column="guide_detail" property="guide_detail"/>
-	  <result column="guide_meet" property="guide_meet"/>
-	  <result column="guide_img" property="guide_img"/>
-	  <result column="guide_map" property="guide_map"/>
-	  <result column="guide_cost_detail" property="guide_cost_detail"/>
-	  <result column="text_no" property="textvo.text_no"/>
-	  <result column="text_loc" property="textvo.text_loc"/>
-	  <result column="text_cost" property="textvo.text_cost"/>
-	  <result column="text_total_person" property="textvo.text_total_person"/>
-	  <result column="text_regdate" property="textvo.text_regdate"/>
-	  <result column="text_time1" property="textvo.text_time1"/>
-	  <result column="text_time2" property="textvo.text_time2"/>
-	  <result column="text_move" property="textvo.text_move"/>
-	  <result column="text_hit" property="textvo.text_hit"/>
-	  <result column="text_end" property="textvo.text_end"/>
-	  <result column="text_tour_date" property="textvo.text_tour_date"/>
-	  <result column="user_name" property="uservo.user_name"/>
-	  <result column="user_img" property="uservo.user_img"/>
-	  <result column="user_nick" property="uservo.user_nick"/>
-	  <result property="reservation_person" column="reservationvo.reservation_person"/> 
-	</resultMap>
-	
-	<!-- 디폴트는 최신순 -->
-	<select id="guideAllData" resultMap="GuideList">
+	<!-- 가이드 목록리스트 -->
+	<select id="guideAllData" resultMap="comma.sist.common.text-mapper.TextList">
 		select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img
 		from guide,users,text 
 		where guide.user_id=users.user_id and guide.text_no=text.text_no
 	</select>
 	
+	<!-- 가이드 페이지 -->
 	<select id="guideTotalPage" resultType="int">
 		select ceil(count(guide_no)/9) from guide 
 	</select>
@@ -50,24 +24,31 @@
 					#{text_time1},#{text_time2},#{text_move},0,'n',#{text_tour_date})
 	</insert>
 	
-	<insert id="guideInsert" parameterType="Guide">
+	<!-- <insert id="guideInsert" parameterType="Text">
 		<selectKey keyProperty="text_no" resultType="int" order="BEFORE">
 			select max(text_no) as text_no from text
 		</selectKey>
 	
-		insert into guide(guide_no,user_id,guide_subject,text_no,guide_loc_intro,guide_detail,guide_meet,guide_img,guide_map,guide_cost_detail)
+		insert into guide(guide_no,user_id,guide_subject,text_no,guide_loc_intro,guide_detail,guide_meet,guide_map,guide_cost_detail)
 		 values((select NVL(max(guide_no)+1,1) from guide),
 				#{user_id},#{guide_subject},#{text_no},#{guide_loc_intro},#{guide_detail},
-				#{guide_meet},#{guide_img},#{guide_map},#{guide_cost_detail})
-	</insert>
+				#{guide_meet},#{guide_map},#{guide_cost_detail})
+	</insert> -->
 	
-<!-- 	<select id="myGuideWriter" parameterType="String" resultMap="guideList">
-		select rownum guide_no,guide_subject,		
-		(select text_regdate from text where text.text_no=guide.text_no) text_regdate,
-		(select user_nick from users where users.user_id=guide.user_id) user_nick,
-		(select sum(reservation_person) from reservation where guide.guide_no=reservation.guide_no) reservation_person,
-		(select text_end from text where text.text_no=guide.text_no) text_end
-		from guide where user_id='bae'
-	</select> -->
+	<insert id="guideInsert" parameterMap="comma.sist.common.text-mapper.TextList_param">
+		<selectKey keyProperty="text_no" resultType="int" order="BEFORE">
+			select max(text_no) as text_no from text
+		</selectKey>
+		insert into guide(guide_no,user_id,guide_subject,text_no,guide_loc_intro,guide_detail,guide_meet,guide_map,guide_cost_detail)
+		 values((select NVL(max(guide_no)+1,1) from guide),
+				#{guidevo.user_id},#{guidevo.guide_subject},#{text_no},#{guidevo.guide_loc_intro},#{guidevo.guide_detail},
+				#{guidevo.guide_meet},#{guidevo.guide_map},#{guidevo.guide_cost_detail})
+	</insert>
+
+ 	<select id="myGuideWriter" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList"> 
+	  select rownum guide_no,guide_subject,text_regdate,user_nick,reservation_person, text_end
+      from guide,text,users,reservation where text.text_no=guide.text_no and guide.guide_no=reservation.guide_no    
+	</select> 
+
 </mapper>
 

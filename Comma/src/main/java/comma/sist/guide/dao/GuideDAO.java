@@ -27,10 +27,10 @@ private static SqlSessionFactory	ssf;
 	}
 	
 	
-	public static List<GuideVO> guideAllData(){
+	public static List<TextVO> guideAllData(){
 		
 		SqlSession session = ssf.openSession();
-		List<GuideVO> list = session.selectList("guideAllData");
+		List<TextVO> list = session.selectList("guideAllData");
 		session.close();
 		
 		return list;
@@ -59,49 +59,25 @@ private static SqlSessionFactory	ssf;
 	
 	
 	
-	public static void textInsert(GuideVO vo){
-		TextVO tvo = new TextVO();
-		tvo.setText_loc(vo.getTextvo().getText_loc());
-		tvo.setText_cost(vo.getTextvo().getText_cost());
-		tvo.setText_move(vo.getTextvo().getText_move());
-		tvo.setText_total_person(vo.getTextvo().getText_total_person());
-		tvo.setText_time1(vo.getTextvo().getText_time1());
-		tvo.setText_time2(vo.getTextvo().getText_time2());
-		tvo.setText_tour_date(vo.getTextvo().getText_tour_date());		
-		
-		System.out.println(tvo.getText_move());
+	public static void textInsert(TextVO vo){
 		
 		SqlSession session = ssf.openSession(true);
-		session.insert("textInsert",tvo);
+		session.insert("textInsert",vo);
 		session.close();
 		
 	} // guideInsert(GuideVO vo)
 		
 	
-	public static void guideInsert(GuideVO vo){
+	public static void guideInsert(TextVO vo){
 		
 		SqlSession session = ssf.openSession(true);
 		session.insert("guideInsert",vo);
 		session.close();
 		
 	} // guideInsert2(GuideVO vo)
-	
-	
-	
-	
-	
-	
-	
-	
-	public static List<WishVO> myWishGuide(String id){
-		SqlSession session = ssf.openSession();
-		List<WishVO> vo=session.selectList("myWishGudie",id);	
-		session.close();
-		return vo;
-	}
-	public static List<GuideVO> myGuideWriter(String id){
+	public static List<TextVO> myGuideWriter(String id){
 		SqlSession session=ssf.openSession();
-		List<GuideVO> vo = session.selectList("myGuideWriter",id);
+		List<TextVO> vo = session.selectList("myGuideWriter",id);
 		session.close();
 		return vo;
 	}

@@ -997,7 +997,7 @@
 }
 
 #mainRight tr:hover{
-	background-color: #97b95e;
+	background-color: #FFBD0B;
 	height: 100%;
 	font-weight: bold;
 	
@@ -1065,26 +1065,91 @@
 	 width: 100%;
 	 height: 100%;
 }
+
+/* three 섹션 : best guide(가이드 순위), BEST SPOT(실시간)*/
+
 /* 메인_best guide 6명 */
-.secondPart, .thirdPart{
-	height: 18em;
-	
+#guideRanking{
+	height: 30em;
 }
-#guideRanking span img{
-	width: 33.3%;
-	height:33.3%;
+#guideRanking_container{
+	margin-top:1em;
 	float:left;
+	height: auto;
 }
-#guideRanking .ranking1 img{
-	width: 66.4%;
-	height: 66.4%;
+.guideRanking_ranker{
+	width:auto%;
+}
+.guideRanking_ranker span{
+	padding:0;
+}
+#guideRanking_container span{
+	color: #3A2525;	
+}
+
+.guideRanking_ranker_img{
+	width:100%
+}
+.guideRanking_review{
+	padding:0.5em;
+	background-color: #BAB6A8;
+	border-radius : 1em;
+	-webkit-border-radius : 1em;
+	-moz-border-radius : 1em;
+	
+	font-size: 13px;
+	
+	width:78%;
+	height: 7.5em;
+	
+	margin-top: 0.3em;
+	margin-bottom:0;
+	overflow: hidden;
+	
+	color: #3A2525;
+	float: none;
+}
+.guideRank_mypicture #profile{
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out; 
+  -o-transition: all 0.3s ease-in-out; 
+  -ms-transition: all 0.3s ease-in-out; 
+  transition: all 0.3s ease-in-out; 
+}
+.guideRank_mypicture #profile:hover {
+  -webkit-transform: rotate(-10deg); 
+  -moz-transform: rotate(-10deg); 
+  -o-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+} 
+#guideImg{
+	float:left;
+	margin-right: 0.5em;
+}
+/* 원형 이미지 마스크 (url:http://blog.readiz.com/116#.VwnIPPmLTIU) */
+#profile{
+	background-color: #333;
+	height : 5em;
+	width : 5em;
+	border-radius : 50%;
+	-webkit-border-radius : 50%;
+	-moz-border-radius : 50%;
+	overflow : hidden;
+	vertical-align : middle;
+	margin: 0 auto;	
+	display: inline-block;
 }
 
 /* 메인 실시간 인기 테이블 */
-#guideRanking h4,#tabControlWrap h4{
-	background-color: #800000;
+#guideRanking h5,#tabControlWrap h5{
+	background-color: #688635;
 	margin:0;
 	line-height:2em;
+}
+#guideFind h5 #localWeather h5{
+	background-color: #ED4933;
+	margin:0;
 }
 #tabControlWrap span table{
 	float:left;
@@ -1102,7 +1167,7 @@
 .tabControlTabs{	/* 111 hot 리스트 지역*/
 	width: 40%;
 	float:left;
-	
+	height:1em;
 }
 .tabControlTabs tr{
 	cursor:pointer;
@@ -1130,7 +1195,7 @@
 }
 #weather li img{
 	width: 100%;
-	height: 17em;
+	height: 11em;
 }
 #weather li p{
 	background-color: gray;

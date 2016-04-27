@@ -17,10 +17,10 @@
 		<section id="tabs">
 
 		<div class="tab1">
-			<a href="#">후기 쓰기</a>
+			<a href="#">여행 후기 쓰기</a>
 		</div>
 		<div class="tab2">
-			<a href="#">나의 후기 보기</a>
+			<a href="#">나에게 달린 후기 </a>
 		</div>
 
 
@@ -99,19 +99,24 @@
 			<table class="alt">
 				<thead>
 					<tr>
-						<th width="30%">제목</th>
-						<th width="10%">별명</th>
+						<th width="7%">번호</th>
+						<th width="30%">글 제목</th>
+						<th width="10%">작성자 별명</th>
+						<th width="10%">내용</th>
 						<th width="10%">점수</th>
-						<th width="7%">후기</th>
+						<th width="10%">쓰기</th>
+						
 						
 					</tr>
 				</thead>
 				<tbody>
 				<c:forEach var="vo" items="${vo }">
 					<tr>
-						<td>제목임</td>
-						<td>${vo.user_id }</td>
-						<td>${vo.review_score }</td>
+						<td>${vo.reviewvo.review_no }</td>
+						<td>${vo.guidevo.guide_subject }</td>
+						<th>${vo.uservo.user_nick }</th>
+						<td>${vo.reviewvo.review_text }</td>
+						<td>${vo.reviewvo.review_score }</td>
 						<td><input type="button" value="쓰기"></td>
 					</tr>	
 				</c:forEach>				

@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import comma.sist.common.TextVO;
+
 public class ReservationDAO {
 private static SqlSessionFactory	ssf;
 	
@@ -21,10 +23,17 @@ private static SqlSessionFactory	ssf;
 			System.out.println(ex.getMessage());
 		}
 	}
-	public static List<ReservationVO> myGuideReservation(String id){
+	public static List<TextVO> myGuideReservation(String id){
 		SqlSession session = ssf.openSession();
-		List<ReservationVO> vo =session.selectList("myGuideReservation",id);
+		List<TextVO> vo =session.selectList("myGuideReservation",id);
 		session.close();
 		return vo;
 	}
+	public static List<TextVO> myTourReservation(String id){
+		SqlSession session = ssf.openSession();
+		List<TextVO> vo =session.selectList("myTourReservation",id);
+		session.close();
+		return vo;
+	}
+	
 }

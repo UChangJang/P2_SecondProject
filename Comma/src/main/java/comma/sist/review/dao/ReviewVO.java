@@ -1,9 +1,5 @@
 package comma.sist.review.dao;
 
-import java.util.List;
-
-import comma.sist.guide.dao.GuideVO;
-import comma.sist.tourist.dao.TouristVO;
 
 public class ReviewVO {
 	private int review_no;
@@ -11,15 +7,8 @@ public class ReviewVO {
 	private String user_id;
 	private int review_score;
 	private String review_text;
-	private List<GuideVO> GuideVO;
 	
 
-	public List<GuideVO> getGuideVO() {
-		return GuideVO;
-	}
-	public void setGuideVO(List<GuideVO> guideVO) {
-		GuideVO = guideVO;
-	}
 
 	public int getReview_no() {
 		return review_no;

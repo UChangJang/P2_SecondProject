@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comma.sist.reservation.dao.reservation-mapper">
+						
+	 <select id="myGuideReservation" resultMap="comma.sist.common.text-mapper.TextList">
+	 	select rownum guide_no, guide_subject,user_nick,text_tour_date,reservation_person
+	 	from guide, users,text,reservation 
+	 	where reservation.user_id=users.user_id and reservation.guide_no=guide.guide_no and text.text_no=guide.guide_no
+	 	
+	 	
+	 </select>
+	 <select id="myTourReservation" resultMap="comma.sist.common.text-mapper.TextList">
+	 	select rownum tour_no, tour_theme,user_nick,text_tour_date,reservation_person
+	 	from tour, users,text,reservation 
+	 	where reservation.user_id=users.user_id and reservation.tour_no=tour.tour_no and text.text_no=tour.tour_no	 	
+	 </select>
+	
+	
+
+</mapper>

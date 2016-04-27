@@ -38,11 +38,11 @@
 				<tbody>
 				<c:forEach var="guidevo" items="${guidevo }">
 					<tr>
-						<td>${guidevo.guide_no }</td>
-						<td>${guidevo.guide_subject }</td>
+						<td>${guidevo.guidevo.guide_no }</td>
+						<td>${guidevo.guidevo.guide_subject }</td>
 						<td>${guidevo.uservo.user_nick }</td>
 						<td>
-						<fmt:formatDate value="${guidevo.textvo.text_regdate }" pattern="yy/MM/dd"/>
+						<fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/>
 						</td>
 						<td>${guidevo.reservationvo.reservation_person }</td>
 						<td><input type="button" value="»èÁ¦"></td>

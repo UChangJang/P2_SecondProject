@@ -5,10 +5,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import comma.sist.common.TextVO;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.guide.dao.GuideDAO;
 import comma.sist.guide.dao.GuideVO;
+import comma.sist.reservation.dao.ReservationDAO;
+import comma.sist.reservation.dao.ReservationVO;
 import comma.sist.review.dao.ReviewDAO;
 import comma.sist.review.dao.ReviewVO;
 import comma.sist.tourist.dao.TouristDAO;
@@ -80,9 +83,10 @@ public class UserController {
 	@RequestMapping("mypage_infoCorrection.do")
 	public String mypage_detail(HttpServletRequest req){
 		String id=req.getParameter("userid");
+		System.out.println(id);
 		UserVO vo = UserDAO.userProfile(id);
-		req.setAttribute("vo", vo);
-		
+		System.out.println("out");
+		req.setAttribute("vo", vo);		
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_infoCorrection.jsp");
 		return "main.jsp";
@@ -90,11 +94,10 @@ public class UserController {
 	@RequestMapping("mypage_wishlist.do")
 	public String mypage_wishlist(HttpServletRequest req){
 		String id=req.getParameter("userid");		
-		List<WishVO> vo=WishDAO.myAllWish(id);	
-	
-		req.setAttribute("vo", vo);
-	
-
+		List<TextVO> guidevo=WishDAO.myWishGuide(id);
+		List<TextVO> tourvo=WishDAO.myWishTour(id);	
+		req.setAttribute("guidevo", guidevo);
+		req.setAttribute("tourvo", tourvo);
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_wishlist.jsp");		
 		return "main.jsp";
@@ -102,7 +105,7 @@ public class UserController {
 	@RequestMapping("mypage_review.do")
 	public String mypage_review(HttpServletRequest req){
 		String id=req.getParameter("userid");
-		List<ReviewVO> vo = ReviewDAO.myAllReview(id);	
+		List<TextVO> vo = ReviewDAO.myAllReview(id);	
 		req.setAttribute("vo", vo);
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_review.jsp");		
@@ -111,11 +114,11 @@ public class UserController {
 	@RequestMapping("mypage_reservation.do")
 	public String mypage_reserve(HttpServletRequest req){
 		String id= req.getParameter("userid");		
-		//List<ReservationVO> guidevo = GuideDAO.myGuideReservation(id);	
-		//List<ReservationVO> tourvo = TouristDAO.myTourReservation(id);	
+		List<TextVO> guidevo = ReservationDAO.myGuideReservation(id);	
+		List<TextVO> tourvo = ReservationDAO.myTourReservation(id);	
 		
-		//req.setAttribute("guidevo", guidevo);
-		//req.setAttribute("tourvo", tourvo);
+		req.setAttribute("guidevo", guidevo);
+		req.setAttribute("tourvo", tourvo);
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_reservation.jsp");		
 		return "main.jsp";
@@ -124,11 +127,12 @@ public class UserController {
 	@RequestMapping("mypage_mywriter.do")
 	public String mypage_mywriter(HttpServletRequest req){
 		String id=req.getParameter("userid");
-		List<GuideVO> guidevo=GuideDAO.myGuideWriter(id);
-		List<TouristVO> touristvo=TouristDAO.myTouristWriter(id);
+		System.out.println("id"+id);
+		List<TextVO> guidevo=GuideDAO.myGuideWriter(id);
+		//List<TouristVO> touristvo=TouristDAO.myTouristWriter(id);
 		
 		req.setAttribute("guidevo", guidevo);
-		req.setAttribute("touristvo", touristvo);		
+		//req.setAttribute("touristvo", touristvo);		
 
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_mywriter.jsp");		

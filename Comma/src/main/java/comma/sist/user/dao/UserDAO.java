@@ -62,6 +62,7 @@ public class UserDAO {
 	}
 	public static UserVO userProfile(String id){
 		SqlSession session=ssf.openSession();
+		System.out.println("DAO");
 		UserVO vo =session.selectOne("userProfile",id);
 		return vo;
 		
