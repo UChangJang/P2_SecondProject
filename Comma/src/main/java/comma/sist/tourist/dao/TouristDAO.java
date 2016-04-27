@@ -5,10 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
-
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -16,9 +12,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 
 import comma.sist.common.TextVO;
-import comma.sist.controller.RequestMapping;
 import comma.sist.tourist.dao.TouristVO;
 import comma.sist.user.dao.UserVO;
+
 import comma.sist.wish.dao.WishVO;
 
 

@@ -163,15 +163,26 @@
 			<div class="6u$ 12u$(small) secondPart tabControlWrap" id="tabControlWrap">
 				<h5>Best Guide spot</h5>
 				<ul class="tabControlTabs">
-					<li class="tabControlTab selected"><p>1.서울</p></li>
-					<li class="tabControlTab"><p>1.서울</p></li>
-					<li class="tabControlTab"><p>1.서울</p></li>
-					<li class="tabControlTab"><p>1.서울</p></li>
-					<li class="tabControlTab"><p>1.서울</p></li>
+					<li class="tabControlTab selected"><p><span>&nbsp;1&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab"><p><span>&nbsp;2&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab"><p><span>&nbsp;3&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab"><p><span>&nbsp;4&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab"><p><span>&nbsp;5&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab"><p><span>&nbsp;6&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab"><p><span>&nbsp;7&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab"><p><span>&nbsp;8&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab"><p><span>&nbsp;9&nbsp;</span>&nbsp;서울</p></li>
+					<li class="tabControlTab"><p><span>10</span>&nbsp;서울</p></li>
+					
 				</ul>
 				<ul class="tabControlBodys">
 					<li class="tabControlBody selected"
 						style="background-color: blue;">
+						<p>4월7일1/먹방투어/2000원</p>
+						<p>4월7일1/먹방투어/2000원</p>
+						<p>4월7일1/먹방투어/2000원</p>
+						<p>4월7일1/먹방투어/2000원</p>
+						<p>4월7일1/먹방투어/2000원</p>
 						<p>4월7일1/먹방투어/2000원</p>
 						<p>4월7일1/먹방투어/2000원</p>
 						<p>4월7일1/먹방투어/2000원</p>
@@ -226,19 +237,19 @@
 				<div class="box alt">
 					<div class="row uniform">
 						<div class="3u 12u$(small) thirdPart" id="localWeather">
-							<h5>지역 날씨 정보</h5>
+							<h5 style="background-color: #808080; line-height: 2em; margin-bottom:0;">지역 날씨 정보</h5>
 							<div id="weather">
 								<c:forEach var="vo" items="${wlist }">
 								<li>
 									<img src="${vo.weaAddr }" alt="" />
-									<p>${vo.loc },${vo.tempera}</p>
+									<p style="margin-top:0; font-size: 0.8em;"><b>${vo.loc }</b>&nbsp;&nbsp;${vo.tempera}º</p>
 								</li>
 							</c:forEach>
 							</div>
 						</div>
 
 						<div class="9u$ 12u$(small) thirdPart" id="guideFind">
-							<h5>가이드를 찾아요</h5>
+							<h5 style="background-color: #ed4933; line-height: 2em; margin-bottom:0;">가이드를 찾아요</h5>
 							<table>
 								<tr>
 									<td>[서울]</td>
