@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.tourist.dao.tourist-mapper">	
-
 	
+    <!-- 1.tourist 목록(5개 뽑아내기)-->
+	<select id="touristFiveData" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
+		SELECT tour_no,user_id,text_no,tour_theme,tour_detail,num					
+		FROM (SELECT tour_no,user_id,text_no,tour_theme,tour_detail,rownum as num
+				FROM (SELECT tour_no,user_id,text_no,tour_theme,tour_detail
+						FROM tour ORDER BY tour_no DESC))
+		WHERE num BETWEEN #{start} AND #{end}		
+	</select>
+	
+	<!-- 2.user에서 데이터가져오기 -->
+	<select id="touristUserData" resultType="User" parameterType="String">
+		SELECT user_nick,user_img,user_sex,user_birth			
+		FROM users
+		WHERE user_id=#{tid}
+	</select>
+	
+	<!-- 3.text에서 데이터 가져오기 -->
+	<select id="touristTextData" resultType="Text" parameterType="int">
+		SELECT text_loc,text_cost,text_total_person,text_time1,text_time2,text_tour_date		
+		FROM text
+		WHERE text_no=#{tno}
+	</select>
 </mapper>

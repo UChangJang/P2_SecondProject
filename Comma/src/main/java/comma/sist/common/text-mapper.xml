@@ -25,12 +25,16 @@
 	  <result column="user_name" property="uservo.user_name"/>
 	  <result column="user_img" property="uservo.user_img"/>
 	  <result column="user_nick" property="uservo.user_nick"/>
+	  <result column="user_birth" property="uservo.user_birth"/>
+	  <result column="user_sex" property="uservo.user_sex"/>
 	  <result column="reservation_person" property="reservationvo.reservation_person"/> 
-	  <result column="tour_no" property="touristvo.tour_no"/>
-	  <result column="tour.user_id" property="touristvo.user_id"/>
-	  <result column="tour.text_no" property="touristvo.text_no"/>
+	  
+	  <result column="tour_no" property="touristvo.tour_no"/>		<!-- text가 기준이라서  -->
+	  <result column="user_id" property="touristvo.user_id"/>	
+	  <result column="text_no" property="touristvo.text_no"/>
 	  <result column="tour_theme" property="touristvo.tour_theme"/>
 	  <result column="tour_detail" property="touristvo.tour_detail"/> 
+	  
 	  <result column="review_no" property="reviewvo.review_no"/> 
 	  <result column="review.guide_no" property="reviewvo.guide_no"/> 
 	  <result column="review.user_id" property="reviewvo.user_id"/> 
