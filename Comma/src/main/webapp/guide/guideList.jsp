@@ -20,20 +20,18 @@
 				<div class="4u">
 					<span class="image fit a" id="guidePic"> 
 					<a href="guideBoard.do" target="_top">
-					<!-- <img src="../controller/images/busan1.jpg" alt="" /> -->
-					<img src="\\\\211.238.142.74\\images\\"+${vo.guide_img } alt="">		
-					</a>
+					<img src="../controller/images/busan1.jpg" alt="" /></a>
 						<div class="listText" id="testtest"></div>
 						<div class="listText2">
 							<div>
 								<span>사진</span>&nbsp;<span>${vo.uservo.user_name }</span>
 							</div>
-							<div class="secondTable">[서울]${vo.guide_subject }</div>
+							<div class="secondTable">[서울]${vo.guidevo.guide_subject }</div>
 							<div class="ThirdTable">
-								<span>가격</span>&nbsp;<span>${vo.textvo.text_cost }원</span>
+								<span>가격</span>&nbsp;<span>${vo.text_cost }원</span>
 							</div>
 							<div class="FourthTable">
-								<span>여행유형</span>&nbsp;<span><font color="pink">${vo.textvo.text_move }</font></span>
+								<span>여행유형</span>&nbsp;<span><font color="pink">${vo.text_move }</font></span>
 							</div>
 							<div class="FourthTable">
 								<span>후기수</span>&nbsp;<span><font color="pink">5개</font></span>
