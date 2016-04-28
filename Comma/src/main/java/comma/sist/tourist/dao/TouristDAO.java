@@ -15,7 +15,6 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 
 import comma.sist.controller.RequestMapping;
-import comma.sist.guide.dao.GuideVO;
 import comma.sist.wish.dao.WishVO;
 
 
