@@ -81,17 +81,12 @@ public class UserController {
 		System.out.println(vo.getUser_nick());
 		System.out.println(vo.getUser_mail());	
 		UserDAO.userJoin(vo);
-		int count=1;
-		req.setAttribute("count", count);
-
-		return "user/idCheck.jsp";
+		return "user/join.jsp";
 	}
 	@RequestMapping("mypage_infoCorrection.do")
 	public String mypage_detail(HttpServletRequest req){
 		String id=req.getParameter("userid");
-		System.out.println(id);
 		UserVO vo = UserDAO.userProfile(id);
-		System.out.println("out");
 		req.setAttribute("vo", vo);		
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_infoCorrection.jsp");
@@ -160,7 +155,7 @@ public class UserController {
 	}
 	@RequestMapping("infoCorrection_ok.do")
 	public String infoCorrection_ok(HttpServletRequest req) throws Exception{
-		req.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("EUC-KR");
 		String nick=req.getParameter("nick");
 		String pwd=req.getParameter("pwd");
 		String email=req.getParameter("email");

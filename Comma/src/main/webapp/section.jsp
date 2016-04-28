@@ -120,55 +120,33 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 		
 			<div class="6u 12u$(small) secondPart" id="guideRanking"> 
 				<h5>Best Guide 6</h5>
+				  <c:forEach items="${bestGuide }" var="vo">
 					<div id="guideRanking_container">
 						<div id="guideImg">
 						<div class="guideRank_mypicture">
 							<img id="profile" src="../controller/images/character.png"></div>
-							<div style="color:#3A2525; font-weight: bold;"><img id="guideRanking_ranker" src="images/guideRanking_ranker_img.png">&nbsp;1ST</div>
+							<div style="color:#3A2525; font-weight: bold;"><img id="guideRanking_ranker" src="images/guideRanking_ranker_img.png">&nbsp;${vo.reviewvo.review_no }ST</div>
 						</div>
 					
 						<div class="guideRanking_review">
-							제한조건 명시 : 3줄 이상 사용할시 hidden처리함. 
-							글자수 제한조건 처리(50자이상 기입) 엔터키있으면 주옥됨... 좀 문장이 길어져야하는데 가능했으면 좋겠다.
+							${vo.reviewvo.review_score }점입니다다다다다다다다다다다다다다다다다다다다다다다다다다다닫
 						</div>
-						<span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">보영보영안보영(boysso)</span>
+						<span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">${vo.uservo.user_nick }(${vo.text_loc })</span>
 					</div>
+					</c:forEach>
 					<div id="guideRanking_container">
 						<div id="guideImg">
 						<div class="guideRank_mypicture">
 							<img id="profile" src="../controller/images/character.png"></div>
-							<div style="color:#3A2525; font-weight: bold; margin-bottom: 0.5em;">&nbsp;2ND</div>
+							<div style="color:#3A2525; font-weight: bold;"><img id="guideRanking_ranker" src="images/guideRanking_ranker_img.png">&nbsp;3ST</div>
 						</div>
 					
-						<div class="guideRanking_review">베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
+						<div class="guideRanking_review">
+							0점점입니다다다다다다다다다다다다다다다다다다다다다다다다다다다닫
 						</div>
-						<span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">보영보영안보영(boysso)</span>
+						<span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">X</span>
 					</div>
-					<div id="guideRanking_container">
-						<div id="guideImg">
-						<div class="guideRank_mypicture">
-							<img id="profile" src="../controller/images/character.png"></div>
-							<div style="color:#3A2525; font-weight: bold;">&nbsp;3TH</div>
-						</div>
 					
-						<div class="guideRanking_review">베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						베스트 가이드 입니다. 다음 생에도 여행은 이 분한테 맡기려구요.
-						</div>
-						<span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">보영보영안보영(boysso)</span>
-					</div>
 			</div>
 			
 			<div class="6u$ 12u$(small) secondPart tabControlWrap" id="tabControlWrap">

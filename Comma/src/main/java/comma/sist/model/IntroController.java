@@ -2,7 +2,9 @@ package comma.sist.model;
 
 import javax.servlet.http.HttpServletRequest;
 
+import comma.sist.common.TextVO;
 import comma.sist.controller.*;
+import comma.sist.guide.dao.GuideDAO;
 import comma.sist.user.dao.UserDAO;
 import java.io.UnsupportedEncodingException;
 import java.util.*;
@@ -26,9 +28,12 @@ public class IntroController {
 			System.out.println("====================");
 		}*/
 		
+		
 		WeatherManager wm=new WeatherManager();
 		List<WeatherDTO> wlist=wm.weatherAllData();
-		
+		List<TextVO> bestGuide=GuideDAO.bestGuide();
+		System.out.println("≈ª√‚~~~~~~~~~~~~~~~~~~~~~~");
+		req.setAttribute("bestGuide", bestGuide);
 		req.setAttribute("wlist", wlist);
 		req.setAttribute("jsp", "section.jsp");
 		return "main.jsp";
@@ -59,4 +64,5 @@ public class IntroController {
 		request.setAttribute("jsp", "mypage/mypage.jsp");
 		return "main.jsp";
 	}
+
 }
