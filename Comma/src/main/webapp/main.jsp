@@ -22,8 +22,12 @@
       <link rel="stylesheet" href="../controller/assets/css/introKor.css" />
       <link rel="stylesheet" href="../controller/assets/css/dcalendar.picker.css">
       <link href="../controller/assets/css/jquery.bxslider.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="mypage/shadow/css/shadowbox.css">
+
       
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+      <script type="text/javascript" src="ajax.js"></script>
+      <script type='text/javascript' src='http://code.jquery.com/jquery-latest.js'></script>
       
       <!-- 메인 자동 스크롤 배너--> 
       <link rel='stylesheet prefetch' href='http://dimsemenov-static.s3.amazonaws.com/dist/magnific-popup.css'>
@@ -98,9 +102,13 @@
                   <form class="white-popup mfp-hide" id="join-form" action="join.do" method="post">
                      <h1>Join-us</h1>
                      <div>
+                      
                         <input name="id" id="join_id" required="" type="text" placeholder="ID"><span>
                         <input name="id_check" value="확인" id="id_check"type="button"></span>
-                     </div>
+                        </div>
+                        <div name="checkPrint" id="checkPrint"></div>
+                       	
+                     
                      <br>
                      <div>
                         <input name="pwd" id="join_pwd" required="" type="password"   placeholder="Password">
@@ -115,8 +123,7 @@
                      </div>
                      <br>
                      <div>
-                        <input name="nick" id="join_nick" required="" type="text" placeholder="NickName"> 
-                        <input name="nick_check" value="확인" id="id2" type="button">
+                        <input name="nick" id="join_nick" required="" type="text" placeholder="NickName">                        
                      </div>
                      <br>
                      <div>
@@ -187,10 +194,16 @@
    <script src="../controller/assets/js/main.js"></script>
    <script src="../controller/js/jquery.bxslider.min.js"></script>
 
+	<script type="text/javascript" src="mypage/shadow/js/shadowbox.js"></script>
+
    <!-- inline 로그인 팝업창 -->
    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
    
    <script type="text/javascript">
+
+	Shadowbox.init({
+	   players:["iframe"]
+	});
    $(document).ready(function() {
       $('#login-btn').magnificPopup({
          items :{src:'#login-form',type : 'inline'},
@@ -269,8 +282,48 @@
          
          
       });
+      $('#id_check').click(function(){  		
+  		var id = $('#join_id').val();
+  		
+  		if(id.trim()==""){
+  			alert(id)
+  			$('#join_id').focus();
+  			return;
+  		}
+  	
+  		var param="id="+encodeURIComponent(id);
+  		sendMessage("POST", "idCheck.do", param, idCheck)
+  		
+  	})
+  	 $('#idfind-btn').click(function(){
+	  	var magnificPopup = $.magnificPopup.instance; 	  
+	  	magnificPopup.close(); 
+
+  		Shadowbox.open({
+  	      content:'user/idFind.jsp',
+  	      player:'iframe',
+  	      width:500,
+  	      height:200,
+  	      title:'아이디 / 비번 찾기'
+  	   })
+  	 })
+  	
+
+
       
-   });
+   });  
+
+   
+
+	function idCheck(){			
+		if(httpRequest.readyState==4){
+			if(httpRequest.status==200){					
+				$('#checkPrint').html(httpRequest.responseText);
+			}
+		}
+	}
+	
+   
    </script>
    
    <!-- 숨김상단메뉴 -->

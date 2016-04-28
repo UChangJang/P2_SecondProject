@@ -19,8 +19,9 @@
 			<c:forEach var="vo" items="${list }">
 				<div class="4u">
 					<span class="image fit a" id="guidePic"> 
-					<a href="guideBoard.do" target="_top">
+					<a href="guideBoard.do?no=${vo.guidevo.guide_no }" target="_top">
 					<img src="../controller/images/busan1.jpg" alt="" /></a>
+					<!-- <img src="\\\\211.238.142.74\\images\\${vo.guidevo.guide_img}" alt="" /></a> -->
 						<div class="listText" id="testtest"></div>
 						<div class="listText2">
 							<div>
@@ -48,7 +49,10 @@
 			<br>
 			<table>
 				<tr>
-					<td align=center>[1][2][3][4][5]
+					<td align=center>[1][2][3][4][5]</td>
+				</tr>
+				<tr>
+					<td align=right>${curpage } page / ${totalpage } pages</td>
 				</tr>
 			</table>
 			

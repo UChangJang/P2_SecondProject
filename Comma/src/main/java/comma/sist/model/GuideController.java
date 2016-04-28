@@ -24,12 +24,18 @@ public class GuideController {
 		int totalpage = GuideDAO.guideTotalPage();
 		System.out.println("가이드 총 페이지: "+totalpage);
 		
+		String page = request.getParameter("curpage");
+		if(page==null) page = "1";
+		int curpage = Integer.parseInt(page);
 		
 		int rowSize = 9;
+		int start = (rowSize*curpage) - (rowSize-1);
+		int end = rowSize*curpage;
 		
 		
-		
-		
+
+		request.setAttribute("curpage", page);
+		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
 		request.setAttribute("jsp", "guide/guide.jsp");		
 		return "main.jsp";
@@ -72,21 +78,22 @@ public class GuideController {
 		String guide_meet = mr.getParameter("guide_meet");	
 		String text_tour_date = mr.getParameter("text_tour_date");
 
-		/*System.out.println(text_loc);
-		System.out.println(text_total_person);
-		System.out.println(text_move);
-		System.out.println(text_time1);
-		System.out.println(text_time2);
-		System.out.println(text_time3);
-		System.out.println(text_time4);
-		System.out.println(guide_meet);
-		System.out.println(text_tour_date);
-		System.out.println(guide_subject);
-		System.out.println(guide_loc_intro);
-		System.out.println(guide_detail);
-		System.out.println(text_cost);
-		System.out.println(guide_cost_detail);
-		System.out.println(guide_img);*/
+		
+		int t_start = Integer.parseInt(text_time1);
+		int t_end = Integer.parseInt(text_time3);
+		int text_time = 0;
+		
+		if((text_time2.equals("am") && text_time4.equals("am")) || (text_time2.equals("pm") && text_time4.equals("pm"))){
+			text_time = (int)(Math.abs(t_end-t_start));
+		}else if((text_time2.equals("am") && text_time4.equals("pm"))){
+			t_end += 12;
+			text_time = t_end - t_start;
+		}else if((text_time2.equals("pm") && text_time4.equals("am"))){
+			
+		}
+		
+		
+		
 
 		TextVO vo = new TextVO();
 		vo.getGuidevo().setGuide_subject(guide_subject);
@@ -113,22 +120,28 @@ public class GuideController {
 			vo.getGuidevo().setGuide_img("");
 		}else{
 			File f = new File(path+"\\"+guide_img);
+			String s = f.getAbsolutePath();
+			System.out.println(s);
+			request.setAttribute("imgPath", s);
 			vo.getGuidevo().setGuide_img(guide_img);
 		}
 		
-		System.out.println("111");
+		
 		GuideDAO.textInsert(vo);
-		System.out.println("222");
 		GuideDAO.guideInsert(vo);
-		System.out.println("333");
-
+		
 		return "guide/guideWriteOk.jsp";
 	}
 	
-
 	
 	@RequestMapping("guideBoard.do")
 	public String guideBoard(HttpServletRequest request){
+		
+		String no = request.getParameter("no");
+		
+		TextVO vo = GuideDAO.guideInfoData(Integer.parseInt(no));
+		
+		request.setAttribute("vo", vo);
 		request.setAttribute("jsp", "guide/guideBoard.jsp");		
 
 		return "main.jsp";
