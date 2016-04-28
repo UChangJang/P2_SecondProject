@@ -1,4 +1,7 @@
 @CHARSET "EUC-KR";
+#touristForm{
+	margin:0;
+}
 #tourWriteBtn ul li{
 	margin: 0 auto;
 }
