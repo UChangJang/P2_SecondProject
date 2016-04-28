@@ -126,6 +126,7 @@ public class GuideController {
 			vo.getGuidevo().setGuide_img(guide_img);
 		}
 		
+		
 		GuideDAO.textInsert(vo);
 		GuideDAO.guideInsert(vo);
 		

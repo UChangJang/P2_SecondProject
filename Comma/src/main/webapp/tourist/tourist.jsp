@@ -4,74 +4,11 @@
 
 <html>
 <head>
-<<<<<<< HEAD
-	<title>tourist</title>
-	
-	</head>
-<body>
 
-<!-- Main -->
-<article id="main">
-	<header>
-		<h2>가이드찾기</h2>
-		<p>가이드찾기설명</p>
-	</header>
-	
-	<section class="wrapper style5">
-		<div class="inner">						
-			<form method="post" action="#">
-				<div class="row uniform">					<!-- 상세검색div -->
-				
-					<div id="map"></div>					<!-- 1. 지도 -->
-					
-					<div class="4u 12u$(xsmall)">
-					<div class="select-wrapper tourist_local">
-						<select name="text_loc" id="demo-category">
-							<option value="">- 지역 -</option>
-							<option value="1">서울</option>
-							<option value="1">부산</option>
-							<option value="1">제주도</option>
-							<option value="1">강원도</option>
-						</select>
-					</div>
-					</div>
-					
-					<div class="4u 12u$(xsmall)">
-						<div class="tourist_center" id="demo">
-							<input type="text" id="dt" placeholder="날짜선택">
-	   							<div id="dd"></div>
-						 </div>
-					 </div>
-					 
-					<div class="4u$ 12u$(xsmall)">
-					<div class="tourist_center">
-						<ul class="actions">
-							<a href="#two" class="scrolly">
-								<li><input type="submit" value="Send Message"
-									class="special" /></li>
-							</a>
-						</ul>
-					</div>
-					</div>
-					
-					
-				</div>
-			</form>
-		</div>
-	</section>
-			
-	<!-- 3x3가이드리스트 출력 -->
-	<jsp:include page="${innerList }"></jsp:include>
-	
-
-</article>
-
-
-=======
 <title>tourist</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
->>>>>>> refs/remotes/origin/master
+
 <script type="text/javascript">
 
 	function find()

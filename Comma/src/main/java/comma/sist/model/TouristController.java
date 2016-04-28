@@ -1,20 +1,13 @@
 package comma.sist.model;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringTokenizer;
-
+import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import comma.sist.common.TextVO;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.tourist.dao.TouristDAO;
-import comma.sist.tourist.dao.TouristVO;
+
 
 @Controller("tc")
 public class TouristController {
