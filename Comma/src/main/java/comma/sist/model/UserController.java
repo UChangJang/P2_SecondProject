@@ -56,7 +56,7 @@ public class UserController {
 	}
 	@RequestMapping("join.do")
 	public String memberJoinOk(HttpServletRequest req) throws Exception{
-		HttpSession session=req.getSession();
+		
 		req.setCharacterEncoding("EUC-KR");
 		String id=req.getParameter("id");
 		String name=req.getParameter("name");

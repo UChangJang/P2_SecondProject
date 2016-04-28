@@ -47,17 +47,17 @@ private static SqlSessionFactory   ssf;
          
          for(TouristVO tvo:list){
             String tid=tvo.getUser_id();
-            System.out.println(tid);
+            
             int tno=tvo.getText_no();
-            System.out.println(tno);
+           
            // System.out.println("here@!"+tvo.getTour_theme());
             UserVO uv=session.selectOne("touristUserData",tid);   //users에서 user_id와 일치하는 5개의 정보들 가져옴
            // System.out.println(uv.getUser_nick());
             TextVO tv=session.selectOne("touristTextData",tno);   //text에서 text_no와 일치하는 5개의 정보들 가져옴
             //System.out.println(tv.getText_loc());
          
-//            tvo.setUvo(uv);
-//            tvo.setTvo(tv);
+           // tvo.setUvo(uv);
+           // tvo.setTvo(tv);
             list2.add(tvo);
          }
          session.close();         

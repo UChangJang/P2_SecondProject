@@ -32,12 +32,11 @@ public class TouristController {
       int end=curpage*rowSize;
       map.put("start", start);
       map.put("end", end);
-      System.out.println(1);
+      
 
       List<TouristVO> list=TouristDAO.touristFiveData(map);   //1과 5 넘겨줌=>5개의 touristVO만 가져오게 됨      
-      System.out.println(2);
       int totalpage=TouristDAO.boardTotalPage();   //총페이지수
-      System.out.println(3);
+      
       //req.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
       //req.setAttribute("curpage", curpage);
       //req.setAttribute("totalpage", totalpage);
@@ -53,11 +52,9 @@ public class TouristController {
    
    @RequestMapping("touristWrite_Ok.do")
    public String tourist_Insert(HttpServletRequest req){
-	   
+	   System.out.println("??");
 	   String tour_theme = req.getParameter("tour_theme");
-	   String tour_detail = req.getParameter("tour_detail");
-	   
-	   
+	   String tour_detail = req.getParameter("tour_detail");	   
 	   String text_loc = req.getParameter("text_loc");
 	   String text_cost = req.getParameter("text_cost");
 	   String text_total_person = req.getParameter("text_total_person");
@@ -65,16 +62,14 @@ public class TouristController {
 	   String text_time2 = req.getParameter("text_time2");
 	   String text_time3 = req.getParameter("text_time3");
 	   String text_time4 = req.getParameter("text_time4");
-	   String text_move =req.getParameter("text_move");
+	   String text_move = req.getParameter("text_move");
 	   String text_tour_date = req.getParameter("text_tour_date");
 
-	   
+	   System.out.println("??");
 	   TextVO tvo = new TextVO();
 	   tvo.getTouristvo().setTour_theme(tour_theme);
-	   tvo.getTouristvo().setTour_detail(tour_detail);
-	   
+	   tvo.getTouristvo().setTour_detail(tour_detail);   
 	   tvo.setText_loc(text_loc);
-	   
 	   tvo.setText_cost(text_cost);
 	   tvo.setText_total_person(Integer.parseInt(text_total_person));
 	   tvo.setText_time1(text_time1);
@@ -82,20 +77,13 @@ public class TouristController {
 	   tvo.setText_move(text_move);
 	   tvo.setText_tour_date(text_tour_date);
 
-	  
-	   
 	   HttpSession session = req.getSession();
 	   String user_id = (String)session.getAttribute("id");
-	   
 	   tvo.getTouristvo().setUser_id(user_id);
-	  
+	   System.out.println("??");
 	   TouristDAO.textInsert(tvo);
 	   TouristDAO.touristWrite(tvo);
 	   System.out.println("tourInsert");
-	   
-	   
-	   
-	   
 	   
 	   return "tourist/touristWriteOk.jsp";
 
