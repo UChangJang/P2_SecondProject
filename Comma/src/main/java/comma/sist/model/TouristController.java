@@ -1,14 +1,15 @@
 package comma.sist.model;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import comma.sist.common.TextVO;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
@@ -17,38 +18,72 @@ import comma.sist.tourist.dao.TouristVO;
 
 @Controller("tc")
 public class TouristController {
-   
-   /* tourist.do */
-   @RequestMapping("tourist.do")      
-   public String tourist(HttpServletRequest req){
-      String page=req.getParameter("page");
-      if(page==null){
-         page="1";
-      }
-      int curpage=Integer.parseInt(page);
-      Map map=new HashMap();
-      int rowSize=5;
-      int start=(curpage*rowSize)-(rowSize-1);
-      int end=curpage*rowSize;
-      map.put("start", start);
-      map.put("end", end);
-      System.out.println(1);
-     /* List<TouristVO> list=TouristDAO.touristFiveData(map);   //1과 5 넘겨줌=>5개의 touristVO만 가져오게 됨      
-      System.out.println(2);
-      int totalpage=TouristDAO.boardTotalPage();   //총페이지수
-      System.out.println(3);
-      //req.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-      //req.setAttribute("curpage", curpage);
-      //req.setAttribute("totalpage", totalpage);
-      req.setAttribute("list", list);*/
-      
-      req.setAttribute("innerList", "touristList.jsp");      
-      req.setAttribute("tsp", "tourist/tourist.jsp");         
-      
-      return "main.jsp";
-   }
-   
-   @RequestMapping("touristInsert.do")
+
+	
+	/* 1.tourist목록보기 */
+	@RequestMapping("tourist.do")		
+	public String tourist(HttpServletRequest req){
+		String page=req.getParameter("page");
+		if(page==null){
+			page="1";
+		}
+		int curpage=Integer.parseInt(page);
+		Map map=new HashMap();
+		int rowSize=5;
+		int start=(curpage*rowSize)-(rowSize-1);
+		int end=curpage*rowSize;
+		map.put("start", start);
+		map.put("end", end);
+		System.out.println(1);
+		
+		List<TextVO> list=TouristDAO.touristFiveData(map);	//1과 5 넘겨줌=>5개의 touristVO만 가져오게 됨				
+		int totalpage=TouristDAO.boardTotalPage();	//총페이지수=2page
+	
+		//req.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+		req.setAttribute("curpage", curpage);
+		req.setAttribute("totalpage", totalpage);
+		req.setAttribute("list", list);		
+		req.setAttribute("innerList", "touristList.jsp");		
+		req.setAttribute("jsp", "tourist/tourist.jsp");			
+		
+		return "main.jsp";
+	}
+
+	/* 2.정렬 */
+	@RequestMapping("tourist_sort.do")
+	public String tourist_sort(HttpServletRequest req){
+		String typeTemp=req.getParameter("type");
+		int type=Integer.parseInt(typeTemp);		//type=1,2,3
+				System.out.println(typeTemp+":정렬타입");
+		String page=req.getParameter("page");		//page=몇페이지인지..처음은 무조건 1page
+		if(page==null){
+			page="1";
+		}
+		int curpage=Integer.parseInt(page);
+		Map map=new HashMap();
+		int rowSize=5;
+		int start=(curpage*rowSize)-(rowSize-1);
+		int end=curpage*rowSize;
+		map.put("start", start);
+		map.put("end", end);
+				System.out.println("start:"+start);
+		
+		List<TextVO> list=TouristDAO.tourist_sort(map,type);	//1과 5 넘겨줌=>5개의 touristVO만 가져오게 됨		
+				System.out.println(2);
+		
+		int totalpage=TouristDAO.boardTotalPage();	//총페이지수=2page
+				System.out.println(3);		
+		//req.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+		req.setAttribute("curpage", curpage);
+		req.setAttribute("totalpage", totalpage);
+		req.setAttribute("list", list);			
+		
+		return "tourist/touristList.jsp";
+	}
+	
+	
+	
+   /*@RequestMapping("touristInsert.do")
    public String tourist_Insert(HttpServletRequest req){
 	   
 	   
@@ -99,5 +134,6 @@ public class TouristController {
 	   
 	   
 	   return "main.jsp";
-   }
+   }*/
 }
+

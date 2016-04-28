@@ -7,11 +7,25 @@
 </head>
 <body>
 
+<div id="nav2" >
+	<ul>
+	 	 <li><a class="scrolly" href="#guide_margin">Search</a></li>
+	 	 <li><a class="scrolly" href="#guideList">Guide List</a></li>
+	</ul>
+</div>
+
 <!-- Main -->
 <article id="main">
-	<header>
-		<h2>가이드찾기</h2>
-		<p>가이드찾기설명</p>
+	<header id="header_guideList">
+			<center>
+			<video preload="auto" loop="loop" autoplay="ture">
+				<source src="images/guideMovie">
+				<h2 class="headerMagin">Guide List</h2>
+				<p>You Can Find Guide In Here!</p>
+				<a href="#one" class="more scrolly"><img src="images/triangle.png">
+						<br>view more</a>
+			</video>
+			</center>
 	</header>
 
 	<section class="wrapper style5" id="guide_margin">
@@ -96,8 +110,9 @@
 	</section>
 
 	<!-- 3x3가이드리스트 출력 -->
-	<jsp:include page="guideList.jsp"></jsp:include>
-
+	<section id="#guideList">
+		<jsp:include page="guideList.jsp"></jsp:include>
+	</section>
 </article>
 
 </body>
