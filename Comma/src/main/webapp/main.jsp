@@ -278,18 +278,21 @@
   			$('#join_id').focus();
   			return;
   		}
+  	
   		var param="id="+encodeURIComponent(id);
   		sendMessage("POST", "idCheck.do", param, idCheck)
   		
   	})
   	 $('#idfind-btn').click(function(){
-  		
+	  	var magnificPopup = $.magnificPopup.instance; 	  
+	  	magnificPopup.close(); 
+
   		Shadowbox.open({
-  	      content:'user/idfing.jsp',
+  	      content:'user/idFind.jsp',
   	      player:'iframe',
-  	      width:240,
-  	      height:150,
-  	      title:'아이디 중복체크'
+  	      width:500,
+  	      height:200,
+  	      title:'아이디 / 비번 찾기'
   	   })
   	 })
   	

@@ -11,7 +11,11 @@ public class FileConfig {
 
 		
 		try{
-			String path = "C:\\Users\\BaeHyunGil\\git\\P2_SecondProject\\Comma\\src\\main\\java\\";		// 단비
+
+			String path = "C:\\Users\\BaeHyunGil\\git\\P2_SecondProject\\Comma\\src\\main\\java\\";		// 현길
+
+			//String path = "C:\\Users\\ANBOYOUNG\\git\\P2_SecondProject\\Comma\\src\\main\\java\\";		// 단비
+
 
 			path = path+pack.replace('.', '\\');
 			

@@ -13,7 +13,6 @@ public class GuideVO {
 	private String	guide_meet;
 	private String	guide_img;
 	private String	guide_map;
-
 	private String	guide_cost_detail;
 
 

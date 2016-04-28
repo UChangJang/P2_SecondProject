@@ -10,25 +10,40 @@
 <script type="text/javascript">
 $(function(){
 	
-	$('#idFindBtn').click(function(){
+	$('#idFindBtn').click(function(){		
 		var name=$('#name').val();
 		if(name.trim()==""){
 			$('#name').focus();
 			return;
 		}
-		var param="name="+encodeURIComponent(dong);
-		sendMessage("POST", "idFind.do", param, idfind)
+		var param="name="+encodeURIComponent(name);
+		sendMessage("POST", "../idFind.do", param, idfind)
 		
 	})
+	$('#pwdFindBtn').click(function(){		
+	var id=$('#id').val();
+	if(name.trim()==""){
+		$('#id').focus();
+		return;
+	}
+	var param="id="+encodeURIComponent(id);
+	sendMessage("POST", "../pwdFind.do", param, pwdfind)
+	
+})
 })
 function idfind(){
-	
 	if(httpRequest.readyState==4){
-		if(httpRequest.status==200){	
-			alert(httpRequest.responseText)
-			$('#findPrint').html(httpRequest.responseText);
+		if(httpRequest.status==200){				
+			$('#idFindPrint').html(httpRequest.responseText);
 		}
 	}
+}
+function pwdfind(){
+if(httpRequest.readyState==4){
+	if(httpRequest.status==200){				
+		$('#pwdFindPrint').html(httpRequest.responseText);
+	}
+}
 }
 </script>
 
@@ -36,7 +51,7 @@ function idfind(){
 </head>
 <body>
    <center>
-     <table id="table_content" style="margin_top:20px;width:450px">
+     <table style="margin_top:20px;width:450px;background-color: pink ">
        <tr>
          <td>이름입력 : <input type=text name=name id="name" size=15>
              <input type=button value="idfind" id="idFindBtn">
@@ -46,7 +61,8 @@ function idfind(){
          </td>
        </tr>
        <tr>
-         <td id="findPrint"></td>
+         <td id="idFindPrint"></td>
+         <td id="pwdFindPrint"></td>
        </tr>
      </table>
    </center>

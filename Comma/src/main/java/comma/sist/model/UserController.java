@@ -51,6 +51,7 @@ public class UserController {
 	}
 	@RequestMapping("idCheck.do")
 	public String idCheck(HttpServletRequest req){
+		System.out.println("zz");
 		String id=req.getParameter("id");
 		System.out.println(id);
 		int count=UserDAO.idCheckCount(id);		
@@ -183,12 +184,24 @@ public class UserController {
 		return "main.jsp";
 	}
 	@RequestMapping("idFind.do")
-	public String idFind(HttpServletRequest req){
+	public String idFind(HttpServletRequest req) throws Exception{
+		
+		req.setCharacterEncoding("UTF-8");
 		String name=req.getParameter("name");
 		String id=UserDAO.idFind(name);
 		req.setAttribute("id", id);		
 		
-		return "user/idfind_ok.jsp";
+		return "user/idFind_ok.jsp";
+	}
+	@RequestMapping("pwdFind.do")
+	public String pwdFind(HttpServletRequest req) throws Exception{
+		
+		req.setCharacterEncoding("UTF-8");
+		String id=req.getParameter("id");
+		String pwd=UserDAO.pwdFind(id);
+		req.setAttribute("pwd", pwd);		
+		
+		return "user/pwdFind_ok.jsp";
 	}
 	
 	

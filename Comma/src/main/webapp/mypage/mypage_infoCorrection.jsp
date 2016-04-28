@@ -18,6 +18,7 @@
 <script type="text/javascript" src="mypage/shadow/js/shadowbox.js"></script>
 
 <!-- 프로필 사진 삽입 코드 (url:http://touchsoul.tistory.com/84) -->
+
 <script type="text/javascript">
 Shadowbox.init({
 	 players:["iframe"]
@@ -28,7 +29,8 @@ Shadowbox.init({
           readURL(this);
       });
   });
-
+  
+  
   function readURL(input) {
       if (input.files && input.files[0]) {
       var reader = new FileReader();
@@ -88,6 +90,7 @@ Shadowbox.init({
 })
        
    </script>
+
 </head>
 <body>
 	<h3>복구중....</h3>
@@ -100,21 +103,23 @@ Shadowbox.init({
 			<form name="infoCorrection_frm" action="infoCorrection_ok.do" method=post id=infoCorrectionFrm>
 				<table class="infomodify">				  
 						<tr>
-							<!-- <td rowspan="3">							   
-								프로필 사진<br>								
+
+							<td rowspan="3">							
+								<input type='file' id="profile_img"/>
 								<img id="blah" src="#" alt="your image"/>							
-								<input type='file' id="profile_img" style="width: 18em"/>															
-							</td> -->
-						
+							</td>
 						
 							<th>ID</th>							
 							<td>
+
 								<input type="text" name=id id="id" value="${id }" readonly="readonly">
 							</td>
 															
 							<th>Nickname</th>							
 							<td>
+
 								<input type="text" name=nick id="nick" value="${vo.user_nick }">
+
 							</td>
 							
 						</tr>
@@ -152,6 +157,7 @@ Shadowbox.init({
    							
    							<td>
    							 <div id="demo" >
+
    							   <select name=month id=month>
 	   							  <c:forEach begin="01" end="12" var="m">	   							  
 									<option value=${m }>${m }월</option>
@@ -165,6 +171,7 @@ Shadowbox.init({
    							  <div id="demo" >
    							    <select name=day id=day>
 	   							 <c:forEach begin="01" end="31" var="d">
+
 									<option value=${d }>${d }일</option>
 								 </c:forEach>
 								</select>
@@ -224,8 +231,7 @@ Shadowbox.init({
 					</tbody>
 					
 
-					<tfoot/> 
-					
+					<tfoot/> 					
 				</table>
 				<table >
 					 <tr height=30>
@@ -236,6 +242,7 @@ Shadowbox.init({
 			         </tr>
 			    </table>
 				</form>
+
 			</div>
 		</div>
 	</section>

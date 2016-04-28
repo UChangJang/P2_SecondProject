@@ -3,42 +3,42 @@
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
 
 
-<!-- 	
-	디폴트는 최신순
-	<select id="guideAllData" resultMap="GuideList">
-		select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img
-		from guide,users,text 
-		where guide.user_id=users.user_id and guide.text_no=text.text_no
-	</select>
-	
-	<select id="guideTotalPage" resultType="int">
-		select ceil(count(guide_no)/9) from guide 
-	</select>
-	
-	<select id="guideInfo" resultType="Guide" parameterType="int">
-		select guide_no,guide_subject from guide where guide_no=#{guide_no}
-	</select>
-	
-	가이드 글 추가
-	<insert id="textInsert" parameterType="Text">
-		insert into text values((select NVL(max(text_no)+1,1) from text),#{text_loc},#{text_cost},#{text_total_person},sysdate,
-					#{text_time1},#{text_time2},#{text_move},0,'n',#{text_tour_date})
-	</insert>
-	
-	<insert id="guideInsert" parameterType="Guide">
-		<selectKey keyProperty="text_no" resultType="int" order="BEFORE">
-			select max(text_no) as text_no from text
-		</selectKey>
-	
-		insert into guide(guide_no,user_id,guide_subject,text_no,guide_loc_intro,guide_detail,guide_meet,guide_img,guide_map,guide_cost_detail)
-		 values((select NVL(max(guide_no)+1,1) from guide),
-				#{user_id},#{guide_subject},#{text_no},#{guide_loc_intro},#{guide_detail},
-				#{guide_meet},#{guide_img},#{guide_map},#{guide_cost_detail})
-	</insert> -->
-	
+   <!-- 가이드 목록리스트 -->
+   <select id="guideAllData" resultMap="comma.sist.common.text-mapper.TextList">
+      select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img
+      from guide,users,text 
+      where guide.user_id=users.user_id and guide.text_no=text.text_no
+      order by guide.guide_no desc
+   </select>
+   
+   <!-- 가이드 페이지 -->
+   <select id="guideTotalPage" resultType="int">
+      select ceil(count(guide_no)/9) from guide 
+   </select>
+   
+   <select id="guideInfo" resultType="Guide" parameterType="int">
+      select guide_no,guide_subject from guide where guide_no=#{guide_no}
+   </select>
+   
+   <!-- 가이드 글 추가 -->
+   <insert id="textInsert" parameterType="Text">
+      insert into text values((select NVL(max(text_no)+1,1) from text),#{text_loc},#{text_cost},#{text_total_person},sysdate,
+               #{text_time1},#{text_time2},#{text_move},0,'n',#{text_tour_date})
+   </insert>
+   
+   <insert id="guideInsert" parameterMap="comma.sist.common.text-mapper.TextList_param">
+      <selectKey keyProperty="text_no" resultType="int" order="BEFORE">
+         select max(text_no) as text_no from text
+      </selectKey>
+      insert into guide(guide_no,user_id,guide_subject,text_no,guide_loc_intro,guide_detail,guide_meet,guide_map,guide_cost_detail,guide_img)
+       values((select NVL(max(guide_no)+1,1) from guide),
+            #{guidevo.user_id},#{guidevo.guide_subject},#{text_no},#{guidevo.guide_loc_intro},#{guidevo.guide_detail},
+            #{guidevo.guide_meet},#{guidevo.guide_map},#{guidevo.guide_cost_detail},#{guidevo.guide_img})
+   </insert>
+
  	<select id="myGuideWriter" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList"> 
 	  select rownum guide_no,guide_subject,text_regdate,user_nick,reservation_person, text_end
       from guide,text,users,reservation where text.text_no=guide.text_no and guide.guide_no=reservation.guide_no    
 	</select> 
-</mapper>
 
+</mapper>

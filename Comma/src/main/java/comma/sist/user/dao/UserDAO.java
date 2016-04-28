@@ -94,6 +94,12 @@ public class UserDAO {
 		session.close();
 		return id;
 	}
+	public static String pwdFind(String id){
+		SqlSession session=ssf.openSession();
+		String pwd=session.selectOne("pwdFind",id);
+		session.close();
+		return pwd;
+	}
 	
 
 	

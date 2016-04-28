@@ -1,4 +1,7 @@
 @CHARSET "EUC-KR";
+#touristForm{
+	margin:0;
+}
 #tourWriteBtn ul li{
 	margin: 0 auto;
 }
@@ -1100,7 +1103,7 @@
 	font-size: 13px;
 	
 	width:78%;
-	height: 7.5em;
+	height: 7em;
 	
 	margin-top: 0.3em;
 	margin-bottom:0;
