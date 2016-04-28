@@ -82,5 +82,11 @@ private static SqlSessionFactory	ssf;
 		session.close();
 		return vo;
 	}
+	public static List<TextVO> bestGuide(){
+		SqlSession session=ssf.openSession();
+		List<TextVO> vo=session.selectList("bestGuide");
+		session.close();
+		return vo;
+	}
 
 }
