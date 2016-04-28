@@ -3,12 +3,20 @@
 <!DOCTYPE HTML>
 
 <html>
+<<<<<<< HEAD
 <head>
 
+=======
+<head>
+>>>>>>> refs/remotes/origin/master
 <title>tourist</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<<<<<<< HEAD
 <script type="text/javascript" src="ajax.js"></script>
 
+=======
+<script type="text/javascript" src="ajax.js"></script>
+>>>>>>> refs/remotes/origin/master
 <script type="text/javascript">
 
 	function find()

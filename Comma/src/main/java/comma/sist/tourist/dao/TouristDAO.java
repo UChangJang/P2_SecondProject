@@ -31,91 +31,91 @@ private static SqlSessionFactory   ssf;
    
    
     //1. 5개의 전체 데이터 읽기
- 	public static List<TextVO> touristFiveData(Map map) { // map=1,5
- 		SqlSession session = ssf.openSession(); // 객체생성		
- 		List<TouristVO> list = session.selectList("touristFiveData", map); // 1-5번호까지의 tourist에서모든정보들가져옴
- 		
- 		List<TextVO> list2 = new ArrayList<TextVO>(); // 이곳에 저장하겠다.
- 		
- 		for(TouristVO tvo : list) {
- 			String tid = tvo.getUser_id();	//1.저장된 id가져옴  null...
- 				System.out.println("id:" +tid);
- 			int tno = tvo.getText_no();		//2.저장된 text번호 가져옴
- 				System.out.println("글전체에서번호:" +tno);
- 				System.out.println("테마:" + tvo.getTour_theme());	//3.저장된 테마가져옴
- 			
- 			UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
- 				System.out.println("닉네임:" +uv.getUser_nick());		//저장된 닉네임 가져오기
- 			
- 			TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
- 				System.out.println("지역:" +tv.getText_loc());					//저장된 지역 가져오기
+    public static List<TextVO> touristFiveData(Map map) { // map=1,5
+       SqlSession session = ssf.openSession(); // 객체생성      
+       List<TouristVO> list = session.selectList("touristFiveData", map); // 1-5번호까지의 tourist에서모든정보들가져옴
+       
+       List<TextVO> list2 = new ArrayList<TextVO>(); // 이곳에 저장하겠다.
+       
+       for(TouristVO tvo : list) {
+          String tid = tvo.getUser_id();   //1.저장된 id가져옴  null...
+             System.out.println("id:" +tid);
+          int tno = tvo.getText_no();      //2.저장된 text번호 가져옴
+             System.out.println("글전체에서번호:" +tno);
+             System.out.println("테마:" + tvo.getTour_theme());   //3.저장된 테마가져옴
+          
+          UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
+             System.out.println("닉네임:" +uv.getUser_nick());      //저장된 닉네임 가져오기
+          
+          TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
+             System.out.println("지역:" +tv.getText_loc());               //저장된 지역 가져오기
 
- 			//list에 합치기_user
- 			tv.getUservo().setUser_nick(uv.getUser_nick());
- 			tv.getUservo().setUser_img(uv.getUser_img());
- 			tv.getUservo().setUser_birth(uv.getUser_birth());
- 			tv.getUservo().setUser_sex(uv.getUser_sex());
- 			//list에 합치기_tour
- 			tv.getTouristvo().setText_no(tvo.getText_no());
- 			tv.getTouristvo().setUser_id(tvo.getUser_id());
- 			tv.getTouristvo().setTour_no(tvo.getTour_no());
- 			tv.getTouristvo().setTour_theme(tvo.getTour_theme());
- 			tv.getTouristvo().setTour_detail(tvo.getTour_detail());
- 			
- 			list2.add(tv);
- 		}
- 		session.close();
- 		
- 		return list2;
- 	}
- 	
- 	/* tourist정렬 */
-	public static List<TextVO> tourist_sort(Map map,int type) { // map=start(1) end(5)	//type=1,2,3
-		SqlSession session = ssf.openSession(); // 객체생성	
-		
-		List<TouristVO> list = new ArrayList<TouristVO>();
-				System.out.println("dao1");
-		if(type==1){		//1.가격순
-			list = session.selectList("touristSortPrice", map); // 1-5번호까지의 tourist에서모든정보들가져옴
-		}else if(type==2){	//2.최신순
-			list = session.selectList("touristSortNewest", map); 
-		}else if(type==3){
-			
-		}
-				System.out.println("dao2");
-		List<TextVO> list2 = new ArrayList<TextVO>(); // 이곳에 저장하겠다.
-		
-		for(TouristVO tvo : list) {
-			String tid = tvo.getUser_id();	//1.저장된 id가져옴  null...
-				System.out.println("id:" +tid);
-			int tno = tvo.getText_no();		//2.저장된 text번호 가져옴
-				System.out.println("글전체에서번호:" +tno);
-				System.out.println("테마:" + tvo.getTour_theme());	//3.저장된 테마가져옴
-			
-			UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
-				System.out.println("닉네임:" +uv.getUser_nick());		//저장된 닉네임 가져오기
-			
-			TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
-				System.out.println("지역:" +tv.getText_loc());					//저장된 지역 가져오기
+          //list에 합치기_user
+          tv.getUservo().setUser_nick(uv.getUser_nick());
+          tv.getUservo().setUser_img(uv.getUser_img());
+          tv.getUservo().setUser_birth(uv.getUser_birth());
+          tv.getUservo().setUser_sex(uv.getUser_sex());
+          //list에 합치기_tour
+          tv.getTouristvo().setText_no(tvo.getText_no());
+          tv.getTouristvo().setUser_id(tvo.getUser_id());
+          tv.getTouristvo().setTour_no(tvo.getTour_no());
+          tv.getTouristvo().setTour_theme(tvo.getTour_theme());
+          tv.getTouristvo().setTour_detail(tvo.getTour_detail());
+          
+          list2.add(tv);
+       }
+       session.close();
+       
+       return list2;
+    }
+    
+    /* tourist정렬 */
+   public static List<TextVO> tourist_sort(Map map,int type) { // map=start(1) end(5)   //type=1,2,3
+      SqlSession session = ssf.openSession(); // 객체생성   
+      
+      List<TouristVO> list = new ArrayList<TouristVO>();
+            System.out.println("dao1");
+      if(type==1){      //1.가격순
+         list = session.selectList("touristSortPrice", map); // 1-5번호까지의 tourist에서모든정보들가져옴
+      }else if(type==2){   //2.최신순
+         list = session.selectList("touristSortNewest", map); 
+      }else if(type==3){
+         
+      }
+            System.out.println("dao2");
+      List<TextVO> list2 = new ArrayList<TextVO>(); // 이곳에 저장하겠다.
+      
+      for(TouristVO tvo : list) {
+         String tid = tvo.getUser_id();   //1.저장된 id가져옴  null...
+            System.out.println("id:" +tid);
+         int tno = tvo.getText_no();      //2.저장된 text번호 가져옴
+            System.out.println("글전체에서번호:" +tno);
+            System.out.println("테마:" + tvo.getTour_theme());   //3.저장된 테마가져옴
+         
+         UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
+            System.out.println("닉네임:" +uv.getUser_nick());      //저장된 닉네임 가져오기
+         
+         TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
+            System.out.println("지역:" +tv.getText_loc());               //저장된 지역 가져오기
 
-			//list에 합치기_user
-			tv.getUservo().setUser_nick(uv.getUser_nick());
-			tv.getUservo().setUser_img(uv.getUser_img());
-			tv.getUservo().setUser_birth(uv.getUser_birth());
-			tv.getUservo().setUser_sex(uv.getUser_sex());
-			//list에 합치기_tour
-			tv.getTouristvo().setText_no(tvo.getText_no());
-			tv.getTouristvo().setUser_id(tvo.getUser_id());
-			tv.getTouristvo().setTour_no(tvo.getTour_no());
-			tv.getTouristvo().setTour_theme(tvo.getTour_theme());
-			tv.getTouristvo().setTour_detail(tvo.getTour_detail());
-			
-			list2.add(tv);
-		}
-		session.close();
-		
-		return list2;
-	}
+         //list에 합치기_user
+         tv.getUservo().setUser_nick(uv.getUser_nick());
+         tv.getUservo().setUser_img(uv.getUser_img());
+         tv.getUservo().setUser_birth(uv.getUser_birth());
+         tv.getUservo().setUser_sex(uv.getUser_sex());
+         //list에 합치기_tour
+         tv.getTouristvo().setText_no(tvo.getText_no());
+         tv.getTouristvo().setUser_id(tvo.getUser_id());
+         tv.getTouristvo().setTour_no(tvo.getTour_no());
+         tv.getTouristvo().setTour_theme(tvo.getTour_theme());
+         tv.getTouristvo().setTour_detail(tvo.getTour_detail());
+         
+         list2.add(tv);
+      }
+      session.close();
+      
+      return list2;
+   }
       
       //2.tourist게시판 총 페이지 수 구하기
       public static int boardTotalPage(){
@@ -127,21 +127,21 @@ private static SqlSessionFactory   ssf;
       
      // 게시판 글쓰
      public static void textInsert(TextVO tvo){
-  	
-  		SqlSession session = ssf.openSession(true);
-  		session.insert("textInsert1",tvo);
-  		session.close();
-  		
-  	 } // textInsert(GuideVO vo)
-  		
-  	
-  	public static void touristWrite(TextVO tvo){
-  		
-  		SqlSession session = ssf.openSession(true);
-  		session.insert("touristInsert",tvo);
-  		session.close();
-  		
-  	} // touristWrite(TextVO tvo)
+     
+        SqlSession session = ssf.openSession(true);
+        session.insert("textInsert1",tvo);
+        session.close();
+        
+      } // textInsert(GuideVO vo)
+        
+     
+     public static void touristWrite(TextVO tvo){
+        
+        SqlSession session = ssf.openSession(true);
+        session.insert("touristInsert",tvo);
+        session.close();
+        
+     } // touristWrite(TextVO tvo)
       
    
    public static List<WishVO> myWishTorist(String id){
@@ -158,4 +158,3 @@ private static SqlSessionFactory   ssf;
    }
    
 }
-

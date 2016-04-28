@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
-
 	<!-- 가이드 목록리스트 -->
 	<select id="guideAllData" resultMap="comma.sist.common.text-mapper.TextList">
 		select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img
@@ -37,10 +36,12 @@
 				#{guidevo.user_id},#{guidevo.guide_subject},#{text_no},#{guidevo.guide_loc_intro},#{guidevo.guide_detail},
 				#{guidevo.guide_meet},#{guidevo.guide_map},#{guidevo.guide_cost_detail},#{guidevo.guide_img})
 	</insert>
-
  	<select id="myGuideWriter" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList"> 
 	  select rownum guide_no,guide_subject,text_regdate,user_nick,reservation_person, text_end
       from guide,text,users,reservation where text.text_no=guide.text_no and guide.guide_no=reservation.guide_no    
 	</select> 
+
+
+
 
 </mapper>

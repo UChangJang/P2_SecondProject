@@ -4,22 +4,17 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import comma.sist.common.TextVO;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.guide.dao.GuideDAO;
-import comma.sist.guide.dao.GuideVO;
 import comma.sist.reservation.dao.ReservationDAO;
-import comma.sist.reservation.dao.ReservationVO;
 import comma.sist.review.dao.ReviewDAO;
-import comma.sist.review.dao.ReviewVO;
-import comma.sist.tourist.dao.TouristDAO;
-import comma.sist.tourist.dao.TouristVO;
 import comma.sist.user.dao.UserDAO;
 import comma.sist.user.dao.UserVO;
+import comma.sist.user.dao.ZipcodeVO;
 import comma.sist.wish.dao.WishDAO;
-import comma.sist.wish.dao.WishVO;
+
 
 @Controller("uc")
 public class UserController {
@@ -54,6 +49,16 @@ public class UserController {
 		
 		return "user/logout.jsp";
 	}
+	@RequestMapping("idCheck.do")
+	public String idCheck(HttpServletRequest req){
+		System.out.println("zz");
+		String id=req.getParameter("id");
+		System.out.println(id);
+		int count=UserDAO.idCheckCount(id);		
+		req.setAttribute("count", count);
+		System.out.println(count);
+		return "idCheck.jsp";
+	}
 	@RequestMapping("join.do")
 	public String memberJoinOk(HttpServletRequest req) throws Exception{
 		
@@ -76,9 +81,10 @@ public class UserController {
 		System.out.println(vo.getUser_nick());
 		System.out.println(vo.getUser_mail());	
 		UserDAO.userJoin(vo);
-		
+		int count=1;
+		req.setAttribute("count", count);
 
-		return "user/join.jsp";
+		return "user/idCheck.jsp";
 	}
 	@RequestMapping("mypage_infoCorrection.do")
 	public String mypage_detail(HttpServletRequest req){
@@ -137,6 +143,65 @@ public class UserController {
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_mywriter.jsp");		
 		return "main.jsp";
+	}
+	@RequestMapping("postfind_ok.do")
+	public String postfind_ok(HttpServletRequest req) throws Exception{
+		//android,ajax(js)=>UTF-8
+		req.setCharacterEncoding("UTF-8");
+		String dong=req.getParameter("dong");
+
+		int count = UserDAO.postfindCount(dong);
+
+		List<ZipcodeVO> list = UserDAO.postfindAllData(dong);
+		
+		req.setAttribute("list",list);
+		req.setAttribute("count",count);
+		return "mypage/postfind_ok.jsp";
+	}
+	@RequestMapping("infoCorrection_ok.do")
+	public String infoCorrection_ok(HttpServletRequest req) throws Exception{
+		req.setCharacterEncoding("UTF-8");
+		String nick=req.getParameter("nick");
+		String pwd=req.getParameter("pwd");
+		String email=req.getParameter("email");
+		String birth=req.getParameter("year")+"/"+req.getParameter("month")+"/"+req.getParameter("day");
+		String gender=req.getParameter("demo-priority");
+		String tel=req.getParameter("tel1")+"-"+req.getParameter("tel2")+"-"+req.getParameter("tel3");
+		String addr=req.getParameter("addr1")+"-"+req.getParameter("addr2");
+		String introduce=req.getParameter("introduce");
+		System.out.println(introduce);
+		System.out.println(nick);
+		System.out.println(pwd);
+		System.out.println(email);
+		System.out.println(birth);
+		System.out.println(gender);
+		System.out.println(tel);
+		System.out.println(addr);
+		
+		
+		
+		req.setAttribute("jsp", "mypage/mypage.jsp");
+		return "main.jsp";
+	}
+	@RequestMapping("idFind.do")
+	public String idFind(HttpServletRequest req) throws Exception{
+		
+		req.setCharacterEncoding("UTF-8");
+		String name=req.getParameter("name");
+		String id=UserDAO.idFind(name);
+		req.setAttribute("id", id);		
+		
+		return "user/idFind_ok.jsp";
+	}
+	@RequestMapping("pwdFind.do")
+	public String pwdFind(HttpServletRequest req) throws Exception{
+		
+		req.setCharacterEncoding("UTF-8");
+		String id=req.getParameter("id");
+		String pwd=UserDAO.pwdFind(id);
+		req.setAttribute("pwd", pwd);		
+		
+		return "user/pwdFind_ok.jsp";
 	}
 	
 	
