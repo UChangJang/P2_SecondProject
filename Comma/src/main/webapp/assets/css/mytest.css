@@ -1,4 +1,7 @@
 @CHARSET "EUC-KR";
+#touristMarginTop{
+	padding-top: 0;
+}
 #touristForm{
 	margin:0;
 }
