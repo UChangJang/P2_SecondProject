@@ -187,7 +187,7 @@
 				<!-- 5-1 오른쪽 -->
 				<div class="select-wrapper">
 					<select name="text_total_person" id="demo-category">
-						<option value="">- 모집인원 -</option>
+						<option value="">${vo.text_total_person }명</option>
 						<option value="1">1명</option>
 						<option value="2">2명</option>
 						<option value="3">3명</option>
