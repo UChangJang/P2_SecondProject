@@ -37,7 +37,7 @@ public class TouristController {
       req.setAttribute("curpage", curpage);
       req.setAttribute("totalpage", totalpage);
       req.setAttribute("list", list);      
-      req.setAttribute("innerList", "touristList.jsp");      
+      //req.setAttribute("innerList", "touristList.jsp");      
       req.setAttribute("jsp", "tourist/tourist.jsp");         
 	   }catch(Exception e){
 		   System.out.println(e.getMessage());
@@ -50,7 +50,7 @@ public class TouristController {
    //2. ajax사용_이전,다음 페이지 버튼_검색어없이 
    @RequestMapping("tourist_nextPrev.do")      
    public String tourist_nextPrev(HttpServletRequest req){
-	   try{
+
       String page=req.getParameter("page");
       if(page==null){
          page="1";
@@ -71,9 +71,7 @@ public class TouristController {
       req.setAttribute("curpage", curpage);
       req.setAttribute("totalpage", totalpage);
       req.setAttribute("list", list);              
-	   }catch(Exception e){
-		   System.out.println(e.getMessage());
-	   }
+	  
       return "tourist/touristList.jsp";
    }
 

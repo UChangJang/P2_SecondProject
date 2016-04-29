@@ -103,9 +103,9 @@ $(function(){
 								<textarea>${vo.touristvo.tour_detail }</textarea>
 							</div>
 							<div id="detail_textarea1"> 
-								<span><button class="button tourB">Message</button></span>
+								<span><button class="button tourB" id="res${vo.touristvo.tour_no}">Message</button></span>
 								<span><button class="button tourB">WishList</button></span>
-								<span><button class="button tourB" id="res">Reserve</button></span>
+								<span><button class="button tourB">Reserve</button></span>
 							</div>
 						</div>
 						</c:forEach>
@@ -113,26 +113,21 @@ $(function(){
 			</div>
 			
 			<!-- 예약창 -->
-			<form class="white-popup mfp-hide" id="resPop" method="post" action="login.do">
+			<form class="white-popup mfp-hide" id="resPop${vo.touristvo.tour_no}" method="post" action="login.do">
                      <h1>Log-In</h1>
                      <div>
-                        <input name="id" id="id" required="" type="text"
-                           placeholder="ID">
+                     	<input type="text" value="NICK:${vo.uservo.user_nick}">
+                     	<input type="text" value="LOCATION:${vo.text_loc}[${vo.touristvo.tour_theme }]">
                      </div>
                      <br>
                      <div>
-                        <input name="pwd" id="pwd" required="" type="password"
-                           placeholder="Password">
+                        <textarea>${vo.touristvo.tour_detail }</textarea>
                      </div>
                      <br>
-                     <div class="logbtn">
-                        <input name="login" value="login" id="log-btn" type="button">
-                        <input name="join" value="join" id=join-btn type="button">
-                     </div>
                      <br>
                      <div class="logbtn">
-                        <input name="idfind" value="id찾기" id="idfind-btn" type="button">
-                        <input name="pwdfind" value="pwd찾기" id="pwdfind-btn" type="button">
+                        <input name="idfind" value="SEND" id="idfind-btn" type="button">
+                        <input name="pwdfind" value="BACK" id="pwdfind-btn" type="button">
                      </div>
                </form>
                
@@ -175,23 +170,23 @@ $(function(){
 		
 	</script>
 	
-	<!-- 예약창 -->
+	<!-- 쪽지보내기 창 -->
 	<script type="text/javascript">
-Shadowbox.init({
-	   players:["iframe"]
-	});
-		 $('#res').magnificPopup({
-	         items :{src:'#resPop',type : 'inline'},
-	               preloader: false,focus: '#name',
-	               callbacks: {beforeOpen: function() {
-	                  if($(window).width() < 700) {
-	                     this.st.focus = false;
-	                  } else {
-	                     this.st.focus = '#name';
-	                  }
-	               }
-	         }
-	      });
+	Shadowbox.init({
+		   players:["iframe"]
+		});
+			 $('#res'+'${vo.touristvo.tour_no}').magnificPopup({
+		         items :{src:'#resPop'+'${vo.touristvo.tour_no}',type : 'inline'},
+		               preloader: false,focus: '#name',
+		               callbacks: {beforeOpen: function() {
+		                  if($(window).width() < 700) {
+		                     this.st.focus = false;
+		                  } else {
+		                     this.st.focus = '#name';
+		                  }
+		               }
+		         }
+		      });
 	 </script>
 	
 	

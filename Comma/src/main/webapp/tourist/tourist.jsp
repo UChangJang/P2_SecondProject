@@ -11,6 +11,8 @@
 
 <script type="text/javascript">
 	$(function(){
+		
+		sendMessage("POST", "tourist_nextPrev.do", null, tourContent);
 		//1.검색했을 때
 		$('#tourSearch').click(function(){		//select_지역선택
 			var place=$('#place').val();		//1.지역값 가져오기
@@ -128,7 +130,7 @@
 		<!-- 5개 투어리스트 리스트 출력 -->
 		
 		<div id="tourContent">
-			<jsp:include page="${innerList }"></jsp:include>
+			<%-- <jsp:include page="${innerList }"></jsp:include> --%>
 		</div>
 
 	</article>
