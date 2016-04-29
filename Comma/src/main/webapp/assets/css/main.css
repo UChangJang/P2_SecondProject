@@ -1,6 +1,11 @@
 @import url(font-awesome.min.css);
 @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 
+.triangle{ /* view more */
+	width: 3em;
+	height: 3em;
+}
+
 /*
 	Spectral by HTML5 UP
 	html5up.net | @n33co
@@ -3876,17 +3881,19 @@ header.major2 h2:after, header.major2 h3:after, header.major2 h4:after, header.m
 		background-size: cover;
 		text-align: center;
 	} */
-
+	
 		#main > header h2 {
 			font-size: 1.75em;
-			margin: 0 0 0.5em 0;
+			margin: 0 0 1.5em 0;
+			z-index: 10;
 		}
 
 		#main > header p {
 			color: inherit;
 			letter-spacing: 0.225em;
 			text-transform: uppercase;
-			top: 0;
+			margin-bottom: 3.5em; 
+			z-index: 11;
 		}
 
 			#main > header p a {

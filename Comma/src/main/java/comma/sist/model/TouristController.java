@@ -102,7 +102,7 @@ public class TouristController {
 		map.put("place", place);
 		map.put("date", date);
 
-		String type = req.getParameter("type"); // 3.정렬타입="가격높은순"
+		String type = req.getParameter("type"); // 3.정렬타입="cost"/"newest"
 		System.out.println("정렬타입:"+type );
 
 		List<TextVO> list = TouristDAO.tourist_sort(map, type); 

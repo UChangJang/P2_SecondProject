@@ -31,7 +31,16 @@
       
       <!-- 메인 자동 스크롤 배너--> 
       <link rel='stylesheet prefetch' href='http://dimsemenov-static.s3.amazonaws.com/dist/magnific-popup.css'>
-
+	
+	<script type="text/javascript">
+	$(function(){
+		var jsp=$('.nav2Name').attr('id');
+		if(jsp=='intro/introduceKor.jsp'){
+			$('.nav2Name').text('ABOUT KOREA');
+		}
+	});
+	
+	</script>
 </head>
    
 
@@ -47,8 +56,11 @@
       <header id="header">
       </c:if>
          <h1>
-            <a href="main.do">상단메뉴</a>
+            <a href="main.do"><img alt="" src="images/commaLogo(small).png" width="130em" style="margin-top:0.5em;"></a>
          </h1>
+         <center>
+           <p id="${jsp }" class="nav2Name">${jsp }</p>
+         </center>
          <nav id="nav">
             <ul>
                <li class="special">

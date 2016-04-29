@@ -64,34 +64,29 @@ private static SqlSessionFactory   ssf;
     }
     
     //2. tourist정렬
-   public static List<TextVO> tourist_sort(Map map,String type) { // map=start(1) end(5)   //type=1,2,3
+   public static List<TextVO> tourist_sort(Map map,String type) { // map=start(1) end(5)   //type=cost,newest
       SqlSession session = ssf.openSession(); // 객체생성   
       
       List<TouristVO> list = new ArrayList<TouristVO>();
-            System.out.println("dao1");
-      if(type.equals("가격높은순")){      //1.가격순
-    	  map.put("sort", "text_cost");
-         list = session.selectList("touristSortType", map); // 1-5번호까지의 tourist에서모든정보들가져옴
-      }else if(type.equals("등록일자순")){   	//2.등록일자순
-    	  map.put("sort", "tour_no");
-         list = session.selectList("touristSortType", map); 
+      if(type.equals("cost")){      //1.가격순
+         list = session.selectList("touristSortPrice", map); // 1-5번호까지의 tourist에서모든정보들가져옴
+      }else if(type.equals("newest")){   	//2.등록일자순
+         list = session.selectList("touristSearchData", map); 
       }
-            System.out.println("dao2");
       List<TextVO> list2 = new ArrayList<TextVO>(); // 이곳에 저장하겠다.
       
       for(TouristVO tvo : list) {
          String tid = tvo.getUser_id();   //1.저장된 id가져옴  null...
             System.out.println("id:" +tid);
          int tno = tvo.getText_no();      //2.저장된 text번호 가져옴
-            System.out.println("글전체에서번호:" +tno);
-            System.out.println("테마:" + tvo.getTour_theme());   //3.저장된 테마가져옴
+            System.out.print("글전체에서번호:" +tno);
+            System.out.print(",테마:" + tvo.getTour_theme());   //3.저장된 테마가져옴
          
          UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
-            System.out.println("닉네임:" +uv.getUser_nick());      //저장된 닉네임 가져오기
+            System.out.print(",닉네임:" +uv.getUser_nick());      //저장된 닉네임 가져오기
          
          TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
-            System.out.println("지역:" +tv.getText_loc());               //저장된 지역 가져오기
-
+            System.out.print(",지역:" +tv.getText_loc()+",가격:"+tv.getText_cost());              //저장된 지역 가져오기
          //list에 합치기_user
          tv.getUservo().setUser_nick(uv.getUser_nick());
          tv.getUservo().setUser_img(uv.getUser_img());

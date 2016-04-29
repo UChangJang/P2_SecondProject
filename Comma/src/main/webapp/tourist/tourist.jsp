@@ -75,7 +75,7 @@
 
 							<select name="text_loc1" id="place">
 								<option value="">- 지역 -</option>
-								<option value="신촌8">seoul</option>
+								<option value="seoul">seoul</option>
 								<option value="busan">busan</option>
 								<option value="jeju">jeju</option>
 								<option value="gangwon">gangwon</option>
@@ -115,8 +115,8 @@
 				<div class="select-wrapper tourist_select 3u$ 12u$(xsmall)">
 					<select name="text_loc2" id="sortType">
 						<option value="">- 정렬 -</option>
-						<option value="가격높은순">가격높은순</option>
-						<option value="등록일자순">등록일자순</option>
+						<option value="cost">Cost</option>
+						<option value="newest">Newest</option>
 					</select>
 				</div>
 			</div>

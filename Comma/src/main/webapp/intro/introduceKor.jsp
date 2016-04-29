@@ -3,11 +3,12 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="../controller/assets/css/introKor.css" />
 	<title>[소개]한국소개</title>
 </head>
 <body>
  
-<div id="nav2">
+<div id="nav2" >
 	<ul>
 	 	 <li><a class="scrolly" href="#incheon">INCHEON</a></li>
 	 	 <li><a class="scrolly" href="#seoul">SEOUL</a></li>
@@ -24,10 +25,13 @@
  <!--  -->
 <!-- Main -->
 	<article id="main">
-		<header id="test">
-			<h2>About Korea</h2>
+		<header id="header_korInto">
+			<h2 class="headerMagin">About Korea</h2>
+			<center>
 			<p>Learn all you need to know about this fascinating country here!</p>
-			<a href="#one" class="more scrolly">사이트 구경 하기</a>
+			</center>
+			<a href="#one" class="more scrolly"><img src="images/triangle.png">
+					<br>view more</a>
 
 		</header>
 		<section class="wrapper style5">
