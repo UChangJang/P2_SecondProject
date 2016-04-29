@@ -90,7 +90,7 @@
 				<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
 					<div id="">
 						<div>소요시간</div>		
-						<div class="topBoardShort">6시간</div>							
+						<div class="topBoardShort">${vo.text_time }</div>							
 					</div>
 				</div>
 				<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
@@ -107,11 +107,11 @@
 				<div class="9u 12u$(medium) side1">
 					<hr id="intropeople"/>
 					<h5>가이드소개</h5>
-					<blockquote>${vo.uservo.user_introduce }</blockquote>
+					<textarea>${vo.uservo.user_introduce }</textarea>
 
 					<hr id="introplace" />
 					<h5>관광스타일소개</h5>
-					<blockquote>${vo.guidevo.guide_loc_intro }</blockquote>
+					<textarea>${vo.guidevo.guide_loc_intro }</textarea>
 
 					<hr id="pic"/>
 					<h4>관광지역 사진</h4>					
@@ -157,7 +157,7 @@
 								</tr>
 								<tr>
 									<td>관광시간</td>
-									<td>아직안함</td>
+									<td>${vo.text_time1 }시 시작</td>
 								</tr>
 								<tr>
 									<td>만날장소</td>

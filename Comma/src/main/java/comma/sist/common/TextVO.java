@@ -29,9 +29,15 @@ public class TextVO {
 	private ReviewVO reviewvo=new ReviewVO();
 	private WishVO wishvo=new WishVO();
 	
+	private int		text_time;		// 소요시간
 	
 	
-	
+	public int getText_time() {
+		return text_time;
+	}
+	public void setText_time(int text_time) {
+		this.text_time = text_time;
+	}
 	public ReservationVO getReservationvo() {
 		return reservationvo;
 	}

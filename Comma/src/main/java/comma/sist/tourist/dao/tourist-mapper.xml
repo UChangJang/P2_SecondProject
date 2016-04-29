@@ -63,7 +63,7 @@
    <!-- tourist게시판 글쓰기 --> 
    <insert id="textInsert1" parameterMap="comma.sist.common.text-mapper.TextList_param">
       insert into text values((select NVL(max(text_no)+1,1) from text),#{text_loc},#{text_cost},#{text_total_person},sysdate,
-      #{text_time1},#{text_time2},#{text_move},0,'n',#{text_tour_date})
+      #{text_time1},#{text_time2},#{text_time},#{text_move},0,'n',#{text_tour_date})
    </insert>
  
    <insert id="touristInsert" parameterMap="comma.sist.common.text-mapper.TextList_param">

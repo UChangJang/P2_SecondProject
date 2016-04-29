@@ -50,7 +50,7 @@ public class GuideController {
 	@RequestMapping("guideWrite_ok.do")
 	public String guide_Insert(HttpServletRequest request) throws Exception{
 		
-		request.setCharacterEncoding("EUC-KR");
+		request.setCharacterEncoding("EUC-KR");	
 		
 		// \\211.238.142.74\images
 		String path = "\\\\211.238.142.74\\images";
@@ -89,11 +89,9 @@ public class GuideController {
 			t_end += 12;
 			text_time = t_end - t_start;
 		}else if((text_time2.equals("pm") && text_time4.equals("am"))){
-			
+			t_start -= 12;
+			text_time = t_end - t_start;
 		}
-		
-		
-		
 
 		TextVO vo = new TextVO();
 		vo.getGuidevo().setGuide_subject(guide_subject);
@@ -108,7 +106,7 @@ public class GuideController {
 		vo.setText_time1(text_time1);
 		vo.setText_time2(text_time3);
 		vo.setText_tour_date(text_tour_date);
-		
+		vo.setText_time(text_time);
 		
 		HttpSession session = request.getSession();
 		String user_id = (String)session.getAttribute("id");
@@ -127,6 +125,7 @@ public class GuideController {
 		}
 		
 		
+		
 		GuideDAO.textInsert(vo);
 		GuideDAO.guideInsert(vo);
 		
@@ -137,8 +136,7 @@ public class GuideController {
 	@RequestMapping("guideBoard.do")
 	public String guideBoard(HttpServletRequest request){
 		
-		String no = request.getParameter("no");
-		
+		String no = request.getParameter("no");		
 		TextVO vo = GuideDAO.guideInfoData(Integer.parseInt(no));
 		
 		request.setAttribute("vo", vo);
