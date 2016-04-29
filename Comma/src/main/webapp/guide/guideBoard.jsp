@@ -69,7 +69,7 @@
 		<h2>[제목]서울도심투어</h2>
 		<p>재밌는 관광</p>
 	</header>
-
+	
 	<section class="wrapper style5">
 		<div class="inner">
 			<!-- <section class="style5"> -->
@@ -100,7 +100,7 @@
 					</div>
 				</div>
 				<div class="3u$ 12u$(small)">	
-																		
+																
 				</div>
 				
 				
@@ -200,11 +200,19 @@
 					</div>
 
 					<hr />
+					<c:if test="${confirmId == false }">
 					<ul class="actions fit small">
 						<li><a href="#" class="button special fit small">쪽지보내기</a></li>
 						<li><a href="#" class="button fit small">예약하기</a></li>
-						<li><a href="#" class="button special fit small">관심상품</a></li>
+						<li><a href="#" class="button special fit small">찜하기</a></li>
 					</ul>
+					</c:if>
+					<c:if test="${confirmId == true }">
+					<ul class="actions fit small">
+						<li><a href="guideUpdate.do?no=${vo.guidevo.guide_no }" class="button special fit small">수정하기</a></li>
+						<li><a href="guideDelete.do?no=${vo.guidevo.guide_no }" class="button fit small">삭제하기</a></li>
+					</ul>	
+					</c:if>
 				</div>
 
 

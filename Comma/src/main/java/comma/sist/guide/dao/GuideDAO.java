@@ -76,6 +76,14 @@ private static SqlSessionFactory	ssf;
 		
 	} // guideInsert(GuideVO vo)
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static List<TextVO> myGuideWriter(String id){
 		SqlSession session=ssf.openSession();
 		List<TextVO> vo = session.selectList("myGuideWriter",id);

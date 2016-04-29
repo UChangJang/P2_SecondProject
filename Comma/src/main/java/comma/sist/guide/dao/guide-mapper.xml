@@ -15,7 +15,7 @@
 	</select>
 	
 	<select id="guideInfo" resultMap="comma.sist.common.text-mapper.TextList" parameterType="int">
-		select user_name,user_introduce,guide_subject,text_total_person,text_move,guide_loc_intro,
+		select guide_no,guide.user_id,guide_detail,user_name,user_introduce,guide_subject,text_total_person,text_move,guide_loc_intro,
 				text_loc,text_cost,guide_cost_detail,text_tour_date,guide_meet,text_time1,text_time2,text_time
 		from guide,text,users 
 		where guide.guide_no=#{guide_no} and guide.text_no=text.text_no and guide.user_id=users.user_id

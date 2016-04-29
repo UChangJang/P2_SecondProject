@@ -20,6 +20,8 @@ public class GuideController {
 		
 		List<TextVO> list = GuideDAO.guideAllData();
 		
+	
+		
 		
 		int totalpage = GuideDAO.guideTotalPage();
 		System.out.println("가이드 총 페이지: "+totalpage);
@@ -33,7 +35,8 @@ public class GuideController {
 		int end = rowSize*curpage;
 		
 		
-
+		
+		
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
@@ -139,8 +142,30 @@ public class GuideController {
 		String no = request.getParameter("no");		
 		TextVO vo = GuideDAO.guideInfoData(Integer.parseInt(no));
 		
+		// 현재 로그인된 ID 와 글의 ID를 비교한다.
+		HttpSession session = request.getSession();
+		boolean confirmId = false;
+		
+		if(vo.getUservo().getUser_id().equals((String)session.getAttribute("id"))){
+			confirmId = true;
+		}
+		
+		request.setAttribute("confirmId", confirmId);
 		request.setAttribute("vo", vo);
 		request.setAttribute("jsp", "guide/guideBoard.jsp");		
+
+		return "main.jsp";
+	}
+	
+	@RequestMapping("guideUpdate.do")
+	public String guideUpdate(HttpServletRequest request){
+		
+		String no = request.getParameter("no");		
+		TextVO vo = GuideDAO.guideInfoData(Integer.parseInt(no));
+		
+		
+		request.setAttribute("vo", vo);
+		request.setAttribute("jsp", "guide/guideUpdate.jsp");		
 
 		return "main.jsp";
 	}

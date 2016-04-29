@@ -3,7 +3,6 @@
 <mapper namespace="comma.sist.common.text-mapper"> 
    <resultMap type="Text" id="TextList">
      <result column="guide_no" property="guidevo.guide_no"/>
-     <result column="guide.user_id" property="guidevo.user_id"/>
      <result column="guide_subject" property="guidevo.guide_subject"/>
      <result column="guide_loc_intro" property="guidevo.guide_loc_intro"/>
      <result column="guide_detail" property="guidevo.guide_detail"/>
@@ -23,7 +22,7 @@
      <result column="text_hit" property="text_hit"/>
      <result column="text_end" property="text_end"/>
      <result column="text_tour_date" property="text_tour_date"/>
-     <result column="users.user_id" property="uservo.user_id"/>
+     <result column="user_id" property="uservo.user_id"/>
      <result column="user_name" property="uservo.user_name"/>
      <result column="user_img" property="uservo.user_img"/>
      <result column="user_nick" property="uservo.user_nick"/>
@@ -31,14 +30,9 @@
      <result column="user_sex" property="uservo.user_sex"/>
      <result column="reservation_person" property="reservationvo.reservation_person"/> 
      <result column="review_no" property="reviewvo.review_no"/> 
-     <result column="review.guide_no" property="reviewvo.guide_no"/> 
-     <result column="review.user_id" property="reviewvo.user_id"/> 
      <result column="review_score" property="reviewvo.review_score"/> 
      <result column="review_text" property="reviewvo.review_text"/> 
-     <result column="wish_no" property="wishvo.wish_no"/>  
-     <result column="wish.user_id" property="wishvo.user_id"/>  
-     <result column="wish.tour_no" property="wishvo.tour_no"/>  
-     <result column="wish.guide_no" property="wishvo.guide_no"/>  
+     <result column="wish_no" property="wishvo.wish_no"/>    
    </resultMap>
    
    
