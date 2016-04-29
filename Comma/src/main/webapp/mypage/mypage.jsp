@@ -32,48 +32,62 @@
 						</div>
 					</div>
 					
-					 <div class="7u$ 12u$(small)" > 				<!-- 2 오른쪽 -->
-					
+					 <div class="7u$ 12u$(small)" style="padding-top:5em" > 				<!-- 2 오른쪽 -->
 					 <div class="row uniform 50%" >  
+					 
+					 <div class="tab2" >
+					 <form method='POST' name="mywish" style="margin:0">
+				      <input type="hidden" value="${sessionScope.id }" name="userid">   
+				     <a href="#none"  onclick="wish_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
+				     <td><img src="images/home.png" style="align:left"></td>
+				     <td style="text-align: right">위시리스트</td></a>
+				      </form>   </div>
+				      
+				      <div class="tab2" >
+					 <form method='POST' name="mywriter" style="margin:0">
+				      <input type="hidden" value="${sessionScope.id }" name="userid">   
+				     <a href="#none"  onclick="mywriter_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
+				     <td><img src="images/mywriters.jpg" style="align:left"></td>
+				     <td style="text-align: right">내가 쓴 글</td></a>
+				      </form>   </div>
+				
+				       <div class="tab2" >
+					 <form method='POST' name="myreservation" style="margin:0">
+				      <input type="hidden" value="${sessionScope.id }" name="userid">   
+				     <a href="#none"  onclick="reservation_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
+				     <td><img src="images/myreservations.jpg" style="align:left"></td>
+				     <td style="text-align: right">예약 리스트</td></a>
+				      </form>   </div>
+				      
+				       <div class="tab2" >
+					 <form method='POST' name="mydetail" style="margin:0">
+				      <input type="hidden" value="${sessionScope.id }" name="userid">   
+				     <a href="#none"  onclick="mydetail_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
+				     <td><img src="images/mydetails.jpg" style="align:left"></td>
+				     <td style="text-align: right">정보수정</td></a>
+				      </form>   </div>
+				      
+				      <div class="tab2" >
+					 <form method='POST' name="myreview" style="margin:0">
+				      <input type="hidden" value="${sessionScope.id }" name="userid">   
+				     <a href="#none"  onclick="myreview_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
+				     <td><img src="images/myreviews.jpg" style="align:left"></td>
+				     <td style="text-align: right">여행후기</td></a>
+				      </form>   </div>
+				      
+				      <div class="tab2" >
+					 <form method='POST' name="mymessage" style="margin:0">
+				      <input type="hidden" value="${sessionScope.id }" name="userid">   
+				     <a href="#none"  onclick="mymessage_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
+				     <td><img src="images/mymessages.jpg" style="align:left"></td>
+				     <td style="text-align: right">메세지함</td></a>
+				      </form>   </div>
+				      
+				      
 					
-				      <div class="tab2">
-				      <form method='POST' name="mywish" style="margin:0">
-				      <input type="hidden" value="${sessionScope.id }" name="userid">   
-				      <a href="#none" onclick="wish_form()"><span class="mainRight_span"><img src="images/home.png"></span>위시리스트</a>
-				      </form>   </div>
-				      
-				      <div class="tab2">
-				      <form method='POST' name="mywriter" style="margin:0">            
-				      <input type="hidden" value="${sessionScope.id }" name="userid">   
-				      <a href="#none" onclick="mywriter_form()"><img src="images/home.png">내가 쓴 글</a>
-				      </form>   </div>
-				      
-				      <div class="tab2">
-				      <form method='POST' name="myreservation" style="margin:0">            
-				      <input type="hidden" value="${sessionScope.id }" name="userid">   
-				      <a href="#none" onclick="reservation_form()"><img src="images/home.png">예약 리스트</a>
-				      </form>   </div>
-				      
-				      <div class="tab2" ">
-				      <form method='POST' name="mydetail" style="margin:0">            
-				      <input type="hidden" value="${sessionScope.id }" name="userid">   
-				      <a href="#none" onclick="infoCorrection_form()"><img src="images/home.png">정보수정</a>
-				      </form>   </div>
-				      
-				      <div class="tab2">
-				      <form method='POST' name="myreview" style="margin:0">
-				      <input type="hidden" value="${sessionScope.id }" name="userid">      
-				      <a href="#none" onclick="review_form()"><img src="images/home.png">여행후기</a>
-				      </form></div>
-				      
-				       <div class="tab2">
-				      <form method='POST' name="mymessage" style="margin:0">
-				      <input type="hidden" value="${sessionScope.id }" name="userid">      
-				      <a href="#none" onclick="message_form()"><img src="images/home.png">메세지함</a>
-				      </div></form>
-					
-					</div> 				
+					</div> 
 				</div>
+
 			</section>
 		</div>
 	</section>
