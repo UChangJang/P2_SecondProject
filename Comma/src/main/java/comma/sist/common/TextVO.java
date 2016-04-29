@@ -18,6 +18,8 @@ public class TextVO {
 	private Date	text_regdate;
 	private String	text_time1;
 	private String	text_time2;
+	private String	text_time3; // am pm (start)
+	private String	text_time4; // am pm (end)
 	private String	text_move;
 	private int		text_hit;
 	private String	text_end;
@@ -32,6 +34,18 @@ public class TextVO {
 	private int		text_time;		// 소요시간
 	
 	
+	public String getText_time3() {
+		return text_time3;
+	}
+	public void setText_time3(String text_time3) {
+		this.text_time3 = text_time3;
+	}
+	public String getText_time4() {
+		return text_time4;
+	}
+	public void setText_time4(String text_time4) {
+		this.text_time4 = text_time4;
+	}
 	public int getText_time() {
 		return text_time;
 	}

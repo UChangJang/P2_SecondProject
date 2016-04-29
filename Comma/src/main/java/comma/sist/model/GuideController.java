@@ -17,23 +17,23 @@ public class GuideController {
 	
 	@RequestMapping("guide.do")
 	public String guide(HttpServletRequest request){
-		
-		List<TextVO> list = GuideDAO.guideAllData();
-		
-	
-		
-		
+				
+		// 가이드 총페이지
 		int totalpage = GuideDAO.guideTotalPage();
-		System.out.println("가이드 총 페이지: "+totalpage);
 		
+		// 현재 페이지
 		String page = request.getParameter("curpage");
 		if(page==null) page = "1";
 		int curpage = Integer.parseInt(page);
 		
+		Map map = new HashMap();
 		int rowSize = 9;
 		int start = (rowSize*curpage) - (rowSize-1);
 		int end = rowSize*curpage;
+		map.put("start", start);
+		map.put("end", end);
 		
+		List<TextVO> list = GuideDAO.guideAllData(map);
 		
 		
 		
@@ -54,17 +54,19 @@ public class GuideController {
 	public String guide_Insert(HttpServletRequest request) throws Exception{
 		
 		request.setCharacterEncoding("EUC-KR");	
-		
-		// \\211.238.142.74\images
-		String path = "\\\\211.238.142.74\\images";
+		System.out.println("11");
+		// \\211.238.142.74\Users\74\Git\P2_SecondProject\Comma\src\main\webapp\image
+		// http://211.238.142.74:8080/controller/image/seoul3.jpg  이미지 파일 읽어올때
+		// C:\springDev\springStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Comma\image
+		String path = "\\\\211.238.142.74\\springDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Comma\\image";
 		String enctype = "EUC-KR";
 		int	size = 1024*1024*100; 
-
+		System.out.println("1232");
 		MultipartRequest mr 
 				= new MultipartRequest(request,path,size,enctype,
 						new DefaultFileRenamePolicy());
 		
-		
+		System.out.println("22");
 		String guide_subject = mr.getParameter("guide_subject");
 		String guide_loc_intro = mr.getParameter("guide_loc_intro");
 		String guide_img = mr.getOriginalFileName("guide_img");
@@ -80,12 +82,13 @@ public class GuideController {
 		String text_time4 = mr.getParameter("text_time4"); // am/pm
 		String guide_meet = mr.getParameter("guide_meet");	
 		String text_tour_date = mr.getParameter("text_tour_date");
-
 		
+		
+		System.out.println("33");
 		int t_start = Integer.parseInt(text_time1);
 		int t_end = Integer.parseInt(text_time3);
 		int text_time = 0;
-		
+		System.out.println("44");
 		if((text_time2.equals("am") && text_time4.equals("am")) || (text_time2.equals("pm") && text_time4.equals("pm"))){
 			text_time = (int)(Math.abs(t_end-t_start));
 		}else if((text_time2.equals("am") && text_time4.equals("pm"))){
@@ -95,7 +98,7 @@ public class GuideController {
 			t_start -= 12;
 			text_time = t_end - t_start;
 		}
-
+		System.out.println("55");
 		TextVO vo = new TextVO();
 		vo.getGuidevo().setGuide_subject(guide_subject);
 		vo.getGuidevo().setGuide_loc_intro(guide_loc_intro);
@@ -107,10 +110,12 @@ public class GuideController {
 		vo.setText_cost(text_cost);
 		vo.setText_move(text_move);
 		vo.setText_time1(text_time1);
-		vo.setText_time2(text_time3);
+		vo.setText_time2(text_time2);
+		vo.setText_time3(text_time3);
+		vo.setText_time4(text_time4);
 		vo.setText_tour_date(text_tour_date);
 		vo.setText_time(text_time);
-		
+		System.out.println("66");
 		HttpSession session = request.getSession();
 		String user_id = (String)session.getAttribute("id");
 		vo.getGuidevo().setUser_id(user_id);
