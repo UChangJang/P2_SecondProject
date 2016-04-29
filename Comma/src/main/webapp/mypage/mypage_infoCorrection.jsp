@@ -204,8 +204,8 @@ Shadowbox.init({
 						<tr>
 				            <th>우편번호</th>
 							<td class="post" colspan="3">				
-								<input type="text" id="post1" name=post1 size="4" style="width: 8em; display: inline;" >
-								- <input type="text" id="post2" name=post1 size="4" style="width: 8em; display: inline;">
+								<input type="text" id="post1" name=post1 size="4" readonly="readonly" style="width: 8em; display: inline; " >
+								- <input type="text" id="post2" name=post2 size="4" readonly="readonly" style="width: 8em; display: inline;">
 								<input type=button value="우편번호 검색" onclick="postfind()">
 							</td>	
 				         </tr>

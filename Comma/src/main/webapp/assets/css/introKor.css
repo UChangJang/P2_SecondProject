@@ -37,16 +37,44 @@ opacity:0.5;}
 
 #main > #header_siteInto {		
 	padding: 7em 0 5em 0 ;		/* 상단이미지 12em 0 10em 0 ; */
-	background-image: url("../../images/busan1.jpg");
+	background-image: url("../../images/siteInfo.jpg");
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	
+}
+#header_siteInto p{
+	margin-bottom: 0;
+} 
+#main > #header_korInto{
+	padding: 7em 0 5em 0 ;		/* 상단이미지 12em 0 10em 0 ; */
+	background-image: url("../../images/korInfo2.jpg");
 	background-attachment: fixed;
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	text-align: center;
 }
-#main > #header_korInto{
+#header_korInto p{
+	text-align: center;
+	width: 30em;
+}
+#header_guideList video{
+	position: absolute;
+	top:0px;
+	left:0px;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: -1;
+	overflow:hidden;
+}
+#main > #header_guideWrite{
 	padding: 7em 0 5em 0 ;		/* 상단이미지 12em 0 10em 0 ; */
-	background-image: url("../../images/busan1.jpg");
+	background-image: url("../../images/guidePage.jpg");
 	background-attachment: fixed;
 	background-position: center center;
 	background-repeat: no-repeat;
