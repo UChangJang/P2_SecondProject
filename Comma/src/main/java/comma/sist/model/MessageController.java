@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
+import comma.sist.common.TextVO;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.message.dao.MessageDAO;
@@ -25,4 +26,26 @@ public class MessageController {
 		req.setAttribute("mypage", "mypage/mypage_letter.jsp");
 		return "main.jsp";
 	}
+	@RequestMapping("messageSend.do")
+	public String messageSend(HttpServletRequest req){
+		String send_id= req.getParameter("message_send");
+		String receive_id= req.getParameter("message_receive");
+		String text= req.getParameter("message_text");
+		System.out.println(send_id+"-"+receive_id+"-"+text);
+		MessageVO vo=new MessageVO();
+		vo.setMessage_receive(receive_id);
+		vo.setMessage_send(send_id);
+		vo.setMessage_text(text);
+		MessageDAO.messageSend(vo);
+		List<MessageVO> recvo=MessageDAO.receiveMessageAllData(send_id);
+		List<MessageVO> sendvo=MessageDAO.sendMessageAllData(send_id);
+		req.setAttribute("recvo", recvo);
+		req.setAttribute("sendvo", sendvo);
+		req.setAttribute("jsp", "mypage/mypage.jsp");
+		req.setAttribute("mypage", "mypage/mypage_letter.jsp");
+		return "main.jsp";
+	}
+	
+	
+	
 }

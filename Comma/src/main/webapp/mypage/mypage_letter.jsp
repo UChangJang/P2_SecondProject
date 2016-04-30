@@ -18,9 +18,9 @@
 				<table class="alt">
 					<thead>					
 						<tr>
-							<th width="10%">제목</th>
+							<th width="10%">확인</th>
 							<th width="40%">내용</th>
-							<th width="10%">별명</th>
+							<th width="10%">보낸 사람 별명</th>
 							<th width="10%">날짜</th>
 							<th width="7%">답장</th>
 						</tr>					
@@ -28,11 +28,20 @@
 					<tbody>
 					<c:forEach var="recvo" items="${recvo }">
 						<tr>
-							<td>${recvo.message_check }</td>
-							<td>${recvo.message_text }</td>
+							
+							<c:if test="${recvo.message_check=='n' }">
+							<td style=" color: red; font: bold;">new 
+							</td>
+							</c:if>
+							<c:if test="${recvo.message_check!='n' }">
+							<td style=" color: red; font: bold;">read 
+							</td>
+							</c:if>
+							
+							<td class="recvomessageText" id="recvo${recvo.message_no }" style="cursor: pointer; ">${recvo.message_text }</td>
 							<td>${recvo.message_send }</td>
 							<td>${recvo.message_time }</td>
-							<td><input type="button" value="답장"></td>
+							<td><input type="button" value="답장" class="ReBtn" id="reBtn${recvo.message_no }" ></td>
 						</tr>
 					</c:forEach>
 					</tbody>
@@ -43,37 +52,183 @@
 				<table class="alt">
 					<thead>
 						<tr>
-							<th width="10%">제목1</th>
-							<th width="40%">내용1</th>
-							<th width="10%">별명1</th>
-							<th width="10%">날짜1</th>
-							<th width="7%">답장1</th>
+							<th width="10%">확인</th>
+							<th width="40%">내용</th>
+							<th width="10%">받는 사람별명</th>
+							<th width="10%">날짜</th>
 						</tr>
 					</thead>
 					<tbody>
 					<c:forEach var="sendvo" items="${sendvo }">
 						<tr>
-							<td>${sendvo.message_check }</td>
-							<td>${sendvo.message_text }</td>
+							<c:if test="${sendvo.message_check=='n' }">
+								<td style=" color: red; font: bold;">no 
+								</td>
+							</c:if>
+								<c:if test="${sendvo.message_check!='n' }">
+								<td style=" color: blue; font: bold;">yes 
+							</td>
+							</c:if>
+							<td class="sendvomessageText" id="send${sendvo.message_no }" style="cursor: pointer; ">${sendvo.message_text }</td>
 							<td>${sendvo.message_receive }</td>
-							<td>${sendvo.message_time }</td>
-							<td><input type="button" value="답장"></td>
+							<td>${sendvo.message_time }</td>							
 						</tr>
 					</c:forEach>						
 					</tbody>
 				</table>
 			</div>
+			</section>
 			</div>
-		</section>
-	</div>
-	</section>
-	
-	
-	<script async src="//jsfiddle.net/cosmosjs/xQ8JC/3/embed/"></script>
-	<script type="text/javascript">
-		$('.t1').show();
+	          <c:forEach var="recvo" items="${recvo }">
 
-		$('#tabs div a').on('click',
+	               <form class="white-popup mfp-hide" id="re${recvo.message_no }">
+	                  <h1>Message</h1>
+	                    <table>
+	                     	<tr>
+	                     	  <td width="30%" align="right">보낸 사람</td>
+	                     	  <td width="70%" align="left">${recvo.message_send }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">시간</td>
+	                     	  <td width="70%" align="left">${recvo.message_time }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2" align="center">내용</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${recvo.message_text}</textarea></td>
+	                     	</tr>
+	     					<tr>
+	                     	  <td colspan="2" align="center"> 
+	                     	  	<input type="button" value="답장" class="ReBtn" id="reBtn${recvo.message_no }" > 
+	                       	  </td>
+	                     	</tr>
+	                     </table>         
+	               </form> 
+	               
+	               	<form class="white-popup mfp-hide" id="send${recvo.message_no }"  method="post" action="messageSend.do" >
+	                  <h1>Message</h1>
+	                    <table>
+	                     	<tr>
+	                     	  <td width="30%" align="right">보낸 사람</td>
+	                     	  <td width="70%" align="left">
+	                     	  <input type="text" name="message_receive" value="${recvo.message_send }">
+	                     	 </td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2" align="center">내용</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2"><textarea rows="5" name="message_text"></textarea></td>
+	                     	</tr>
+	     					<tr>
+	                     	  <td colspan="2" align="center"> 
+	                     	  	<input type="button" value="답장" class="ReSendBtn" id="reSendBtn${recvo.message_no }" >	                     
+	                     	  	<input type="hidden" value="${sessionScope.id }" name="message_send"> 
+	                       	  </td>
+	                     	</tr>
+	                     </table>         
+	               </form> 
+	          
+	               
+	               </c:forEach> 
+	               <c:forEach var="sendvo" items="${sendvo }">
+	                <form class="white-popup mfp-hide" id="sendpopup${sendvo.message_no }">
+	                  <h1>Message</h1>
+	                    <table>
+	                     	<tr>
+	                     	  <td width="30%" align="right">받는사람</td>
+	                     	  <td width="70%" align="left">${sendvo.message_send }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">시간</td>
+	                     	  <td width="70%" align="left">${sendvo.message_time }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2" align="center">내용</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${sendvo.message_text}</textarea></td>
+	                     	</tr>
+	                     </table>         
+	               </form> 
+	               </c:forEach>  
+	                
+		</section>
+	
+<script async src="//jsfiddle.net/cosmosjs/xQ8JC/3/embed/"></script>
+<script type="text/javascript">
+$('.ReBtn').click(function(){
+	var id=$(this).attr('id');
+	var no=id.substring(5) 
+  	var magnificPopup = $.magnificPopup.instance; 	  
+ 	magnificPopup.close();
+	  $.magnificPopup.open({
+	        items :{src:'#send'+no,type : 'inline'},
+	              preloader: false,focus: '#name',
+	              callbacks: {beforeOpen: function() {
+	                 if($(window).width() < 700) {
+	                    this.st.focus = false;
+	                 } else {
+	                    this.st.focus = '#messageTextarea';
+	                 }
+	              }
+	        }
+
+	     });
+  	
+	
+})
+
+$('.recvomessageText').click(function(){
+	
+	var id=$(this).attr('id');
+	var no=id.substring(5);
+	  $.magnificPopup.open({
+        items :{src:'#re'+no,type : 'inline'},
+              preloader: false,focus: '#name',
+              callbacks: {beforeOpen: function() {
+                 if($(window).width() < 700) {
+                    this.st.focus = false;
+                 } else {
+                    this.st.focus = '#name';
+                 }
+              }
+        }
+
+     });
+	
+})
+$('.sendvomessageText').click(function(){
+	
+	var id=$(this).attr('id');
+	var no=id.substring(4);
+	  $.magnificPopup.open({
+        items :{src:'#sendpopup'+no,type : 'inline'},
+              preloader: false,focus: '#name',
+              callbacks: {beforeOpen: function() {
+                 if($(window).width() < 700) {
+                    this.st.focus = false;
+                 } else {
+                    this.st.focus = '#name';
+                 }
+              }
+        }
+
+     });
+	
+})
+$('.ReSendBtn').click(function(){
+	var id= $(this).attr('id');
+	var no=id.substring(9);
+	alert(no)
+	$('#send'+no).submit();   
+
+})	
+
+$('.t1').show();
+   $(document).ready(function() {
+	   $('#tabs div a').on('click',
 				function() {
 					// alert('');
 					index = $(this).parent().index() + 1;
@@ -85,7 +240,16 @@
 					
 					$('.t' + index).fadeIn();
 					$(this).css('background-color', '#000').addClass('active');
-				});
+				});	   
+	     
+
+
+
+	     
+	      
+   });
+
+
 	</script>
 
 </body>
