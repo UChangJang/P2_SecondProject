@@ -110,7 +110,7 @@
 	                  <h1>Message</h1>
 	                    <table>
 	                     	<tr>
-	                     	  <td width="30%" align="right">보낸 사람</td>
+	                     	  <td width="30%" align="right">받는 사람</td>
 	                     	  <td width="70%" align="left">
 	                     	  <input type="text" name="message_receive" value="${recvo.message_send }">
 	                     	 </td>
@@ -123,8 +123,8 @@
 	                     	</tr>
 	     					<tr>
 	                     	  <td colspan="2" align="center"> 
-	                     	  	<input type="button" value="답장" class="ReSendBtn" id="reSendBtn${recvo.message_no }" >	                     
-	                     	  	<input type="hidden" value="${sessionScope.id }" name="message_send"> 
+	                     	  	<input type="button" value="답장" class="ReSendBtn" id="reSendBtn${recvo.message_no }" >                     
+	                      
 	                       	  </td>
 	                     	</tr>
 	                     </table>         
@@ -221,7 +221,6 @@ $('.sendvomessageText').click(function(){
 $('.ReSendBtn').click(function(){
 	var id= $(this).attr('id');
 	var no=id.substring(9);
-	alert(no)
 	$('#send'+no).submit();   
 
 })	

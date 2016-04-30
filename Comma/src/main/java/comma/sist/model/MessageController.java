@@ -17,7 +17,8 @@ import comma.sist.message.dao.MessageVO;
 public class MessageController {
 	@RequestMapping("mypage_letter.do")
 	public String mypage_letter(HttpServletRequest req){
-		String id=req.getParameter("userid");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
 		List<MessageVO> recvo=MessageDAO.receiveMessageAllData(id);
 		List<MessageVO> sendvo=MessageDAO.sendMessageAllData(id);
 		req.setAttribute("recvo", recvo);
@@ -27,23 +28,18 @@ public class MessageController {
 		return "main.jsp";
 	}
 	@RequestMapping("messageSend.do")
-	public String messageSend(HttpServletRequest req){
-		String send_id= req.getParameter("message_send");
+	public String messageSend(HttpServletRequest req) throws Exception{
+		req.setCharacterEncoding("EUC-KR");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
 		String receive_id= req.getParameter("message_receive");
 		String text= req.getParameter("message_text");
-		System.out.println(send_id+"-"+receive_id+"-"+text);
 		MessageVO vo=new MessageVO();
 		vo.setMessage_receive(receive_id);
-		vo.setMessage_send(send_id);
+		vo.setMessage_send(id);
 		vo.setMessage_text(text);
 		MessageDAO.messageSend(vo);
-		List<MessageVO> recvo=MessageDAO.receiveMessageAllData(send_id);
-		List<MessageVO> sendvo=MessageDAO.sendMessageAllData(send_id);
-		req.setAttribute("recvo", recvo);
-		req.setAttribute("sendvo", sendvo);
-		req.setAttribute("jsp", "mypage/mypage.jsp");
-		req.setAttribute("mypage", "mypage/mypage_letter.jsp");
-		return "main.jsp";
+		return "mypage/messageSend_ok.jsp";
 	}
 	
 	
