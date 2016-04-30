@@ -1,4 +1,7 @@
 @CHARSET "EUC-KR";
+#touristMarginTop{
+	padding-top: 0;
+}
 #touristForm{
 	margin:0;
 }
@@ -1094,11 +1097,16 @@
 	width:100%
 }
 .guideRanking_review{
-	padding:0.5em;
+	padding:1em;
+	line-height: 180%;
 	background-color: #BAB6A8;
 	border-radius : 1em;
 	-webkit-border-radius : 1em;
 	-moz-border-radius : 1em;
+	
+/* 	box-shadow: 5px 5px 5px 0px lightgray;
+	-webkit-box-shadow: 5px 5px 5px 0px lightgray;
+	-mox-box-shadow: 5px 5px 5px 0px lightgray; */
 	
 	font-size: 13px;
 	
@@ -1142,6 +1150,9 @@
 	vertical-align : middle;
 	margin: 0 auto;	
 	display: inline-block;
+	box-shadow: 5px 5px 5px 0px lightgray;
+	-webkit-box-shadow: 5px 5px 5px 0px lightgray;
+	-moz-box-shadow: 5px 5px 5px 0px lightgray;
 }
 
 /* 메인 실시간 인기 테이블 */

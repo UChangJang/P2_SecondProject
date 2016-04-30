@@ -39,5 +39,13 @@ public class MessageDAO {
 		return vo;
 	}
 	
+	public static void messageInsert(MessageVO vo){
+		
+		SqlSession session = ssf.openSession(true);
+		session.insert("messageInsert",vo);
+		session.close();
+		
+	}
+	
 	
 }

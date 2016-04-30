@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>가이드 글 작성</title>
+<link rel="stylesheet" type="text/css" href="../controller/assets/css/introKor.css" />
 <!-- 사진 삽입 코드 (url:http://touchsoul.tistory.com/84) -->
 <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script> -->
 <script type="text/javascript">
@@ -57,11 +58,13 @@
 </head>
 <body>
 <!-- Main -->
-<article id="main"> <header>
-<h2>가이드 글쓰기</h2>
-<p>글을 쓰세요</p>
-</header> <section class="wrapper style5">
-<div class="inner">
+<article id="main"> 
+	<header id="header_guideWrite">
+	<h2>Guide Write</h2>
+	<p>You can be some one's guide</p>
+	</header> 
+	<section class="wrapper style5">
+		<div class="inner">
 
 
 	<section> <!-- 글쓰기 -->

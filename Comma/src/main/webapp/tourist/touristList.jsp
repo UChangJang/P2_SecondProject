@@ -6,13 +6,68 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="ajax.js"></script>
+
+<script type="text/javascript">
+$(function(){
+		//1.이전버튼 
+		$('#prevBtn').click(function(){		//select_지역선택
+			if('${curpage}'>1){					//이전페이지로 가기 가능
+				var place=$('#place').val();		//1.지역값 가져오기
+				var date=$('#dt').val();			//2.날짜값 가져오기
+				if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
+					var param="page="+${curpage-1};
+					alert(param);
+					sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
+				}else{								//*검색어 있는 상태에서 볼때	
+					var sortType=$('#sortType').val();	//가격높은순
+					var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage-1};
+					alert(param);
+					sendMessage("POST", "tourist_sort.do",param, tourContent2);
+				}	
+			}else{								//이전페이지로 가기 불가능
+				alert("첫페이지입니다.");
+				return;
+			}
+		});
+		
+		//2.다음 버튼
+		$('#nextBtn').click(function(){		//select_지역선택
+			if('${curpage}'<'${totalpage}'){		//다음페이지로 가기 가능
+				var place=$('#place').val();		//1.지역값 가져오기
+				var date=$('#dt').val();			//2.날짜값 가져오기
+				if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
+					var param="page="+${curpage+1};
+					alert(param);
+					sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
+				}else{								//*검색어 있는 상태에서 볼때	
+					var sortType=$('#sortType').val();	//가격높은순
+					var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage+1};
+					alert(param);
+					sendMessage("POST", "tourist_sort.do",param, tourContent2);
+				}	
+			}else{								//이전페이지로 가기 불가능
+				alert("끝페이지입니다.");
+				return;
+			}
+		});
+});
+
+	function tourContent2() {
+		if (httpRequest.readyState == 4) {
+			if (httpRequest.status == 200) {
+				$('#tourContent').html(httpRequest.responseText);
+			}
+		}
+	}
+</script>
+
 </head>
 <body>
-	<section class="wrapper style5" id="two">		<!-- tourist리스트 5개씩 -->
+	<section class="wrapper style5" id="touristMarginTop">		<!-- tourist리스트 5개씩 -->
 		<div class="inner">	
-			<h4>가이드리스트</h4>
-			
-			
+	
 			<div class="box alt">
 					<div class="row uniform 50%">
 						<c:forEach var="vo" items="${list }">
@@ -48,7 +103,7 @@
 								<textarea>${vo.touristvo.tour_detail }</textarea>
 							</div>
 							<div id="detail_textarea1"> 
-								<span><button class="button tourB">Message</button></span>
+								<span><button class="button tourB" id="res${vo.touristvo.tour_no}">Message</button></span>
 								<span><button class="button tourB">WishList</button></span>
 								<span><button class="button tourB">Reserve</button></span>
 							</div>
@@ -57,28 +112,46 @@
 				</div>
 			</div>
 			
+			<!-- 예약창 -->
+			<form class="white-popup mfp-hide" id="resPop${vo.touristvo.tour_no}" method="post" action="login.do">
+                     <h1>Log-In</h1>
+                     <div>
+                     	<input type="text" value="NICK:${vo.uservo.user_nick}">
+                     	<input type="text" value="LOCATION:${vo.text_loc}[${vo.touristvo.tour_theme }]">
+                     </div>
+                     <br>
+                     <div>
+                        <textarea>${vo.touristvo.tour_detail }</textarea>
+                     </div>
+                     <br>
+                     <br>
+                     <div class="logbtn">
+                        <input name="idfind" value="SEND" id="idfind-btn" type="button">
+                        <input name="pwdfind" value="BACK" id="pwdfind-btn" type="button">
+                     </div>
+               </form>
+               
+               
 			<!-- 페이지 컨트롤 -->
 			<table id="table_content">
 			<tr>
 				<td align=right>
-					<a href="board_list.do?page=${curpage>1?curpage-1:curpage }">
-					<img src="user/board/image/prev.gif" border=0></a>&nbsp;
-					
-					<a href="board_list.do?page=${curpage<totalpage?curpage+1:curpage }">
-					<img src="user/board/image/next.gif" border=0></a>&nbsp;
+					<img src="images/prev.png" border=0 id="prevBtn">&nbsp;
+					<img src="images/next.png" border=0 id="nextBtn">&nbsp;&nbsp;
 					${curpage} page / ${totalpage } pages 
 				</td>
 			</tr>
 		</table>
-			
-			
 		</div>
 	</section>
+	
+                  
 
 
 	<!-- 세부내용 추가 jquery -->
 	<script type="text/javascript">
 		var d = 0;
+		
 
 		$(function() {
 			$('.plusDetail').click(function() {
@@ -92,8 +165,31 @@
 					d = 0;
 				}
 			});
-		});
+
+		 });
+		
 	</script>
+	
+	<!-- 쪽지보내기 창 -->
+	<script type="text/javascript">
+	Shadowbox.init({
+		   players:["iframe"]
+		});
+			 $('#res'+'${vo.touristvo.tour_no}').magnificPopup({
+		         items :{src:'#resPop'+'${vo.touristvo.tour_no}',type : 'inline'},
+		               preloader: false,focus: '#name',
+		               callbacks: {beforeOpen: function() {
+		                  if($(window).width() < 700) {
+		                     this.st.focus = false;
+		                  } else {
+		                     this.st.focus = '#name';
+		                  }
+		               }
+		         }
+		      });
+	 </script>
+	
+	
 
 </body>
 </html>

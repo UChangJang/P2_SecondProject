@@ -14,7 +14,6 @@ function createHttpRequest(){
 	
 }
 function sendMessage(method,url,param,callback){
-
 	httpRequest=createHttpRequest();
 
 	var httpMethod=method;
@@ -31,6 +30,7 @@ function sendMessage(method,url,param,callback){
 		}		
 	}
 	//readystate=>1
+
 	httpRequest.open(method,httpUrl,true);//2
 
 	httpRequest.onreadystatechange=callback;

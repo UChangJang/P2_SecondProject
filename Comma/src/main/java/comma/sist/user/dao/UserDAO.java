@@ -9,6 +9,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 
+
+
 public class UserDAO {
 
 	private static SqlSessionFactory	ssf;
@@ -66,6 +68,37 @@ public class UserDAO {
 		UserVO vo =session.selectOne("userProfile",id);
 		return vo;
 		
+	}
+	public static List<ZipcodeVO> postfindAllData(String dong){
+		SqlSession session=ssf.openSession();
+		List<ZipcodeVO> list=session.selectList("postfindAllData",dong);
+		session.close();
+		return list;
+	}
+	public static int postfindCount(String dong){
+		SqlSession session=ssf.openSession();	
+		int count=session.selectOne("postfindCount",dong);
+		session.close();
+		return count;
+				
+	}
+	public static int idCheckCount(String id){
+		SqlSession session=ssf.openSession();
+		int count=session.selectOne("idCheckCount",id);
+		session.close();
+		return count;
+	}
+	public static String idFind(String name){
+		SqlSession session=ssf.openSession();
+		String id=session.selectOne("idFind",name);
+		session.close();
+		return id;
+	}
+	public static String pwdFind(String id){
+		SqlSession session=ssf.openSession();
+		String pwd=session.selectOne("pwdFind",id);
+		session.close();
+		return pwd;
 	}
 	
 

@@ -25,4 +25,28 @@ public class MessageController {
 		req.setAttribute("mypage", "mypage/mypage_letter.jsp");
 		return "main.jsp";
 	}
+	
+	@RequestMapping("sendMessage.do")
+	public String sendMessage(HttpServletRequest req) throws Exception{
+		
+		req.setCharacterEncoding("EUC-KR");
+		
+		String receive_id = req.getParameter("receive_id");
+		String send_id = req.getParameter("send_id");
+		String message_content = req.getParameter("message_content");
+		
+		MessageVO vo = new MessageVO();
+		vo.setMessage_receive(receive_id);
+		vo.setMessage_send(send_id);
+		vo.setMessage_text(message_content);
+		
+		MessageDAO.messageInsert(vo);
+	
+		req.setAttribute("jsp", "mypage/mypage.jsp");
+		return "main.jsp";
+	}
+	
+	
+	
+	
 }

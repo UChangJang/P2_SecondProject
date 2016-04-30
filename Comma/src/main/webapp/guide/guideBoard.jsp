@@ -14,7 +14,7 @@
 
 <script type=text/javascript>
 	
- $(function(){
+$(function(){
 	var width1=$(window).width();
 	var navoffset = $('#guideBoardSide').offset();
 
@@ -46,6 +46,32 @@
 				 $(".side2").css("display","none");
 			}
 	  });
+	
+	 $('#messageWrite').magnificPopup({
+         items :{src:'#message-form',type : 'inline'},
+               preloader: false,focus: '#message_content',
+               callbacks: {beforeOpen: function() {
+                  if($(window).width() < 700) {
+                     this.st.focus = false;
+                  } else {
+                     this.st.focus = '#message_content';
+                  }
+               }
+         }
+         
+      });
+	
+	 $('#msg_btn').click(function(){
+		
+		 var message_content = $('#message_content').val();
+		 if(message_content.trim()==""){
+			 $('#message_content').focus();
+			 return;
+		 }
+		 
+		 $('#message-form').submit();
+	 });
+	
 }); 
 
 </script>
@@ -61,6 +87,29 @@
 		 <li><a class="scrolly" href="#detail">상세정보</a></li>
 		 <li><a class="scrolly" href="#mention">후기</a></li>
 	</ul>
+	
+	 <!-- 쪽지보내기 양식 -->
+     <form class="white-popup mfp-hide" id="message-form" method="post" action="sendMessage.do">
+        <h1>Message</h1>
+        <div>
+           <font color="pink">
+           <input name="receive_name" id="receive_name" required="" type="text"
+              placeholder="받는사람" style="width:10em;float:left" disabled="disabled" value="${vo.uservo.user_name }"></font>  
+           <input name="send_name" id="send_name" required="" type="text"
+              placeholder="보내는사람" style="width:10em;float:right" disabled="disabled" value="${sessionScope.name }">
+        </div>
+		<br><br>
+        <div>
+           <textarea placeholder="Message Detail" style="height:15em" name="message_content" id="message_content"></textarea>
+        </div>
+        <br>
+        <div align="center">
+           <input value="Send" id="msg_btn" type="button">
+        </div>
+        
+        <input type="hidden" name="receive_id" value="${vo.uservo.user_id }">
+        <input type="hidden" name="send_id" value="${sessionScope.id }">        
+     </form>
 </div>
 
 <!-- Main -->
@@ -69,7 +118,7 @@
 		<h2>[제목]서울도심투어</h2>
 		<p>재밌는 관광</p>
 	</header>
-
+	
 	<section class="wrapper style5">
 		<div class="inner">
 			<!-- <section class="style5"> -->
@@ -90,7 +139,7 @@
 				<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
 					<div id="">
 						<div>소요시간</div>		
-						<div class="topBoardShort">6시간</div>							
+						<div class="topBoardShort">${vo.text_time }</div>							
 					</div>
 				</div>
 				<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
@@ -100,27 +149,25 @@
 					</div>
 				</div>
 				<div class="3u$ 12u$(small)">	
-																		
+																
 				</div>
 				
 				
 				<div class="9u 12u$(medium) side1">
 					<hr id="intropeople"/>
 					<h5>가이드소개</h5>
-					<blockquote>${vo.uservo.user_introduce }</blockquote>
+					<textarea style="height:20em">${vo.uservo.user_introduce }</textarea>
 
 					<hr id="introplace" />
 					<h5>관광스타일소개</h5>
-					<blockquote>${vo.guidevo.guide_loc_intro }</blockquote>
+					<textarea style="height:20em">${vo.guidevo.guide_loc_intro }</textarea>
 
 					<hr id="pic"/>
 					<h4>관광지역 사진</h4>					
 					<span class="image fit a">
 					 <div id="main_bn">
-							<li><img src="images/character.png" alt="" /></li>		
-							<li><img src="images/character.png" alt="" /></li>
-							<li><img src="images/character.png" alt="" /></li>
-							<li><img src="images/character.png" alt="" /></li>
+							<li><img src="http://211.238.142.74:8080/controller/image/${vo.guidevo.guide_img }" alt="" /></li>		
+							
 					</div> 
 					</span>
 
@@ -157,7 +204,7 @@
 								</tr>
 								<tr>
 									<td>관광시간</td>
-									<td>아직안함</td>
+									<td>${vo.text_time1 }${vo.text_time2 } ~ ${vo.text_time3 }${vo.text_time4 }</td>
 								</tr>
 								<tr>
 									<td>만날장소</td>
@@ -200,11 +247,19 @@
 					</div>
 
 					<hr />
+					<c:if test="${confirmId == false }">
 					<ul class="actions fit small">
-						<li><a href="#" class="button special fit small">쪽지보내기</a></li>
-						<li><a href="#" class="button fit small">예약하기</a></li>
-						<li><a href="#" class="button special fit small">관심상품</a></li>
+						<li><button class="button special fit small" id="messageWrite">쪽지보내기</button></li>
+						<li><button class="button fit small">예약하기</button></li>
+						<li><button class="button special fit small">찜하기</button></li>
 					</ul>
+					</c:if>
+					<c:if test="${confirmId == true }">
+					<ul class="actions fit small">
+						<li><a href="guideUpdate.do?no=${vo.guidevo.guide_no }" class="button special fit small">수정하기</a></li>
+						<li><a href="guideDelete.do?no=${vo.guidevo.guide_no }" class="button fit small">삭제하기</a></li>
+					</ul>	
+					</c:if>
 				</div>
 
 
