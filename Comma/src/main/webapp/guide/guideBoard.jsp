@@ -69,7 +69,7 @@
 		<h2>[제목]서울도심투어</h2>
 		<p>재밌는 관광</p>
 	</header>
-
+	
 	<section class="wrapper style5">
 		<div class="inner">
 			<!-- <section class="style5"> -->
@@ -90,7 +90,7 @@
 				<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
 					<div id="">
 						<div>소요시간</div>		
-						<div class="topBoardShort">6시간</div>							
+						<div class="topBoardShort">${vo.text_time }</div>							
 					</div>
 				</div>
 				<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
@@ -100,18 +100,18 @@
 					</div>
 				</div>
 				<div class="3u$ 12u$(small)">	
-																		
+																
 				</div>
 				
 				
 				<div class="9u 12u$(medium) side1">
 					<hr id="intropeople"/>
 					<h5>가이드소개</h5>
-					<blockquote>${vo.uservo.user_introduce }</blockquote>
+					<textarea>${vo.uservo.user_introduce }</textarea>
 
 					<hr id="introplace" />
 					<h5>관광스타일소개</h5>
-					<blockquote>${vo.guidevo.guide_loc_intro }</blockquote>
+					<textarea>${vo.guidevo.guide_loc_intro }</textarea>
 
 					<hr id="pic"/>
 					<h4>관광지역 사진</h4>					
@@ -157,7 +157,7 @@
 								</tr>
 								<tr>
 									<td>관광시간</td>
-									<td>아직안함</td>
+									<td>${vo.text_time1 }시 시작</td>
 								</tr>
 								<tr>
 									<td>만날장소</td>
@@ -200,11 +200,19 @@
 					</div>
 
 					<hr />
+					<c:if test="${confirmId == false }">
 					<ul class="actions fit small">
 						<li><a href="#" class="button special fit small">쪽지보내기</a></li>
 						<li><a href="#" class="button fit small">예약하기</a></li>
-						<li><a href="#" class="button special fit small">관심상품</a></li>
+						<li><a href="#" class="button special fit small">찜하기</a></li>
 					</ul>
+					</c:if>
+					<c:if test="${confirmId == true }">
+					<ul class="actions fit small">
+						<li><a href="guideUpdate.do?no=${vo.guidevo.guide_no }" class="button special fit small">수정하기</a></li>
+						<li><a href="guideDelete.do?no=${vo.guidevo.guide_no }" class="button fit small">삭제하기</a></li>
+					</ul>	
+					</c:if>
 				</div>
 
 

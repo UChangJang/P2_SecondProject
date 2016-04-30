@@ -45,7 +45,7 @@
 				       <div class="tab2" >
 					 <form method='POST' name="mywriter" style="margin:0 ; width:10em; height: 3em; ">
 				      <input type="hidden" value="${sessionScope.id }" name="userid">   
-				     <a href="#none"  onclick="wish_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
+				     <a href="#none"  onclick="mywriter_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
 				     <img src="images/mywriters.jpg" style="align:left; vertical-align:middle">내가 쓴 글</a>
 				      </form>   </div>
 				      
@@ -90,7 +90,7 @@
 </article>
 
 <script type="text/javascript">		
-function message_form(){
+	function mymessage_form(){
 	  var m = document.mymessage;
 	  m.action = "mypage_letter.do";
 	  m.submit();
@@ -105,12 +105,12 @@ function message_form(){
 		m.action = "mypage_mywriter.do"
 		m.submit();
 	}
-	function infoCorrection_form(){
+	function mydetail_form(){
 		var m = document.mydetail;
-		m.action = "mypage_infoCorrection.do";
+		m.action = "mypage_mydetail.do";
 		m.submit();
 	}
-	function review_form(){
+	function myreview_form(){
 		var m =document.myreview;
 		m.action = "mypage_review.do";
 		m.submit();

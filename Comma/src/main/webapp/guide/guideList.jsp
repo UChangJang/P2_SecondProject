@@ -20,9 +20,9 @@
 				<div class="4u">
 					<span class="image fit a" id="guidePic"> 
 					<a href="guideBoard.do?no=${vo.guidevo.guide_no }" target="_top">
-					<img src="..//211.238.142.74/images/back.jpg" alt="" /></a>
-					<!-- <img src="../controller/images/busan1.jpg" alt="" /></a> -->
-					<!-- <img src="\\\\211.238.142.74\\images\\${vo.guidevo.guide_img}" alt="" /></a> -->
+					<!-- <img src="http://211.238.142.74:8080/images/back.jpg" alt="" /></a> -->
+					<img src="http://211.238.142.74:8080/controller/image/back.jpg" alt="" /></a>
+					<!-- <img src="http:\\\\211.238.142.74:8080\\controller\\images\\busan2.jpg" alt="" /></a> -->
 						<div class="listText" id="testtest"></div>
 						<div class="listText2">
 							<div>

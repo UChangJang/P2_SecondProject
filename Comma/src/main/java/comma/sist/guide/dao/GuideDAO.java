@@ -27,10 +27,10 @@ private static SqlSessionFactory	ssf;
 	}
 	
 	
-	public static List<TextVO> guideAllData(){
+	public static List<TextVO> guideAllData(Map map){
 		
 		SqlSession session = ssf.openSession();
-		List<TextVO> list = session.selectList("guideAllData");
+		List<TextVO> list = session.selectList("guideAllData",map);
 		session.close();
 		
 		return list;
@@ -75,6 +75,14 @@ private static SqlSessionFactory	ssf;
 		session.close();
 		
 	} // guideInsert(GuideVO vo)
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public static List<TextVO> myGuideWriter(String id){
 		SqlSession session=ssf.openSession();

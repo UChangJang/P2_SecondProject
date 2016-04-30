@@ -161,8 +161,10 @@ public class TouristController {
    
    
    @RequestMapping("touristWrite_Ok.do")
-   public String tourist_Insert(HttpServletRequest req){
+   public String tourist_Insert(HttpServletRequest req) throws Exception{
       
+	  req.setCharacterEncoding("UTF-8");
+	   
       String tour_theme = req.getParameter("tour_theme");
       String tour_detail = req.getParameter("tour_detail");      
       String text_loc = req.getParameter("text_loc");
@@ -174,7 +176,20 @@ public class TouristController {
       String text_time4 = req.getParameter("text_time4");
       String text_move = req.getParameter("text_move");
       String text_tour_date = req.getParameter("text_tour_date");
-
+      
+      int t_start = Integer.parseInt(text_time1);
+	  int t_end = Integer.parseInt(text_time3);
+	  int text_time = 0;
+		
+	  if((text_time2.equals("am") && text_time4.equals("am")) || (text_time2.equals("pm") && text_time4.equals("pm"))){
+		  text_time = (int)(Math.abs(t_end-t_start));
+	  }else if((text_time2.equals("am") && text_time4.equals("pm"))){
+		  t_end += 12;
+		  text_time = t_end - t_start;
+	  }else if((text_time2.equals("pm") && text_time4.equals("am"))){
+		  t_start -= 12;
+		  text_time = t_end - t_start;
+	  }
      
       TextVO tvo = new TextVO();
       tvo.getTouristvo().setTour_theme(tour_theme);
@@ -183,10 +198,11 @@ public class TouristController {
       tvo.setText_cost(text_cost);
       tvo.setText_total_person(Integer.parseInt(text_total_person));
       tvo.setText_time1(text_time1);
-      tvo.setText_time2(text_time2);
+      tvo.setText_time2(text_time3);
       tvo.setText_move(text_move);
       tvo.setText_tour_date(text_tour_date);
-
+      tvo.setText_time(text_time);
+      
       HttpSession session = req.getSession();
       String user_id = (String)session.getAttribute("id");
       tvo.getTouristvo().setUser_id(user_id);
