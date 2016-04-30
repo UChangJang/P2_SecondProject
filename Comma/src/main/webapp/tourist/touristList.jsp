@@ -108,29 +108,32 @@ $(function(){
 								<span><button class="button tourB">Reserve</button></span>
 							</div>
 						</div>
+						
+						
+						<!-- 쪽지보내기 -->
+						<form class="white-popup mfp-hide" id="resPop${vo.touristvo.tour_no}" method="post" action="login.do">
+			                     <h1>Log-In</h1>
+			                     <div>
+			                     	<input type="text" value="NICK:${vo.uservo.user_nick}">
+			                     	<input type="text" value="LOCATION:${vo.text_loc}[${vo.touristvo.tour_theme }]">
+			                     </div>
+			                     <br>
+			                     <div>
+			                        <textarea>${vo.touristvo.tour_detail }</textarea>
+			                     </div>
+			                     <br>
+			                     <br>
+			                     <div class="logbtn">
+			                        <input name="idfind" value="SEND" id="idfind-btn" type="button">
+			                        <input name="pwdfind" value="BACK" id="pwdfind-btn" type="button">
+			                     </div>
+			               </form>
+               
 						</c:forEach>
 				</div>
 			</div>
 			
-			<!-- 예약창 -->
-			<form class="white-popup mfp-hide" id="resPop${vo.touristvo.tour_no}" method="post" action="login.do">
-                     <h1>Log-In</h1>
-                     <div>
-                     	<input type="text" value="NICK:${vo.uservo.user_nick}">
-                     	<input type="text" value="LOCATION:${vo.text_loc}[${vo.touristvo.tour_theme }]">
-                     </div>
-                     <br>
-                     <div>
-                        <textarea>${vo.touristvo.tour_detail }</textarea>
-                     </div>
-                     <br>
-                     <br>
-                     <div class="logbtn">
-                        <input name="idfind" value="SEND" id="idfind-btn" type="button">
-                        <input name="pwdfind" value="BACK" id="pwdfind-btn" type="button">
-                     </div>
-               </form>
-               
+			
                
 			<!-- 페이지 컨트롤 -->
 			<table id="table_content">
@@ -170,26 +173,39 @@ $(function(){
 		
 	</script>
 	
-	<!-- 쪽지보내기 창 -->
+<!-- 	 쪽지보내기 창 -->
 	<script type="text/javascript">
-	Shadowbox.init({
-		   players:["iframe"]
-		});
-			 $('#res'+'${vo.touristvo.tour_no}').magnificPopup({
-		         items :{src:'#resPop'+'${vo.touristvo.tour_no}',type : 'inline'},
-		               preloader: false,focus: '#name',
-		               callbacks: {beforeOpen: function() {
-		                  if($(window).width() < 700) {
-		                     this.st.focus = false;
-		                  } else {
-		                     this.st.focus = '#name';
-		                  }
-		               }
-		         }
-		      });
-	 </script>
-	
-	
+		Shadowbox.init({
+			   players:["iframe"]
+			});
+		
+		$(document).ready(function() {
+
+			$('.tourB').click(function() {
+				var id = $(this).attr('id'); //id값을 가져옴
+				var no = id.substring(3); //res1 res2 res3...
+
+				$('#res'+no).magnificPopup({
+					
+					items : {
+						src : '#resPop' + no,
+						type : 'inline'
+					},
+					preloader : false,
+					focus : '#name',
+					callbacks : {
+						beforeOpen : function() {
+							if ($(window).width() < 700) {
+								this.st.focus = false;
+							} else {
+								this.st.focus = '#name';
+							}
+						}
+					}
+				});
+			});
+		}); 
+</script>
 
 </body>
 </html>
