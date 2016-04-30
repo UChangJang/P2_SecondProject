@@ -51,9 +51,7 @@ public class UserController {
 	}
 	@RequestMapping("idCheck.do")
 	public String idCheck(HttpServletRequest req){
-		System.out.println("zz");
 		String id=req.getParameter("id");
-		System.out.println(id);
 		int count=UserDAO.idCheckCount(id);		
 		req.setAttribute("count", count);
 		System.out.println(count);
@@ -83,13 +81,13 @@ public class UserController {
 		UserDAO.userJoin(vo);
 		return "user/join.jsp";
 	}
-	@RequestMapping("mypage_infoCorrection.do")
+	@RequestMapping("mypage_mydetail.do")
 	public String mypage_detail(HttpServletRequest req){
 		String id=req.getParameter("userid");
 		UserVO vo = UserDAO.userProfile(id);
 		req.setAttribute("vo", vo);		
 		req.setAttribute("jsp", "mypage/mypage.jsp");
-		req.setAttribute("mypage", "mypage/mypage_infoCorrection.jsp");
+		req.setAttribute("mypage", "mypage/mypage_mydetail.jsp");
 		return "main.jsp";
 	}
 	@RequestMapping("mypage_wishlist.do")

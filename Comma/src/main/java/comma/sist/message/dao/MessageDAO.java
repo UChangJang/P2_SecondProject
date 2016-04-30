@@ -27,7 +27,6 @@ public class MessageDAO {
 
 	public static List<MessageVO> receiveMessageAllData(String id){
 		SqlSession session=ssf.openSession();
-		System.out.println(id);
 		List<MessageVO> vo=session.selectList("receiveMessageAllData",id);
 		session.close();
 		return vo;
@@ -38,13 +37,10 @@ public class MessageDAO {
 		session.close();
 		return vo;
 	}
-	
-	public static void messageInsert(MessageVO vo){
-		
-		SqlSession session = ssf.openSession(true);
-		session.insert("messageInsert",vo);
+	public static void messageSend(MessageVO vo){
+		SqlSession session=ssf.openSession(true);
+		session.insert("messageSend",vo);
 		session.close();
-		
 	}
 	
 	

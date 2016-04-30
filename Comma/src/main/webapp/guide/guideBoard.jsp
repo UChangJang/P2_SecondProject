@@ -89,7 +89,7 @@ $(function(){
 	</ul>
 	
 	 <!-- 쪽지보내기 양식 -->
-     <form class="white-popup mfp-hide" id="message-form" method="post" action="sendMessage.do">
+     <form class="white-popup mfp-hide" id="message-form" method="post" action="messageSend.do">
         <h1>Message</h1>
         <div>
            <font color="pink">
@@ -100,15 +100,15 @@ $(function(){
         </div>
 		<br><br>
         <div>
-           <textarea placeholder="Message Detail" style="height:15em" name="message_content" id="message_content"></textarea>
+           <textarea placeholder="Message Detail" style="height:15em" name="message_text" id="message_content"></textarea>
         </div>
         <br>
         <div align="center">
            <input value="Send" id="msg_btn" type="button">
         </div>
         
-        <input type="hidden" name="receive_id" value="${vo.uservo.user_id }">
-        <input type="hidden" name="send_id" value="${sessionScope.id }">        
+        <input type="hidden" name="message_receive" value="${vo.uservo.user_id }">
+      
      </form>
 </div>
 

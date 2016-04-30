@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.portlet.bind.annotation.RenderMapping;
 
+import comma.sist.common.TextVO;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.message.dao.MessageDAO;
@@ -16,7 +17,8 @@ import comma.sist.message.dao.MessageVO;
 public class MessageController {
 	@RequestMapping("mypage_letter.do")
 	public String mypage_letter(HttpServletRequest req){
-		String id=req.getParameter("userid");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
 		List<MessageVO> recvo=MessageDAO.receiveMessageAllData(id);
 		List<MessageVO> sendvo=MessageDAO.sendMessageAllData(id);
 		req.setAttribute("recvo", recvo);
@@ -25,27 +27,26 @@ public class MessageController {
 		req.setAttribute("mypage", "mypage/mypage_letter.jsp");
 		return "main.jsp";
 	}
-	
-	@RequestMapping("sendMessage.do")
-	public String sendMessage(HttpServletRequest req) throws Exception{
-		
+
+	@RequestMapping("messageSend.do")
+	public String messageSend(HttpServletRequest req) throws Exception{
 		req.setCharacterEncoding("EUC-KR");
 		
-		String receive_id = req.getParameter("receive_id");
-		String send_id = req.getParameter("send_id");
-		String message_content = req.getParameter("message_content");
+		HttpSession session = req.getSession();
+		String send_id = (String)session.getAttribute("id");
+		String receive_id = req.getParameter("message_receive");
+		String message_text = req.getParameter("message_text");
 		
 		MessageVO vo = new MessageVO();
 		vo.setMessage_receive(receive_id);
 		vo.setMessage_send(send_id);
-		vo.setMessage_text(message_content);
+		vo.setMessage_text(message_text);
 		
-		MessageDAO.messageInsert(vo);
+		MessageDAO.messageSend(vo);
 	
-		req.setAttribute("jsp", "mypage/mypage.jsp");
-		return "main.jsp";
+		return "mypage/messageSend_ok.jsp";
 	}
-	
+
 	
 	
 	
