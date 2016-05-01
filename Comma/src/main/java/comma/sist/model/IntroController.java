@@ -32,7 +32,6 @@ public class IntroController {
 		WeatherManager wm=new WeatherManager();
 		List<WeatherDTO> wlist=wm.weatherAllData();
 		List<TextVO> bestGuide=GuideDAO.bestGuide();
-		System.out.println("≈ª√‚~~~~~~~~~~~~~~~~~~~~~~");
 		req.setAttribute("bestGuide", bestGuide);
 		req.setAttribute("wlist", wlist);
 		req.setAttribute("jsp", "section.jsp");
