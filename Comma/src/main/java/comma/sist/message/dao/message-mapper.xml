@@ -8,12 +8,15 @@
  	<select id="sendMessageAllData" parameterType="String" resultType="Message">
  		select message_receive,message_text,message_time,message_check,message_no from message where message_send=#{id}
  	</select>
+ 	
+ 	<!-- 메세지 보내기 -->
  	<insert id="messageSend" parameterType="Message">
- 		insert into message values((select max(message_no)+1 from message),#{message_send},#{message_receive},
+ 		insert into message values((select NVL(max(message_no)+1,1) from message),#{message_send},#{message_receive},
  		#{message_text},sysdate,'n')
  	</insert>
  	<delete id="messgeDelete" parameterType="int">
  		delete from message where message_no=#{no}
  	</delete>
+ 	
  	
 </mapper>

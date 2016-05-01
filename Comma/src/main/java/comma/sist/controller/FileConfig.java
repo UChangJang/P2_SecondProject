@@ -11,7 +11,6 @@ public class FileConfig {
 
 		
 		try{
-
 			String path = "C:\\Users\\SEC\\git\\P2_SecondProject\\Comma\\src\\main\\java\\";
 
 

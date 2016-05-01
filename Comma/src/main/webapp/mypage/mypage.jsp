@@ -137,6 +137,7 @@
 	  var m = document.mymessage;
 	  m.action = "mypage_letter.do";
 	  m.submit();
+
 	}
 	function wish_form(){
 		var m = document.mywish;
@@ -163,6 +164,7 @@
 		m.action = "mypage_reservation.do";
 		m.submit();
 	}
+
 	
 </script> 
 </body>

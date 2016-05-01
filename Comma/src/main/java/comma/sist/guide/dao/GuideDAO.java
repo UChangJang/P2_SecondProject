@@ -76,8 +76,33 @@ private static SqlSessionFactory	ssf;
 		
 	} // guideInsert(GuideVO vo)
 	
+	public static void guideHitIncrease(int no){
+		
+		SqlSession session = ssf.openSession(true);
+		session.update("guideHitIncrease",no);
+		session.close();
+	} // guideHitIncrease(int no)
 	
+	public static int guideHitInfo(int no){
+		
+		SqlSession session = ssf.openSession(true);
+		int text_hit = session.selectOne("guideHitInfo",no);
+		session.close();
+		return text_hit;
+	} //  guideHitInfo(int no)
 	
+	public static void guideDelete(int no){
+		
+		SqlSession session = ssf.openSession();
+		int text_no = session.selectOne("textnoSearch",no);
+		System.out.println(text_no);
+		session.close();
+		
+		session = ssf.openSession(true);
+		session.delete("guideDelete", no);
+		session.delete("textDelete",text_no);
+		session.close();
+	}
 	
 	
 	

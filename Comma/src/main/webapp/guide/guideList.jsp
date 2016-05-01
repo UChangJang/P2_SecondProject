@@ -20,9 +20,7 @@
 				<div class="4u">
 					<span class="image fit a" id="guidePic"> 
 					<a href="guideBoard.do?no=${vo.guidevo.guide_no }" target="_top">
-					<!-- <img src="http://211.238.142.74:8080/images/back.jpg" alt="" /></a> -->
-					<img src="http://211.238.142.74:8080/controller/image/back.jpg" alt="" /></a>
-					<!-- <img src="http:\\\\211.238.142.74:8080\\controller\\images\\busan2.jpg" alt="" /></a> -->
+					<img src="http://211.238.142.74:8080/controller/image/${vo.guidevo.guide_img }" alt="" /></a>
 						<div class="listText" id="testtest"></div>
 						<div class="listText2">
 							<div>
@@ -48,13 +46,14 @@
 			
 			</div>
 			<br>
-			<table>
-				<tr>
-					<td align=center>[1][2][3][4][5]</td>
-				</tr>
-				<tr>
-					<td align=right>${curpage } page / ${totalpage } pages</td>
-				</tr>
+			<table id="table_content">
+			<tr>
+				<td align=right>
+					<img src="images/prev.png" border=0 id="prevBtn">&nbsp;
+					<img src="images/next.png" border=0 id="nextBtn">&nbsp;&nbsp;
+					${curpage} page / ${totalpage } pages 
+				</td>
+			</tr>
 			</table>
 			
 		</div>
