@@ -37,6 +37,21 @@
 		var jsp=$('.nav2Name').attr('id');
 		if(jsp=='intro/introduceKor.jsp'){
 			$('.nav2Name').text('ABOUT KOREA');
+		}else if(jsp=='intro/introduceSite.jsp'){
+			$('.nav2Name').text('COMMA');
+		}else if(jsp=='guide/guide.jsp'){
+			$('.nav2Name').text('GUIDE LIST');
+		}else if(jsp=='guide/guideWrite.jsp'){
+			$('.nav2Name').text('GUIDE WRITE');
+		}else if(jsp=='tourist/tourist.jsp'){
+			$('.nav2Name').text('TOUR REQUEST LIST');
+		}else if(jsp=='tourist/touristWrite.jsp'){
+			$('.nav2Name').text('TOUR REQUEST WRITE');
+		}else if(jsp=='mypage/mypage.jsp'){
+			$('.nav2Name').text('MY PAGE');
+		}
+		else{
+			$('.nav2Name').text('');
 		}
 	});
 	
@@ -59,7 +74,7 @@
             <a href="main.do"><img alt="" src="images/commaLogo(small).png" width="130em" style="margin-top:0.5em;"></a>
          </h1>
          <center>
-           <p id="${jsp }" class="nav2Name">${jsp }</p>
+           <p id="${jsp }" class="nav2Name"></p>
          </center>
          <nav id="nav">
             <ul>
@@ -86,15 +101,16 @@
                            placeholder="Password">
                      </div>
                      <br>
-                     <div class="logbtn">
-                        <input name="login" value="login" id="log-btn" type="button">
-                        <input name="join" value="join" id=join-btn type="button">
-                     </div>
-                     <br>
-                     <div class="logbtn">
-                        <input name="idfind" value="id찾기" id="idfind-btn" type="button">
-                        <input name="pwdfind" value="pwd찾기" id="pwdfind-btn" type="button">
-                     </div>
+                     <table class="buttonGroup">
+                       <tr>
+                         <td><input name="login" value="login" id="log-btn" type="button"></td>
+                         <td><input name="join" value="join" id=join-btn type="button"></td>
+                       </tr>
+                       <tr>
+                         <td><input name="idfind" value="find id" id="idfind-btn" type="button"></td>
+                         <td><input name="pwdfind" value="find pwd" id="pwdfind-btn" type="button"></td>
+                       </tr>
+                     </table>
                      
                   </form>  
                   

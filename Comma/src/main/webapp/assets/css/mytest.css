@@ -1,4 +1,19 @@
 @CHARSET "EUC-KR";
+/* 메인 로그인 */
+.buttonGroup tbody tr:nth-child(2n + 1) {
+    background-color: rgba(0,0,0,0);
+}
+.buttonGroup tbody tr {
+    border: solid 0px #fff;
+    border-left: 0;
+    border-right: 0;
+}
+/* 상단 2번째, 네비게이션 메뉴바 */
+.nav2Name{
+	font-weight: bold;
+	color:#f6f6f6;
+	vertical-align:middle;
+}
 #touristMarginTop{
 	padding-top: 0;
 }

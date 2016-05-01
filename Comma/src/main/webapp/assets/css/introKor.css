@@ -61,17 +61,7 @@ opacity:0.5;}
 	text-align: center;
 	width: 30em;
 }
-#header_guideList video{
-	position: absolute;
-	top:0px;
-	left:0px;
-	min-width: 100%;
-	min-height: 100%;
-	width: auto;
-	height: auto;
-	z-index: -1;
-	overflow:hidden;
-}
+
 #main > #header_guideWrite{
 	padding: 7em 0 5em 0 ;		/* 상단이미지 12em 0 10em 0 ; */
 	background-image: url("../../images/guidePage.jpg");

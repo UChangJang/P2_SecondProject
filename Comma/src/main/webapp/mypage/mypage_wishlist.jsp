@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-
 </head>
 <body>
 	<section class="wrapper style5">
@@ -17,10 +16,10 @@
 		<section id="tabs">
 
 		<div class="tab1">
-			<a href="#">가이드 위시리스트</a>
+			<a id="tab1_a" href="#">가이드 위시리스트</a>
 		</div>
 		<div class="tab2">
-			<a href="#">관광객 위시리스트</a>
+			<a id="tab2_a" href="#">관광객 위시리스트</a>
 		</div>
 
 		<div class="box alt table-wrapper tabscontents t1">
@@ -109,7 +108,7 @@
 					$('.tabscontents').hide();
 
 					$('.t' + index).fadeIn();
-					$(this).css('background-color', '#000').addClass('active');
+					$(this).css('background-color', '#ee8c7f').addClass('active');
 				});
 	</script>
 </body>

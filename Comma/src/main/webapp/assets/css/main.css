@@ -3872,7 +3872,7 @@ header.major2 h2:after, header.major2 h3:after, header.major2 h4:after, header.m
 
 /* Main */
 
-/* 	#main > header {		
+ 	#main > header {		
 		padding: 7em 0 5em 0 ;		상단이미지 12em 0 10em 0 ;
 		background-image: url("../../images/banner.jpg");
 		background-attachment: fixed;
@@ -3880,7 +3880,7 @@ header.major2 h2:after, header.major2 h3:after, header.major2 h4:after, header.m
 		background-repeat: no-repeat;
 		background-size: cover;
 		text-align: center;
-	} */
+	}
 	
 		#main > header h2 {
 			font-size: 1.75em;
