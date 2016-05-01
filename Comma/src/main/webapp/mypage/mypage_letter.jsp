@@ -123,8 +123,7 @@
 	                     	</tr>
 	     					<tr>
 	                     	  <td colspan="2" align="center"> 
-	                     	  	<input type="button" value="답장" class="ReSendBtn" id="reSendBtn${recvo.message_no }" >                     
-	                      
+	                     	  	<input type="button" value="답장" class="ReSendBtn" id="reSendBtn${recvo.message_no }" >                  
 	                       	  </td>
 	                     	</tr>
 	                     </table>         

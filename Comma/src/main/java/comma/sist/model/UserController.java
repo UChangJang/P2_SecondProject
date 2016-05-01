@@ -8,8 +8,10 @@ import comma.sist.common.TextVO;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.guide.dao.GuideDAO;
+import comma.sist.guide.dao.GuideVO;
 import comma.sist.reservation.dao.ReservationDAO;
 import comma.sist.review.dao.ReviewDAO;
+import comma.sist.review.dao.ReviewVO;
 import comma.sist.user.dao.UserDAO;
 import comma.sist.user.dao.UserVO;
 import comma.sist.user.dao.ZipcodeVO;
@@ -114,9 +116,12 @@ public class UserController {
 	
 	@RequestMapping("mypage_review.do")
 	public String mypage_review(HttpServletRequest req){
-		String id=req.getParameter("userid");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
 		List<TextVO> vo = ReviewDAO.myAllReview(id);	
+		List<GuideVO> guidevo=ReviewDAO.myAbleReview(id);
 		req.setAttribute("vo", vo);
+		req.setAttribute("guidevo", guidevo);
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_review.jsp");		
 		return "main.jsp";
@@ -207,7 +212,22 @@ public class UserController {
 		
 		return "user/pwdFind_ok.jsp";
 	}
-	
+	@RequestMapping("reviewWrite.do")
+	public String reviewWrite(HttpServletRequest req) {
+		String guide_no=req.getParameter("guide_no");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		String score= req.getParameter("score");
+		String review_text=req.getParameter("review_text");
+		ReviewVO vo=new ReviewVO();
+		vo.setGuide_no(Integer.parseInt(guide_no));
+		vo.setReview_score(Integer.parseInt(score));
+		vo.setUser_id(id);		
+		vo.setReview_text(review_text);
+		
+		ReviewDAO.reviewWrite(vo);		
+		return "mypage/reviewWrite.jsp";
+	}
 	
 	
 	

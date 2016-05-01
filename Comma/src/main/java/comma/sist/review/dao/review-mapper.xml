@@ -2,8 +2,21 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.review.dao.review-mapper">
     <select id="myAllReview" resultMap="comma.sist.common.text-mapper.TextList">
-    	select rownum review_no,guide_subject,user_nick ,review_text,review_score  
+    	select review_no,guide_subject,user_nick ,review_text,review_score  
 		from guide,review,users
         where review.guide_no=guide.guide_no and review.user_id=users.user_id
     </select>
+    <select id="myAbleReview" parameterType="String" resultType="Guide">
+    select guide.guide_no guide_no,guide_subject,guide.user_id user_id
+    from guide,reservation,text
+    where reservation_check='n'and text_end='n' and guide.text_no=text.text_no and 
+    reservation.guide_no=guide.guide_no
+    
+    </select>
+    <insert id="reviewWrite" parameterType="Review">
+		insert into review values(
+		(select max(review_no)+1 from review),#{guide_no},#{user_id},#{review_score},#{review_text}
+		)
+		    
+    </insert>
 </mapper>
