@@ -40,4 +40,12 @@ private static SqlSessionFactory	ssf;
 		List<TextVO> vo = session.selectList("myWishTour",id);		
 		return vo;
 	}
+	
+	//미정 삭제 test요
+	public static void myWishGuideDelete(int wish_no)
+    {
+    	SqlSession session=ssf.openSession();
+    	session.delete("myWishGuideDelete",wish_no);
+    	session.close();
+    }
 }

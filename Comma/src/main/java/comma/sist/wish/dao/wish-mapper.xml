@@ -13,5 +13,10 @@
 		from wish,text,tour,users,reservation 
 		where tour.tour_no=reservation.tour_no and text.text_no=tour.text_no and wish.tour_no=tour.tour_no
 	</select>
-
+	
+	<!-- 미정 삭제 test요  어느테이블에서 삭제하나요 -->
+    <delete id="myWishGuideDelete" parameterType="int">
+    DELETE FROM 
+    WHERE wish_no=#{wish_no}
+  </delete>
 </mapper>

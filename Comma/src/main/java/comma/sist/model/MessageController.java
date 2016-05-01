@@ -47,6 +47,14 @@ public class MessageController {
 		return "mypage/messageSend_ok.jsp";
 	}
 
+	@RequestMapping("messageDelete.do")
+	public String messageDelete(HttpServletRequest req){
+		String no=req.getParameter("message_no");
+		System.out.println(no);
+		MessageDAO.messgeDelete(Integer.parseInt(no));
+		return "mypage/messageSend_ok.jsp";
+	}
+
 	
 	
 	
