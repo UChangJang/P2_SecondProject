@@ -11,7 +11,7 @@
       <meta http-equiv="Content-Script-Type" content="text/javascript" />
       <meta http-equiv="Content-Style-Type" content="text/css" />
       <meta http-equiv="X-UA-Compatible" content="IE=10" />
-
+     <link href="images\CommaWorld(1).ico" rel="shortcut icon">
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/mytest.css" />
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/basic.css" />
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/style.css" />
@@ -23,7 +23,6 @@
       <link rel="stylesheet" href="../controller/assets/css/dcalendar.picker.css">
       <link href="../controller/assets/css/jquery.bxslider.css" rel="stylesheet" />
       <link rel="stylesheet" type="text/css" href="mypage/shadow/css/shadowbox.css">
-
       
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
       <script type="text/javascript" src="ajax.js"></script>
@@ -31,16 +30,16 @@
       
       <!-- 메인 자동 스크롤 배너--> 
       <link rel='stylesheet prefetch' href='http://dimsemenov-static.s3.amazonaws.com/dist/magnific-popup.css'>
-	
-	<script type="text/javascript">
-	$(function(){
-		var jsp=$('.nav2Name').attr('id');
-		if(jsp=='intro/introduceKor.jsp'){
-			$('.nav2Name').text('ABOUT KOREA');
-		}
-	});
-	
-	</script>
+   
+   <script type="text/javascript">
+   $(function(){
+      var jsp=$('.nav2Name').attr('id');
+      if(jsp=='intro/introduceKor.jsp'){
+         $('.nav2Name').text('ABOUT KOREA');
+      }
+   });
+   
+   </script>
 </head>
    
 
@@ -98,6 +97,47 @@
                      
                   </form>  
                   
+                   <!-- 아이디찾기 레이어팝업창-->
+                 
+                  <form class="white-popup mfp-hide" id="idfind-form" method="post" action="idFind.do">
+                     <h1>ID-Find</h1>
+                     <div>
+                        <input name="name" id="name" required="" type="text"
+                           placeholder="Name">
+                     </div>
+                     <br>
+                     <div class="logbtn">
+                        <input name="idfind" value="idfind" id="idFindBtn" type="button">
+                     </div>
+                     <br>
+                      <div name="idFindPrint" id="idFindPrint"></div>
+                    
+                  </form> 
+                  
+                  <!-- 비밀번호찾기 레이어팝업창-->
+                 
+                  <form class="white-popup mfp-hide" id="pwdfind-form" method="post" action="pwdFind.do">
+                     <h1>Password-Find</h1>
+                        
+                     <div>
+                        <input name="id" id="id" required="" type="text"
+                           placeholder="ID">
+                     </div>
+                     <br>
+          
+                     <div class="logbtn">
+                       
+                        <input name="pwdfind" value="pwdfind" id="pwdFindBtn" type="button">
+                     </div>
+                     
+                      <br><br>
+          
+                      <div name="pwdFindPrint" id="pwdFindPrint"></div>
+                     
+                  </form>   
+                  
+                  
+                  
                   <!-- 2추가:회원가입 레이어 팝업창-->
                   <form class="white-popup mfp-hide" id="join-form" action="join.do" method="post">
                      <h1>Join-us</h1>
@@ -107,7 +147,7 @@
                         <input name="id_check" value="확인" id="id_check"type="button"></span>
                         </div>
                         <div name="checkPrint" id="checkPrint"></div>
-                       	
+                          
                      
                      <br>
                      <div>
@@ -167,6 +207,9 @@
                         <div class="box">
                            <li><a href="mypage.do">마이페이지</a></li>
                         </div>
+                        <div class="box">
+                           <li><a href="board_list.do">게시판</a>
+                        </div>
                      </ul>
                   </div> 
                </li>
@@ -194,16 +237,16 @@
    <script src="../controller/assets/js/main.js"></script>
    <script src="../controller/js/jquery.bxslider.min.js"></script>
 
-	<script type="text/javascript" src="mypage/shadow/js/shadowbox.js"></script>
+   <script type="text/javascript" src="mypage/shadow/js/shadowbox.js"></script>
 
    <!-- inline 로그인 팝업창 -->
    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
    
    <script type="text/javascript">
 
-	Shadowbox.init({
-	   players:["iframe"]
-	});
+   Shadowbox.init({
+      players:["iframe"]
+   });
    $(document).ready(function() {
       $('#login-btn').magnificPopup({
          items :{src:'#login-form',type : 'inline'},
@@ -282,47 +325,100 @@
          
          
       });
-      $('#id_check').click(function(){  		
-  		var id = $('#join_id').val();
-  		
-  		if(id.trim()==""){
-  			alert(id)
-  			$('#join_id').focus();
-  			return;
-  		}
-  	
-  		var param="id="+encodeURIComponent(id);
-  		sendMessage("POST", "idCheck.do", param, idCheck)
-  		
-  	})
-  	 $('#idfind-btn').click(function(){
-	  	var magnificPopup = $.magnificPopup.instance; 	  
-	  	magnificPopup.close(); 
-
-  		Shadowbox.open({
-  	      content:'user/idFind.jsp',
-  	      player:'iframe',
-  	      width:500,
-  	      height:200,
-  	      title:'아이디 / 비번 찾기'
-  	   })
-  	 })
-  	
-
-
+      $('#id_check').click(function(){        
+        var id = $('#join_id').val();
+        
+        if(id.trim()==""){
+           alert(id)
+           $('#join_id').focus();
+           return;
+        }
+     
+        var param="id="+encodeURIComponent(id);
+        sendMessage("POST", "idCheck.do", param, idCheck)
+        
+     })
+    
       
+       $('#idfind-btn').magnificPopup({
+         items :{src:'#idfind-form',type : 'inline'},
+               preloader: false,focus: '#name',
+               callbacks: {beforeOpen: function() {
+                  if($(window).width() < 700) {
+                     this.st.focus = false;
+                  } else {
+                     this.st.focus = '#name';
+                  }
+               }
+         }
+      });
+      
+      $(function(){
+        $('#idFindBtn').click(function(){      
+           var name=$('#name').val();
+           if(name.trim()==""){
+              $('#name').focus();
+              return;
+           }
+           var param="name="+encodeURIComponent(name);
+           sendMessage("POST", "idFind.do", param, idfind)
+           
+        });
+       
+     });
+     function idfind(){
+        if(httpRequest.readyState==4){
+           if(httpRequest.status==200){            
+              $('#idFindPrint').html(httpRequest.responseText);
+           }
+        }
+     }
+     
+     $('#pwdfind-btn').magnificPopup({
+         items :{src:'#pwdfind-form',type : 'inline'},
+               preloader: false,focus: '#id',
+               callbacks: {beforeOpen: function() {
+                  if($(window).width() < 700) {
+                     this.st.focus = false;
+                  } else {
+                     this.st.focus = '#id';
+                  }
+               }
+         }
+      });
+      
+      $(function(){
+        $('#pwdFindBtn').click(function(){      
+           var name=$('#name').val();
+           if(name.trim()==""){
+              $('#name').focus();
+              return;
+           }
+           var param="name="+encodeURIComponent(name);
+           sendMessage("POST", "pwdFind.do", param, idfind)
+           
+        });
+       
+     });
+     function pwdfind(){
+        if(httpRequest.readyState==4){
+           if(httpRequest.status==200){            
+              $('#pwdFindPrint').html(httpRequest.responseText);
+           }
+        }
+     }
    });  
 
    
 
-	function idCheck(){			
-		if(httpRequest.readyState==4){
-			if(httpRequest.status==200){					
-				$('#checkPrint').html(httpRequest.responseText);
-			}
-		}
-	}
-	
+   function idCheck(){         
+      if(httpRequest.readyState==4){
+         if(httpRequest.status==200){               
+            $('#checkPrint').html(httpRequest.responseText);
+         }
+      }
+   }
+   
    
    </script>
    

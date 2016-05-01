@@ -7,7 +7,7 @@
 	 	from guide, users,text,reservation 
 	 	where reservation.user_id=users.user_id and reservation.guide_no=guide.guide_no and text.text_no=guide.guide_no
 	 	
-	 	
+	 		
 	 </select>
 	 <select id="myTourReservation" resultMap="comma.sist.common.text-mapper.TextList">
 	 	select rownum tour_no, tour_theme,user_nick,text_tour_date,reservation_person

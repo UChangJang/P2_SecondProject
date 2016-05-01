@@ -13,7 +13,22 @@
 </script> -->
 
 <script type=text/javascript>
-	
+$(function(){
+	   $('#wish_ok').click(function(){
+	      var param= "guide_no="+$('#wishwish').val();
+	      sendMessage("POST", "wish_ok.do", param, wish)
+	   });
+	});
+	function wishok()
+	{
+	   if(httpRequest.readyState==4)
+	   {
+	      if(httpRequest.status==200)
+	      {
+	         $('#tab1').html(httpRequest.responseText);
+	      }
+	   }
+	}	
  $(function(){
 	var width1=$(window).width();
 	var navoffset = $('#guideBoardSide').offset();
@@ -204,7 +219,7 @@
 					<ul class="actions fit small">
 						<li><a href="#" class="button special fit small">쪽지보내기</a></li>
 						<li><a href="#" class="button fit small">예약하기</a></li>
-						<li><a href="#" class="button special fit small">찜하기</a></li>
+						<li><input type="button" id="wish_ok" value="찜하기" ><input type="hidden" id="wish wish" value="${vo.guidevo.guide_no }"></li>
 					</ul>
 					</c:if>
 					<c:if test="${confirmId == true }">

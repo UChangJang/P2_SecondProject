@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.wish.dao.wish-mapper">
-	
-	<select id="myWishGuide" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList">
-		select rownum as wish_no,guide_subject,user_nick,text_regdate,text_total_person,reservation_person
-		from wish,text,guide,users,reservation 
-		where guide.guide_no=reservation.guide_no and text.text_no=guide.text_no and wish.guide_no=guide.guide_no
-	</select>
-	
-	<select id="myWishTour" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList">
-		select rownum as wish_no,tour_theme,user_nick,text_regdate,text_total_person,reservation_person
-		from wish,text,tour,users,reservation 
-		where tour.tour_no=reservation.tour_no and text.text_no=tour.text_no and wish.tour_no=tour.tour_no
-	</select>
-	
-	<!-- 미정 삭제 test요  어느테이블에서 삭제하나요 -->
-    <delete id="myWishGuideDelete" parameterType="int">
-    DELETE FROM 
+
+	   <select id="myWishGuide" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList">
+      select wish_no,guide_subject,user_nick,text_regdate,text_total_person,guide.guide_no
+      from wish,text,guide,users
+      where wish.guide_no=guide.guide_no and guide.user_id=users.user_id and text.text_no=guide.text_no
+      
+   </select>
+   
+   <select id="myWishTour" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList">
+      select wish_no,tour_theme,user_nick,text_regdate,text_total_person
+      from wish,text,tour,users 
+      where wish.tour_no=tour.tour_no and tour.user_id=users.user_id and text.text_no=tour.text_no
+
+   </select>
+	<!-- 미정 삭제 test요   -->
+    <delete id="myWishDelete" parameterType="int">
+    DELETE FROM wish
     WHERE wish_no=#{wish_no}
   </delete>
+  
+  
+  <insert id="guideWishOk" parameterType="Wish">
+          insert into wish(wish_no,user_id,guide_no)
+           values((select max(wish_no)+1 from wish),#{user_id},#{guide_no})
+   </insert>
 </mapper>

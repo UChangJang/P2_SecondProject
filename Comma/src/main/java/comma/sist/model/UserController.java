@@ -93,8 +93,9 @@ public class UserController {
 		return "main.jsp";
 	}
 	@RequestMapping("mypage_wishlist.do")
-	public String mypage_wishlist(HttpServletRequest req){
-		String id=req.getParameter("userid");		
+	public String mypage_wishlist(HttpServletRequest req){			
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
 		List<TextVO> guidevo=WishDAO.myWishGuide(id);
 		List<TextVO> tourvo=WishDAO.myWishTour(id);	
 		req.setAttribute("guidevo", guidevo);
@@ -104,13 +105,19 @@ public class UserController {
 		return "main.jsp";
 	}
 	//미정 삭제 테스트
-	@RequestMapping("mypage_wishlist_delete.do")
-	   public String mypage_wishlist_delete(HttpServletRequest req)
-	   {
-		   String wish_no=req.getParameter("wish_no");
-		   WishDAO.myWishGuideDelete(Integer.parseInt(wish_no));
+	
+	@RequestMapping("wishlist_guide_delete.do")
+	   public String board_guide_delete(HttpServletRequest req){	
+		   String gwish_no=req.getParameter("gwish_no");
+		   WishDAO.myWishGuideDelete(Integer.parseInt(gwish_no));
 		  
-		   return "main.jsp";
+		   return "mypage/wishlist_delete.jsp";
+	   }
+	@RequestMapping("wishlist_tour_delete.do")
+	   public String wishlist_tour_delete(HttpServletRequest req){
+		   String twish_no=req.getParameter("twish_no");
+		   WishDAO.myWishTourDelete(Integer.parseInt(twish_no));
+		   return "mypage/wishlist_delete.jsp";
 	   }
 	
 	
@@ -139,7 +146,9 @@ public class UserController {
 	@RequestMapping("mypage_mywriter.do")
 	public String mypage_mywriter(HttpServletRequest req){
 		String id=req.getParameter("userid");
+		String writer_no=req.getParameter("writer_no");
 		System.out.println("id"+id);
+		System.out.println("writer_no"+writer_no);
 		List<TextVO> guidevo=GuideDAO.myGuideWriter(id);
 		//List<TouristVO> touristvo=TouristDAO.myTouristWriter(id);
 		
