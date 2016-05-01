@@ -86,10 +86,7 @@ $('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
 	function resCheck() {
 		if (httpRequest.readyState == 4) {
 			if (httpRequest.status == 200) {
-				//$('#checkPrint').html(httpRequest.responseText);
-				//var result = req.getAttribute("result");
-				var result = httpRequest.responseText; //값받아오기?....
-				alert(result);
+				
 			}
 		}
 	}

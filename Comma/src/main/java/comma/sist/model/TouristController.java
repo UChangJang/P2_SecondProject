@@ -193,7 +193,7 @@ public class TouristController {
       }
       
       req.setAttribute("result", result);
-      return result;
+      return "tourist/wishOk.jsp";
    }
 	   
    
@@ -226,7 +226,7 @@ public class TouristController {
       }
       
       req.setAttribute("result", result);
-      return "resOk.jsp";
+      return "tourist/resOk.jsp";
    }
    
    

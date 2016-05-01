@@ -81,15 +81,15 @@
 			</div>
 			</section>
 			</div>
-			
-	          <c:forEach var="recvo" items="${recvo }">
 
-	               <form class="white-popup mfp-hide" id="re${recvo.message_no }">
-	                  <h1>Message</h1>
+	          <c:forEach var="recvo" items="${recvo }"  >
+	               <form class="white-popup mfp-hide" id="re${recvo.message_no }" method="post" action="messageDelete.do">
+	                  <h1>Message Detail</h1>
+
 	                    <table>
 	                     	<tr>
 	                     	  <td width="30%" align="right">보낸 사람</td>
-	                     	  <td width="70%" align="left">${recvo.message_send }</td>
+	                     	  <td width="70%" align="left" >${recvo.message_send }</td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td width="30%" align="right">시간</td>
@@ -103,7 +103,8 @@
 	                     	</tr>
 	     					<tr>
 	                     	  <td colspan="2" align="center"> 
-	                     	  	<input type="button" value="답장" class="ReBtn" id="reBtn${recvo.message_no }" > 
+	                     	  	<input type="button" value="삭제" class="DelBtn" id="DelBtn${recvo.message_no }" > 
+	                     	  	<input type="hidden" value="${recvo.message_no }" name="message_no">
 	                       	  </td>
 	                     	</tr>
 	                     </table>         
@@ -112,7 +113,7 @@
 	               
 	               <!--  -->
 	               	<form class="white-popup mfp-hide" id="send${recvo.message_no }"  method="post" action="messageSend.do" >
-	                  <h1>Message</h1>
+	                  <h1>Message Reple</h1>
 	                    <table>
 	                     	<tr>
 	                     	  <td width="30%" align="right">받는 사람</td>
@@ -137,7 +138,7 @@
 	               </c:forEach> 
 	               
 	               <c:forEach var="sendvo" items="${sendvo }">
-	                <form class="white-popup mfp-hide" id="sendpopup${sendvo.message_no }">
+	                <form class="white-popup mfp-hide" id="sendpopup${sendvo.message_no }"  method="post" action="messageDelete.do">
 	                  <h1>Message</h1>
 	                    <table>
 	                     	<tr>
@@ -154,6 +155,12 @@
 	                     	<tr>
 	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${sendvo.message_text}</textarea></td>
 	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2" align="center"> 
+	                     	  	<input type="button" value="삭제" class="sendDelBtn" id="sendDelBtn${sendvo.message_no }" > 
+	                     	  	<input type="hidden" value="${sendvo.message_no }" name="message_no">
+	                       	  </td>
+	                       	 </tr>
 	                     </table>         
 	               </form> 
 	               </c:forEach>  
@@ -183,7 +190,20 @@ $('.ReBtn').click(function(){
   	
 	
 })
-
+$('.DelBtn').click(function(){
+	var id=$(this).attr('id');
+	var no=id.substring(6);
+	$('#re'+no).submit();   
+	
+	
+})
+$('.sendDelBtn').click(function(){
+	var id=$(this).attr('id');
+	var no=id.substring(10);
+	$('#sendpopup'+no).submit();   
+	
+	
+})
 $('.recvomessageText').click(function(){
 	
 	var id=$(this).attr('id');
