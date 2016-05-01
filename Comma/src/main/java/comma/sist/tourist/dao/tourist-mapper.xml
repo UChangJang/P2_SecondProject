@@ -54,7 +54,7 @@
    
    
    
-   <!-- 2.정렬하기(가격높은순) -->
+   <!-- 3.정렬하기(가격높은순) -->
    <select id="touristSortPrice" resultType="Tourist" parameterType="java.util.Map">
       SELECT tour_no,user_id,text_no,tour_theme,tour_detail,num               
       FROM (SELECT tour_no,user_id,text_no,tour_theme,tour_detail,text_cost,rownum as num
@@ -65,7 +65,39 @@
       WHERE num BETWEEN #{start} AND #{end}   
    </select> 
 
-  
+
+
+   <!-- 4. 위시리스트 검색-->
+   <select id="wishSearch" resultType="int" parameterType="java.util.Map">
+   		SELECT COUNT(*) FROM wish
+   		WHERE user_id=#{user_id} AND tour_no=#{tour_no}
+   </select>
+   
+   
+   <!-- 4. 위시리스트 추가 -->
+   <insert id="wishInsert" parameterType="Wish">
+		INSERT INTO wish(wish_no,user_id,tour_no)
+		VALUES((select NVL(max(wish_no)+1,1) from wish),#{user_id},#{tour_no})	
+	</insert>
+	
+	
+	<!-- 5. 예약 검색-->
+   <select id="resSearch" resultType="int" parameterType="java.util.Map">
+   		SELECT COUNT(*) FROM reservation
+   		WHERE user_id=#{user_id} AND tour_no=#{tour_no}
+   </select>
+   
+   <!-- 5. 예약 추가 -->
+   <insert id="resInsert" parameterType="java.util.Map">
+		INSERT INTO reservation(reservation_no,user_id,tour_no)
+		VALUES((select NVL(max(reservation_no)+1,1) from reservation),#{user_id},#{tour_no})	
+	</insert>
+   
+   
+   
+   
+   
+   
    
   <!--
    <insert id="touristInsert" parameterMap="TourList">
@@ -77,7 +109,7 @@
    
    
 
-   <!-- tourist게시판 글쓰기 --> 
+   <!--  tourist게시판 글쓰기 
    <insert id="textInsert1" parameterMap="comma.sist.common.text-mapper.TextList_param">
       insert into text values((select NVL(max(text_no)+1,1) from text),#{text_loc},#{text_cost},#{text_total_person},sysdate,
       #{text_time1},#{text_time2},#{text_time},#{text_move},0,'n',#{text_tour_date})
@@ -91,7 +123,7 @@
            values((select NVL(max(tour_no)+1,1) from tour),
            #{touristvo.user_id},#{text_no},#{touristvo.tour_theme},#{touristvo.tour_detail})
    </insert>
-  
+  -->
 
     
 </mapper>

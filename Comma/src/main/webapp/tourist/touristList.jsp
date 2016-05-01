@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
-
 <script type="text/javascript">
 $(function(){
 		//1.이전버튼 
@@ -54,6 +53,58 @@ $(function(){
 		});
 });
 
+
+$('.wishlist').click(function(){		//1.위시리스트에 담기(이미추가됨 or 추가완료)
+	<c:if test="${sessionScope.id==null }">	
+		alert("로그인이 필요합니다.");
+		return;
+	</c:if>
+	
+	var id=$(this).attr('id');
+	var no=id.substring(4);	//wish${vo.touristvo.tour_no}
+	var param="tour_no="+no+"&id="+"${sessionScope.id}";
+		//alert(param);
+	sendMessage("POST", "wishCheck.do", param, wishCheck);
+});
+
+
+$('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
+	<c:if test="${sessionScope.id==null }">	
+		alert("로그인이 필요합니다.");
+		return;
+	</c:if>
+	
+	var id=$(this).attr('id');
+	var no=id.substring(3);	//res${vo.touristvo.tour_no}
+	var param="tour_no="+no+"&id="+"${sessionScope.id}";
+	alert(param);
+	sendMessage("POST", "resTourCheck.do", param, resCheck);
+});
+
+	
+
+	function resCheck() {
+		if (httpRequest.readyState == 4) {
+			if (httpRequest.status == 200) {
+				//$('#checkPrint').html(httpRequest.responseText);
+				//var result = req.getAttribute("result");
+				var result = httpRequest.responseText; //값받아오기?....
+				alert(result);
+			}
+		}
+	}
+
+	function wishCheck() {
+		if (httpRequest.readyState == 4) {
+			if (httpRequest.status == 200) {
+				//$('#checkPrint').html(httpRequest.responseText);
+				//var result = req.getAttribute("result");
+				var result = httpRequest.responseText; //값받아오기?....
+				alert(result);
+			}
+		}
+	}
+
 	function tourContent2() {
 		if (httpRequest.readyState == 4) {
 			if (httpRequest.status == 200) {
@@ -70,7 +121,8 @@ $(function(){
 	
 			<div class="box alt">
 					<div class="row uniform 50%">
-						<c:forEach var="vo" items="${list }">
+						
+					<c:forEach var="vo" items="${list }">
 						<div class="3u">					<!-- 사진 -->
 							<span class="image fit">
 								<img src="../controller/images/pic01.jpg" alt=""/><!-- 이미지사진 -->
@@ -103,36 +155,36 @@ $(function(){
 								<textarea>${vo.touristvo.tour_detail }</textarea>
 							</div>
 							<div id="detail_textarea1"> 
-								<span><button class="button tourB" id="res${vo.touristvo.tour_no}">Message</button></span>
-								<span><button class="button tourB">WishList</button></span>
-								<span><button class="button tourB">Reserve</button></span>
+								<span><button class="button tourB letter" id="let${vo.touristvo.tour_no}">Message</button></span>
+								<span><button class="button tourB wishlist" id="wish${vo.touristvo.tour_no}">WishList</button></span>
+								<span><button class="button tourB reserve" id="res${vo.touristvo.tour_no}">Reserve</button></span>
 							</div>
 						</div>
+					</c:forEach>
 						
-						
-						<!-- 쪽지보내기 -->
-						<form class="white-popup mfp-hide" id="resPop${vo.touristvo.tour_no}" method="post" action="login.do">
-			                     <h1>Log-In</h1>
-			                     <div>
-			                     	<input type="text" value="NICK:${vo.uservo.user_nick}">
-			                     	<input type="text" value="LOCATION:${vo.text_loc}[${vo.touristvo.tour_theme }]">
-			                     </div>
-			                     <br>
-			                     <div>
-			                        <textarea>${vo.touristvo.tour_detail }</textarea>
-			                     </div>
-			                     <br>
-			                     <br>
-			                     <div class="logbtn">
-			                        <input name="idfind" value="SEND" id="idfind-btn" type="button">
-			                        <input name="pwdfind" value="BACK" id="pwdfind-btn" type="button">
-			                     </div>
-			               </form>
-               
-						</c:forEach>
 				</div>
-			</div>
-			
+				</div>
+				<!-- 쪽지보내기 -->
+						 <form class="white-popup mfp-hide" id="letPop16">
+	                  <h1>Message</h1>
+	                    <table>
+	                     	<tr>
+	                     	  <td width="30%" align="right">받는사람</td>
+	                     	  <td width="70%" align="left"></td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">시간</td>
+	                     	  <td width="70%" align="left"></td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2" align="center">내용</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2"><textarea rows="5" readonly="readonly"></textarea></td>
+	                     	</tr>
+	                     </table>         
+	               		</form> 
+
 			
                
 			<!-- 페이지 컨트롤 -->
@@ -144,18 +196,16 @@ $(function(){
 					${curpage} page / ${totalpage } pages 
 				</td>
 			</tr>
-		</table>
+			</table>
 		</div>
 	</section>
 	
                   
 
 
-	<!-- 세부내용 추가 jquery -->
+<!-- 세부내용 추가 jquery -->
 	<script type="text/javascript">
 		var d = 0;
-		
-
 		$(function() {
 			$('.plusDetail').click(function() {
 				var id = $(this).attr('id'); //id값을 가져옴
@@ -168,44 +218,37 @@ $(function(){
 					d = 0;
 				}
 			});
-
 		 });
-		
 	</script>
+
+<!-- 쪽지보내기 창 -->
+<script async src="//jsfiddle.net/cosmosjs/xQ8JC/3/embed/"></script> 
+<script type="text/javascript">
+
+$('.letter').click(function(){
 	
-<!-- 	 쪽지보내기 창 -->
-	<script type="text/javascript">
-		Shadowbox.init({
-			   players:["iframe"]
-			});
-		
-		$(document).ready(function() {
-
-			$('.tourB').click(function() {
-				var id = $(this).attr('id'); //id값을 가져옴
-				var no = id.substring(3); //res1 res2 res3...
-
-				$('#res'+no).magnificPopup({
-					
-					items : {
-						src : '#resPop' + no,
-						type : 'inline'
-					},
-					preloader : false,
-					focus : '#name',
-					callbacks : {
-						beforeOpen : function() {
-							if ($(window).width() < 700) {
-								this.st.focus = false;
-							} else {
-								this.st.focus = '#name';
-							}
-						}
-					}
-				});
-			});
-		}); 
+	var id=$(this).attr('id');
+	var no=id.substring(3);
+	alert("쪽지보내기 클릭;"+id+","+no);  
+	
+	  $.magnificPopup.open({
+	        items :{src:'#letPop16',type : 'inline'},
+	              preloader: false,focus: '#name',
+	              callbacks: {beforeOpen: function() {
+	                 if($(window).width() < 700) {
+	                    this.st.focus = false;
+	                 } else {
+	                    this.st.focus = '#messageTextarea';
+	                 }
+	              }
+	        	}
+	     });	
+	  alert(id+","+no); 
+});
 </script>
+
+
+
 
 </body>
 </html>

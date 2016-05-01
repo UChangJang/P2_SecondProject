@@ -179,6 +179,48 @@ private static SqlSessionFactory   ssf;
           return (int)(Math.ceil(count/5.0));
        }
       
+      
+      //위시리스트
+      public static int wishSearch(Map map){
+    	     
+          SqlSession session = ssf.openSession();
+          int count=session.selectOne("wishSearch",map);
+          
+          session.close();
+          return count;
+          
+        } 
+      
+      //위시리스트 추가
+      public static void wishInsert(WishVO vo){
+          SqlSession session = ssf.openSession(true);
+          session.insert("wishInsert",vo);
+          session.close();
+          
+        } 
+      
+      
+      //예약조회
+      public static int resSearch(Map map){
+    	     
+          SqlSession session = ssf.openSession();
+          int count=session.selectOne("resSearch",map);
+          
+          session.close();
+          return count;
+          
+        }
+      
+      //예약 추가
+      public static void resInsert(Map map){
+          SqlSession session = ssf.openSession(true);
+          session.insert("resInsert",map);
+          session.close();
+          
+        } 
+      
+      
+      
      // 게시판 글쓰
      public static void textInsert(TextVO tvo){
      

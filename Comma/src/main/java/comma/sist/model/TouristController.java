@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 import comma.sist.common.TextVO;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
+import comma.sist.reservation.dao.ReservationVO;
 import comma.sist.tourist.dao.TouristDAO;
+import comma.sist.wish.dao.WishVO;
 
 
 @Controller("tc")
@@ -158,6 +160,75 @@ public class TouristController {
    }
    
    
+   /* 4.위시리스트 추가 */
+   @RequestMapping("wishCheck.do")
+   public String wishCheck(HttpServletRequest req){
+	  //"tour_no="+no+"&id="+"${sessionScope.id}";
+	  String tour_no=req.getParameter("tour_no");		//1.투어번호받음
+      String user_id=req.getParameter("id");			//2.사용자id받음
+      System.out.println("tour:"+tour_no+",id:"+user_id);
+      //wish에 : user_id, tour_no
+      
+      Map map=new HashMap();		
+      map.put("tour_no", tour_no);
+      map.put("user_id", user_id);
+      System.out.println("호호호");
+      
+      int count=TouristDAO.wishSearch(map);		//존재=1 ,존재x=0
+      System.out.println("count:"+count);
+      String result="";
+      
+      if(count==0){				//존재x
+    	  WishVO vo=new WishVO();
+    	  vo.setUser_id(user_id);
+    	  vo.setTour_no(Integer.parseInt(tour_no));
+    	  
+    	  System.out.println(vo.getUser_id()+",투어번호:"+vo.getTour_no()+",가이드번호:"+vo.getGuide_no());
+    	  TouristDAO.wishInsert(vo);
+    	  System.out.println("추가완료");
+    	  result="0";
+      }else if(count==1){		//존재o
+    	  System.out.println("추가불가");
+    	  result="1";
+      }
+      
+      req.setAttribute("result", result);
+      return result;
+   }
+	   
+   
+   /* 5.예약하기 */
+   @RequestMapping("resTourCheck.do")
+   public String resTourCheck(HttpServletRequest req){
+	  //"tour_no="+no+"&id="+"${sessionScope.id}";
+	  String tour_no=req.getParameter("tour_no");		//1.투어번호받음
+      String user_id=req.getParameter("id");			//2.사용자id받음
+      System.out.println("tour:"+tour_no+",id:"+user_id);
+      //wish에 : reservation_no, user_id, tour_no
+      
+      Map map=new HashMap();		
+      map.put("tour_no", tour_no);
+      map.put("user_id", user_id);
+      System.out.println("예약하기Controller");
+      
+      int count=TouristDAO.resSearch(map);		//존재=1 ,존재x=0
+      System.out.println("예약count:"+count);
+      String result="";
+      
+      if(count==0){				//존재x
+    	  System.out.println("투어번호:"+map.get("tour_no")+",가이드번호:"+map.get("user_id"));
+    	  TouristDAO.resInsert(map);
+    	  System.out.println("예약추가완료");
+    	  result="0";
+      }else if(count==1){		//존재o
+    	  System.out.println("예약추가불가");
+    	  result="1";
+      }
+      
+      req.setAttribute("result", result);
+      return "resOk.jsp";
+   }
+   
    
    
    @RequestMapping("touristWrite_Ok.do")
@@ -166,8 +237,8 @@ public class TouristController {
 	  req.setCharacterEncoding("UTF-8");
 	   
       String tour_theme = req.getParameter("tour_theme");
-      String tour_detail = req.getParameter("tour_detail");      
       String text_loc = req.getParameter("text_loc");
+      String text_tour_date = req.getParameter("text_tour_date");
       String text_cost = req.getParameter("text_cost");
       String text_total_person = req.getParameter("text_total_person");
       String text_time1 = req.getParameter("text_time1");
@@ -175,7 +246,7 @@ public class TouristController {
       String text_time3 = req.getParameter("text_time3");
       String text_time4 = req.getParameter("text_time4");
       String text_move = req.getParameter("text_move");
-      String text_tour_date = req.getParameter("text_tour_date");
+      String tour_detail = req.getParameter("tour_detail");  
       
       int t_start = Integer.parseInt(text_time1);
 	  int t_end = Integer.parseInt(text_time3);

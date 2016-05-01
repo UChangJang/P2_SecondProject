@@ -135,7 +135,6 @@
 
 	</article>
 
-
 	<script type="text/javascript">
    
 // First, create an object containing LatLng and population for each city.

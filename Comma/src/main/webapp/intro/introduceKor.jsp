@@ -18,7 +18,7 @@
 		 <li><a class="scrolly" href="#gyeongju">GYEONGJU</a></li>
 		 <li><a class="scrolly" href="#busan">BUSAN</a></li>
 		 <li><a class="scrolly" href="#yeosu">YEOSU</a></li>
-		 <li><a class="scrolly" href="#jeju">JEJU</a></li>
+		 <li><a class="scrolly" href="#jeju">JEJU</a></li>		
 	</ul>
 </div>
 					
