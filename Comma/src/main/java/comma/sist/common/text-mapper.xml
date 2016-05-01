@@ -28,11 +28,14 @@
      <result column="user_nick" property="uservo.user_nick"/>
      <result column="user_birth" property="uservo.user_birth"/>
      <result column="user_sex" property="uservo.user_sex"/>
+     <result column="reservation_no" property="reservationvo.reservation_no"/>
      <result column="reservation_person" property="reservationvo.reservation_person"/> 
      <result column="review_no" property="reviewvo.review_no"/> 
      <result column="review_score" property="reviewvo.review_score"/> 
      <result column="review_text" property="reviewvo.review_text"/> 
-     <result column="wish_no" property="wishvo.wish_no"/>    
+     <result column="wish_no" property="wishvo.wish_no"/>
+     <result column="tour_theme" property="touristvo.tour_theme"/>
+     <result column="tour_detail" property="touristvo.tour_detail"/>
    </resultMap>
    
    

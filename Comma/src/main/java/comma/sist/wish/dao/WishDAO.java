@@ -48,4 +48,9 @@ private static SqlSessionFactory	ssf;
     	session.delete("myWishGuideDelete",wish_no);
     	session.close();
     }
+	public static void guideWishOk(WishVO vo){
+	      SqlSession session=ssf.openSession(true);
+	      session.insert("guideWishOk",vo);
+	      session.close();
+	}
 }

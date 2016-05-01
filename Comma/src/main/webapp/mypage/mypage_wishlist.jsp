@@ -30,7 +30,7 @@
 						<th width="10%">번호</th>
 						<th width="30%">제목</th>
 						<th width="10%">별명</th>
-						<th width="10%">날짜</th>
+						<th width="10%">작성일</th>
 						<th width="7%">예약자/총인원</th>
 						<th width="7%">삭제</th>
 					</tr>
@@ -39,13 +39,14 @@
 				<c:forEach var="guidevo" items="${guidevo }">
 					<tr>
 						<td>${guidevo.wishvo.wish_no }</td>
-						<td>${guidevo.guidevo.guide_subject }</td>
+						<td id="guideText" class="guideTextTd${guidevo.wishvo.wish_no }" style="cursor: pointer">
+						<a href="../controller/guideBoard.do?no=${guidevo.guidevo.guide_no }">${guidevo.guidevo.guide_subject }</a>
+						</td>
 						<td>${guidevo.uservo.user_nick }</td>
 						<td>
 						<fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/>
 						</td>
 						<td>${guidevo.reservationvo.reservation_person}/${guidevo.text_total_person}</td>
-							<!-- 미정 삭제 test요 -->
 						<td><a href="mypage_wishlist_delete.do?no=${guidevo.wishvo.wish_no }">
 						<input type="button" value="삭제"></a></td>
 					</tr>
