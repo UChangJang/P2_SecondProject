@@ -203,7 +203,6 @@ $('.recvomessageText').click(function(){
 	
 	var id=$(this).attr('id');
 	var no=id.substring(5);
-	alert(no)
 	  $.magnificPopup.open({
         items :{src:'#re'+no,type : 'inline'},
               preloader: false,focus: '#name',
@@ -223,7 +222,6 @@ $('.sendvomessageText').click(function(){
 	
 	var id=$(this).attr('id');
 	var no=id.substring(4);
-	alert(id)
 	  $.magnificPopup.open({
         items :{src:'#sendpopup'+no,type : 'inline'},
               preloader: false,focus: '#name',

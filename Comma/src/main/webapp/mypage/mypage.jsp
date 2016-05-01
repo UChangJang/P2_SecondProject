@@ -66,14 +66,14 @@
 				      <div class="tab2" >
 					 <form method='POST' name="myreview" style="margin:0; width:10em; height: 3em;">
 				      <input type="hidden" value="${sessionScope.id }" name="userid">   
-				     <a href="#none"  onclick="myreview_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
+				     <a href="#none"  onclick="review_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
 				     <img src="images/myreviews.jpg" style="align:left; vertical-align:middle">여행후기</a>
 				      </form>   </div>
 				      
 				      <div class="tab2" >
 					 <form method='POST' name="mymessage" style="margin:0; width:10em; height: 3em;">
 				      <input type="hidden" value="${sessionScope.id }" name="userid">   
-				     <a href="#none"  onclick="mymessage_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
+				     <a href="#none"  onclick="message_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
 				     <img src="images/mymessages.jpg" style="align:left; vertical-align:middle">메세지함</a>
 				      </form>   </div>
 				      
@@ -90,7 +90,7 @@
 </article>
 
 <script type="text/javascript">		
-	function mymessage_form(){
+	function message_form(){
 	  var m = document.mymessage;
 	  m.action = "mypage_letter.do";
 	  m.submit();
@@ -110,7 +110,7 @@
 		m.action = "mypage_mydetail.do";
 		m.submit();
 	}
-	function myreview_form(){
+	function review_form(){
 		var m =document.myreview;
 		m.action = "mypage_review.do";
 		m.submit();

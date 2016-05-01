@@ -101,6 +101,17 @@ public class UserController {
 		req.setAttribute("mypage", "mypage/mypage_wishlist.jsp");		
 		return "main.jsp";
 	}
+	//미정 삭제 테스트
+	@RequestMapping("mypage_wishlist_delete.do")
+	   public String mypage_wishlist_delete(HttpServletRequest req)
+	   {
+		   String wish_no=req.getParameter("wish_no");
+		   WishDAO.myWishGuideDelete(Integer.parseInt(wish_no));
+		  
+		   return "main.jsp";
+	   }
+	
+	
 	@RequestMapping("mypage_review.do")
 	public String mypage_review(HttpServletRequest req){
 		String id=req.getParameter("userid");
