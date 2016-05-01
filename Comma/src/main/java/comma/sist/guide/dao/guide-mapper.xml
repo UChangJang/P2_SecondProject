@@ -45,6 +45,17 @@
 		select text_hit from text where text_no=#{text_no}
 	</select>
 	
+	<!-- 가이들 글 삭제 -->
+	<select id="textnoSearch" parameterType="int" resultType="int">
+		select text_no from guide where guide_no=#{guide_no}
+	</select>
+	<delete id="guideDelete" parameterType="int">
+		delete from guide where guide_no=#{guide_no}
+	</delete>
+	<delete id="textDelete" parameterType="int">
+		delete from text where text_no=#{text_no}
+	</delete>
+	
 	
  	<select id="myGuideWriter" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList"> 
 	  select rownum guide_no,guide_subject,text_regdate,user_nick,reservation_person, text_end

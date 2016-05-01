@@ -180,4 +180,15 @@ public class GuideController {
 		return "main.jsp";
 	}
 	
+	@RequestMapping("guideDelete.do")
+	public String guideDelete(HttpServletRequest request){
+		
+		String no = request.getParameter("no");		
+		
+		GuideDAO.guideDelete(Integer.parseInt(no));	
+
+		return "guide/guideDelete.jsp";
+	}
+	
+	
 }

@@ -91,7 +91,18 @@ private static SqlSessionFactory	ssf;
 		return text_hit;
 	} //  guideHitInfo(int no)
 	
-	
+	public static void guideDelete(int no){
+		
+		SqlSession session = ssf.openSession();
+		int text_no = session.selectOne("textnoSearch",no);
+		System.out.println(text_no);
+		session.close();
+		
+		session = ssf.openSession(true);
+		session.delete("guideDelete", no);
+		session.delete("textDelete",text_no);
+		session.close();
+	}
 	
 	
 	
