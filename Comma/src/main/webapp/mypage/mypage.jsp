@@ -59,7 +59,7 @@
 				       <div class="tab2" >
 					 <form method='POST' name="mydetail" style="margin:0; width:10em; height: 3em;">
 				      <input type="hidden" value="${sessionScope.id }" name="userid">   
-				     <a href="#none"  onclick="infoCorrection_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
+				     <a href="#none"  onclick="mydetail_form()" style="background-color:white; border:1px gray solid;border-radius:3px; ">
 				     <img src="images/mydetails.jpg" style="align:left; vertical-align:middle">정보수정</a>
 				      </form>   </div>
 				      
@@ -90,10 +90,11 @@
 </article>
 
 <script type="text/javascript">		
-function message_form(){
+	function message_form(){
 	  var m = document.mymessage;
 	  m.action = "mypage_letter.do";
 	  m.submit();
+
 	}
 	function wish_form(){
 		var m = document.mywish;
@@ -105,9 +106,9 @@ function message_form(){
 		m.action = "mypage_mywriter.do"
 		m.submit();
 	}
-	function infoCorrection_form(){
+	function mydetail_form(){
 		var m = document.mydetail;
-		m.action = "mypage_infoCorrection.do";
+		m.action = "mypage_mydetail.do";
 		m.submit();
 	}
 	function review_form(){
@@ -120,6 +121,7 @@ function message_form(){
 		m.action = "mypage_reservation.do";
 		m.submit();
 	}
+
 	
 </script> 
 </body>

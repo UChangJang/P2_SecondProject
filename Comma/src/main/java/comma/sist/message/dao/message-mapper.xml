@@ -3,10 +3,20 @@
 <mapper namespace="comma.sist.message.dao.message-mapper">
 
  	<select id="receiveMessageAllData" parameterType="String" resultType="Message">
- 		select message_send,message_text,message_time,message_check from message where message_receive=#{id}
+ 		select message_send,message_text,message_time,message_check,message_no from message where message_receive=#{id}
  	</select>
  	<select id="sendMessageAllData" parameterType="String" resultType="Message">
- 		select message_receive,message_text,message_time,message_check from message where message_send=#{id}
+ 		select message_receive,message_text,message_time,message_check,message_no from message where message_send=#{id}
  	</select>
+ 	
+ 	<!-- 메세지 보내기 -->
+ 	<insert id="messageSend" parameterType="Message">
+ 		insert into message values((select NVL(max(message_no)+1,1) from message),#{message_send},#{message_receive},
+ 		#{message_text},sysdate,'n')
+ 	</insert>
+ 	<delete id="messgeDelete" parameterType="int">
+ 		delete from message where message_no=#{no}
+ 	</delete>
+ 	
  	
 </mapper>

@@ -13,6 +13,7 @@
 </script> -->
 
 <script type=text/javascript>
+<<<<<<< HEAD
 $(function(){
 	   $('#wish_ok').click(function(){
 	      var param= "guide_no="+$('#wishwish').val();
@@ -30,6 +31,10 @@ $(function(){
 	   }
 	}	
  $(function(){
+=======
+	
+$(function(){
+>>>>>>> refs/remotes/origin/master
 	var width1=$(window).width();
 	var navoffset = $('#guideBoardSide').offset();
 
@@ -61,6 +66,32 @@ $(function(){
 				 $(".side2").css("display","none");
 			}
 	  });
+	
+	 $('#messageWrite').magnificPopup({
+         items :{src:'#message-form',type : 'inline'},
+               preloader: false,focus: '#message_content',
+               callbacks: {beforeOpen: function() {
+                  if($(window).width() < 700) {
+                     this.st.focus = false;
+                  } else {
+                     this.st.focus = '#message_content';
+                  }
+               }
+         }
+         
+      });
+	
+	 $('#msg_btn').click(function(){
+		
+		 var message_content = $('#message_content').val();
+		 if(message_content.trim()==""){
+			 $('#message_content').focus();
+			 return;
+		 }
+		 
+		 $('#message-form').submit();
+	 });
+	
 }); 
 
 </script>
@@ -76,6 +107,29 @@ $(function(){
 		 <li><a class="scrolly" href="#detail">상세정보</a></li>
 		 <li><a class="scrolly" href="#mention">후기</a></li>
 	</ul>
+	
+	 <!-- 쪽지보내기 양식 -->
+     <form class="white-popup mfp-hide" id="message-form" method="post" action="messageSend.do">
+        <h1>Message</h1>
+        <div>
+           <font color="pink">
+           <input name="receive_name" id="receive_name" required="" type="text"
+              placeholder="받는사람" style="width:10em;float:left" disabled="disabled" value="${vo.uservo.user_name }"></font>  
+           <input name="send_name" id="send_name" required="" type="text"
+              placeholder="보내는사람" style="width:10em;float:right" disabled="disabled" value="${sessionScope.name }">
+        </div>
+		<br><br>
+        <div>
+           <textarea placeholder="Message Detail" style="height:15em" name="message_text" id="message_content"></textarea>
+        </div>
+        <br>
+        <div align="center">
+           <input value="Send" id="msg_btn" type="button">
+        </div>
+        
+        <input type="hidden" name="message_receive" value="${vo.uservo.user_id }">
+      
+     </form>
 </div>
 
 <!-- Main -->
@@ -122,20 +176,18 @@ $(function(){
 				<div class="9u 12u$(medium) side1">
 					<hr id="intropeople"/>
 					<h5>가이드소개</h5>
-					<textarea>${vo.uservo.user_introduce }</textarea>
+					<textarea style="height:20em">${vo.uservo.user_introduce }</textarea>
 
 					<hr id="introplace" />
 					<h5>관광스타일소개</h5>
-					<textarea>${vo.guidevo.guide_loc_intro }</textarea>
+					<textarea style="height:20em">${vo.guidevo.guide_loc_intro }</textarea>
 
 					<hr id="pic"/>
 					<h4>관광지역 사진</h4>					
 					<span class="image fit a">
 					 <div id="main_bn">
-							<li><img src="images/character.png" alt="" /></li>		
-							<li><img src="images/character.png" alt="" /></li>
-							<li><img src="images/character.png" alt="" /></li>
-							<li><img src="images/character.png" alt="" /></li>
+							<li><img src="http://211.238.142.74:8080/controller/image/${vo.guidevo.guide_img }" alt="" /></li>		
+							
 					</div> 
 					</span>
 
@@ -172,7 +224,7 @@ $(function(){
 								</tr>
 								<tr>
 									<td>관광시간</td>
-									<td>${vo.text_time1 }시 시작</td>
+									<td>${vo.text_time1 }${vo.text_time2 } ~ ${vo.text_time3 }${vo.text_time4 }</td>
 								</tr>
 								<tr>
 									<td>만날장소</td>
@@ -217,9 +269,15 @@ $(function(){
 					<hr />
 					<c:if test="${confirmId == false }">
 					<ul class="actions fit small">
+<<<<<<< HEAD
 						<li><a href="#" class="button special fit small">쪽지보내기</a></li>
 						<li><a href="#" class="button fit small">예약하기</a></li>
 						<li><input type="button" id="wish_ok" value="찜하기" ><input type="hidden" id="wish wish" value="${vo.guidevo.guide_no }"></li>
+=======
+						<li><button class="button special fit small" id="messageWrite">쪽지보내기</button></li>
+						<li><button class="button fit small">예약하기</button></li>
+						<li><button class="button special fit small">찜하기</button></li>
+>>>>>>> refs/remotes/origin/master
 					</ul>
 					</c:if>
 					<c:if test="${confirmId == true }">
