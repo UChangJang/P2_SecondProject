@@ -91,6 +91,7 @@ private static SqlSessionFactory	ssf;
 		return text_hit;
 	} //  guideHitInfo(int no)
 	
+
 	public static void guideDelete(int no){
 		
 		SqlSession session = ssf.openSession();
@@ -105,10 +106,7 @@ private static SqlSessionFactory	ssf;
 	}
 	
 	
-	
-	
-	
-	
+
 	public static List<TextVO> myGuideWriter(String id){
 		SqlSession session=ssf.openSession();
 		List<TextVO> vo = session.selectList("myGuideWriter",id);

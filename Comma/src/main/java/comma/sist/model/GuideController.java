@@ -7,6 +7,8 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.guide.dao.*;
+import comma.sist.wish.dao.WishDAO;
+import comma.sist.wish.dao.WishVO;
 import comma.sist.common.*;
 import java.util.*;
 import java.io.*;
@@ -179,6 +181,29 @@ public class GuideController {
 
 		return "main.jsp";
 	}
+
+	@RequestMapping("wish_ok.do")
+	public String wish_ok(HttpServletRequest request)
+    {
+	      
+	      
+	      String guide_no = request.getParameter("guide_no");
+	      System.out.println(guide_no);
+	      
+	      WishVO vo = new WishVO();
+	      vo.setGuide_no(Integer.parseInt(guide_no));
+	      System.out.println("set:"+guide_no);
+	      
+	      HttpSession session = request.getSession();
+	      String user_id = (String)session.getAttribute("id");
+	      vo.setUser_id(user_id);
+	      System.out.println(user_id);
+	      
+	      WishDAO.guideWishOk(vo);
+	      
+	      
+	      return "guide/guideWishOk.jsp";
+	}
 	
 	@RequestMapping("guideDelete.do")
 	public String guideDelete(HttpServletRequest request){
@@ -189,6 +214,5 @@ public class GuideController {
 
 		return "guide/guideDelete.jsp";
 	}
-	
-	
+
 }

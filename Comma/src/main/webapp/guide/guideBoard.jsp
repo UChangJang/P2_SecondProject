@@ -13,8 +13,28 @@
 </script> -->
 
 <script type=text/javascript>
+<<<<<<< HEAD
+$(function(){
+	   $('#wish_ok').click(function(){
+	      var param= "guide_no="+$('#wishwish').val();
+	      sendMessage("POST", "wish_ok.do", param, wish)
+	   });
+	});
+	function wishok()
+	{
+	   if(httpRequest.readyState==4)
+	   {
+	      if(httpRequest.status==200)
+	      {
+	         $('#tab1').html(httpRequest.responseText);
+	      }
+	   }
+	}	
+ $(function(){
+=======
 	
 $(function(){
+>>>>>>> refs/remotes/origin/master
 	var width1=$(window).width();
 	var navoffset = $('#guideBoardSide').offset();
 
@@ -249,9 +269,15 @@ $(function(){
 					<hr />
 					<c:if test="${confirmId == false }">
 					<ul class="actions fit small">
+<<<<<<< HEAD
+						<li><a href="#" class="button special fit small">쪽지보내기</a></li>
+						<li><a href="#" class="button fit small">예약하기</a></li>
+						<li><input type="button" id="wish_ok" value="찜하기" ><input type="hidden" id="wish wish" value="${vo.guidevo.guide_no }"></li>
+=======
 						<li><button class="button special fit small" id="messageWrite">쪽지보내기</button></li>
 						<li><button class="button fit small">예약하기</button></li>
 						<li><button class="button special fit small">찜하기</button></li>
+>>>>>>> refs/remotes/origin/master
 					</ul>
 					</c:if>
 					<c:if test="${confirmId == true }">

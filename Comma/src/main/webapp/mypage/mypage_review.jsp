@@ -133,8 +133,7 @@
 		
 		$('.reviewBtn').click(function(){	
 			var id= $(this).attr('id');
-			var no=id.substring(9)
-			
+			var no=id.substring(9)			
 			  $.magnificPopup.open({
 			        items :{src:'#review'+no,type : 'inline'},
 			              preloader: false,focus: '#name',
@@ -153,7 +152,6 @@
 		$('.sendReviwBtn').click(function(){
 			var id=$(this).attr('id'); 
 			var no=id.substring(12)
-			alert(no)
 			$('#review'+no).submit();
 			
 		})
