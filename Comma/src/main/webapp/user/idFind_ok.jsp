@@ -10,10 +10,10 @@
 </head>
 <body>
 	<c:if test="${id==null }">
-	 	아이디가 없음
+	 	아이디가 없습니다.
 	</c:if>
 	<c:if test="${id!=null }">
-		아이디는 ${id }
+		아이디는 ${id }입니다.
 	</c:if>
 </body>
 </html>

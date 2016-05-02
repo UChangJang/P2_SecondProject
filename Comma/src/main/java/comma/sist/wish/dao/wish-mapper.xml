@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="comma.sist.wish.dao.wish-mapper">
 	
 	<select id="myWishGuide" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList">
@@ -21,10 +22,10 @@
     <delete id="myWishGuideDelete" parameterType="int">
     DELETE FROM 
     WHERE wish_no=#{wish_no}
-  </delete>
+    </delete>
   
   
-  <insert id="guideWishOk" parameterType="Wish">
+   <insert id="guideWishOk" parameterType="Wish">
           insert into wish(wish_no,user_id,guide_no)
            values((select max(wish_no)+1 from wish),#{user_id},#{guide_no})
    </insert>

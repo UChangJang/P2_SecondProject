@@ -7,8 +7,10 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.guide.dao.*;
+
 import comma.sist.reservation.dao.ReservationDAO;
 import comma.sist.reservation.dao.ReservationVO;
+
 import comma.sist.wish.dao.WishDAO;
 import comma.sist.wish.dao.WishVO;
 import comma.sist.common.*;
@@ -183,6 +185,7 @@ public class GuideController {
 
 		return "main.jsp";
 	}
+
 	
 	@RequestMapping("guideDelete.do")
 	public String guideDelete(HttpServletRequest request){
@@ -193,6 +196,7 @@ public class GuideController {
 
 		return "guide/guideDelete.jsp";
 	}
+
 	
 	@RequestMapping("reserveGuide.do")
 	public String reserveGuide(HttpServletRequest req) throws Exception{
@@ -233,4 +237,5 @@ public class GuideController {
 	      
 	      return "guide/guideWishOk.jsp";
 	}
+
 }

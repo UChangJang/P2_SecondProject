@@ -12,13 +12,31 @@
 	});
 </script> -->
 
-<script type=text/javascript>	
+
+<script type=text/javascript>
+
+$(function(){
+   $('#wish_ok').click(function(){
+      var param= "guide_no="+$('#wishwish').val();
+      sendMessage("POST", "wish_ok.do", param, wish)
+   });
+});
+function wishok()
+{
+   if(httpRequest.readyState==4)
+   {
+      if(httpRequest.status==200)
+      {
+         $('#tab1').html(httpRequest.responseText);
+      }
+   }
+}	
+
 $(function(){
 	var width1=$(window).width();
 	var navoffset = $('#guideBoardSide').offset();
 
 	$(window).scroll(function(){  //스크롤하면 아래 코드 실행
-		
 		
 	       var num = $(this).scrollTop();  // 스크롤값
 	       if( num >= 530 && width1>=2000){  			// 스크롤을 36이상 했을 때

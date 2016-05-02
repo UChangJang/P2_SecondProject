@@ -44,10 +44,19 @@ private static SqlSessionFactory	ssf;
 	//미정 삭제 test요
 	public static void myWishGuideDelete(int wish_no)
     {
-    	SqlSession session=ssf.openSession();
-    	session.delete("myWishGuideDelete",wish_no);
+    	SqlSession session=ssf.openSession(true);
+    	session.delete("myWishDelete",wish_no);
     	session.close();
     }
+
+	public static void myWishTourDelete(int wish_no)
+    {
+    	SqlSession session=ssf.openSession(true);
+    	session.delete("myWishDelete",wish_no);
+    	session.close();
+    }
+	
+
 	public static void guideWishOk(WishVO vo){
 	      SqlSession session=ssf.openSession(true);
 	      session.insert("guideWishOk",vo);

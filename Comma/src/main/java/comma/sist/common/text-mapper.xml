@@ -35,7 +35,8 @@
      <result column="review_text" property="reviewvo.review_text"/> 
      <result column="wish_no" property="wishvo.wish_no"/>
      <result column="tour_theme" property="touristvo.tour_theme"/>
-     <result column="tour_detail" property="touristvo.tour_detail"/>
+     <result column="tour_detail" property="touristvo.tour_detail"/>  
+     <result column="tour_no" property="touristvo.tour_no"/> 
    </resultMap>
    
    
