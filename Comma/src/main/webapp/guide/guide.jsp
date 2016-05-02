@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div id="nav2" >
+<div id="#nav2" >
 	<ul>
 	 	 <li><a class="scrolly" href="#guide_margin">Search</a></li>
 	 	 <li><a class="scrolly" href="#guideList">Guide List</a></li>
@@ -17,7 +17,23 @@
 <!-- Main -->
 <article id="main">
 	<header id="header_guideList">
-		
+
+		<!-- <video preload="auto" loop="loop" autoplay="ture">
+			<source src="images/guideMovie">
+			<h2 class="headerMagin">Guide List</h2>
+			<p>You Can Find Guide In Here!</p>
+			<a href="#one" class="more scrolly"><img src="images/triangle.png">
+					<br>view more</a>
+		</video> -->
+		<h2>Guide</h2>
+		<center>
+		<p>I will Guide You!</p>
+		<p>Check the board to find the best guide to you!</p>
+		</center>
+		<a href="#one" class="more scrolly"><img src="images/triangle.png">
+				<br>view more</a>
+	
+
 	</header>
 
 	<section class="wrapper style5" id="guide_margin">

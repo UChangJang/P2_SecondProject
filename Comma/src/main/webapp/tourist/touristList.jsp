@@ -8,51 +8,92 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
-
 <script type="text/javascript">
 $(function(){
-	//1.이전버튼 
-	$('#prevBtn').click(function(){		//select_지역선택
-		if('${curpage}'>1){					//이전페이지로 가기 가능
-			var place=$('#place').val();		//1.지역값 가져오기
-			var date=$('#dt').val();			//2.날짜값 가져오기
-			if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
-				var param="page="+${curpage-1};
-				alert(param);
-				sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
-			}else{								//*검색어 있는 상태에서 볼때	
-				var sortType=$('#sortType').val();	//가격높은순
-				var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage-1};
-				alert(param);
-				sendMessage("POST", "tourist_sort.do",param, tourContent2);
-			}	
-		}else{								//이전페이지로 가기 불가능
-			alert("첫페이지입니다.");
-			return;
-		}
-	});
-	
-	//2.다음 버튼
-	$('#nextBtn').click(function(){		//select_지역선택
-		if('${curpage}'<'${totalpage}'){		//다음페이지로 가기 가능
-			var place=$('#place').val();		//1.지역값 가져오기
-			var date=$('#dt').val();			//2.날짜값 가져오기
-			if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
-				var param="page="+${curpage+1};
-				alert(param);
-				sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
-			}else{								//*검색어 있는 상태에서 볼때	
-				var sortType=$('#sortType').val();	//가격높은순
-				var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage+1};
-				alert(param);
-				sendMessage("POST", "tourist_sort.do",param, tourContent2);
-			}	
-		}else{								//이전페이지로 가기 불가능
-			alert("끝페이지입니다.");
-			return;
-		}
-	});
+		//1.이전버튼 
+		$('#prevBtn').click(function(){		//select_지역선택
+			if('${curpage}'>1){					//이전페이지로 가기 가능
+				var place=$('#place').val();		//1.지역값 가져오기
+				var date=$('#dt').val();			//2.날짜값 가져오기
+				if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
+					var param="page="+${curpage-1};
+					sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
+				}else{								//*검색어 있는 상태에서 볼때	
+					var sortType=$('#sortType').val();	//가격높은순
+					var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage-1};
+					sendMessage("POST", "tourist_sort.do",param, tourContent2);
+				}	
+			}else{								//이전페이지로 가기 불가능
+				alert("첫페이지입니다.");
+				return;
+			}
+		});
+		
+		//2.다음 버튼
+		$('#nextBtn').click(function(){		//select_지역선택
+			if('${curpage}'<'${totalpage}'){		//다음페이지로 가기 가능
+				var place=$('#place').val();		//1.지역값 가져오기
+				var date=$('#dt').val();			//2.날짜값 가져오기
+				alert('${curpage}'+","+'${totalpage}');
+				
+				if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
+					var param="page="+${curpage+1};
+					sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
+				}else{								//*검색어 있는 상태에서 볼때	
+					var sortType=$('#sortType').val();	//가격높은순
+					var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage+1};
+					sendMessage("POST", "tourist_sort.do",param, tourContent2);
+				}	
+			}else{								//이전페이지로 가기 불가능
+				alert("끝페이지입니다.");
+				return;
+			}
+		});
+
 });
+
+
+$('.wishlist').click(function(){		//1.위시리스트에 담기(이미추가됨 or 추가완료)
+	<c:if test="${sessionScope.id==null }">	
+		alert("로그인이 필요합니다.");
+		return;
+	</c:if>
+	
+	var id=$(this).attr('id');
+	var no=id.substring(4);	//wish${vo.touristvo.tour_no}
+	var param="tour_no="+no+"&id="+"${sessionScope.id}";
+	sendMessage("POST", "wishCheck.do", param, wishCheck);
+});
+
+
+$('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
+	<c:if test="${sessionScope.id==null }">	
+		alert("로그인이 필요합니다.");
+		return;
+	</c:if>
+	
+	var id=$(this).attr('id');
+	var no=id.substring(3);	//res${vo.touristvo.tour_no}
+	var param="tour_no="+no+"&id="+"${sessionScope.id}";
+	sendMessage("POST", "resTourCheck.do", param, resCheck);
+});
+
+
+	function wishCheck() {
+		if (httpRequest.readyState == 4) {
+			if (httpRequest.status == 200) {
+				alert(httpRequest.responseText);
+			}
+		}
+	}
+
+	function resCheck() {
+		if (httpRequest.readyState == 4) {
+			if (httpRequest.status == 200) {
+				alert(httpRequest.responseText);
+			}
+		}
+	}
 
 function tourContent2() {
 	if (httpRequest.readyState == 4) {
@@ -70,7 +111,8 @@ function tourContent2() {
 	
 			<div class="box alt">
 					<div class="row uniform 50%">
-						<c:forEach var="vo" items="${list }">
+						
+					<c:forEach var="vo" items="${list }">
 						<div class="3u">					<!-- 사진 -->
 							<span class="image fit">
 								<img src="../controller/images/pic01.jpg" alt=""/><!-- 이미지사진 -->
@@ -83,14 +125,14 @@ function tourContent2() {
 										<td colspan=3>[${vo.text_loc}]${vo.touristvo.tour_theme }</td>
 									</tr>
 									<tr>
-										<td>투어날짜:${vo.text_tour_date}</td>
-										<td>${vo.text_time1 }~${text_time2}</td>
-										<td>${vo.text_total_person}명 </td>
+										<td>DATE:${vo.text_tour_date}</td>
+										<td>TIME:${vo.text_time2}${vo.text_time1 }~${vo.text_time4}${vo.text_time3}</td>	<!-- 날짜 -->
+										<td>PEOPLE:${vo.text_total_person} </td>
 									</tr>
 									<tr>
-										<td>${vo.uservo.user_nick}(${vo.touristvo.user_id })</td>
-										<td>성별:${vo.uservo.user_sex}</td>
-										<td>${vo.text_cost }원</td>
+										<td>NICK:${vo.uservo.user_nick}[${vo.touristvo.user_id }]</td>
+										<td>METHOD:${vo.text_move}</td>
+										<td>COST:${vo.text_cost }</td>
 									</tr>
 								</table>
 							</span>	
@@ -103,34 +145,37 @@ function tourContent2() {
 								<textarea>${vo.touristvo.tour_detail }</textarea>
 							</div>
 							<div id="detail_textarea1"> 
-								<span><button class="button tourB" id="res${vo.touristvo.tour_no}">Message</button></span>
-								<span><button class="button tourB">WishList</button></span>
-								<span><button class="button tourB">Reserve</button></span>
+								<span><button class="button tourB letter" id="let${vo.touristvo.tour_no}">Message</button></span>
+								<span><button class="button tourB wishlist" id="wish${vo.touristvo.tour_no}">WishList</button></span>
+								<span><button class="button tourB reserve" id="res${vo.touristvo.tour_no}">Reserve</button></span>
 							</div>
 						</div>
-						</c:forEach>
+					</c:forEach>
+						
 				</div>
-			</div>
+				</div>
+				<!-- 쪽지보내기 -->
+						 <form class="white-popup mfp-hide" id="letPop16">
+	                  <h1>Message</h1>
+	                    <table>
+	                     	<tr>
+	                     	  <td width="30%" align="right">받는사람</td>
+	                     	  <td width="70%" align="left"></td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">시간</td>
+	                     	  <td width="70%" align="left"></td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2" align="center">내용</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2"><textarea rows="5" readonly="readonly"></textarea></td>
+	                     	</tr>
+	                     </table>         
+	               		</form> 
+
 			
-			<!-- 예약창 -->
-			<form class="white-popup mfp-hide" id="resPop${vo.touristvo.tour_no}" method="post" action="login.do">
-                     <h1>Log-In</h1>
-                     <div>
-                     	<input type="text" value="NICK:${vo.uservo.user_nick}">
-                     	<input type="text" value="LOCATION:${vo.text_loc}[${vo.touristvo.tour_theme }]">
-                     </div>
-                     <br>
-                     <div>
-                        <textarea>${vo.touristvo.tour_detail }</textarea>
-                     </div>
-                     <br>
-                     <br>
-                     <div class="logbtn">
-                        <input name="idfind" value="SEND" id="idfind-btn" type="button">
-                        <input name="pwdfind" value="BACK" id="pwdfind-btn" type="button">
-                     </div>
-               </form>
-               
                
 			<!-- 페이지 컨트롤 -->
 			<table id="table_content">
@@ -141,18 +186,16 @@ function tourContent2() {
 					${curpage} page / ${totalpage } pages 
 				</td>
 			</tr>
-		</table>
+			</table>
 		</div>
 	</section>
 	
                   
 
 
-	<!-- 세부내용 추가 jquery -->
+<!-- 세부내용 추가 jquery -->
 	<script type="text/javascript">
 		var d = 0;
-		
-
 		$(function() {
 			$('.plusDetail').click(function() {
 				var id = $(this).attr('id'); //id값을 가져옴
@@ -165,31 +208,37 @@ function tourContent2() {
 					d = 0;
 				}
 			});
-
 		 });
-		
 	</script>
+
+<!-- 쪽지보내기 창 -->
+<script async src="//jsfiddle.net/cosmosjs/xQ8JC/3/embed/"></script> 
+<script type="text/javascript">
+
+$('.letter').click(function(){
 	
-	<!-- 쪽지보내기 창 -->
-	<script type="text/javascript">
-	Shadowbox.init({
-		   players:["iframe"]
-		});
-			 $('#res'+'${vo.touristvo.tour_no}').magnificPopup({
-		         items :{src:'#resPop'+'${vo.touristvo.tour_no}',type : 'inline'},
-		               preloader: false,focus: '#name',
-		               callbacks: {beforeOpen: function() {
-		                  if($(window).width() < 700) {
-		                     this.st.focus = false;
-		                  } else {
-		                     this.st.focus = '#name';
-		                  }
-		               }
-		         }
-		      });
-	 </script>
+	var id=$(this).attr('id');
+	var no=id.substring(3);
+	alert("쪽지보내기 클릭;"+id+","+no);  
 	
-	
+	  $.magnificPopup.open({
+	        items :{src:'#letPop16',type : 'inline'},
+	              preloader: false,focus: '#name',
+	              callbacks: {beforeOpen: function() {
+	                 if($(window).width() < 700) {
+	                    this.st.focus = false;
+	                 } else {
+	                    this.st.focus = '#messageTextarea';
+	                 }
+	              }
+	        	}
+	     });	
+	  alert(id+","+no); 
+});
+</script>
+
+
+
 
 </body>
 </html>

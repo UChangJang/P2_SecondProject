@@ -1,4 +1,6 @@
 @CHARSET "EUC-KR";
+
+
 #detail_textarea textarea{
 	height: 10em;
 	background-color: #d6e9e4;
@@ -20,3 +22,4 @@
     margin: 1em 0 1em 0;
     width: 32%;
 }
+

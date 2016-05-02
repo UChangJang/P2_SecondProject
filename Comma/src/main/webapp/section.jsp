@@ -129,7 +129,7 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 						</div>
 					
 						<div class="guideRanking_review">
-							${vo.reviewvo.review_score }점입니다다다다다다다다다다다다다다다다다다다다다다다다다다다닫
+							${vo.reviewvo.review_score }점입니다.
 						</div>
 						<span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">${vo.uservo.user_nick }(${vo.text_loc })</span>
 					</div>

@@ -26,10 +26,10 @@ $(function(){
 		<section id="tabs">
 
 		<div class="tab1">
-			<a href="#">가이드 위시리스트</a>
+			<a id="tab1_a" href="#">가이드 위시리스트</a>
 		</div>
 		<div class="tab2">
-			<a href="#">관광객 위시리스트</a>
+			<a id="tab2_a" href="#">관광객 위시리스트</a>
 		</div>
 
 		<div class="box alt table-wrapper tabscontents t1">
@@ -52,17 +52,17 @@ $(function(){
 					
 						<td>${guidevo.wishvo.wish_no }</td>
 						<td id="guideText" class="guideTextTd${guidevo.wishvo.wish_no }" style="cursor: pointer">
-						<a href="../controller/guideBoard.do?no=${guidevo.guidevo.guide_no }">${guidevo.guidevo.guide_subject }</a>
+						<a href="../controller/guideBoard.do?no=${guidevo.guidevo.guide_no }" style="background-color: rgb(255, 255, 255);">${guidevo.guidevo.guide_subject }</a>
 						</td>
 						<td>${guidevo.uservo.user_nick }</td>
 						<td>
 						<fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/>
 						</td>
-						<td>${guidevo.reservationvo.reservation_person}/${guidevo.text_total_person}</td>
 
+						<td>${guidevo.reservationvo.reservation_person}/${guidevo.text_total_person}</td>	
+							<!-- 미정 삭제 test요 -->
+						<td><a href="wishlist_guide_delete.do?gwish_no=${guidevo.wishvo.wish_no }" style="background-color: rgb(0, 0, 0);">
 
-						<!-- 미정 삭제 test요 -->
-						<td><a href="wishlist_guide_delete.do?gwish_no=${guidevo.wishvo.wish_no }">
 						<input type="button" value="삭제"></a></td> 
 
 					</tr>
@@ -129,7 +129,7 @@ $(function(){
 					$('.tabscontents').hide();
 
 					$('.t' + index).fadeIn();
-					$(this).css('background-color', '#000').addClass('active');
+					$(this).css('background-color', '#ee8c7f').addClass('active');
 				});
 	</script>
 </body>
