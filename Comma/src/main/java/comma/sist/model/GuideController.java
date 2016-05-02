@@ -144,8 +144,12 @@ public class GuideController {
 	@RequestMapping("guideBoard.do")
 	public String guideBoard(HttpServletRequest request){
 		
-		String no = request.getParameter("no");		
+		String no = request.getParameter("no");	// 가이드 글 번호 (guide_no)
 		TextVO vo = GuideDAO.guideInfoData(Integer.parseInt(no));
+		
+		GuideDAO.guideHitIncrease(vo.getText_no()); // 조회수 증가
+		int text_hit = GuideDAO.guideHitInfo(vo.getText_no());
+		vo.setText_hit(text_hit);
 		
 		// 현재 로그인된 ID 와 글의 ID를 비교한다.
 		HttpSession session = request.getSession();
@@ -154,6 +158,7 @@ public class GuideController {
 		if(vo.getUservo().getUser_id().equals((String)session.getAttribute("id"))){
 			confirmId = true;
 		}
+
 		
 		request.setAttribute("confirmId", confirmId);
 		request.setAttribute("vo", vo);
@@ -174,5 +179,16 @@ public class GuideController {
 
 		return "main.jsp";
 	}
+	
+	@RequestMapping("guideDelete.do")
+	public String guideDelete(HttpServletRequest request){
+		
+		String no = request.getParameter("no");		
+		
+		GuideDAO.guideDelete(Integer.parseInt(no));	
+
+		return "guide/guideDelete.jsp";
+	}
+	
 	
 }

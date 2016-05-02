@@ -135,6 +135,7 @@
                      </div>                     
                   </form> 
                   </c:if>
+                              
                   <!-- 3사이드메뉴 -->
                   <a href="#menu" class="menuToggle"><span>Menu</span></a>
                   <div id="menu" class="group g1">
@@ -153,7 +154,9 @@
                            <li class="title"><a href="#">가이드</a></li>
                            <div class="cont">
                               <li><a href="guide.do">1.가이드목록</a></li>
-                              <li><a href="guideWrite.do">2.가이드글쓰기</a></li>
+                              <c:if test="${sessionScope.id!=null}">	
+                             	 <li><a href="guideWrite.do">2.가이드글쓰기</a></li>
+                              </c:if>
                            </div>
                         </div>
 
@@ -161,11 +164,15 @@
                            <li class="title"><a href="#">관광객</a></li>
                            <div class="cont">
                               <li><a href="tourist.do">1.관광객목록</a></li>
-                              <li><a href="touristWrite.do">2.관광객글쓰기</a></li>
+                              <c:if test="${sessionScope.id!=null}">	
+                              	<li><a href="touristWrite.do">2.관광객글쓰기</a></li>
+                              </c:if>
                            </div>
                         </div>
                         <div class="box">
+                        <c:if test="${sessionScope.id!=null}">	
                            <li><a href="mypage.do">마이페이지</a></li>
+                         </c:if>
                         </div>
                      </ul>
                   </div> 

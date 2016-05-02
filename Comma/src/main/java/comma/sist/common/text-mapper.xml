@@ -38,7 +38,7 @@
    
    
    <parameterMap type="Text" id="TextList_param">
-      <parameter property="guidevo.guide_no" javaType="Guide"/>
+        <parameter property="guidevo.guide_no" javaType="Guide"/>
         <parameter property="guidevo.user_id"/>
         <parameter property="guidevo.guide_subject"/>
         <parameter property="guidevo.guide_loc_intro"/>
@@ -54,6 +54,8 @@
         <parameter property="text_regdate"/>
         <parameter property="text_time1"/>
         <parameter property="text_time2"/>
+        <parameter property="text_time3"/>	<!-- am/pm -->
+        <parameter property="text_time4"/>	<!-- am/pm -->
         <parameter property="text_move"/>
         <parameter property="text_hit"/>
         <parameter property="text_end"/>

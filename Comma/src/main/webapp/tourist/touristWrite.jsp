@@ -30,10 +30,10 @@
                      <div class="select-wrapper">
                         <select name="tour_theme" id="demo-category">
                            <option value="">- Theme -</option>
-                           <option value="먹방">Eating</option>
-                           <option value="관광">Sightseeing</option>
-                           <option value="쇼핑">Shopping</option>
-                           <option value="문화">Entertainment</option>
+                           <option value="Eating">Eating</option>
+                           <option value="Sightseeing">Sightseeing</option>
+                           <option value="Shopping">Shopping</option>
+                           <option value="Entertainment">Entertainment</option>
                         </select>
                      </div>
                   </div>
@@ -45,19 +45,19 @@
                   <div class="10u$">
                      <div class="select-wrapper">
                         <select name="text_loc" id="demo-category">
-                           <option value="">-  -</option>
-                           <option value="서울">SEOUL</option>
-                           <option value="대구">DAEGU</option>
-                           <option value="부산">BUSAN</option>
-                           <option value="제주">JEJU</option>
-                           <option value="인천">INCHEON</option>
-                           <option value="춘천">CHUNCHEON</option>
-                           <option value="보령">BORYEONG</option>
-                           <option value="전주">JEONJU</option>
-                           <option value="경주">GYEONGJU</option>
-                           <option value="여수">YEOSU</option>
-                           <option value="강원도">KANGWONDO</option>
-                           <option value="경기도">GYEONGGIDO</option>
+                           <option value="">- PLACE -</option>
+                           <option value="SEOUL">SEOUL</option>
+                           <option value="DAEGU">DAEGU</option>
+                           <option value="BUSAN">BUSAN</option>
+                           <option value="JEJU">JEJU</option>
+                           <option value="INCHEON">INCHEON</option>
+                           <option value="CHUNCHEON">CHUNCHEON</option>
+                           <option value="BORYEONG">BORYEONG</option>
+                           <option value="JEONJU">JEONJU</option>
+                           <option value="GYEONGJU">GYEONGJU</option>
+                           <option value="YEOSU">YEOSU</option>
+                           <option value="KANGWONDO">KANGWONDO</option>
+                           <option value="GYEONGGIDO">GYEONGGIDO</option>
                         </select>
                      </div>
                   </div>

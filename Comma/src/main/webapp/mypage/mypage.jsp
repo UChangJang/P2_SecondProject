@@ -11,8 +11,14 @@
 <body>
 <!-- Main -->
 <article id="main">
-	<header>
+	<header id="mypage_back">
 		<h2>My Page</h2>
+		<center>
+			<p>I will Find You!</p>
+			<p>Check the board to guide someone in Korea!</p>
+		</center>
+		<a href="#one" class="more scrolly"><img src="images/triangle.png">
+		<br>view more</a>
 	</header>
 	
 	<section class="wrapper style5">
@@ -94,6 +100,7 @@
 	  var m = document.mymessage;
 	  m.action = "mypage_letter.do";
 	  m.submit();
+
 	}
 	function wish_form(){
 		var m = document.mywish;
@@ -120,6 +127,7 @@
 		m.action = "mypage_reservation.do";
 		m.submit();
 	}
+
 	
 </script> 
 </body>

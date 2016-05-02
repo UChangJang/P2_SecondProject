@@ -17,12 +17,10 @@ $(function(){
 				var date=$('#dt').val();			//2.날짜값 가져오기
 				if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
 					var param="page="+${curpage-1};
-					alert(param);
 					sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
 				}else{								//*검색어 있는 상태에서 볼때	
 					var sortType=$('#sortType').val();	//가격높은순
 					var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage-1};
-					alert(param);
 					sendMessage("POST", "tourist_sort.do",param, tourContent2);
 				}	
 			}else{								//이전페이지로 가기 불가능
@@ -36,14 +34,14 @@ $(function(){
 			if('${curpage}'<'${totalpage}'){		//다음페이지로 가기 가능
 				var place=$('#place').val();		//1.지역값 가져오기
 				var date=$('#dt').val();			//2.날짜값 가져오기
+				alert('${curpage}'+","+'${totalpage}');
+				
 				if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
 					var param="page="+${curpage+1};
-					alert(param);
 					sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
 				}else{								//*검색어 있는 상태에서 볼때	
 					var sortType=$('#sortType').val();	//가격높은순
 					var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage+1};
-					alert(param);
 					sendMessage("POST", "tourist_sort.do",param, tourContent2);
 				}	
 			}else{								//이전페이지로 가기 불가능
@@ -63,7 +61,6 @@ $('.wishlist').click(function(){		//1.위시리스트에 담기(이미추가됨 or 추가완료)
 	var id=$(this).attr('id');
 	var no=id.substring(4);	//wish${vo.touristvo.tour_no}
 	var param="tour_no="+no+"&id="+"${sessionScope.id}";
-		//alert(param);
 	sendMessage("POST", "wishCheck.do", param, wishCheck);
 });
 
@@ -77,27 +74,22 @@ $('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
 	var id=$(this).attr('id');
 	var no=id.substring(3);	//res${vo.touristvo.tour_no}
 	var param="tour_no="+no+"&id="+"${sessionScope.id}";
-	alert(param);
 	sendMessage("POST", "resTourCheck.do", param, resCheck);
 });
 
-	
-
-	function resCheck() {
-		if (httpRequest.readyState == 4) {
-			if (httpRequest.status == 200) {
-				
-			}
-		}
-	}
 
 	function wishCheck() {
 		if (httpRequest.readyState == 4) {
 			if (httpRequest.status == 200) {
-				//$('#checkPrint').html(httpRequest.responseText);
-				//var result = req.getAttribute("result");
-				var result = httpRequest.responseText; //값받아오기?....
-				alert(result);
+				alert(httpRequest.responseText);
+			}
+		}
+	}
+
+	function resCheck() {
+		if (httpRequest.readyState == 4) {
+			if (httpRequest.status == 200) {
+				alert(httpRequest.responseText);
 			}
 		}
 	}
@@ -132,14 +124,14 @@ $('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
 										<td colspan=3>[${vo.text_loc}]${vo.touristvo.tour_theme }</td>
 									</tr>
 									<tr>
-										<td>투어날짜:${vo.text_tour_date}</td>
-										<td>${vo.text_time1 }~${text_time2}</td>
-										<td>${vo.text_total_person}명 </td>
+										<td>DATE:${vo.text_tour_date}</td>
+										<td>TIME:${vo.text_time2}${vo.text_time1 }~${vo.text_time4}${vo.text_time3}</td>	<!-- 날짜 -->
+										<td>PEOPLE:${vo.text_total_person} </td>
 									</tr>
 									<tr>
-										<td>${vo.uservo.user_nick}(${vo.touristvo.user_id })</td>
-										<td>성별:${vo.uservo.user_sex}</td>
-										<td>${vo.text_cost }원</td>
+										<td>NICK:${vo.uservo.user_nick}[${vo.touristvo.user_id }]</td>
+										<td>METHOD:${vo.text_move}</td>
+										<td>COST:${vo.text_cost }</td>
 									</tr>
 								</table>
 							</span>	

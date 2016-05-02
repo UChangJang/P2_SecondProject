@@ -27,20 +27,26 @@ public class MessageController {
 		req.setAttribute("mypage", "mypage/mypage_letter.jsp");
 		return "main.jsp";
 	}
+
 	@RequestMapping("messageSend.do")
 	public String messageSend(HttpServletRequest req) throws Exception{
 		req.setCharacterEncoding("EUC-KR");
+		
 		HttpSession session = req.getSession();
-		String id = (String)session.getAttribute("id");
-		String receive_id= req.getParameter("message_receive");
-		String text= req.getParameter("message_text");
-		MessageVO vo=new MessageVO();
+		String send_id = (String)session.getAttribute("id");
+		String receive_id = req.getParameter("message_receive");
+		String message_text = req.getParameter("message_text");
+		
+		MessageVO vo = new MessageVO();
 		vo.setMessage_receive(receive_id);
-		vo.setMessage_send(id);
-		vo.setMessage_text(text);
+		vo.setMessage_send(send_id);
+		vo.setMessage_text(message_text);
+		
 		MessageDAO.messageSend(vo);
+	
 		return "mypage/messageSend_ok.jsp";
 	}
+
 	@RequestMapping("messageDelete.do")
 	public String messageDelete(HttpServletRequest req){
 		String no=req.getParameter("message_no");
@@ -48,6 +54,7 @@ public class MessageController {
 		MessageDAO.messgeDelete(Integer.parseInt(no));
 		return "mypage/messageSend_ok.jsp";
 	}
+
 	
 	
 	
