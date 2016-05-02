@@ -5,9 +5,37 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>GuideList</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="../ajax.js"></script>
 <script type="text/javascript">
+$(function(){
+	//1.이전버튼 
+	$('#prevBtn').click(function(){		
+		
+		var param="page="+${curpage-1};		
+		sendMessage("POST", "guide_p.do",param, guideContent);
+			
+	});
+	
+	//2.다음 버튼
+	$('#nextBtn').click(function(){		
+		
+		var param="page="+${curpage+1};
+		sendMessage("POST", "guide_p.do",param, guideContent);
+	});
+	
+	
 
+});
+
+function guideContent() {
+	if (httpRequest.readyState == 4) {
+		if (httpRequest.status == 200) {
+			$('#guideList').html(httpRequest.responseText);
+		}
+	}
+}
 </script>
 </head>
 <body>
@@ -17,8 +45,6 @@
 		<div class="box alt">
 			<div class="row uniform 50%">
 			
-			<c:set var="i" value="1" />
-			<%-- <c:forEach begin="${i }" end="9" step="1"> --%>
 			<c:forEach var="vo" items="${list }">
 				<div class="4u">
 					<span class="image fit a" id="guidePic"> 
@@ -37,9 +63,6 @@
 								<span>여행유형</span>&nbsp;<span><font color="pink">${vo.text_move }</font></span>
 							</div>
 							<div class="FourthTable">
-								<span>후기수</span>&nbsp;<span><font color="pink">5개</font></span>
-							</div>
-							<div class="FourthTable">
 								<span>가이드평점</span>&nbsp;<span><font color="pink">15개</font></span>
 							</div>
 						</div>
@@ -49,6 +72,7 @@
 			
 			</div>
 			<br>
+			<div>
 			<table id="table_content">
 			<tr>
 				<td align=right>
@@ -57,8 +81,9 @@
 					${curpage} page / ${totalpage } pages 
 				</td>
 			</tr>
-			</table>
 			
+			</table>
+			</div>
 		</div>
 	</div>
 </section>

@@ -60,10 +60,8 @@ $(function(){
 						</td>
 						<td>${guidevo.reservationvo.reservation_person}/${guidevo.text_total_person}</td>
 
-						<td><a href="mypage_wishlist_delete.do?no=${guidevo.wishvo.wish_no }">
-						<input type="button" value="삭제"></a></td>
 
-							<!-- 미정 삭제 test요 -->
+						<!-- 미정 삭제 test요 -->
 						<td><a href="wishlist_guide_delete.do?gwish_no=${guidevo.wishvo.wish_no }">
 						<input type="button" value="삭제"></a></td> 
 

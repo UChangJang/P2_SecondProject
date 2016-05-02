@@ -297,37 +297,37 @@ $(function(){
 						<table>
 							<thead>
 								<tr>
-									<th>항목</th>
+									<th width="20%">항목</th>
 									<th>세부사항</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>지역</td>
+									<td width="20%">지역</td>
 									<td>${vo.text_loc }</td>
 								</tr>
 								<tr>
-									<td>비용</td>
+									<td width="20%">비용</td>
 									<td>${vo.text_cost }</td>
 								</tr>
 								<tr>
-									<td>포함사항</td>
+									<td width="20%">포함사항</td>
 									<td>${vo.guidevo.guide_cost_detail }</td>
 								</tr>
 								<tr>
-									<td>여행규모</td>
+									<td width="20%">여행규모</td>
 									<td>${vo.text_total_person }</td>
 								</tr>
 								<tr>
-									<td>관광날짜</td>
+									<td width="20%">관광날짜</td>
 									<td>${vo.text_tour_date }</td>
 								</tr>
 								<tr>
-									<td>관광시간</td>
+									<td width="20%">관광시간</td>
 									<td>${vo.text_time1 }${vo.text_time2 } ~ ${vo.text_time3 }${vo.text_time4 }</td>
 								</tr>
 								<tr>
-									<td>만날장소</td>
+									<td width="20%">만날장소</td>
 									<td>${vo.guidevo.guide_meet }</td>
 								</tr>
 							</tbody>
@@ -336,7 +336,7 @@ $(function(){
 
 
 
-					<hr id="mention"/>
+					<%-- <hr id="mention"/>
 					<h5>후기</h5>
 					<div class="box alt">
 						<div class="row uniform 50%">
@@ -364,7 +364,7 @@ $(function(){
 						</c:forEach>
 							
 						</div>
-					</div>
+					</div> --%>
 
 					<hr />
 					<c:if test="${confirmId == false }">
@@ -386,8 +386,8 @@ $(function(){
 				<!-- 사이드메뉴! -->
 				<div class="3u$ side2">
 					<div id="guideBoardSide">
-						<div id="reservenow">RESERVE NOW</div>	
-						<div class="BoardSide1">신나는 서울 야경 투어</div>
+						<div id="reservenow">RESERVE CONTROL</div>	
+						<div class="BoardSide1">${vo.guidevo.guide_subject }</div>
 						<hr>
 						<div class="BoardSide1">가격:${vo.text_cost }원</div>
 						<div class="BoardSide1">날짜:${vo.text_tour_date }</div>

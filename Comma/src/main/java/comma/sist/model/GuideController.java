@@ -28,7 +28,7 @@ public class GuideController {
 		int totalpage = GuideDAO.guideTotalPage();
 		
 		// 현재 페이지
-		String page = request.getParameter("curpage");
+		String page = request.getParameter("page");
 		if(page==null) page = "1";
 		int curpage = Integer.parseInt(page);
 		
@@ -47,9 +47,43 @@ public class GuideController {
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
-		request.setAttribute("jsp", "guide/guide.jsp");		
+		request.setAttribute("jsp", "guide/guide.jsp");
+		request.setAttribute("mypage", "guide/guideList.jsp");
 		return "main.jsp";
 	}
+	
+	@RequestMapping("guide_p.do")
+	public String guide_p(HttpServletRequest request){
+				
+		// 가이드 총페이지
+		int totalpage = GuideDAO.guideTotalPage();
+		
+		// 현재 페이지
+		String page = request.getParameter("page");
+		if(page==null) page = "1";
+		int curpage = Integer.parseInt(page);
+		
+		Map map = new HashMap();
+		int rowSize = 9;
+		int start = (rowSize*curpage) - (rowSize-1);
+		int end = rowSize*curpage;
+		map.put("start", start);
+		map.put("end", end);
+		
+		
+		List<TextVO> list = GuideDAO.guideAllData(map);
+		
+		
+		
+		request.setAttribute("curpage", page);
+		request.setAttribute("totalpage", totalpage);
+		request.setAttribute("list", list);
+		request.setAttribute("jsp", "guide/guide.jsp");
+		request.setAttribute("mypage", "guide/guideList.jsp");
+		return "main.jsp";
+	}
+	
+	
 	
 	@RequestMapping("guideWrite.do")
 	public String guideWrite(HttpServletRequest request){

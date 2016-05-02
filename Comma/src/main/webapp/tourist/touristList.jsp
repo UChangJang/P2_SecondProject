@@ -11,56 +11,56 @@
 
 <script type="text/javascript">
 $(function(){
-		//1.이전버튼 
-		$('#prevBtn').click(function(){		//select_지역선택
-			if('${curpage}'>1){					//이전페이지로 가기 가능
-				var place=$('#place').val();		//1.지역값 가져오기
-				var date=$('#dt').val();			//2.날짜값 가져오기
-				if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
-					var param="page="+${curpage-1};
-					alert(param);
-					sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
-				}else{								//*검색어 있는 상태에서 볼때	
-					var sortType=$('#sortType').val();	//가격높은순
-					var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage-1};
-					alert(param);
-					sendMessage("POST", "tourist_sort.do",param, tourContent2);
-				}	
-			}else{								//이전페이지로 가기 불가능
-				alert("첫페이지입니다.");
-				return;
-			}
-		});
-		
-		//2.다음 버튼
-		$('#nextBtn').click(function(){		//select_지역선택
-			if('${curpage}'<'${totalpage}'){		//다음페이지로 가기 가능
-				var place=$('#place').val();		//1.지역값 가져오기
-				var date=$('#dt').val();			//2.날짜값 가져오기
-				if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
-					var param="page="+${curpage+1};
-					alert(param);
-					sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
-				}else{								//*검색어 있는 상태에서 볼때	
-					var sortType=$('#sortType').val();	//가격높은순
-					var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage+1};
-					alert(param);
-					sendMessage("POST", "tourist_sort.do",param, tourContent2);
-				}	
-			}else{								//이전페이지로 가기 불가능
-				alert("끝페이지입니다.");
-				return;
-			}
-		});
+	//1.이전버튼 
+	$('#prevBtn').click(function(){		//select_지역선택
+		if('${curpage}'>1){					//이전페이지로 가기 가능
+			var place=$('#place').val();		//1.지역값 가져오기
+			var date=$('#dt').val();			//2.날짜값 가져오기
+			if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
+				var param="page="+${curpage-1};
+				alert(param);
+				sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
+			}else{								//*검색어 있는 상태에서 볼때	
+				var sortType=$('#sortType').val();	//가격높은순
+				var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage-1};
+				alert(param);
+				sendMessage("POST", "tourist_sort.do",param, tourContent2);
+			}	
+		}else{								//이전페이지로 가기 불가능
+			alert("첫페이지입니다.");
+			return;
+		}
+	});
+	
+	//2.다음 버튼
+	$('#nextBtn').click(function(){		//select_지역선택
+		if('${curpage}'<'${totalpage}'){		//다음페이지로 가기 가능
+			var place=$('#place').val();		//1.지역값 가져오기
+			var date=$('#dt').val();			//2.날짜값 가져오기
+			if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
+				var param="page="+${curpage+1};
+				alert(param);
+				sendMessage("POST", "tourist_nextPrev.do",param, tourContent2);
+			}else{								//*검색어 있는 상태에서 볼때	
+				var sortType=$('#sortType').val();	//가격높은순
+				var param="place="+place+"&date="+date+"&type="+sortType+"&page="+${curpage+1};
+				alert(param);
+				sendMessage("POST", "tourist_sort.do",param, tourContent2);
+			}	
+		}else{								//이전페이지로 가기 불가능
+			alert("끝페이지입니다.");
+			return;
+		}
+	});
 });
 
-	function tourContent2() {
-		if (httpRequest.readyState == 4) {
-			if (httpRequest.status == 200) {
-				$('#tourContent').html(httpRequest.responseText);
-			}
+function tourContent2() {
+	if (httpRequest.readyState == 4) {
+		if (httpRequest.status == 200) {
+			$('#tourContent').html(httpRequest.responseText);
 		}
 	}
+}
 </script>
 
 </head>
