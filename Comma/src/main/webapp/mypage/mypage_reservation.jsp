@@ -32,21 +32,20 @@
 						<th width="10%">날짜</th>
 						<th width="7%">인원</th>
 						<th width="7%">상태</th>
-						<th width="7%">후기</th>
 					</tr>
 				</thead>
 				<tbody>
 				<c:forEach var="guidevo" items="${guidevo }">
 					<tr>
-						<td>${guidevo.guidevo.guide_no }</td>
-						<td>${guidevo.guidevo.guide_subject }</td>
-						<td>${guidevo.uservo.user_nick }</td>
-						<td>${guidevo.text_tour_date }</td>
-						<td>${guidevo.reservationvo.reservation_person }</td>
-						<td>${guidevo.text_end }</td>
-						<td><input type="button" value="삭제"></td>
+						<td width="5%" align="center">${guidevo.guidevo.guide_no }</td>
+						<td width="15%">${guidevo.guidevo.guide_subject }</td>
+						<td width="10%" align="center">${guidevo.uservo.user_nick }</td>
+						<td width="20%" align="center">${guidevo.text_tour_date }</td>
+						<td width="15%" align="center">${guidevo.reservationvo.reservation_person } / ${guidevo.text_total_person }</td>
+						<td width="10%" align="center">${guidevo.text_end }</td>
+						<td width="25%"><input type="button" value="삭제"></td>
 					</tr>
-					</c:forEach>
+				</c:forEach>
 				</tbody>
 			</table>
 		</div>
@@ -62,24 +61,20 @@
 						<th width="10%">날짜</th>
 						<th width="7%">인원</th>
 						<th width="7%">상태</th>
-						<th width="7%">후기</th>
 					</tr>
 				
 				</thead>
 				<tbody>
 				  <c:forEach var="tourvo" items="${tourvo }">
 					<tr>
-						<td>${tourvo.touristvo.tour_no }</td>
-						<td>${tourvo.touristvo.tour_theme }</td>
-						<td>${tourvo.uservo.user_nick }</td>
-						<td>${tourvo.text_tour_date }</td>
-						<td>${tourvo.reservationvo.reservation_person }</td>
-						<td>${tourvo.text_tour_date }</td>
-						
-						
-					
-						<td><input type="button" value="삭제"></td>
-					</tr>	
+						<td width="5%" align="center">${tourvo.touristvo.tour_no }</td>
+						<td width="15%">${tourvo.touristvo.tour_theme }</td>
+						<td width="10%" align="center">${tourvo.uservo.user_nick }</td>
+						<td width="20%" align="center">${tourvo.text_tour_date }</td>
+						<td width="15%" align="center">${tourvo.reservationvo.reservation_person } / ${vo.text_total_person }</td>
+						<td width="10%" align="center">${tourvo.text_end }</td>
+						<td width="25%"><input type="button" value="삭제"></td>
+					</tr>
 				  </c:forEach>
 				</tbody>
 			</table>

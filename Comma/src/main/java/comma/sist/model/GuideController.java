@@ -7,6 +7,12 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.guide.dao.*;
+
+import comma.sist.reservation.dao.ReservationDAO;
+import comma.sist.reservation.dao.ReservationVO;
+
+import comma.sist.wish.dao.WishDAO;
+import comma.sist.wish.dao.WishVO;
 import comma.sist.common.*;
 import java.util.*;
 import java.io.*;
@@ -33,6 +39,7 @@ public class GuideController {
 		map.put("start", start);
 		map.put("end", end);
 		
+		
 		List<TextVO> list = GuideDAO.guideAllData(map);
 		
 		
@@ -58,7 +65,8 @@ public class GuideController {
 		// \\211.238.142.74\Users\74\Git\P2_SecondProject\Comma\src\main\webapp\image
 		// http://211.238.142.74:8080/controller/image/seoul3.jpg  이미지 파일 읽어올때
 		// C:\springDev\springStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Comma\image
-		String path = "\\\\211.238.142.74\\springDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Comma\\image";
+		//String path = "\\\\211.238.142.74\\springDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Comma\\image";
+		String path = "\\\\211.238.142.74\\Users\\74\\Git\\P2_SecondProject\\Comma\\src\\main\\webapp\\image";
 		String enctype = "EUC-KR";
 		int	size = 1024*1024*100; 
 		System.out.println("1232");
@@ -179,16 +187,57 @@ public class GuideController {
 
 		return "main.jsp";
 	}
+
 	
 	@RequestMapping("guideDelete.do")
 	public String guideDelete(HttpServletRequest request){
 		
 		String no = request.getParameter("no");		
-		
+		System.out.println("가이드"+no);
 		GuideDAO.guideDelete(Integer.parseInt(no));	
 
 		return "guide/guideDelete.jsp";
 	}
+
 	
-	
+	@RequestMapping("reserveGuide.do")
+	public String reserveGuide(HttpServletRequest req) throws Exception{
+		
+		req.setCharacterEncoding("EUC-KR");
+		HttpSession session = req.getSession();
+		
+		String guide_no = req.getParameter("guide_no");
+		String user_id = (String)session.getAttribute("id");
+		String reservation_person = req.getParameter("reservation_person");
+		
+		ReservationVO vo = new ReservationVO();
+		vo.setGuide_no(Integer.parseInt(guide_no));
+		vo.setUser_id(user_id);
+		vo.setReservation_person(Integer.parseInt(reservation_person));
+		
+		ReservationDAO.reserveGuide(vo);
+		
+		
+		req.setAttribute("jsp", "mypage/mypage.jsp");
+		
+		return "main.jsp";
+	}
+	@RequestMapping("wishGuide.do")
+	public String wish_ok(HttpServletRequest request){
+    
+	      String guide_no = request.getParameter("guide_no");
+	      
+	      WishVO vo = new WishVO();
+	      vo.setGuide_no(Integer.parseInt(guide_no));
+	      
+	      HttpSession session = request.getSession();
+	      String user_id = (String)session.getAttribute("id");
+	      vo.setUser_id(user_id);
+     
+	      WishDAO.guideWishOk(vo);
+	      request.setAttribute("guide_no", guide_no);
+	      
+	      return "guide/guideWishOk.jsp";
+	}
+
 }

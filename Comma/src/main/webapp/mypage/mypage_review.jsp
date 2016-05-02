@@ -7,8 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 
-<script type="text/javascript"
-	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
 
 </head>
 <body>
@@ -25,72 +25,26 @@
 
 
 		<div class="box alt table-wrapper tabscontents t1">
-			<div class="row uniform 50%">
-				<div class="2u">
-					<span class="image fit"> <a href="guideWrite.jsp"><img
-							src="../images/banner.jpg" alt="" /></a>
-					</span>
-				</div>
-
-				<div class="10u">
-					<span class="image fit">
-						<table class="alt">
-							<tr>
-								<td>안보영</td>
-								<td>별다섯개</td>
-							</tr>
-							<tr>
-								<td colspan=4>멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.</td>
-							</tr>
-						</table>
-					</span>
-				</div>
-
-				<div class="2u">
-					<span class="image fit"> <a href="guideWrite.jsp"><img
-							src="../images/banner.jpg" alt="" /></a>
-					</span>
-				</div>
-
-				<div class="10u">
-					<span class="image fit">
-						<table class="alt">
-							<tr>
-								<td>안보영</td>
-								<td>별다섯개</td>
-							</tr>
-							<tr>
-								<td colspan=4>멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.
-									멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.
-									멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.</td>
-							</tr>
-						</table>
-					</span>
-				</div>
-
-				<div class="2u">
-					<span class="image fit"> <a href="guideWrite.html"><img
-							src="../images/banner.jpg" alt="" /></a>
-					</span>
-				</div>
-
-				<div class="10u">
-					<span class="image fit">
-						<table class="alt">
-							<tr>
-								<td>안보영</td>
-								<td>별다섯개</td>
-							</tr>
-							<tr>
-								<td colspan=4>멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.
-									멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.
-									멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.</td>
-							</tr>
-						</table>
-					</span>
-				</div>
-
-			</div>
+			<table class="alt">
+				<thead>
+					<tr>
+						<th width="7%">번호</th>
+						<th width="30%">글 제목</th>					
+						<th width="10%">가이드이름</th>
+						<th width="10%">쓰기</th>
+					</tr>
+				</thead>
+				<tbody>
+				<c:forEach var="guidevo" items="${guidevo }">
+					<tr>
+						<td>${guidevo.guide_no }</td>
+						<td>${guidevo.guide_subject }</td>
+						<th>${guidevo.user_id }</th>
+						<td><input type="button" value="쓰기" class =reviewBtn id="reviewBtn${guidevo.guide_no }" ></td>
+					</tr>	
+				</c:forEach>				
+				</tbody>
+			</table>
 		</div>
 
 
@@ -100,11 +54,10 @@
 				<thead>
 					<tr>
 						<th width="7%">번호</th>
-						<th width="30%">글 제목</th>
+						<th width="10%">글 제목</th>
 						<th width="10%">작성자 별명</th>
-						<th width="10%">내용</th>
-						<th width="10%">점수</th>
-						<th width="10%">쓰기</th>
+						<th width="30%">내용</th>
+						<th width="10%">점수</th>						
 						
 						
 					</tr>
@@ -116,8 +69,7 @@
 						<td>${vo.guidevo.guide_subject }</td>
 						<th>${vo.uservo.user_nick }</th>
 						<td>${vo.reviewvo.review_text }</td>
-						<td>${vo.reviewvo.review_score }</td>
-						<td><input type="button" value="쓰기"></td>
+						<td>${vo.reviewvo.review_score }</td>					
 					</tr>	
 				</c:forEach>				
 				</tbody>
@@ -125,6 +77,36 @@
 		</div>
 		</section>
 	</div>
+	<c:forEach var="guidevo" items="${guidevo }">
+	 <form class="white-popup mfp-hide" id="review${guidevo.guide_no }"  method="post" action="reviewWrite.do">
+	                  <h1>Message</h1>
+	                    <table>	           
+	                     	<tr>
+	                     	  <td align="center">점수</td>
+	                     	  <td>    
+	                     	  	 <select name="score">	                     	  	 
+	                     	    	 <option value="1">★☆☆☆☆</option>
+	                     	    	 <option value="2">★★☆☆☆</option>
+	                     	    	 <option value="3">★★★☆☆</option>
+	                     	    	 <option value="4">★★★★☆</option>
+	                     	    	 <option value="5">★★★★★</option>           
+	                     	   	</select>
+	                     	  </td>	                     	  
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2"><textarea rows="5" name=review_text></textarea></td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2" align="center"> 
+	                     	  	<input type="button" value="후기달기" class="sendReviwBtn" id="sendReviwBtn${guidevo.guide_no }" > 
+	                     	  	<input type="hidden" value="${guidevo.guide_no }" name="guide_no">                 	  	
+	                     	  	
+	                       	  </td>
+	                       	 </tr>
+	                     </table>         
+	               </form> 
+	   </c:forEach>
+	
 	</section>
 
 
@@ -148,7 +130,35 @@
 					$('.t' + index).fadeIn();
 					$(this).css('background-color', '#000').addClass('active');
 				});
-	</script>
+		
+		$('.reviewBtn').click(function(){	
+			var id= $(this).attr('id');
+			var no=id.substring(9)			
+			  $.magnificPopup.open({
+			        items :{src:'#review'+no,type : 'inline'},
+			              preloader: false,focus: '#name',
+			              callbacks: {beforeOpen: function() {
+			                 if($(window).width() < 700) {
+			                    this.st.focus = false;
+			                 } else {
+			                    this.st.focus = '#messageTextarea';
+			                 }
+			              }
+			        }
+
+			     });
+			
+		})
+		$('.sendReviwBtn').click(function(){
+			var id=$(this).attr('id'); 
+			var no=id.substring(12)
+			$('#review'+no).submit();
+			
+		})
+		
+		
+		
+</script>
 
 </body>
 </html>

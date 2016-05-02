@@ -9,6 +9,16 @@
 <title>Insert title here</title>
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#deleteBtn').click(function(){
+		
+		$('#frm').submit();
+	});
+	
+});
+</script>
 </head>
 <body>
 	<section class="wrapper style5">
@@ -29,26 +39,34 @@
 						<th width="10%">번호</th>
 						<th width="30%">제목</th>
 						<th width="10%">별명</th>
-						<th width="10%">날짜</th>
+						<th width="10%">작성일</th>
 						<th width="7%">예약자/총인원</th>
 						<th width="7%">삭제</th>
 					</tr>
 				</thead>
 				<tbody>	  
+				
 				<c:forEach var="guidevo" items="${guidevo }">
+				
 					<tr>
+					
 						<td>${guidevo.wishvo.wish_no }</td>
-						<td>${guidevo.guidevo.guide_subject }</td>
+						<td id="guideText" class="guideTextTd${guidevo.wishvo.wish_no }" style="cursor: pointer">
+						<a href="../controller/guideBoard.do?no=${guidevo.guidevo.guide_no }" style="background-color: rgb(255, 255, 255);">${guidevo.guidevo.guide_subject }</a>
+						</td>
 						<td>${guidevo.uservo.user_nick }</td>
 						<td>
 						<fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/>
 						</td>
-						<td>${guidevo.reservationvo.reservation_person}/${guidevo.text_total_person}</td>
+						<td>${guidevo.reservationvo.reservation_person}/${guidevo.text_total_person}</td>	
 							<!-- 미정 삭제 test요 -->
-						<td><a href="mypage_wishlist_delete.do?no=${guidevo.wishvo.wish_no }">
-						<input type="button" value="삭제"></a></td>
+						<td><a href="wishlist_guide_delete.do?gwish_no=${guidevo.wishvo.wish_no }" style="background-color: rgb(0, 0, 0);">
+						<input type="button" value="삭제"></a></td> 
+
 					</tr>
+					
 					</c:forEach>
+					
 				</tbody>
 			</table>
 		</div>
@@ -76,7 +94,8 @@
 						<fmt:formatDate value="${tourvo.text_regdate }" pattern="yy/MM/dd"/>
 						</td>
 						<td>${tourvo.reservationvo.reservation_person}/${tourvo.text_total_person}</td>
-						<td><input type="button" value="삭제"></td>
+						<td><a href="wishlist_tour_delete.do?twish_no=${tourvo.wishvo.wish_no }">
+						<input type="button" value="삭제"></a></td>
 					</tr>
 					</c:forEach>
 						

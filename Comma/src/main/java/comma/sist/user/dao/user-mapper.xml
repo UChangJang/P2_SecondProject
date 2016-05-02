@@ -23,7 +23,7 @@
  		insert into users(user_id,user_pwd,user_name,user_mail,user_nick) VALUES(#{user_id},#{user_pwd},#{user_name},#{user_mail},#{user_nick})
  	</insert>
  	<select id="userProfile" parameterType="String" resultType="User">
- 		select user_nick,user_mail from users where user_id=#{id}
+ 		select * from users where user_id=#{id}
  	</select>
  	 <select id="postfindAllData" resultType="Zipcode" parameterType="String">
  	select zipcode,sido,gugun,dong,NVL(bunji,' ') bunji
@@ -41,6 +41,17 @@
 	 </select>
 	 <select id="pwdFind" parameterType="String" resultType="String">
 	    select user_pwd from users where user_id=#{id}
+	 </select>
+	 <update id="infoCorrection" parameterType="User">	 		
+	 	UPDATE USERS SET 
+	 	user_pwd=#{user_pwd},user_introduce=#{user_introduce},
+	 	user_mail=#{user_mail},user_nick=#{user_nick},
+	 	user_birth=#{user_birth},
+	 	user_sex=#{user_sex},user_addr=#{user_addr}	 	
+	 	where user_id=#{user_id}
+	 </update>
+	 <select id="userProfileImage" parameterType="String" resultType="String">
+	 	select user_img from users where user_id=#{id}
 	 </select>
  	
  	

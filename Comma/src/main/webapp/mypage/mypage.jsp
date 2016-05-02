@@ -20,7 +20,7 @@
 		
 			<!-- 메뉴 작성 -->
 			<section>
-				<div class="row uniform">							
+				<div class="row uniform">
 					<table class="2kk 12u$(small)" id="mypageMenu">
 					  <thead>
 					    <h4>Mypage</h4>								<!-- 제목 왼쪽정렬 -->
@@ -130,6 +130,7 @@
 				</section>
 			</div>
 		</section>
+
 </article>
 
 <script type="text/javascript">		

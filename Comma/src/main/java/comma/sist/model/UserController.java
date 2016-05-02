@@ -8,8 +8,10 @@ import comma.sist.common.TextVO;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.guide.dao.GuideDAO;
+import comma.sist.guide.dao.GuideVO;
 import comma.sist.reservation.dao.ReservationDAO;
 import comma.sist.review.dao.ReviewDAO;
+import comma.sist.review.dao.ReviewVO;
 import comma.sist.user.dao.UserDAO;
 import comma.sist.user.dao.UserVO;
 import comma.sist.user.dao.ZipcodeVO;
@@ -83,16 +85,24 @@ public class UserController {
 	}
 	@RequestMapping("mypage_mydetail.do")
 	public String mypage_detail(HttpServletRequest req){
-		String id=req.getParameter("userid");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);
+		req.setAttribute("user_img", user_img);
 		UserVO vo = UserDAO.userProfile(id);
 		req.setAttribute("vo", vo);		
 		req.setAttribute("jsp", "mypage/mypage.jsp");
+		
 		req.setAttribute("mypage", "mypage/mypage_mydetail.jsp");
 		return "main.jsp";
 	}
 	@RequestMapping("mypage_wishlist.do")
-	public String mypage_wishlist(HttpServletRequest req){
-		String id=req.getParameter("userid");		
+	public String mypage_wishlist(HttpServletRequest req){			
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);
+		req.setAttribute("user_img", user_img);
+		
 		List<TextVO> guidevo=WishDAO.myWishGuide(id);
 		List<TextVO> tourvo=WishDAO.myWishTour(id);	
 		req.setAttribute("guidevo", guidevo);
@@ -102,28 +112,44 @@ public class UserController {
 		return "main.jsp";
 	}
 	//미정 삭제 테스트
-	@RequestMapping("mypage_wishlist_delete.do")
-	   public String mypage_wishlist_delete(HttpServletRequest req)
-	   {
-		   String wish_no=req.getParameter("wish_no");
-		   WishDAO.myWishGuideDelete(Integer.parseInt(wish_no));
+	
+	@RequestMapping("wishlist_guide_delete.do")
+	   public String board_guide_delete(HttpServletRequest req){	
+		   String gwish_no=req.getParameter("gwish_no");
+		   WishDAO.myWishGuideDelete(Integer.parseInt(gwish_no));
 		  
-		   return "main.jsp";
+		   return "mypage/wishlist_delete.jsp";
+	   }
+	@RequestMapping("wishlist_tour_delete.do")
+	   public String wishlist_tour_delete(HttpServletRequest req){
+		   String twish_no=req.getParameter("twish_no");
+		   WishDAO.myWishTourDelete(Integer.parseInt(twish_no));
+		   return "mypage/wishlist_delete.jsp";
 	   }
 	
 	
 	@RequestMapping("mypage_review.do")
 	public String mypage_review(HttpServletRequest req){
-		String id=req.getParameter("userid");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);
+		req.setAttribute("user_img", user_img);
+		
 		List<TextVO> vo = ReviewDAO.myAllReview(id);	
+		List<GuideVO> guidevo=ReviewDAO.myAbleReview(id);
 		req.setAttribute("vo", vo);
+		req.setAttribute("guidevo", guidevo);
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_review.jsp");		
 		return "main.jsp";
 	}
 	@RequestMapping("mypage_reservation.do")
 	public String mypage_reserve(HttpServletRequest req){
-		String id= req.getParameter("userid");		
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);
+		req.setAttribute("user_img", user_img);
+		
 		List<TextVO> guidevo = ReservationDAO.myGuideReservation(id);	
 		List<TextVO> tourvo = ReservationDAO.myTourReservation(id);	
 		
@@ -136,8 +162,14 @@ public class UserController {
 	}
 	@RequestMapping("mypage_mywriter.do")
 	public String mypage_mywriter(HttpServletRequest req){
-		String id=req.getParameter("userid");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);
+		req.setAttribute("user_img", user_img);
+		
+		String writer_no=req.getParameter("writer_no");
 		System.out.println("id"+id);
+		System.out.println("writer_no"+writer_no);
 		List<TextVO> guidevo=GuideDAO.myGuideWriter(id);
 		//List<TouristVO> touristvo=TouristDAO.myTouristWriter(id);
 		
@@ -173,22 +205,28 @@ public class UserController {
 		String tel=req.getParameter("tel1")+"-"+req.getParameter("tel2")+"-"+req.getParameter("tel3");
 		String addr=req.getParameter("addr1")+"-"+req.getParameter("addr2");
 		String introduce=req.getParameter("introduce");
-		System.out.println(introduce);
-		System.out.println(nick);
-		System.out.println(pwd);
-		System.out.println(email);
-		System.out.println(birth);
-		System.out.println(gender);
-		System.out.println(tel);
-		System.out.println(addr);
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
 		
-		
-		
+		UserVO vo=new UserVO();
+		vo.setUser_pwd(pwd);
+		vo.setUser_id(id);
+		vo.setUser_introduce(introduce);
+		vo.setUser_nick(nick);
+		vo.setUser_mail(email);
+		vo.setUser_birth(birth);
+		vo.setUser_sex(gender);
+		vo.setUser_addr(addr);		
+		UserDAO.infoCorrection(vo);		
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		return "main.jsp";
 	}
 	@RequestMapping("idFind.do")
 	public String idFind(HttpServletRequest req) throws Exception{
+		HttpSession session = req.getSession();
+		String user_id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(user_id);
+		req.setAttribute("user_img", user_img);
 		
 		req.setCharacterEncoding("UTF-8");
 		String name=req.getParameter("name");
@@ -207,15 +245,26 @@ public class UserController {
 		
 		return "user/pwdFind_ok.jsp";
 	}
+	@RequestMapping("reviewWrite.do")
+	public String reviewWrite(HttpServletRequest req) throws Exception{
+		
+		req.setCharacterEncoding("EUC-KR");
+		String guide_no=req.getParameter("guide_no");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		String score= req.getParameter("score");
+		String review_text=req.getParameter("review_text");
+		ReviewVO vo=new ReviewVO();
+		vo.setGuide_no(Integer.parseInt(guide_no));
+		vo.setReview_score(Integer.parseInt(score));
+		vo.setUser_id(id);		
+		vo.setReview_text(review_text);
+		
+		ReviewDAO.reviewWrite(vo);		
+		return "mypage/reviewWrite.jsp";
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	
 	

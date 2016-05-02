@@ -39,7 +39,8 @@
 				<c:forEach var="guidevo" items="${guidevo }">
 					<tr>
 						<td>${guidevo.guidevo.guide_no }</td>
-						<td>${guidevo.guidevo.guide_subject }</td>
+						<td><a href="guideBoard.do?no=${guidevo.guidevo.guide_no }">
+						${guidevo.guidevo.guide_subject }</a></td>
 						<td>${guidevo.uservo.user_nick }</td>
 						<td>
 						<fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/>

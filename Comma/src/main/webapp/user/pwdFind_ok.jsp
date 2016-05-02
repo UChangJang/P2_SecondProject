@@ -10,10 +10,11 @@
 </head>
 <body>
 	<c:if test="${pwd==null }">
-	 	아이디가 없음
+	 	아이디가 없습니다.
 	</c:if>
 	<c:if test="${pwd!=null }">
-		비번은 ${pwd }
+		비밀번호는 ${pwd }입니다.
 	</c:if>
 </body>
 </html>
+

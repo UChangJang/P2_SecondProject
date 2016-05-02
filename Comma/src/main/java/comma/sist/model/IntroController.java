@@ -1,6 +1,7 @@
 package comma.sist.model;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import comma.sist.common.TextVO;
 import comma.sist.controller.*;
@@ -60,6 +61,10 @@ public class IntroController {
 	
 	@RequestMapping("mypage.do")
 	public String mypage(HttpServletRequest request){	
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);
+		request.setAttribute("user_img",user_img);
 		request.setAttribute("jsp", "mypage/mypage.jsp");
 		return "main.jsp";
 	}
