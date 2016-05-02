@@ -2,6 +2,7 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.common.text-mapper"> 
    <resultMap type="Text" id="TextList">
+     <result column="num" property="num"/>
      <result column="guide_no" property="guidevo.guide_no"/>
      <result column="guide_subject" property="guidevo.guide_subject"/>
      <result column="guide_loc_intro" property="guidevo.guide_loc_intro"/>
@@ -28,6 +29,7 @@
      <result column="user_nick" property="uservo.user_nick"/>
      <result column="user_birth" property="uservo.user_birth"/>
      <result column="user_sex" property="uservo.user_sex"/>
+     <result column="user_introduce" property="uservo.user_introduce"/>
      <result column="reservation_no" property="reservationvo.reservation_no"/>
      <result column="reservation_person" property="reservationvo.reservation_person"/> 
      <result column="review_no" property="reviewvo.review_no"/> 
@@ -42,7 +44,7 @@
    
    
    <parameterMap type="Text" id="TextList_param">
-      <parameter property="guidevo.guide_no" javaType="Guide"/>
+        <parameter property="guidevo.guide_no" javaType="Guide"/>
         <parameter property="guidevo.user_id"/>
         <parameter property="guidevo.guide_subject"/>
         <parameter property="guidevo.guide_loc_intro"/>
@@ -58,6 +60,8 @@
         <parameter property="text_regdate"/>
         <parameter property="text_time1"/>
         <parameter property="text_time2"/>
+        <parameter property="text_time3"/>	<!-- am/pm -->
+        <parameter property="text_time4"/>	<!-- am/pm -->
         <parameter property="text_move"/>
         <parameter property="text_hit"/>
         <parameter property="text_end"/>

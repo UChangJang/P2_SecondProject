@@ -11,7 +11,7 @@
       <meta http-equiv="Content-Script-Type" content="text/javascript" />
       <meta http-equiv="Content-Style-Type" content="text/css" />
       <meta http-equiv="X-UA-Compatible" content="IE=10" />
-     <link href="images\CommaWorld(1).ico" rel="shortcut icon">
+      <link href="images\CommaWorld(1).ico" rel="shortcut icon">
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/mytest.css" />
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/basic.css" />
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/style.css" />
@@ -30,18 +30,31 @@
       
       <!-- 메인 자동 스크롤 배너--> 
       <link rel='stylesheet prefetch' href='http://dimsemenov-static.s3.amazonaws.com/dist/magnific-popup.css'>
-   
-   <script type="text/javascript">
-   $(function(){
-      var jsp=$('.nav2Name').attr('id');
-      if(jsp=='intro/introduceKor.jsp'){
-         $('.nav2Name').text('ABOUT KOREA');
-      }
-   });
-   
-   </script>
-</head>
-   
+
+	<script type="text/javascript">
+	$(function(){
+		var jsp=$('.nav2Name').attr('id');
+		if(jsp=='intro/introduceKor.jsp'){
+			$('.nav2Name').text('ABOUT KOREA');
+		}else if(jsp=='intro/introduceSite.jsp'){
+			$('.nav2Name').text('COMMA');
+		}else if(jsp=='guide/guide.jsp'){
+			$('.nav2Name').text('GUIDE LIST');
+		}else if(jsp=='guide/guideWrite.jsp'){
+			$('.nav2Name').text('GUIDE WRITE');
+		}else if(jsp=='tourist/tourist.jsp'){
+			$('.nav2Name').text('TOUR REQUEST LIST');
+		}else if(jsp=='tourist/touristWrite.jsp'){
+			$('.nav2Name').text('TOUR REQUEST WRITE');
+		}else if(jsp=='mypage/mypage.jsp'){
+			$('.nav2Name').text('MY PAGE');
+		}
+		else{
+			$('.nav2Name').text('');
+		}
+	});
+	
+	</script>
 
 <body class="landing">
    <!-- Page Wrapper -->
@@ -58,7 +71,7 @@
             <a href="main.do"><img alt="" src="images/commaLogo(small).png" width="130em" style="margin-top:0.5em;"></a>
          </h1>
          <center>
-           <p id="${jsp }" class="nav2Name">${jsp }</p>
+           <p id="${jsp }" class="nav2Name"></p>
          </center>
          <nav id="nav">
             <ul>
@@ -85,15 +98,16 @@
                            placeholder="Password">
                      </div>
                      <br>
-                     <div class="logbtn">
-                        <input name="login" value="login" id="log-btn" type="button">
-                        <input name="join" value="join" id=join-btn type="button">
-                     </div>
-                     <br>
-                     <div class="logbtn">
-                        <input name="idfind" value="id찾기" id="idfind-btn" type="button">
-                        <input name="pwdfind" value="pwd찾기" id="pwdfind-btn" type="button">
-                     </div>
+                     <table class="buttonGroup">
+                       <tr>
+                         <td><input name="login" value="login" id="log-btn" type="button"></td>
+                         <td><input name="join" value="join" id=join-btn type="button"></td>
+                       </tr>
+                       <tr>
+                         <td><input name="idfind" value="find id" id="idfind-btn" type="button"></td>
+                         <td><input name="pwdfind" value="find pwd" id="pwdfind-btn" type="button"></td>
+                       </tr>
+                     </table>
                      
                   </form>  
                   
@@ -141,14 +155,11 @@
                   <!-- 2추가:회원가입 레이어 팝업창-->
                   <form class="white-popup mfp-hide" id="join-form" action="join.do" method="post">
                      <h1>Join-us</h1>
-                     <div>
-                      
-                        <input name="id" id="join_id" required="" type="text" placeholder="ID"><span>
-                        <input name="id_check" value="확인" id="id_check"type="button"></span>
-                        </div>
+                     <div><span>
+                        <input name="id" id="join_id" required="" type="text" placeholder="ID">
+                        <input name="id_check" value="확인" id="id_check" type="button"></span>
+                     </div>
                         <div name="checkPrint" id="checkPrint"></div>
-                          
-                     
                      <br>
                      <div>
                         <input name="pwd" id="join_pwd" required="" type="password"   placeholder="Password">
@@ -194,7 +205,9 @@
                            <li class="title"><a href="#">가이드</a></li>
                            <div class="cont">
                               <li><a href="guide.do">1.가이드목록</a></li>
-                              <li><a href="guideWrite.do">2.가이드글쓰기</a></li>
+                              <c:if test="${sessionScope.id!=null}">	
+                             	 <li><a href="guideWrite.do">2.가이드글쓰기</a></li>
+                              </c:if>
                            </div>
                         </div>
 
@@ -202,12 +215,16 @@
                            <li class="title"><a href="#">관광객</a></li>
                            <div class="cont">
                               <li><a href="tourist.do">1.관광객목록</a></li>
-                              <li><a href="touristWrite.do">2.관광객글쓰기</a></li>
+                              <c:if test="${sessionScope.id!=null}">	
+                              	<li><a href="touristWrite.do">2.관광객글쓰기</a></li>
+                              </c:if>
                            </div>
                         </div>
+                         <c:if test="${sessionScope.id!=null}">
                         <div class="box">
                            <li><a href="mypage.do">마이페이지</a></li>
                         </div>
+                        </c:if>
                         <div class="box">
                            <li><a href="board_list.do">게시판</a>
                         </div>

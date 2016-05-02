@@ -32,8 +32,16 @@ public class TextVO {
 	private WishVO wishvo=new WishVO();
 	
 	private int		text_time;		// 소요시간
+	private int		num;
 	
 	
+	
+	public int getNum() {
+		return num;
+	}
+	public void setNum(int num) {
+		this.num = num;
+	}
 	public String getText_time3() {
 		return text_time3;
 	}

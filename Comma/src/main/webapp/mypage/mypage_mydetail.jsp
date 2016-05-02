@@ -181,10 +181,10 @@ Shadowbox.init({
 						</tr>
 						 <tr>
 							<th >성별</th>
-							<td colspan="3">
-							<input type="radio" class="gender" id="demo-priority-low" name="demo-priority" value="male"/>
+							<td colspan="3">	
+							<input type="radio" class="gender" id="demo-priority-low" name="demo-priority" value="남자"/>
 							<label for="demo-priority-low">male</label>
-							<input type="radio" class="gender" id="demo-priority-low" name="demo-priority" value="female"/>
+							<input type="radio" class="gender" id="demo-priority-normal" name="demo-priority" value="여자"/>
 							<label for="demo-priority-normal">female</label>
 							</td>
 						</tr>
@@ -227,7 +227,7 @@ Shadowbox.init({
 						<tr><b>Introduce Yourself, shortly!</b></tr>
 					</thead>
 					<tbody>
-						<textarea rows="4" cols="50" name=introduce></textarea>
+						<textarea rows="4" cols="50" name=introduce>${vo.user_introduce }</textarea>
 					</tbody>
 					
 
