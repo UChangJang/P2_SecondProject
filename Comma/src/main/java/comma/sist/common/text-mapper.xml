@@ -28,6 +28,7 @@
      <result column="user_nick" property="uservo.user_nick"/>
      <result column="user_birth" property="uservo.user_birth"/>
      <result column="user_sex" property="uservo.user_sex"/>
+     <result column="user_introduce" property="uservo.user_introduce"/>
      <result column="reservation_no" property="reservationvo.reservation_no"/>
      <result column="reservation_person" property="reservationvo.reservation_person"/> 
      <result column="review_no" property="reviewvo.review_no"/> 

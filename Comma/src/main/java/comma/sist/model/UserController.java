@@ -187,17 +187,19 @@ public class UserController {
 		String tel=req.getParameter("tel1")+"-"+req.getParameter("tel2")+"-"+req.getParameter("tel3");
 		String addr=req.getParameter("addr1")+"-"+req.getParameter("addr2");
 		String introduce=req.getParameter("introduce");
-		System.out.println(introduce);
-		System.out.println(nick);
-		System.out.println(pwd);
-		System.out.println(email);
-		System.out.println(birth);
-		System.out.println(gender);
-		System.out.println(tel);
-		System.out.println(addr);
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
 		
-		
-		
+		UserVO vo=new UserVO();
+		vo.setUser_pwd(pwd);
+		vo.setUser_id(id);
+		vo.setUser_introduce(introduce);
+		vo.setUser_nick(nick);
+		vo.setUser_mail(email);
+		vo.setUser_birth(birth);
+		vo.setUser_sex(gender);
+		vo.setUser_addr(addr);		
+		UserDAO.infoCorrection(vo);		
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		return "main.jsp";
 	}

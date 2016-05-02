@@ -100,7 +100,11 @@ public class UserDAO {
 		session.close();
 		return pwd;
 	}
-	
+	public static void infoCorrection(UserVO vo){
+		SqlSession session=ssf.openSession(true);
+		session.update("infoCorrection",vo);
+		session.close();
+	}
 
 	
 }
