@@ -85,10 +85,14 @@ public class UserController {
 	}
 	@RequestMapping("mypage_mydetail.do")
 	public String mypage_detail(HttpServletRequest req){
-		String id=req.getParameter("userid");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);
+		req.setAttribute("user_img", user_img);
 		UserVO vo = UserDAO.userProfile(id);
 		req.setAttribute("vo", vo);		
 		req.setAttribute("jsp", "mypage/mypage.jsp");
+		
 		req.setAttribute("mypage", "mypage/mypage_mydetail.jsp");
 		return "main.jsp";
 	}
@@ -96,6 +100,9 @@ public class UserController {
 	public String mypage_wishlist(HttpServletRequest req){			
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);
+		req.setAttribute("user_img", user_img);
+		
 		List<TextVO> guidevo=WishDAO.myWishGuide(id);
 		List<TextVO> tourvo=WishDAO.myWishTour(id);	
 		req.setAttribute("guidevo", guidevo);
@@ -125,6 +132,9 @@ public class UserController {
 	public String mypage_review(HttpServletRequest req){
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);
+		req.setAttribute("user_img", user_img);
+		
 		List<TextVO> vo = ReviewDAO.myAllReview(id);	
 		List<GuideVO> guidevo=ReviewDAO.myAbleReview(id);
 		req.setAttribute("vo", vo);
@@ -135,7 +145,11 @@ public class UserController {
 	}
 	@RequestMapping("mypage_reservation.do")
 	public String mypage_reserve(HttpServletRequest req){
-		String id= req.getParameter("userid");		
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);
+		req.setAttribute("user_img", user_img);
+		
 		List<TextVO> guidevo = ReservationDAO.myGuideReservation(id);	
 		List<TextVO> tourvo = ReservationDAO.myTourReservation(id);	
 		
@@ -148,7 +162,11 @@ public class UserController {
 	}
 	@RequestMapping("mypage_mywriter.do")
 	public String mypage_mywriter(HttpServletRequest req){
-		String id=req.getParameter("userid");
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);
+		req.setAttribute("user_img", user_img);
+		
 		String writer_no=req.getParameter("writer_no");
 		System.out.println("id"+id);
 		System.out.println("writer_no"+writer_no);
@@ -205,6 +223,10 @@ public class UserController {
 	}
 	@RequestMapping("idFind.do")
 	public String idFind(HttpServletRequest req) throws Exception{
+		HttpSession session = req.getSession();
+		String user_id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(user_id);
+		req.setAttribute("user_img", user_img);
 		
 		req.setCharacterEncoding("UTF-8");
 		String name=req.getParameter("name");
@@ -225,6 +247,7 @@ public class UserController {
 	}
 	@RequestMapping("reviewWrite.do")
 	public String reviewWrite(HttpServletRequest req) throws Exception{
+		
 		req.setCharacterEncoding("EUC-KR");
 		String guide_no=req.getParameter("guide_no");
 		HttpSession session = req.getSession();

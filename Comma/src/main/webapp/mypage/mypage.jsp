@@ -24,7 +24,7 @@
 				<div class="row uniform">							
 					<div class="4kk 12u$(small)">			<!-- 1 ¿ÞÂÊ -->
 						<div class="mypicture">
-							<img src="../controller/images/character.png">
+							<img src="http://211.238.142.74:8080/controller/profile/${user_img}">
 						</div>
 						<div class="mypictureCaption">
 							<h3>${sessionScope.id }</h3>

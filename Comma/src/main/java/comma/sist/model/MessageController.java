@@ -12,6 +12,7 @@ import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
 import comma.sist.message.dao.MessageDAO;
 import comma.sist.message.dao.MessageVO;
+import comma.sist.user.dao.UserDAO;
 
 @Controller("mc")
 public class MessageController {
@@ -19,6 +20,9 @@ public class MessageController {
 	public String mypage_letter(HttpServletRequest req){
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(id);		
+		req.setAttribute("user_img", user_img);
+
 		List<MessageVO> recvo=MessageDAO.receiveMessageAllData(id);
 		List<MessageVO> sendvo=MessageDAO.sendMessageAllData(id);
 		req.setAttribute("recvo", recvo);
