@@ -36,4 +36,13 @@ private static SqlSessionFactory	ssf;
 		return vo;
 	}
 	
+	
+	public static void reserveGuide(ReservationVO vo){
+		
+		SqlSession session = ssf.openSession(true);
+		session.insert("reserveGuide",vo);
+		session.close();
+	}
+	
+	
 }

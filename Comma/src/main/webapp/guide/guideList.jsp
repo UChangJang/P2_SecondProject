@@ -6,6 +6,9 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript">
+
+</script>
 </head>
 <body>
 <section class="wrapper style5" id="guideListSection">

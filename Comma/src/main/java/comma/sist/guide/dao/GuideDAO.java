@@ -91,6 +91,7 @@ private static SqlSessionFactory	ssf;
 		return text_hit;
 	} //  guideHitInfo(int no)
 	
+
 	public static void guideDelete(int no){
 		
 		SqlSession session = ssf.openSession();
@@ -99,16 +100,17 @@ private static SqlSessionFactory	ssf;
 		session.close();
 		
 		session = ssf.openSession(true);
+		// wish, reservation, review
+		session.delete("reviewGuideDelete",no);
+		session.delete("reservationGuideDelete",no);
+		session.delete("wishGuideDelete",no);
 		session.delete("guideDelete", no);
 		session.delete("textDelete",text_no);
 		session.close();
 	}
 	
 	
-	
-	
-	
-	
+
 	public static List<TextVO> myGuideWriter(String id){
 		SqlSession session=ssf.openSession();
 		List<TextVO> vo = session.selectList("myGuideWriter",id);

@@ -188,16 +188,16 @@
 				<div class="select-wrapper">
 					<select name="text_total_person" id="demo-category">
 						<option value="">- 모집인원 -</option>
-						<option value="1">1명</option>
-						<option value="2">2명</option>
-						<option value="3">3명</option>
-						<option value="4">4명</option>
 						<option value="5">5명</option>
-						<option value="6">6명</option>
-						<option value="7">7명</option>
-						<option value="8">8명</option>
-						<option value="9">9명</option>
 						<option value="10">10명</option>
+						<option value="15">15명</option>
+						<option value="20">20명</option>
+						<option value="25">25명</option>
+						<option value="30">30명</option>
+						<option value="35">35명</option>
+						<option value="40">40명</option>
+						<option value="45">45명</option>
+						<option value="50">50명</option>
 					</select>
 				</div>
 			</div>

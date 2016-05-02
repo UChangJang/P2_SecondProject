@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div id="nav2" >
+<div id="#nav2" >
 	<ul>
 	 	 <li><a class="scrolly" href="#guide_margin">Search</a></li>
 	 	 <li><a class="scrolly" href="#guideList">Guide List</a></li>

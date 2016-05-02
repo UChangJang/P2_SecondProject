@@ -12,14 +12,31 @@
 	});
 </script> -->
 
+
 <script type=text/javascript>
-	
+
+$(function(){
+   $('#wish_ok').click(function(){
+      var param= "guide_no="+$('#wishwish').val();
+      sendMessage("POST", "wish_ok.do", param, wish)
+   });
+});
+function wishok()
+{
+   if(httpRequest.readyState==4)
+   {
+      if(httpRequest.status==200)
+      {
+         $('#tab1').html(httpRequest.responseText);
+      }
+   }
+}	
+
 $(function(){
 	var width1=$(window).width();
 	var navoffset = $('#guideBoardSide').offset();
 
 	$(window).scroll(function(){  //스크롤하면 아래 코드 실행
-		
 		
 	       var num = $(this).scrollTop();  // 스크롤값
 	       if( num >= 530 && width1>=2000){  			// 스크롤을 36이상 했을 때
@@ -60,7 +77,35 @@ $(function(){
          }
          
       });
+	 
+	 $('#reserveBtn').magnificPopup({
+         items :{src:'#reserve-form',type : 'inline'},
+               preloader: false,focus: '#reservation_person',
+               callbacks: {beforeOpen: function() {
+                  if($(window).width() < 700) {
+                     this.st.focus = false;
+                  } else {
+                     this.st.focus = '#reservation_person';
+                  }
+               }
+         }
+         
+      });
 	
+	 $('#wishBtn').magnificPopup({
+         items :{src:'#wish-form',type : 'inline'},
+               preloader: false,focus: '#message_content',
+               callbacks: {beforeOpen: function() {
+                  if($(window).width() < 700) {
+                     this.st.focus = false;
+                  } else {
+                     this.st.focus = '#message_content';
+                  }
+               }
+         }
+         
+      });
+	 
 	 $('#msg_btn').click(function(){
 		
 		 var message_content = $('#message_content').val();
@@ -72,6 +117,14 @@ $(function(){
 		 $('#message-form').submit();
 	 });
 	
+	 $('#rsv_btn').click(function(){
+		$('#reserve-form').submit();
+	 });
+	 
+	 $('#wish_btn').click(function(){
+		$('#wish-form').submit(); 
+	 });
+	 
 }); 
 
 </script>
@@ -109,6 +162,73 @@ $(function(){
         
         <input type="hidden" name="message_receive" value="${vo.uservo.user_id }">
       
+     </form>
+     
+     <!-- 예약하기 -->
+     <form class="white-popup mfp-hide" id="reserve-form" method="post" action="reserveGuide.do">
+        <h1>Reserve Check</h1>
+        <div>
+       	<table>
+       		<tr>
+       			<td>가격:</td>
+       			<td><input name="text_cost" id="" required="" type="text"
+              placeholder="가격" style="width:12em;float:right" disabled="disabled" value="${vo.text_cost }"></td>
+       		</tr>
+       		<tr>
+       			<td>날짜:</td>
+       			<td><input name="text_tour_date" id="" required="" type="text"
+              placeholder="날짜" style="width:12em;float:right" disabled="disabled" value="${vo.text_tour_date }"></td>
+       		</tr>
+       		<tr>
+       			<td>여행지:</td>
+       			<td><input name="text_loc" id="" required="" type="text"
+              placeholder="여행지" style="width:12em;float:right" disabled="disabled" value="${vo.text_loc }"></td>
+       		</tr>
+       		<tr>
+       			<td>가이드 이름:</td>
+       			<td><input name="user_name" id="" required="" type="text"
+              placeholder="가이드" style="width:12em;float:right" disabled="disabled" value="${vo.uservo.user_name }"></td>
+       		</tr>
+       		<tr>
+       			<td>예약 인원수:</td>
+       			<td>
+       			<div class="select-wrapper">
+					<select name="reservation_person" id="reservation_person" style="width:12em;color: pink;background: black;float:right">
+						<option value="">- 인원수 -</option>
+						<option value="1">1명</option>
+						<option value="2">2명</option>
+						<option value="3">3명</option>
+						<option value="4">4명</option>
+						<option value="5">5명</option>
+						<option value="6">6명</option>
+						<option value="7">7명</option>
+						<option value="8">8명</option>
+						<option value="9">9명</option>					
+					</select>
+				</div>
+				</td>
+       		</tr>
+       	</table>
+       	</div>
+        <div align="center">
+           <input value="Reserve" id="rsv_btn" type="button">
+        </div>
+		
+		<input type="hidden" name="guide_no" value="${vo.guidevo.guide_no }">
+		<input type="hidden" name="user_id" value="${vo.uservo.user_id }">
+		
+     </form>
+     
+     <!-- 찜하기 -->
+     <form class="white-popup mfp-hide" id="wish-form" method="post" action="wishGuide.do">
+        <h1>Wish List Add</h1>
+       
+        <div align="center">
+           <input value="I Wish !" id="wish_btn" type="button">
+        </div>
+		
+		<input type="hidden" name="guide_no" value="${vo.guidevo.guide_no }">
+		
      </form>
 </div>
 
@@ -250,8 +370,8 @@ $(function(){
 					<c:if test="${confirmId == false }">
 					<ul class="actions fit small">
 						<li><button class="button special fit small" id="messageWrite">쪽지보내기</button></li>
-						<li><button class="button fit small">예약하기</button></li>
-						<li><button class="button special fit small">찜하기</button></li>
+						<li><button class="button fit small" id="reserveBtn">예약하기</button></li>
+						<li><button class="button special fit small" id="wishBtn">찜하기</button></li>
 					</ul>
 					</c:if>
 					<c:if test="${confirmId == true }">

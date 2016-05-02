@@ -10,11 +10,10 @@ public class UserVO {
 	private String		user_mail;
 	private String		user_nick;
 	private String		user_img;
-	private Date		user_birth;
+	private String		user_birth;
 	private String		user_sex;
 	private String		user_addr;
 	private String		user_introduce;
-	private int			box_no;
 	
 	
 	public String getUser_id() {
@@ -53,10 +52,10 @@ public class UserVO {
 	public void setUser_img(String user_img) {
 		this.user_img = user_img;
 	}
-	public Date getUser_birth() {
+	public String getUser_birth() {
 		return user_birth;
 	}
-	public void setUser_birth(Date user_birth) {
+	public void setUser_birth(String user_birth) {
 		this.user_birth = user_birth;
 	}
 	public String getUser_sex() {
@@ -76,12 +75,6 @@ public class UserVO {
 	}
 	public void setUser_introduce(String user_introduce) {
 		this.user_introduce = user_introduce;
-	}
-	public int getBox_no() {
-		return box_no;
-	}
-	public void setBox_no(int box_no) {
-		this.box_no = box_no;
 	}
 	
 	
