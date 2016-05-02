@@ -2,6 +2,7 @@
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.common.text-mapper"> 
    <resultMap type="Text" id="TextList">
+     <result column="num" property="num"/>
      <result column="guide_no" property="guidevo.guide_no"/>
      <result column="guide_subject" property="guidevo.guide_subject"/>
      <result column="guide_loc_intro" property="guidevo.guide_loc_intro"/>

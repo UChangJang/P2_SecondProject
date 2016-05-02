@@ -277,6 +277,7 @@ $(function(){
 					<hr id="intropeople"/>
 					<h5>가이드소개</h5>
 					<textarea style="height:20em">${vo.uservo.user_introduce }</textarea>
+
 					<hr id="introplace" />
 					<h5>관광스타일소개</h5>
 					<textarea style="height:20em">${vo.guidevo.guide_loc_intro }</textarea>

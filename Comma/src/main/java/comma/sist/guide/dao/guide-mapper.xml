@@ -3,10 +3,11 @@
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
 	<!-- 가이드 목록리스트 -->
 	<select id="guideAllData" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
-		select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img
-		from guide,users,text 
-		where guide.user_id=users.user_id and guide.text_no=text.text_no and guide_no between #{start} and #{end} 
-		order by guide.guide_no desc
+		select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,num
+		from (select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,rownum as num 
+		from (select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img from text,guide,users 
+		where guide.user_id=users.user_id and guide.text_no=text.text_no order by guide.guide_no desc))
+		where num between #{start} and #{end}
 	</select>
 	
 	<!-- 가이드 페이지 -->
@@ -49,6 +50,15 @@
 	<select id="textnoSearch" parameterType="int" resultType="int">
 		select text_no from guide where guide_no=#{guide_no}
 	</select>
+	<delete id="reviewGuideDelete" parameterType="int">
+		delete from review where guide_no=#{guide_no}
+	</delete>
+	<delete id="reservationGuideDelete" parameterType="int">
+		delete from reservation where guide_no=#{guide_no}
+	</delete>
+	<delete id="wishGuideDelete" parameterType="int">
+		delete from wish where guide_no=#{guide_no}
+	</delete>
 	<delete id="guideDelete" parameterType="int">
 		delete from guide where guide_no=#{guide_no}
 	</delete>
