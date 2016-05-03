@@ -118,9 +118,9 @@
 	</section>
 
 	<!-- 3x3가이드리스트 출력 -->
-	<%-- <div id="guideList">
+	<div id="guideList">
 		<jsp:include page="guideList.jsp"></jsp:include>
-	</div> --%>
+	</div>
 
 </article>
 

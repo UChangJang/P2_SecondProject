@@ -43,12 +43,11 @@ public class GuideController {
 		List<TextVO> list = GuideDAO.guideAllData(map);
 		
 		
-		
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
 		request.setAttribute("jsp", "guide/guide.jsp");
-		request.setAttribute("mypage", "guide/guideList.jsp");
+		//request.setAttribute("mypage", "guide/guideList.jsp");
 		return "main.jsp";
 	}
 	
@@ -78,8 +77,8 @@ public class GuideController {
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
-		request.setAttribute("jsp", "guide/guide.jsp");
-		request.setAttribute("mypage", "guide/guideList.jsp");
+		request.setAttribute("jsp", "guide/guideList.jsp");
+		//request.setAttribute("mypage", "guide/guideList.jsp");
 		return "main.jsp";
 	}
 	

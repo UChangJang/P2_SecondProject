@@ -3,9 +3,9 @@
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
 	<!-- 가이드 목록리스트 -->
 	<select id="guideAllData" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
-		select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,num
-		from (select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,rownum as num 
-		from (select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img from text,guide,users 
+		select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,num
+		from (select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,rownum as num 
+		from (select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time from text,guide,users 
 		where guide.user_id=users.user_id and guide.text_no=text.text_no order by guide.guide_no desc))
 		where num between #{start} and #{end}
 	</select>
