@@ -261,7 +261,9 @@ $(function(){
 					<br>
 					<div align=center class="mypictureGuide">
 					<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }">		
-						<div class="topBoardShort">${vo.uservo.user_name }</div>							
+						<div class="topBoardShort">
+						<a href="guideInfo.do?no=${vo.guidevo.guide_no }">${vo.uservo.user_name }</a>
+						</div>							
 					</div>
 				</div>
 				<br>

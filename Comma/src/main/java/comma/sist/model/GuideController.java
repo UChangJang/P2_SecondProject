@@ -302,6 +302,21 @@ public class GuideController {
 
 		return "guide/guideDelete.jsp";
 	}
+	
+	@RequestMapping("guideInfo.do")
+	public String guideInfo(HttpServletRequest request){
+		
+		String guide_no = request.getParameter("no");
+		System.out.println(guide_no);
+		
+		
+		
+		request.setAttribute("jsp", "guide/guideInfo.jsp");
+		
+		return "main.jsp";
+	}
+		
+	
 
 	
 	@RequestMapping("reserveGuide.do")

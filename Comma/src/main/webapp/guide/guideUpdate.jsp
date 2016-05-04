@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -117,8 +118,8 @@
 				<h5>Add or Delete</h5>
 			</div>
 			<div class="10u$ 12u$(xsmall)" id="plusdelbtn">
-				<div class="plusBtn">내용추가&nbsp;&nbsp;</div>
-				<div class="deleteBtn">내용삭제</div>
+				<div class="plusBtn">Add&nbsp;&nbsp;</div>
+				<div class="deleteBtn">Delete</div>
 			</div>
 			
 			
@@ -149,7 +150,7 @@
 			<div class="3u 12u$(xsmall) plusWrite2">
 				<span class="my-thumb-1">
 					<div>
-						<input type='file' id="profile_img3" />
+						<input type='file' id="profile_img3" value="http://211.238.142.74:8080/controller/image/${vo.guidevo.guide_img }"/>
 					</div>
 					<div>
 						<img id="blah3" src="#" alt="" />
@@ -171,11 +172,15 @@
 				<!-- 5 오른쪽 -->
 				<div class="select-wrapper">
 					<select name="text_loc" id="demo-category">
-						<option value="">- 지역 -</option>
-						<option value="서울" checked>서울</option>
-						<option value="부산">부산</option>
-						<option value="제주도">제주도</option>
-						<option value="강원도">강원도</option>
+						<option value="">- Location -</option>
+						<option value="SEOUL">Seoul</option>
+						<option value="BUSAN">BuSan</option>
+						<option value="JEJU">JeJu</option>
+						<option value="INCHEON">Incheon</option>
+						<option value="BORYEONG">BorYeong</option>
+						<option value="YEOSU">YeoSu</option>
+						<option value="GYEONGJU">GyeongJu</option>
+						<option value="CHUNCHEON">ChunCheon</option>
 					</select>
 				</div>
 			</div>
@@ -188,17 +193,15 @@
 				<!-- 5-1 오른쪽 -->
 				<div class="select-wrapper">
 					<select name="text_total_person" id="demo-category">
-						<option value="">${vo.text_total_person }명</option>
-						<option value="1">1 Person</option>
-						<option value="2">2 People</option>
-						<option value="3">3 People</option>
-						<option value="4">4 People</option>
-						<option value="5">5 People</option>
-						<option value="6">6 People</option>
-						<option value="7">7 People</option>
-						<option value="8">8 People</option>
-						<option value="9">9 People</option>
-						<option value="10">10 People</option>
+						<option value="">- PEOPLE -</option>
+						<c:forEach var="i" begin="5" end="50" step="5">
+							<c:if test="${vo.text_total_person==i }">
+								<option selected="selected">${ i} People</option>
+							</c:if>
+							<c:if test="${vo.text_total_person!=i }">
+								<option>${ i} People</option>
+							</c:if>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
@@ -230,11 +233,11 @@
 			</div>
 			<div class="10u$ 12u$(xsmall)">
 				<!-- 8 오른쪽 -->
-				<input type="radio" id="walking" name="text_move" value="walking" checked>
+				<input type="radio" id="walking" name="text_move" value="walking" ${vo.text_move eq 'walking'?"checked":"" }>
 					<label for="walking">walking</label> 
-				<input type="radio" id="car" name="text_move" value="car"> 
+				<input type="radio" id="car" name="text_move" value="car" ${vo.text_move eq 'car'?"checked":"" }> 
 					<label for="car">car</label>
-				<input type="radio" id="bicycle" name="text_move" value="bicycle">
+				<input type="radio" id="bicycle" name="text_move" value="bicycle" ${vo.text_move eq 'bicycle'?"checked":"" }>
 					<label for="bicycle">bicycle</label>
 			
 			</div>
@@ -248,19 +251,15 @@
 				<!-- 5 오른쪽 -->
 				<div class="select-wrapper">
 					<select name="text_time1" id="demo-category1">
-						<option value="">- START -</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
+					<option value="">- START -</option>
+					<c:forEach var="i" begin="1" end="12">
+					<c:if test="${vo.text_time1==i }">
+						<option selected="selected">${ i}</option>
+					</c:if>
+					<c:if test="${vo.text_time1!=i }">
+						<option>${ i}</option>
+					</c:if>
+					</c:forEach>						
 					</select>
 				</div>
 			</div>
@@ -268,8 +267,8 @@
 				<div class="select-wrapper">
 					<select name="text_time2" id="demo-category2">
 						<option value="">- TIME -</option>
-						<option value="am">AM</option>
-						<option value="pm">PM</option>
+						<option value="am" ${vo.text_time2 eq 'am'?"selected":"" }>AM</option>
+						<option value="pm" ${vo.text_time2 eq 'pm'?"selected":"" }>PM</option>
 					</select>
 				</div>
 			</div>
@@ -281,18 +280,14 @@
 				<div class="select-wrapper">
 					<select name="text_time3" id="demo-category3">
 						<option value="">- END -</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
+						<c:forEach var="i" begin="1" end="12">
+						<c:if test="${vo.text_time3==i }">
+							<option selected="selected">${ i}</option>
+						</c:if>
+						<c:if test="${vo.text_time3!=i }">
+							<option>${ i}</option>
+						</c:if>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
@@ -300,8 +295,8 @@
 				<div class="select-wrapper">
 					<select name="text_time4" id="demo-category4">
 						<option value="">- TIME -</option>
-						<option value="am">AM</option>
-						<option value="pm">PM</option>
+						<option value="am" ${vo.text_time4 eq 'am'?"selected":"" }>AM</option>
+						<option value="pm" ${vo.text_time4 eq 'pm'?"selected":"" }>PM</option>
 					</select>
 				</div>
 			</div>

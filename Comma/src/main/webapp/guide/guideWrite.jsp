@@ -112,14 +112,14 @@
 			<div class="2u 12u$(xsmall)">
 				<h5>Add or Delete</h5> 
 			</div>
-			<div id="plusdelbtn" style="align:center">
-				<div class="plusBtn">AddMore&nbsp;&nbsp;&nbsp;</div>
-				<div class="deleteBtn">DeleteMore</div>
+			<div class="10u$ 12u$(xsmall)" id="plusdelbtn">
+				<div class="plusBtn">Add&nbsp;&nbsp;&nbsp;</div>
+				<div class="deleteBtn">Delete</div>
 			</div>
 			
 			
 			<!-- 22222222222222222222222222222222222222222222222222 -->
-			<div class="2u 12u$(xsmall) gWrite_left plusWrite1">
+			<div class="2u 12u$(xsmall) plusWrite1">
 				<h5>Image & Detail Infomation 2</h5>
 			</div>
 			<div class="3u 12u$(xsmall) plusWrite1">

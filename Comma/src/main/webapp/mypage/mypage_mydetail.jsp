@@ -7,12 +7,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="../assets/css/main.css" />
-<link rel="stylesheet" href="../assets/css/mytest.css" />
-<link rel="stylesheet" href="../assets/css/mypage.css" />
-<!-- 달력css -->
-<link rel="stylesheet" href="../assets/css/dcalendar.picker.css">
+
 
 <link rel="stylesheet" type="text/css" href="mypage/shadow/css/shadowbox.css">
 <script type="text/javascript" src="mypage/shadow/js/shadowbox.js"></script>
@@ -148,7 +143,7 @@ Shadowbox.init({
 							<div id="demo">
 								<select name=year id=year>
 								 <c:forEach begin="1960" end="2010" var="y">
-								   <option value=${y }>${y }년</option>
+								   <option value=${y }>${y }Year</option>
 								 </c:forEach>								 							 
 								</select>      						
    							</div>
@@ -159,7 +154,7 @@ Shadowbox.init({
 
    							   <select name=month id=month>
 	   							  <c:forEach begin="01" end="12" var="m">	   							  
-									<option value=${m }>${m }월</option>
+									<option value=${m }>${m }Month</option>
 								  </c:forEach>
 								 </select>
 							  </div>
@@ -171,7 +166,7 @@ Shadowbox.init({
    							    <select name=day id=day>
 	   							 <c:forEach begin="01" end="31" var="d">
 
-									<option value=${d }>${d }일</option>
+									<option value=${d }>${d }day</option>
 								 </c:forEach>
 								</select>
 							   </div>
@@ -235,8 +230,8 @@ Shadowbox.init({
 				<table >
 					 <tr height=30>
 			            <td colspan=2 align=center style="background-color: white;">
-			               <input type=button value="수정" id=sendBtn>
-			               <input type=button value="취소">
+			               <input type=button value="Modify" id=sendBtn>
+			               <input type=button value="Cancel">
 			            </td>
 			         </tr>
 			    </table>

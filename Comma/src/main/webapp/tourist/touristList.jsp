@@ -79,21 +79,21 @@ $('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
 });
 
 
-	function wishCheck() {
-		if (httpRequest.readyState == 4) {
-			if (httpRequest.status == 200) {
-				alert(httpRequest.responseText);
-			}
+function wishCheck() {
+	if (httpRequest.readyState == 4) {
+		if (httpRequest.status == 200) {
+			alert(httpRequest.responseText);
 		}
 	}
+}
 
-	function resCheck() {
-		if (httpRequest.readyState == 4) {
-			if (httpRequest.status == 200) {
-				alert(httpRequest.responseText);
-			}
+function resCheck() {
+	if (httpRequest.readyState == 4) {
+		if (httpRequest.status == 200) {
+			alert(httpRequest.responseText);
 		}
 	}
+}
 
 function tourContent2() {
 	if (httpRequest.readyState == 4) {

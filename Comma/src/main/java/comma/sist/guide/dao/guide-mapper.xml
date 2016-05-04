@@ -71,6 +71,10 @@
 		select count(guide_img) from guide where guide_img=#{guide_img}
 	</select>
 	
+	<!-- 가이드 후기 -->
+	<!-- <select id="guideReview" parameterType="int" resultMap="comma.sist.common.text-mapper.TextList">
+		 
+	</select> -->
 	
  	<select id="myGuideWriter" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList"> 
 	  select rownum guide_no,guide_subject,text_regdate,user_nick,reservation_person, text_end
