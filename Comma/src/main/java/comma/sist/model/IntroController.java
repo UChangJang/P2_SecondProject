@@ -50,15 +50,7 @@ public class IntroController {
 		return "main.jsp";
 	}
 	
-	
-	
-	
-	@RequestMapping("touristWrite.do")
-	public String touristWrite(HttpServletRequest request){
-		request.setAttribute("jsp", "tourist/touristWrite.jsp");		
-		return "main.jsp";
-	}
-	
+
 	@RequestMapping("mypage.do")
 	public String mypage(HttpServletRequest request){	
 		HttpSession session = request.getSession();

@@ -248,6 +248,11 @@ public class TouristController {
       return "tourist/resOk.jsp";
    }
    
+   @RequestMapping("touristWrite.do")
+	public String touristWrite(HttpServletRequest request){
+		request.setAttribute("jsp", "tourist/touristWrite.jsp");		
+		return "main.jsp";
+	}
    
    /* 6.°ü±¤°´ ±Û¾²±â */
    @RequestMapping("touristWrite_Ok.do")

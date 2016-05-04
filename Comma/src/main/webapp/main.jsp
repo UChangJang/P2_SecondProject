@@ -11,7 +11,7 @@
       <meta http-equiv="Content-Script-Type" content="text/javascript" />
       <meta http-equiv="Content-Style-Type" content="text/css" />
       <meta http-equiv="X-UA-Compatible" content="IE=10" />
-     <link href="images\CommaWorld(1).ico" rel="shortcut icon">
+      <link href="images\CommaWorld(1).ico" rel="shortcut icon">
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/mytest.css" />
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/basic.css" />
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/style.css" />
@@ -155,14 +155,11 @@
                   <!-- 2추가:회원가입 레이어 팝업창-->
                   <form class="white-popup mfp-hide" id="join-form" action="join.do" method="post">
                      <h1>Join-us</h1>
-                     <div>
-                      
-                        <input name="id" id="join_id" required="" type="text" placeholder="ID"><span>
-                        <input name="id_check" value="확인" id="id_check"type="button"></span>
-                        </div>
+                     <div><span>
+                        <input name="id" id="join_id" required="" type="text" placeholder="ID">
+                        <input name="id_check" value="확인" id="id_check" type="button"></span>
+                     </div>
                         <div name="checkPrint" id="checkPrint"></div>
-                          
-                     
                      <br>
                      <div>
                         <input name="pwd" id="join_pwd" required="" type="password"   placeholder="Password">
@@ -223,11 +220,11 @@
                               </c:if>
                            </div>
                         </div>
+                         <c:if test="${sessionScope.id!=null}">
                         <div class="box">
-                        <c:if test="${sessionScope.id!=null}">	
                            <li><a href="mypage.do">마이페이지</a></li>
-                         </c:if>
                         </div>
+                        </c:if>
                         <div class="box">
                            <li><a href="board_list.do">게시판</a>
                         </div>

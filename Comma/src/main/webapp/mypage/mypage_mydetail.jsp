@@ -100,18 +100,17 @@ Shadowbox.init({
 		<div class="inner">
 			<h4>기본정보</h4>
 			<div class="table-wrapper">
-			<form name="infoCorrection_frm" action="infoCorrection_ok.do" method=post id=infoCorrectionFrm>
+			<form name="infoCorrection_frm" action="infoCorrection_ok.do" method=post id=infoCorrectionFrm enctype="multipart/form-data">
 				<table class="infomodify">				  
 						<tr>
 
 							<td rowspan="3">							
-								<input type='file' id="profile_img"/>
-								<img id="blah" src="#" alt="your image"/>							
+								<input type='file' id="profile_img" name="user_img"/>
+								<img id="blah" src="#" alt="your image" style="height:16em"/>				
 							</td>
 						
 							<th>ID</th>							
 							<td>
-
 								<input type="text" name=id id="id" value="${id }" readonly="readonly">
 							</td>
 															

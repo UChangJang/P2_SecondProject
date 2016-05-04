@@ -71,20 +71,20 @@
 	  select rownum guide_no,guide_subject,text_regdate,user_nick,reservation_person, text_end
       from guide,text,users,reservation where text.text_no=guide.text_no and guide.guide_no=reservation.guide_no    
 	</select> 
-	<select id="bestGuide" resultMap="comma.sist.common.text-mapper.TextList">
-		<![CDATA[ 
-				select score review_score,id text_loc,rownum review_no,user_nick from 
-				(select avg(review_score) score,guide.user_id id
-				from review,users,guide
-				where review.guide_no=guide.guide_no
-				group by review.guide_no,guide.user_id
-				order by avg(review_score) desc), users
-				where rownum<4 and users.user_id=id			
-
 	
-			]]>	
-	</select>
-
+	<select id="bestGuide" resultMap="comma.sist.common.text-mapper.TextList">
+      <![CDATA[ 
+            select score review_score,user_nick,id text_loc,rownum review_no from
+            (select avg(review_score) score,user_nick,users.user_id id
+            from review,users,guide
+            where review.guide_no=guide.guide_no and
+               guide.user_id=users.user_id
+            group by user_nick, users.user_id
+            order by avg(review_score)desc)
+            where rownum<4
+   
+         ]]>   
+   </select>
 
 
 </mapper>

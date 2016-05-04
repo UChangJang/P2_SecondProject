@@ -60,7 +60,7 @@
 	<!-- Main -->
 	<article id="main">
 		<header id="tourHeader">
-			<h2>Toursit</h2>
+			<h2>Tourist</h2>
 			<center>
 			<p>I will Find You!</p>
 			<p>Check the board to guide someone in Korea!</p>

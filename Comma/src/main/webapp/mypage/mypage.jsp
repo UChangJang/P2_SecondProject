@@ -34,7 +34,7 @@
 					  <tr>
 					    <td rowspan="4" class="mypic_td">
 							<div class="mypicture">
-								<img src="../controller/images/character.png">
+								<img src="http://211.238.142.74:8080/controller/profile/${user_img }">
 							</div>
 							<div class="mypictureCaption">
 								<h3>${sessionScope.id }</h3>
