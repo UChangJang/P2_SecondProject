@@ -91,6 +91,20 @@ $(function(){
          }
          
       });
+	 
+	 $('#reserveBtn1').magnificPopup({
+         items :{src:'#reserve-form',type : 'inline'},
+               preloader: false,focus: '#reservation_person',
+               callbacks: {beforeOpen: function() {
+                  if($(window).width() < 700) {
+                     this.st.focus = false;
+                  } else {
+                     this.st.focus = '#reservation_person';
+                  }
+               }
+         }
+         
+      });
 	
 	 $('#wishBtn').magnificPopup({
          items :{src:'#wish-form',type : 'inline'},
@@ -194,7 +208,7 @@ $(function(){
        			<td>
        			<div class="select-wrapper">
 					<select name="reservation_person" id="reservation_person" style="width:12em;color: pink;background: black;float:right">
-						<option value="">- 인원수 -</option>
+						<option value="">- People -</option>
 						<option value="1">1명</option>
 						<option value="2">2명</option>
 						<option value="3">3명</option>
@@ -243,10 +257,10 @@ $(function(){
 		<div class="inner">
 			<!-- <section class="style5"> -->
 			<div class="row side0">
-
 				<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
-					<div align=center>
-					<img alt="Guide_name" src="images/time_g.png" style="padding:0,0,0,0">		
+					<br>
+					<div align=center class="mypictureGuide">
+					<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }">		
 						<div class="topBoardShort">${vo.uservo.user_name }</div>							
 					</div>
 				</div>
@@ -282,7 +296,10 @@ $(function(){
 					<h5>Guide Introduce</h5>
 					<textarea style="height:20em">${vo.uservo.user_introduce }</textarea>
 
-
+					<hr id="introplace" />
+					<h5>Tour Style</h5>
+					<textarea style="height:20em">${vo.guidevo.guide_loc_intro }</textarea>
+					
 					<hr id="pic"/>
 					<h4>Tour Location Image</h4>					
 					<span class="image fit a">
@@ -292,12 +309,7 @@ $(function(){
 						</c:forEach>
 					</div> 
 					</span>
-
-
-					<hr id="introplace" />
-					<h5>Tour Style</h5>
-					<textarea style="height:20em">${vo.guidevo.guide_loc_intro }</textarea>
-
+					<textarea style="height:20em">${vo.guidevo.guide_detail }</textarea>
 
 					<hr id="detail" />
 					<h5>Details</h5>
@@ -377,15 +389,15 @@ $(function(){
 					<hr />
 					<c:if test="${confirmId == false }">
 					<ul class="actions fit small">
-						<li><button class="button special fit small" id="messageWrite">쪽지보내기</button></li>
-						<li><button class="button fit small" id="reserveBtn">예약하기</button></li>
-						<li><button class="button special fit small" id="wishBtn">찜하기</button></li>
+						<li><button class="button special fit small" id="messageWrite">Message To</button></li>
+						<li><button class="button fit small" id="reserveBtn">Reserve</button></li>
+						<li><button class="button special fit small" id="wishBtn">Wish</button></li>
 					</ul>
 					</c:if>
 					<c:if test="${confirmId == true }">
 					<ul class="actions fit small">
-						<li><a href="guideUpdate.do?no=${vo.guidevo.guide_no }" class="button special fit small">수정하기</a></li>
-						<li><a href="guideDelete.do?no=${vo.guidevo.guide_no }" class="button fit small">삭제하기</a></li>
+						<li><a href="guideUpdate.do?no=${vo.guidevo.guide_no }" class="button special fit small">Update</a></li>
+						<li><a href="guideDelete.do?no=${vo.guidevo.guide_no }" class="button fit small">Delete</a></li>
 					</ul>	
 					</c:if>
 				</div>
@@ -402,7 +414,7 @@ $(function(){
 						<div class="BoardSide1">PEOPLE:${vo.text_total_person }명</div>
 						<div class="BoardSide1">VEHICLE:${vo.text_move }</div>
 						<div class="BoardSide1">HIT:${vo.text_hit }</div>
-						<div class="BoardSide1"><input type="button" value="reserve"></div>
+						<div class="BoardSide1"><input type="button" value="reserve" id="reserveBtn1"></div>
 					</div>
 				</div>
 			</div>

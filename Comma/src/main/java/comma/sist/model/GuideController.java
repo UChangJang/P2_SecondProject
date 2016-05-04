@@ -153,6 +153,7 @@ public class GuideController {
 		String guide_detail3 = mr.getParameter("guide_detail3");
 		
 		
+		guide_detail = guide_detail+"<br>"+guide_detail2+"<br>"+guide_detail3;
 		
 		if(guide_img2!=null && guide_img3==null){
 			guide_img = guide_img + "|" + guide_img2;		

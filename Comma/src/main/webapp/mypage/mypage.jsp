@@ -38,7 +38,6 @@
 							</div>
 							<div class="mypictureCaption">
 								<h3>${sessionScope.id }</h3>
-								<h4>3가이드 4관광</h4>	
 							</div>
 						</td>
 					  </tr>

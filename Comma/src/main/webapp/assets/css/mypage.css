@@ -103,6 +103,20 @@ ul#tabs {
 	display: inline-block
 	
 }
+.mypictureGuide img{
+	background-color: #333;
+	height : 3em;
+	width : 3em;
+	border-radius : 50%;
+	-webkit-border-radius : 50%;
+	-moz-border-radius : 50%;
+	overflow : hidden;
+	vertical-align : middle;
+	margin: 0 auto;	
+	border: 1px solid #2e2e2e;
+	display: inline-block
+	
+}
 .mypicture{
 	text-align: center;
 }
