@@ -125,7 +125,7 @@
 			<div class="3u 12u$(xsmall) plusWrite1">
 				<span class="my-thumb-1">
 					<div>
-						<input type='file' id="profile_img2" />
+						<input type='file' id="profile_img2" name="guide_img2"/>
 					</div>
 					<div>
 						<img id="blah2" src="#" alt="" />
@@ -145,7 +145,7 @@
 			<div class="3u 12u$(xsmall) plusWrite2">
 				<span class="my-thumb-1">
 					<div>
-						<input type='file' id="profile_img3" />
+						<input type='file' id="profile_img3" name="guide_img3"/>
 					</div>
 					<div>
 						<img id="blah3" src="#" alt="" />

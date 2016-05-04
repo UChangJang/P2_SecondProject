@@ -147,9 +147,9 @@ $(function(){
         <div>
            <font color="pink">
            <input name="receive_name" id="receive_name" required="" type="text"
-              placeholder="받는사람" style="width:10em;float:left" disabled="disabled" value="${vo.uservo.user_name }"></font>  
+              placeholder="Receive From" style="width:10em;float:left" disabled="disabled" value="${vo.uservo.user_name }"></font>  
            <input name="send_name" id="send_name" required="" type="text"
-              placeholder="보내는사람" style="width:10em;float:right" disabled="disabled" value="${sessionScope.name }">
+              placeholder="Send To" style="width:10em;float:right" disabled="disabled" value="${sessionScope.name }">
         </div>
 		<br><br>
         <div>
@@ -170,27 +170,27 @@ $(function(){
         <div>
        	<table>
        		<tr>
-       			<td>가격:</td>
+       			<td>Cost:</td>
        			<td><input name="text_cost" id="" required="" type="text"
               placeholder="가격" style="width:12em;float:right" disabled="disabled" value="${vo.text_cost }"></td>
        		</tr>
        		<tr>
-       			<td>날짜:</td>
+       			<td>Date:</td>
        			<td><input name="text_tour_date" id="" required="" type="text"
               placeholder="날짜" style="width:12em;float:right" disabled="disabled" value="${vo.text_tour_date }"></td>
        		</tr>
        		<tr>
-       			<td>여행지:</td>
+       			<td>Location:</td>
        			<td><input name="text_loc" id="" required="" type="text"
               placeholder="여행지" style="width:12em;float:right" disabled="disabled" value="${vo.text_loc }"></td>
        		</tr>
        		<tr>
-       			<td>가이드 이름:</td>
+       			<td>Guide Name:</td>
        			<td><input name="user_name" id="" required="" type="text"
               placeholder="가이드" style="width:12em;float:right" disabled="disabled" value="${vo.uservo.user_name }"></td>
        		</tr>
        		<tr>
-       			<td>예약 인원수:</td>
+       			<td>Reserve People:</td>
        			<td>
        			<div class="select-wrapper">
 					<select name="reservation_person" id="reservation_person" style="width:12em;color: pink;background: black;float:right">
@@ -244,27 +244,31 @@ $(function(){
 			<!-- <section class="style5"> -->
 			<div class="row side0">
 
-				<div class="3u 12u$(small)">								<!-- 1 왼쪽 -->
-					<div id="">
-						<div>가이드</div>		
+				<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
+					<div align=center>
+					<img alt="Guide_name" src="images/time_g.png" style="padding:0,0,0,0">		
 						<div class="topBoardShort">${vo.uservo.user_name }</div>							
 					</div>
 				</div>
-				<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
+				<br>
+				<img alt="" src="images/person_g.png" style="padding:0,0,0,0">
+				<div>								<!-- 1 왼쪽 -->
 					<div id="">
-						<div>여행규모</div>		
-						<div class="topBoardShort">${vo.text_total_person }</div>							
+						<div>Total People</div>
+						<div class="topBoardShort">${vo.text_total_person } PEOPLE</div>							
 					</div>
 				</div>
-				<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
+				<img alt="" src="images/time_g.png" style="padding:0,0,0,0">
+				<div>								<!-- 1 왼쪽 -->
 					<div id="">
-						<div>소요시간</div>		
-						<div class="topBoardShort">${vo.text_time }</div>							
+						<div>Tour Time</div>		
+						<div class="topBoardShort">${vo.text_time } Hours</div>							
 					</div>
 				</div>
-				<div class="2u 12u$(small)">								<!-- 1 왼쪽 -->
+				<img alt="" src="images/vehicle_g.png" style="padding:0,0,0,0">
+				<div>								<!-- 1 왼쪽 -->
 					<div id="">
-						<div>이동수단</div>		
+						<div>Vehicle</div>		
 						<div class="topBoardShort">${vo.text_move }</div>							
 					</div>
 				</div>
@@ -275,60 +279,64 @@ $(function(){
 				
 				<div class="9u 12u$(medium) side1">
 					<hr id="intropeople"/>
-					<h5>가이드소개</h5>
+					<h5>Guide Introduce</h5>
 					<textarea style="height:20em">${vo.uservo.user_introduce }</textarea>
 
-					<hr id="introplace" />
-					<h5>관광스타일소개</h5>
-					<textarea style="height:20em">${vo.guidevo.guide_loc_intro }</textarea>
 
 					<hr id="pic"/>
-					<h4>관광지역 사진</h4>					
+					<h4>Tour Location Image</h4>					
 					<span class="image fit a">
 					 <div id="main_bn">
-							<li><img src="http://211.238.142.74:8080/controller/image/${vo.guidevo.guide_img }" alt="" /></li>		
-							
+					 	<c:forEach var="img" items="${imgList }">
+							<li><img src="http://211.238.142.74:8080/controller/image/${img }" alt="" /></li>		
+						</c:forEach>
 					</div> 
 					</span>
 
+
+					<hr id="introplace" />
+					<h5>Tour Style</h5>
+					<textarea style="height:20em">${vo.guidevo.guide_loc_intro }</textarea>
+
+
 					<hr id="detail" />
-					<h5>세부사항</h5>
+					<h5>Details</h5>
 					<div class="table-wrapper">
 						<table>
 							<thead>
 								<tr>
-									<th width="20%">항목</th>
-									<th>세부사항</th>
+									<th width="20%">Article</th>
+									<th>Detail</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td width="20%">지역</td>
-									<td>${vo.text_loc }</td>
+									<td width="30%">Location</td>
+									<td><font color="blue">${vo.text_loc }</font></td>
 								</tr>
 								<tr>
-									<td width="20%">비용</td>
-									<td>${vo.text_cost }</td>
+									<td width="30%">Cost</td>
+									<td><font color="blue">${vo.text_cost }</font></td>
 								</tr>
 								<tr>
-									<td width="20%">포함사항</td>
-									<td>${vo.guidevo.guide_cost_detail }</td>
+									<td width="30%">Include Content</td>
+									<td><font color="blue">${vo.guidevo.guide_cost_detail }</font></td>
 								</tr>
 								<tr>
-									<td width="20%">여행규모</td>
-									<td>${vo.text_total_person }</td>
+									<td width="30%">Tour Scale</td>
+									<td><font color="blue">${vo.text_total_person }</font></td>
 								</tr>
 								<tr>
-									<td width="20%">관광날짜</td>
-									<td>${vo.text_tour_date }</td>
+									<td width="30%">Tour Date</td>
+									<td><font color="blue">${vo.text_tour_date }</font></td>
 								</tr>
 								<tr>
-									<td width="20%">관광시간</td>
-									<td>${vo.text_time1 }${vo.text_time2 } ~ ${vo.text_time3 }${vo.text_time4 }</td>
+									<td width="30%">Tour Time</td>
+									<td><font color="blue">${vo.text_time1 }${vo.text_time2 } ~ ${vo.text_time3 }${vo.text_time4 }</font></td>
 								</tr>
 								<tr>
-									<td width="20%">만날장소</td>
-									<td>${vo.guidevo.guide_meet }</td>
+									<td width="30%">Guide Meeting</td>
+									<td><font color="blue">${vo.guidevo.guide_meet }</font></td>
 								</tr>
 							</tbody>
 						</table>
@@ -389,11 +397,11 @@ $(function(){
 						<div id="reservenow">RESERVE CONTROL</div>	
 						<div class="BoardSide1">${vo.guidevo.guide_subject }</div>
 						<hr>
-						<div class="BoardSide1">가격:${vo.text_cost }원</div>
-						<div class="BoardSide1">날짜:${vo.text_tour_date }</div>
-						<div class="BoardSide1">인원:${vo.text_total_person }명</div>
-						<div class="BoardSide1">수단:${vo.text_move }</div>
-						<div class="BoardSide1">조회수:${vo.text_hit }</div>
+						<div class="BoardSide1">Cost:${vo.text_cost }원</div>
+						<div class="BoardSide1">Date:${vo.text_tour_date }</div>
+						<div class="BoardSide1">PEOPLE:${vo.text_total_person }명</div>
+						<div class="BoardSide1">VEHICLE:${vo.text_move }</div>
+						<div class="BoardSide1">HIT:${vo.text_hit }</div>
 						<div class="BoardSide1"><input type="button" value="reserve"></div>
 					</div>
 				</div>

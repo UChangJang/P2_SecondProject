@@ -53,17 +53,17 @@ function guideContent() {
 						<div class="listText" id="testtest"></div>
 						<div class="listText2">
 							<div>
-								<span>사진</span>&nbsp;<span>${vo.uservo.user_name }</span>
+								<span>Image</span>&nbsp;<span>${vo.uservo.user_name }</span>
 							</div>
-							<div class="secondTable">[서울]${vo.guidevo.guide_subject }</div>
+							<div class="secondTable">[${vo.text_loc}]${vo.guidevo.guide_subject }</div>
 							<div class="ThirdTable">
-								<span>가격</span>&nbsp;<span>${vo.text_cost }원</span>
+								<span>￦${vo.text_cost }</span>
 							</div>
 							<div class="FourthTable">
-								<span>여행유형</span>&nbsp;<span><font color="pink">${vo.text_move }</font></span>
+								<span>Means</span>&nbsp;<span><font color="pink">${vo.text_move }</font></span>
 							</div>
 							<div class="FourthTable">
-								<span>가이드평점</span>&nbsp;<span><font color="pink">15개</font></span>
+								<span>Rank</span>&nbsp;<span><font color="pink">15개</font></span>
 							</div>
 						</div>
 					</span>
@@ -81,7 +81,6 @@ function guideContent() {
 					${curpage} page / ${totalpage } pages 
 				</td>
 			</tr>
-			
 			</table>
 			</div>
 		</div>
