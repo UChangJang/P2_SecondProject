@@ -122,6 +122,8 @@
                      <br>
                      <div class="logbtn">
                         <input name="idfind" value="idfind" id="idFindBtn" type="button">
+                        <input name="idfind-b" value="Login" id="idFindBtn-b" type="button">
+                        
                      </div>
                      <br>
                       <div name="idFindPrint" id="idFindPrint"></div>
@@ -142,6 +144,8 @@
                      <div class="logbtn">
                        
                         <input name="pwdfind" value="pwdfind" id="pwdFindBtn" type="button">
+                        <input name="pwdfind-b" value="Login" id="pwdFindBtn-b" type="button">
+                        
                      </div>
                      
                       <br><br>
@@ -391,6 +395,10 @@
            }
         }
      }
+     $('#idFindBtn-b').magnificPopup({
+         items :{src:'#login-form',type : 'inline'}
+      });
+
      
      $('#pwdfind-btn').magnificPopup({
          items :{src:'#pwdfind-form',type : 'inline'},
@@ -407,13 +415,13 @@
       
       $(function(){
         $('#pwdFindBtn').click(function(){      
-           var name=$('#name').val();
-           if(name.trim()==""){
-              $('#name').focus();
+           var id=$('#id').val();
+           if(id.trim()==""){
+              $('#id').focus();
               return;
            }
-           var param="name="+encodeURIComponent(name);
-           sendMessage("POST", "pwdFind.do", param, idfind)
+           var param="id="+encodeURIComponent(id);
+           sendMessage("POST", "pwdFind.do", param, pwdfind)
            
         });
        
@@ -425,10 +433,12 @@
            }
         }
      }
-   });  
-
+     $('#pwdFindBtn-b').magnificPopup({
+         items :{src:'#login-form',type : 'inline'}
+      });
    
-
+   
+ 
    function idCheck(){         
       if(httpRequest.readyState==4){
          if(httpRequest.status==200){               
@@ -436,7 +446,8 @@
          }
       }
    }
-   
+   })
+
    
    </script>
    
