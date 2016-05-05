@@ -110,13 +110,25 @@ private static SqlSessionFactory	ssf;
 	}
 	
 	
-
+	//가이드에서 내가 쓴 글
 	public static List<TextVO> myGuideWriter(String id){
 		SqlSession session=ssf.openSession();
-		List<TextVO> vo = session.selectList("myGuideWriter",id);
+		List<TextVO> vo = session.selectList("myGuideWriter",id);		
 		session.close();
 		return vo;
 	}
+	
+	//예약한 인원 수 구하기 
+	public static String myGuideWriterPerson(int no){
+		SqlSession session=ssf.openSession();
+		System.out.println("dao진입=======");
+		String resPerson = session.selectOne("myresPerson",no);
+		System.out.println("예약인원!!!!====="+resPerson);		//왜 String?...null이면 0나오게 하자
+		session.close();
+		return resPerson;
+	}
+	
+	
 	public static List<TextVO> bestGuide(){
 		SqlSession session=ssf.openSession();
 		List<TextVO> vo=session.selectList("bestGuide");

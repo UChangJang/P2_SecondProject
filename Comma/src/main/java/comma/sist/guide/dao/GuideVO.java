@@ -14,8 +14,14 @@ public class GuideVO {
 	private String	guide_img;
 	private String	guide_map;
 	private String	guide_cost_detail;
+	private String	reservation_person;			//가이드에서 예약한 사람 수 현황
 
-
+	public String getReservation_person() {
+		return reservation_person;
+	}
+	public void setReservation_person(String reservation_person) {
+		this.reservation_person = reservation_person;
+	}
 	public String getGuide_cost_detail() {
 		return guide_cost_detail;
 	}

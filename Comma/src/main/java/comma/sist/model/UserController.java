@@ -1,6 +1,9 @@
 package comma.sist.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,6 +15,8 @@ import comma.sist.guide.dao.GuideVO;
 import comma.sist.reservation.dao.ReservationDAO;
 import comma.sist.review.dao.ReviewDAO;
 import comma.sist.review.dao.ReviewVO;
+import comma.sist.tourist.dao.TouristDAO;
+import comma.sist.tourist.dao.TouristResVO;
 import comma.sist.user.dao.UserDAO;
 import comma.sist.user.dao.UserVO;
 import comma.sist.user.dao.ZipcodeVO;
@@ -96,6 +101,8 @@ public class UserController {
 		req.setAttribute("mypage", "mypage/mypage_mydetail.jsp");
 		return "main.jsp";
 	}
+	
+	//위시리스트=다시 창 열기/////////////////////////////////////////////////////////////////////////////
 	@RequestMapping("mypage_wishlist.do")
 	public String mypage_wishlist(HttpServletRequest req){			
 		HttpSession session = req.getSession();
@@ -160,26 +167,87 @@ public class UserController {
 		return "main.jsp";
 		
 	}
-	@RequestMapping("mypage_mywriter.do")
+	
+	@RequestMapping("mypage_mywriter.do")/////////////////////////////////////////////////////내가 쓴 글 
 	public String mypage_mywriter(HttpServletRequest req){
+		try{
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("id");
 		String user_img=UserDAO.userProfileImage(id);
 		req.setAttribute("user_img", user_img);
 		
-		String writer_no=req.getParameter("writer_no");
-		System.out.println("id"+id);
-		System.out.println("writer_no"+writer_no);
-		List<TextVO> guidevo=GuideDAO.myGuideWriter(id);
-		//List<TouristVO> touristvo=TouristDAO.myTouristWriter(id);
+		List<TextVO> guidevo2=new ArrayList<TextVO>();		//진짜 저장해서 넘길 공간
+		List<TextVO> guidevo=GuideDAO.myGuideWriter(id);	//1.내가 쓴 가이드글들 들고옴
 		
-		req.setAttribute("guidevo", guidevo);
-		//req.setAttribute("touristvo", touristvo);		
+		for(TextVO vo:guidevo){
+			int guideno=vo.getGuidevo().getGuide_no();
+			System.out.println("가이드글번호:"+guideno);
+			
+			String respeople=GuideDAO.myGuideWriterPerson(guideno);		//예약한 인원 수
+			vo.getGuidevo().setReservation_person(respeople);
+			guidevo2.add(vo);			
+		}
+		
+		
+		
+		List<TextVO> touristvo=TouristDAO.myTouristWriter(id);	//2.내가 쓴 관광객글들 들고옴
+		List<TextVO> touristvo2=new ArrayList<TextVO>();
+		
+		for(TextVO vo:touristvo){
+			int tourno=vo.getTouristvo().getTour_no();	//*각 투어글마다 투어내에서의 번호
+			System.out.println("\n투어글번호:"+tourno);
+			
+			String respeople=TouristDAO.myTourWriterPerson(tourno);	//*각 투어글마다 예약한 인원
+			System.out.println("투어번호:"+tourno+",예약자인원"+respeople);
+			vo.getTouristvo().setReservation_person(respeople);
+			
+			List<TouristResVO> rvo=TouristDAO.tourResInfo(tourno);	//3.*내투어에 예약한 사람들 정보 불러오기
+			if(rvo==null){
+				System.out.println("controller예약자가 없네요");
+			}else{
+				vo.setTourresvo(rvo);//list들 추가
+			}
+			touristvo2.add(vo);	
+		}
+
+		req.setAttribute("guidevo", guidevo2);
+		req.setAttribute("touristvo", touristvo2);		
 
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_mywriter.jsp");		
+		}catch(Exception e){
+			System.out.println("touristcontroller:"+e.getMessage());
+		}
 		return "main.jsp";
 	}
+	
+	
+	@RequestMapping("mytourresv.do")
+	public String mytourresv(HttpServletRequest req) throws Exception{
+		//android,ajax(js)=>UTF-8
+		req.setCharacterEncoding("UTF-8");
+		String no=req.getParameter("no");		//투어번호
+		String user_id=req.getParameter("id");		//닉네임
+		int tour_no=Integer.parseInt(no);
+		System.out.println("\nController진입: "+tour_no+","+user_id);
+		
+		Map map=new HashMap();
+		map.put("tour_no", tour_no);
+		map.put("user_id", user_id);
+		
+		TouristDAO.mytourOkUpdate(map);
+		System.out.println("승인완료===");
+		
+		TouristDAO.mytourNotOkUpdate(map);
+		System.out.println("나머지승인안하기완료===");
+		
+		req.setAttribute("user_id",user_id);
+		req.setAttribute("tour_no", tour_no);
+		
+		return "mypage/tourRes_ok.jsp";
+	}
+	
+	
 	@RequestMapping("postfind_ok.do")
 	public String postfind_ok(HttpServletRequest req) throws Exception{
 		//android,ajax(js)=>UTF-8

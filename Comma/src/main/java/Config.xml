@@ -11,6 +11,8 @@
 		<typeAlias type="comma.sist.review.dao.ReviewVO" alias="Review"/>
 		<typeAlias type="comma.sist.reservation.dao.ReservationVO" alias="Reservation"/>
 		<typeAlias type="comma.sist.user.dao.ZipcodeVO" alias="Zipcode"/>
+		
+		<typeAlias type="comma.sist.tourist.dao.TouristResVO" alias="TouristRes"/><!-- 보영추가 -->
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">

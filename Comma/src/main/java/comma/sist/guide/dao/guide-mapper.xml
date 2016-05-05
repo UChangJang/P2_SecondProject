@@ -66,11 +66,20 @@
 		delete from text where text_no=#{text_no}
 	</delete>
 	
-	
+	<!-- 마이페이지_내가 가이드 리스트에 작성한 글  -->
  	<select id="myGuideWriter" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList"> 
-	  select rownum guide_no,guide_subject,text_regdate,user_nick,reservation_person, text_end
-      from guide,text,users,reservation where text.text_no=guide.text_no and guide.guide_no=reservation.guide_no    
+	  SELECT guide_no,guide_subject,text_regdate,text_total_person,text_end,text_loc
+      FROM guide,text
+	  WHERE text.text_no=guide.text_no AND guide.user_id=#{id}   
 	</select> 
+	
+	<!-- 마이페이지_내 가이드 리스트에 예약한 인원수 구하기 -->
+	<select id="myresPerson" resultType="String" parameterType="int">
+		SELECT sum(reservation_person)
+		FROM reservation
+		WHERE guide_no=#{no}
+	</select>
+	  
 	<select id="bestGuide" resultMap="comma.sist.common.text-mapper.TextList">
 		<![CDATA[ 
 				select score review_score,id text_loc,rownum review_no,user_nick from 
@@ -80,10 +89,10 @@
 				group by review.guide_no,guide.user_id
 				order by avg(review_score) desc), users
 				where rownum<4 and users.user_id=id			
-
-	
 			]]>	
 	</select>
+	
+	<!-- 마이페이지_  -->
 
 
 

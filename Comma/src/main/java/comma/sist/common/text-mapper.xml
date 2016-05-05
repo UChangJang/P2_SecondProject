@@ -32,6 +32,7 @@
      <result column="user_introduce" property="uservo.user_introduce"/>
      <result column="reservation_no" property="reservationvo.reservation_no"/>
      <result column="reservation_person" property="reservationvo.reservation_person"/> 
+     <result column="reservation_check" property="reservationvo.reservation_check"/>
      <result column="review_no" property="reviewvo.review_no"/> 
      <result column="review_score" property="reviewvo.review_score"/> 
      <result column="review_text" property="reviewvo.review_text"/> 

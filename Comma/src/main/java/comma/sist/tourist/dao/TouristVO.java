@@ -7,8 +7,14 @@ public class TouristVO {
 	private int text_no;
 	private String tour_theme;
 	private String tour_detail;
-
+	private String reservation_person;	//예약한 인원-보영추가
 	
+	public String getReservation_person() {
+		return reservation_person;
+	}
+	public void setReservation_person(String reservation_person) {
+		this.reservation_person = reservation_person;
+	}
 	public int getTour_no() {
 		return tour_no;
 	}
