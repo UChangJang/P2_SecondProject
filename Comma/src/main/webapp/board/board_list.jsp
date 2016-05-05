@@ -13,16 +13,16 @@
   <center>
     <h3>게시판</h3>
     <header id="table_header">
-		<p><img alt="" src="images/boardlist.png"></p>
+		<p><img alt="사진이 없성" src="images/boardlist.png"></p>
 	</header>
-    <table border=0 width=700>
+    <!-- <table border=0 width=700>
       <tr>
-       <!--  <td align=left>
+        <td align=left>
          <a href="board_insert.do">
          <img src="board/image/btn_write.gif" border=0></a>
-        </td> -->
+        </td>
       </tr>
-    </table>
+    </table> -->
     <table id="table_content">
       <tr>
         <th width=10%>번호</th>

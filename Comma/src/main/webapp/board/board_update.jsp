@@ -6,11 +6,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="table.css">
+<link rel="stylesheet" type="text/css" href="../controller/assets/css/basic.css" />
+<link rel="stylesheet" type="text/css" href="../controller/assets/css/style.css" />
+<link rel="stylesheet" type="text/css" href="../controller/assets/css/main.css" />
 </head>
 <body>
    <center>
       <h3>수정하기</h3>
-      <form method="post" action="update_ok.do">
+      <form method="post" action="board_update_ok.do">
       <table id="table_content">
         <tr>
           <td align=right width=15%>이름</td>

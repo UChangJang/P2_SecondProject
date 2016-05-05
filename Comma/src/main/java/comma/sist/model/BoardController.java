@@ -71,8 +71,7 @@ public class BoardController {
 	   return "main.jsp";
    }
    @RequestMapping("board_insert_ok.do")
-   public String board_insert_ok(HttpServletRequest req)
-   throws Exception
+   public String board_insert_ok(HttpServletRequest req)throws Exception
    {
 	   req.setCharacterEncoding("EUC-KR");
 	   String name=req.getParameter("name");
@@ -86,11 +85,10 @@ public class BoardController {
 	   vo.setPwd(pwd);
 	   BoardDAO.boardInsert(vo);
 	   
-	   return "user/board/board_insert_ok.jsp";
+	   return "board/board_insert_ok.jsp";
    }
-   @RequestMapping("reply_insert.do")
-   public String reply_insert(HttpServletRequest req)
-   throws Exception
+   @RequestMapping("board_reply_insert.do")
+   public String reply_insert(HttpServletRequest req)throws Exception
    {
 	   req.setCharacterEncoding("EUC-KR");
 	   String page=req.getParameter("page");
@@ -111,11 +109,10 @@ public class BoardController {
 	   
 	   req.setAttribute("no", bno);
 	   req.setAttribute("page", page);
-	   return "user/board/reply_ok.jsp";
+	   return "board/board_reply_ok.jsp";
    }
-   @RequestMapping("reply_update.do")
-   public String reply_update(HttpServletRequest req)
-   throws Exception
+   @RequestMapping("board_reply_update.do")
+   public String reply_update(HttpServletRequest req)throws Exception
    {
 	   req.setCharacterEncoding("EUC-KR");
 	   String no=req.getParameter("no");
@@ -131,11 +128,10 @@ public class BoardController {
 	   
 	   req.setAttribute("no", bno);
 	   req.setAttribute("page", page);
-	   return "user/board/reply_ok.jsp";
+	   return "board/board_reply_ok.jsp";
    }
    @RequestMapping("reply_re_insert.do")
-   public String reply_re_insert(HttpServletRequest req)
-   throws Exception
+   public String reply_re_insert(HttpServletRequest req)throws Exception
    {
 	   req.setCharacterEncoding("EUC-KR");
 	   String no=req.getParameter("no");
@@ -162,7 +158,7 @@ public class BoardController {
 	   BoardDAO.replyDepthIncrement(Integer.parseInt(no));
 	   req.setAttribute("no", bno);
 	   req.setAttribute("page", page);
-	   return "user/board/reply_ok.jsp";
+	   return "board/board_reply_ok.jsp";
    }
    @RequestMapping("reply_delete.do")
    public String reply_delete(HttpServletRequest req)
@@ -183,7 +179,7 @@ public class BoardController {
 	   }
 	   req.setAttribute("no", bno);
 	   req.setAttribute("page", page);
-	   return "user/board/reply_ok.jsp";
+	   return "board/board_reply_ok.jsp";
    }
    @RequestMapping("board_delete.do")
    public String board_delete(HttpServletRequest req)
@@ -205,7 +201,41 @@ public class BoardController {
 	   }
 	   req.setAttribute("page", page);
 	   req.setAttribute("bCheck", bCheck);
-	   return "user/board/delete.jsp";
+	   return "board/board_delete.jsp";
+   }
+   @RequestMapping("board_update.do")
+   public String boardUpdate(HttpServletRequest req)
+   {
+	   String no=req.getParameter("no");
+	   String page=req.getParameter("page");
+	   BoardVO vo=BoardDAO.boardUpdate(Integer.parseInt(no));
+	   req.setAttribute("page", page);
+	   req.setAttribute("vo", vo);
+	   return "board/board_update.jsp";
+   }
+   @RequestMapping("board_update_ok.do")
+   public String boardUpdateOk(HttpServletRequest req)throws Exception
+   {
+	   req.setCharacterEncoding("EUC-KR");
+	   String no=req.getParameter("no");
+	   String page=req.getParameter("page");
+	   String name=req.getParameter("name");
+	   String subject=req.getParameter("subject");
+	   String content=req.getParameter("content");
+	   String pwd=req.getParameter("pwd");
+	   BoardVO vo=new BoardVO();
+	   vo.setNo(Integer.parseInt(no));
+	   vo.setName(name);
+	   vo.setSubject(subject);
+	   vo.setContent(content);
+	   vo.setPwd(pwd);
+	   
+	   // DB¿¬µ¿ 
+	   boolean bCheck=BoardDAO.boardUpdateOk(vo);
+	   req.setAttribute("bCheck", bCheck);
+	   req.setAttribute("no", no);
+	   req.setAttribute("page", page);
+	   return "board/board_update_ok.jsp";
    }
 }
 
