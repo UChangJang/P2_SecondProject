@@ -1,12 +1,18 @@
 package comma.sist.model;
 
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 import comma.sist.common.TextVO;
 import comma.sist.controller.Controller;
 import comma.sist.controller.RequestMapping;
@@ -265,7 +271,33 @@ public class UserController {
 	@RequestMapping("infoCorrection_ok.do")
 	public String infoCorrection_ok(HttpServletRequest req) throws Exception{
 		req.setCharacterEncoding("EUC-KR");
-		String nick=req.getParameter("nick");
+		
+		
+		String path = "\\\\211.238.142.74\\Users\\74\\Git\\P2_SecondProject\\Comma\\src\\main\\webapp\\profile";
+		String enctype = "EUC-KR";
+		int	size = 1024*1024*100; 
+		
+		MultipartRequest mr 
+				= new MultipartRequest(req,path,size,enctype,
+						new DefaultFileRenamePolicy());
+		
+		String nick=mr.getParameter("nick");
+		String pwd=mr.getParameter("pwd");
+		String email=mr.getParameter("email");
+		String birth=mr.getParameter("year")+"/"+mr.getParameter("month")+"/"+mr.getParameter("day");
+		String gender=mr.getParameter("demo-priority");
+		String tel=mr.getParameter("tel1")+"-"+mr.getParameter("tel2")+"-"+mr.getParameter("tel3");
+		String addr=mr.getParameter("addr1")+"-"+mr.getParameter("addr2");
+		String introduce=mr.getParameter("introduce");
+		String user_img = mr.getOriginalFileName("user_img");
+		
+		
+		HttpSession session = req.getSession();
+		String id = (String)session.getAttribute("id");
+		
+		
+		
+		/*String nick=req.getParameter("nick");
 		String pwd=req.getParameter("pwd");
 		String email=req.getParameter("email");
 		String birth=req.getParameter("year")+"/"+req.getParameter("month")+"/"+req.getParameter("day");
@@ -274,7 +306,7 @@ public class UserController {
 		String addr=req.getParameter("addr1")+"-"+req.getParameter("addr2");
 		String introduce=req.getParameter("introduce");
 		HttpSession session = req.getSession();
-		String id = (String)session.getAttribute("id");
+		String id = (String)session.getAttribute("id");*/
 		
 		UserVO vo=new UserVO();
 		vo.setUser_pwd(pwd);
@@ -284,17 +316,23 @@ public class UserController {
 		vo.setUser_mail(email);
 		vo.setUser_birth(birth);
 		vo.setUser_sex(gender);
-		vo.setUser_addr(addr);		
+		vo.setUser_addr(addr);
+		
+		if(user_img==null){
+			vo.setUser_img("");
+		}else{
+			File f = new File(path+"\\"+user_img);
+			vo.setUser_img(user_img);
+		}
+
 		UserDAO.infoCorrection(vo);		
-		req.setAttribute("jsp", "mypage/mypage.jsp");
-		return "main.jsp";
+		
+		return "mypage/infoCorrection_ok.jsp";
 	}
 	@RequestMapping("idFind.do")
 	public String idFind(HttpServletRequest req) throws Exception{
 		HttpSession session = req.getSession();
 		String user_id = (String)session.getAttribute("id");
-		String user_img=UserDAO.userProfileImage(user_id);
-		req.setAttribute("user_img", user_img);
 		
 		req.setCharacterEncoding("UTF-8");
 		String name=req.getParameter("name");

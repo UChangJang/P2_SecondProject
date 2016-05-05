@@ -49,6 +49,7 @@ $(function(){
 				return;
 			}
 		});
+
 });
 
 
@@ -78,29 +79,29 @@ $('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
 });
 
 
-	function wishCheck() {
-		if (httpRequest.readyState == 4) {
-			if (httpRequest.status == 200) {
-				alert(httpRequest.responseText);
-			}
+function wishCheck() {
+	if (httpRequest.readyState == 4) {
+		if (httpRequest.status == 200) {
+			alert(httpRequest.responseText);
 		}
 	}
+}
 
-	function resCheck() {
-		if (httpRequest.readyState == 4) {
-			if (httpRequest.status == 200) {
-				alert(httpRequest.responseText);
-			}
+function resCheck() {
+	if (httpRequest.readyState == 4) {
+		if (httpRequest.status == 200) {
+			alert(httpRequest.responseText);
 		}
 	}
+}
 
-	function tourContent2() {
-		if (httpRequest.readyState == 4) {
-			if (httpRequest.status == 200) {
-				$('#tourContent').html(httpRequest.responseText);
-			}
+function tourContent2() {
+	if (httpRequest.readyState == 4) {
+		if (httpRequest.status == 200) {
+			$('#tourContent').html(httpRequest.responseText);
 		}
 	}
+}
 </script>
 
 </head>
@@ -114,7 +115,7 @@ $('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
 					<c:forEach var="vo" items="${list }">
 						<div class="3u">					<!-- 사진 -->
 							<span class="image fit">
-								<img src="../controller/images/pic01.jpg" alt=""/><!-- 이미지사진 -->
+								<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }" alt=""/><!-- 이미지사진 -->
 							</span>	
 						</div>
 						<div class="9u">					<!-- 리스트 -->

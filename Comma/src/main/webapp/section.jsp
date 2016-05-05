@@ -28,11 +28,11 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 	</ul>
 
 	<div id="mainMenu">&nbsp;&nbsp; 
-		<span><a href="#">Comma</a></span>&nbsp;&nbsp; 
-		<span><a href="#">Introduce Korea</a></span>&nbsp;&nbsp;
-		<span><a href="#">Tour Find</a></span>&nbsp;&nbsp; 
-		<span><a href="#">Tour Request</a></span>&nbsp;&nbsp; 
-		<span><a href="#">Community</a></span>&nbsp;&nbsp; 
+		<span><a href="main.do">Comma</a></span>&nbsp;&nbsp; 
+		<span><a href="introduceKor.do">Introduce Korea</a></span>&nbsp;&nbsp;
+		<span><a href="guide.do">Tour Find</a></span>&nbsp;&nbsp; 
+		<span><a href="tourist.do">Tour Request</a></span>&nbsp;&nbsp; 
+		<span><a href="board_list.do">Community</a></span>&nbsp;&nbsp; 
 	</div>
 	<span><img src="http://file.theskinfood.com/resources/common/img/dep2bg.png" width="100%" height="37" alt=""></span>
 </section>
@@ -54,11 +54,11 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 						<input type="text" id="dt" placeholder="DATE" class="mainSearch1"/>
 						<div class="select-wrapper">
 							<select name="demo-category" id="demo-category" class="mainSearch1">
-								<option value="">PEOPLE</option>
+								<option value="">-PEOPLE-</option>
 								<option value="1">1 person</option>
-								<option value="1">2 persons</option>
-								<option value="1">3 persons</option>
-								<option value="1">4 persons</option>
+								<option value="2">2 persons</option>
+								<option value="3">3 persons</option>
+								<option value="4">4 persons</option>
 							</select> 
 						<input type="submit" value="SEARCH" class="special mainSearch1" />
 						</div>
@@ -129,7 +129,7 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 						</div>
 					
 						<div class="guideRanking_review">
-							${vo.reviewvo.review_score }점입니다.
+							${vo.reviewvo.review_score }다다다다다다다다다다다다다다다다다다다다다다다다다다다닫
 						</div>
 						<span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">${vo.uservo.user_nick }(${vo.text_loc })</span>
 					</div>

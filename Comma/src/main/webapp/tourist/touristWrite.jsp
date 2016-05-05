@@ -108,7 +108,7 @@
             <!-- 5 오른쪽 -->
             <div class="select-wrapper">
                <select name="text_time1" id="demo-category1">
-                  <option value="">- Time -</option>
+                  <option value="">- Start -</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -140,7 +140,7 @@
             <!-- 5-1 오른쪽 -->
             <div class="select-wrapper">
                <select name="text_time3" id="demo-category3">
-                  <option value="">- Time -</option>
+                  <option value="">- End -</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -169,7 +169,7 @@
                   
                   <div class="4u 12u$(small)">
                      <input type="radio" id="demo-priority-low" name="text_move" value="walking" checked>
-                     <label for="demo-priority-low">Walk</label>
+                     <label for="demo-priority-low">Walking</label>
                   </div>
                   <div class="4u 12u$(small)">
                      <input type="radio" id="demo-priority-normal" name="text_move" value="bicycle" >

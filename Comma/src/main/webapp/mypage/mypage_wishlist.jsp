@@ -58,9 +58,11 @@ $(function(){
 						<td>
 						<fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/>
 						</td>
+
 						<td>${guidevo.reservationvo.reservation_person}/${guidevo.text_total_person}</td>	
 							<!-- 미정 삭제 test요 -->
 						<td><a href="wishlist_guide_delete.do?gwish_no=${guidevo.wishvo.wish_no }" style="background-color: rgb(0, 0, 0);">
+
 						<input type="button" value="삭제"></a></td> 
 
 					</tr>

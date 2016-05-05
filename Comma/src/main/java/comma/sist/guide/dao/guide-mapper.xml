@@ -3,9 +3,9 @@
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
 	<!-- 가이드 목록리스트 -->
 	<select id="guideAllData" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
-		select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,num
-		from (select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,rownum as num 
-		from (select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img from text,guide,users 
+		select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,num
+		from (select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,rownum as num 
+		from (select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time from text,guide,users 
 		where guide.user_id=users.user_id and guide.text_no=text.text_no order by guide.guide_no desc))
 		where num between #{start} and #{end}
 	</select>
@@ -16,7 +16,7 @@
 	</select>
 	
 	<select id="guideInfo" resultMap="comma.sist.common.text-mapper.TextList" parameterType="int">
-		select guide_no,guide.user_id,guide_detail,guide_img,user_name,user_introduce,guide_subject,text_total_person,text_move,guide_loc_intro,
+		select guide_no,guide.user_id,guide_detail,guide_img,user_img,user_name,user_introduce,guide_subject,text_total_person,text_move,guide_loc_intro,
 				text.text_no,text_loc,text_cost,guide_cost_detail,text_tour_date,guide_meet,text_time1,text_time2,text_time3,text_time4,text_time
 		from guide,text,users 
 		where guide.guide_no=#{guide_no} and guide.text_no=text.text_no and guide.user_id=users.user_id
@@ -66,12 +66,24 @@
 		delete from text where text_no=#{text_no}
 	</delete>
 	
-	<!-- 마이페이지_내가 가이드 리스트에 작성한 글  -->
+
+	<!-- 가이드 사진 존재하는지 확인 -->
+	<select id="guideImgisExist" parameterType="String" resultType="int">
+		select count(guide_img) from guide where guide_img=#{guide_img}
+	</select>
+	
+	<!-- 가이드 후기 -->
+	<!-- <select id="guideReview" parameterType="int" resultMap="comma.sist.common.text-mapper.TextList">
+		 
+	</select> -->
+	
+
  	<select id="myGuideWriter" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList"> 
 	  SELECT guide_no,guide_subject,text_regdate,text_total_person,text_end,text_loc
       FROM guide,text
 	  WHERE text.text_no=guide.text_no AND guide.user_id=#{id}   
 	</select> 
+
 	
 	<!-- 마이페이지_내 가이드 리스트에 예약한 인원수 구하기 -->
 	<select id="myresPerson" resultType="String" parameterType="int">
@@ -81,19 +93,18 @@
 	</select>
 	  
 	<select id="bestGuide" resultMap="comma.sist.common.text-mapper.TextList">
-		<![CDATA[ 
-				select score review_score,id text_loc,rownum review_no,user_nick from 
-				(select avg(review_score) score,guide.user_id id
-				from review,users,guide
-				where review.guide_no=guide.guide_no
-				group by review.guide_no,guide.user_id
-				order by avg(review_score) desc), users
-				where rownum<4 and users.user_id=id			
-			]]>	
-	</select>
-	
-	<!-- 마이페이지_  -->
-
+      <![CDATA[ 
+            select score review_score,user_nick,id text_loc,rownum review_no from
+            (select avg(review_score) score,user_nick,users.user_id id
+            from review,users,guide
+            where review.guide_no=guide.guide_no and
+               guide.user_id=users.user_id
+            group by user_nick, users.user_id
+            order by avg(review_score)desc)
+            where rownum<4
+   
+         ]]>   
+   </select>
 
 
 </mapper>

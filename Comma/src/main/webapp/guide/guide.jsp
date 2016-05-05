@@ -17,21 +17,23 @@
 <!-- Main -->
 <article id="main">
 	<header id="header_guideList">
-			<!-- <video preload="auto" loop="loop" autoplay="ture">
-				<source src="images/guideMovie">
-				<h2 class="headerMagin">Guide List</h2>
-				<p>You Can Find Guide In Here!</p>
-				<a href="#one" class="more scrolly"><img src="images/triangle.png">
-						<br>view more</a>
-			</video> -->
-			<h2>Guide</h2>
-			<center>
-			<p>I will Guide You!</p>
-			<p>Check the board to find the best guide to you!</p>
-			</center>
+
+		<!-- <video preload="auto" loop="loop" autoplay="ture">
+			<source src="images/guideMovie">
+			<h2 class="headerMagin">Guide List</h2>
+			<p>You Can Find Guide In Here!</p>
 			<a href="#one" class="more scrolly"><img src="images/triangle.png">
 					<br>view more</a>
+		</video> -->
+		<h2>Guide</h2>
+		<center>
+		<p>I will Guide You!</p>
+		<p>Check the board to find the best guide to you!</p>
+		</center>
+		<a href="#one" class="more scrolly"><img src="images/triangle.png">
+				<br>view more</a>
 	
+
 	</header>
 
 	<section class="wrapper style5" id="guide_margin">
@@ -40,9 +42,9 @@
 				<div class="row uniform">
 					<div id="hotkeyword_guide">
 					<span><b>Hot Keyword</b></span>&nbsp;&nbsp;&nbsp;&nbsp;
-					<span>seoul</span>&nbsp;&nbsp;<span>jeju</span>
-					&nbsp;&nbsp;<span>daegu</span>&nbsp;&nbsp;
-					<span>gwangju</span>&nbsp;&nbsp;<span>busan</span>
+					<span>SEOUL</span>&nbsp;&nbsp;<span>JEJU</span>
+					&nbsp;&nbsp;<span>DAEGU</span>&nbsp;&nbsp;
+					<span>GWANGJU</span>&nbsp;&nbsp;<span>BUSAN</span>
 					</div>
 					
 					<div class="9u 12u$(xsmall)">
@@ -116,9 +118,10 @@
 	</section>
 
 	<!-- 3x3가이드리스트 출력 -->
-	<section id="#guideList">
+	<div id="guideList">
 		<jsp:include page="guideList.jsp"></jsp:include>
-	</section>
+	</div>
+
 </article>
 
 </body>

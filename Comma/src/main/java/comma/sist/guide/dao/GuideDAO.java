@@ -7,8 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import comma.sist.reservation.dao.ReservationVO;
-import comma.sist.wish.dao.WishVO;
 import comma.sist.common.*;
 
 public class GuideDAO {
@@ -31,11 +29,47 @@ private static SqlSessionFactory	ssf;
 		
 		SqlSession session = ssf.openSession();
 		List<TextVO> list = session.selectList("guideAllData",map);
-		session.close();
+		session.close();	
+		
+		costModify(list);
 		
 		return list;
 		
 	} // guideAllData()
+	
+	// 가격에 3자리씩 끊어 ,붙이기
+	public static void costModify(List<TextVO> list){
+		
+		for(TextVO vo:list){
+			String cost = vo.getText_cost();
+			String s="";
+			if(cost.length()%3==0){
+				for(int i=1; i<=cost.length(); i+=3){
+					s += cost.substring(i-1,i+2)+",";
+				}
+				s = s.substring(0,s.length()-1);
+				vo.setText_cost(s);
+			}
+			else if(cost.length()%3==1){
+				s = cost.substring(0,1)+",";
+				for(int i=1; i<=cost.length(); i+=3){ // 1,4 4,7
+					if(i<cost.length())
+						s += cost.substring(i,i+3)+",";
+				}
+				s = s.substring(0,s.length()-1);
+				vo.setText_cost(s);
+			}
+			else if(cost.length()%3==2){
+				s = cost.substring(0,2)+",";
+				for(int i=2; i<=cost.length(); i+=3){ // 2,5 5,8
+					if(i<cost.length())
+						s += cost.substring(i,i+3)+",";
+				}
+				s = s.substring(0,s.length()-1);
+				vo.setText_cost(s);
+			}
+		}
+	} // costModify
 	
 	public static int guideTotalPage(){
 		
@@ -109,6 +143,13 @@ private static SqlSessionFactory	ssf;
 		session.close();
 	}
 	
+	public static int guideImgisExist(String img){
+		
+		SqlSession session = ssf.openSession();
+		int count = session.selectOne("guideImgisExist",img);
+		session.close();
+		return count;
+	}
 	
 	//가이드에서 내가 쓴 글
 	public static List<TextVO> myGuideWriter(String id){
