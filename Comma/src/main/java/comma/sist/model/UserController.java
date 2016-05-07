@@ -156,15 +156,17 @@ public class UserController {
 		req.setAttribute("mypage", "mypage/mypage_review.jsp");		
 		return "main.jsp";
 	}
+	
+	//마이페이지_예약리스트 보여주기
 	@RequestMapping("mypage_reservation.do")
 	public String mypage_reserve(HttpServletRequest req){
 		HttpSession session = req.getSession();
-		String id = (String)session.getAttribute("id");
-		String user_img=UserDAO.userProfileImage(id);
+		String user_id = (String)session.getAttribute("id");
+		String user_img=UserDAO.userProfileImage(user_id);
 		req.setAttribute("user_img", user_img);
 		
-		List<TextVO> guidevo = ReservationDAO.myGuideReservation(id);	
-		List<TextVO> tourvo = ReservationDAO.myTourReservation(id);	
+		List<TextVO> guidevo = ReservationDAO.myGuideReservation(user_id);	
+		List<TextVO> tourvo = ReservationDAO.myTourReservation(user_id);	
 		
 		req.setAttribute("guidevo", guidevo);
 		req.setAttribute("tourvo", tourvo);

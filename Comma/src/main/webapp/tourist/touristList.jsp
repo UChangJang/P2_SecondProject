@@ -49,34 +49,38 @@ $(function(){
 				return;
 			}
 		});
+		
+		$('.wishlist').click(function(){		//1.위시리스트에 담기(이미추가됨 or 추가완료)
+			<c:if test="${sessionScope.id==null }">	
+				alert("로그인이 필요합니다.");
+				return;
+			</c:if>
+			
+			var id=$(this).attr('id');
+			var no=id.substring(4);	//wish${vo.touristvo.tour_no}
+			var param="tour_no="+no+"&id="+"${sessionScope.id}";
+			sendMessage("POST", "wishCheck.do", param, wishCheck);
+		});
+
+
+		$('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
+			alert("들어옴");
+			<c:if test="${sessionScope.id==null }">	
+				alert("로그인이 필요합니다.");
+				return;
+			</c:if>
+			
+			var id=$(this).attr('id');
+			var no=id.substring(3);	//res${vo.touristvo.tour_no}
+			var param="tour_no="+no+"&id="+"${sessionScope.id}";
+			alert(param);
+			sendMessage("POST", "resTourCheck.do", param, resCheck);
+		});
+
 
 });
 
 
-$('.wishlist').click(function(){		//1.위시리스트에 담기(이미추가됨 or 추가완료)
-	<c:if test="${sessionScope.id==null }">	
-		alert("로그인이 필요합니다.");
-		return;
-	</c:if>
-	
-	var id=$(this).attr('id');
-	var no=id.substring(4);	//wish${vo.touristvo.tour_no}
-	var param="tour_no="+no+"&id="+"${sessionScope.id}";
-	sendMessage("POST", "wishCheck.do", param, wishCheck);
-});
-
-
-$('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
-	<c:if test="${sessionScope.id==null }">	
-		alert("로그인이 필요합니다.");
-		return;
-	</c:if>
-	
-	var id=$(this).attr('id');
-	var no=id.substring(3);	//res${vo.touristvo.tour_no}
-	var param="tour_no="+no+"&id="+"${sessionScope.id}";
-	sendMessage("POST", "resTourCheck.do", param, resCheck);
-});
 
 
 function wishCheck() {
