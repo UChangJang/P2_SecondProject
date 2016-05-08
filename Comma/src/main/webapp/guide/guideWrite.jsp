@@ -112,20 +112,20 @@
 			<div class="2u 12u$(xsmall)">
 				<h5>Add or Delete</h5> 
 			</div>
-			<div id="plusdelbtn" style="align:center">
-				<div class="plusBtn">AddMore&nbsp;&nbsp;&nbsp;</div>
-				<div class="deleteBtn">DeleteMore</div>
+			<div class="10u$ 12u$(xsmall)" id="plusdelbtn">
+				<div class="plusBtn">Add&nbsp;&nbsp;&nbsp;</div>
+				<div class="deleteBtn">Delete</div>
 			</div>
 			
 			
 			<!-- 22222222222222222222222222222222222222222222222222 -->
-			<div class="2u 12u$(xsmall) gWrite_left plusWrite1">
+			<div class="2u 12u$(xsmall) plusWrite1">
 				<h5>Image & Detail Infomation 2</h5>
 			</div>
 			<div class="3u 12u$(xsmall) plusWrite1">
 				<span class="my-thumb-1">
 					<div>
-						<input type='file' id="profile_img2" />
+						<input type='file' id="profile_img2" name="guide_img2"/>
 					</div>
 					<div>
 						<img id="blah2" src="#" alt="" />
@@ -145,7 +145,7 @@
 			<div class="3u 12u$(xsmall) plusWrite2">
 				<span class="my-thumb-1">
 					<div>
-						<input type='file' id="profile_img3" />
+						<input type='file' id="profile_img3" name="guide_img3"/>
 					</div>
 					<div>
 						<img id="blah3" src="#" alt="" />
@@ -242,7 +242,7 @@
 			
 			<div class="2u 12u$(xsmall)">
 				<!-- 5 왼쪽 : 시간-->
-				<h5>Time check</h5>
+				<h5>Time Check</h5>
 			</div>
 			<div class="2u 12u$(xsmall)">
 				<!-- 5 오른쪽 -->

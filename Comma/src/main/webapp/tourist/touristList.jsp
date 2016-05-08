@@ -79,21 +79,21 @@ $('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
 });
 
 
-	function wishCheck() {
-		if (httpRequest.readyState == 4) {
-			if (httpRequest.status == 200) {
-				alert(httpRequest.responseText);
-			}
+function wishCheck() {
+	if (httpRequest.readyState == 4) {
+		if (httpRequest.status == 200) {
+			alert(httpRequest.responseText);
 		}
 	}
+}
 
-	function resCheck() {
-		if (httpRequest.readyState == 4) {
-			if (httpRequest.status == 200) {
-				alert(httpRequest.responseText);
-			}
+function resCheck() {
+	if (httpRequest.readyState == 4) {
+		if (httpRequest.status == 200) {
+			alert(httpRequest.responseText);
 		}
 	}
+}
 
 function tourContent2() {
 	if (httpRequest.readyState == 4) {
@@ -115,7 +115,7 @@ function tourContent2() {
 					<c:forEach var="vo" items="${list }">
 						<div class="3u">					<!-- 사진 -->
 							<span class="image fit">
-								<img src="../controller/images/pic01.jpg" alt=""/><!-- 이미지사진 -->
+								<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }" alt=""/><!-- 이미지사진 -->
 							</span>	
 						</div>
 						<div class="9u">					<!-- 리스트 -->
@@ -153,9 +153,9 @@ function tourContent2() {
 					</c:forEach>
 						
 				</div>
-				</div>
+			</div>
 				<!-- 쪽지보내기 -->
-						 <form class="white-popup mfp-hide" id="letPop16">
+			 <form class="white-popup mfp-hide" id="letPop16">
 	                  <h1>Message</h1>
 	                    <table>
 	                     	<tr>

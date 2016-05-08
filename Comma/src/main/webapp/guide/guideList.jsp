@@ -57,7 +57,7 @@ function guideContent() {
 							</div>
 							<div class="secondTable">[${vo.text_loc}]${vo.guidevo.guide_subject }</div>
 							<div class="ThirdTable">
-								<span>Cost</span>&nbsp;<span>${vo.text_cost }</span>
+								<span>£Ü${vo.text_cost }</span>
 							</div>
 							<div class="FourthTable">
 								<span>Means</span>&nbsp;<span><font color="pink">${vo.text_move }</font></span>

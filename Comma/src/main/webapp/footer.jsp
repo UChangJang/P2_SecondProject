@@ -20,8 +20,11 @@
 				class="label">Email</span></a></li>
 	</ul>
 	<ul class="copyright">
-		<li>&copy; Untitled</li>
-		<li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+		<li>&copy; Comma</li>
+		<li>Design: <a href="http://html5up.net">SIST</a></li><br>
+		<li>Made: 박성호, 배현길, 서단비, 유재성, 유미정, 장우창, 안보영</li>
+		<li>Tel: 010-4808-5791</li><br>
+		<li>&copy; COPYRIGHT All RIGHTS RESERVED</li>
 	</ul>
 </footer>
 </body>

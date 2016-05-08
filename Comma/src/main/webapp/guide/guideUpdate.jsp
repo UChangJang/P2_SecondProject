@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -70,9 +71,9 @@
 	<section> <!-- 글쓰기 -->
 	<form method="post" action="guideWrite_ok.do" id="guideUpdateFmt" enctype="multipart/form-data">
 		<div class="row uniform" id="guideWrite_text">
-			<div class="2u 12u$(xsmall) gWrite_left">
+			<div class="2u 12u$(xsmall)">
 				<!-- 1 왼쪽 : 제목-->
-				<h5>제목</h5>
+				<h5>Subject</h5>
 			</div>
 			<div class="10u$ 12u$(xsmall)">
 				<!-- 2 오른쪽 -->
@@ -80,9 +81,9 @@
 					placeholder="Subject" />
 			</div>
 
-			<div class="2u 12u$(xsmall) gWrite_left">
+			<div class="2u 12u$(xsmall)">
 				<!-- 2 왼쪽 : 관광지소개-->
-				<h5>관광지소개</h5>
+				<h5>Introduce Tour Location</h5>
 			</div>
 			<div class="10u$ 12u$(xsmall)">
 				<!-- 2 오른쪽 -->
@@ -94,8 +95,8 @@
 
 
 
-		 	<div class="2u 12u$(xsmall) gWrite_left">
-				<h5>세부소개1</h5>
+		 	<div class="2u 12u$(xsmall)">
+				<h5>Image & Detail Infomation</h5>
 			</div>
 			<div class="3u 12u$(xsmall)">
 				<span class="my-thumb-1">
@@ -114,16 +115,17 @@
 			</div>
 			
 			<div class="2u 12u$(xsmall)">
+				<h5>Add or Delete</h5>
 			</div>
 			<div class="10u$ 12u$(xsmall)" id="plusdelbtn">
-				<div class="plusBtn">내용추가&nbsp;&nbsp;</div>
-				<div class="deleteBtn">내용삭제</div>
+				<div class="plusBtn">Add&nbsp;&nbsp;</div>
+				<div class="deleteBtn">Delete</div>
 			</div>
 			
 			
 			<!-- 22222222222222222222222222222222222222222222222222 -->
-			<div class="2u 12u$(xsmall) gWrite_left plusWrite1">
-				<h5>세부소개2</h5>
+			<div class="2u 12u$(xsmall) plusWrite1">
+				<h5>Image & Detail Infomation 2</h5>
 			</div>
 			<div class="3u 12u$(xsmall) plusWrite1">
 				<span class="my-thumb-1">
@@ -142,13 +144,13 @@
 			</div>
 			
 			<!-- 3333333333333333333333333333333333333333333333333-->
-			<div class="2u 12u$(xsmall) gWrite_left plusWrite2">
-				<h5>세부소개3</h5>
+			<div class="2u 12u$(xsmall) plusWrite2">
+				<h5>Image & Detail Infomation 3</h5>
 			</div>
 			<div class="3u 12u$(xsmall) plusWrite2">
 				<span class="my-thumb-1">
 					<div>
-						<input type='file' id="profile_img3" />
+						<input type='file' id="profile_img3" value="http://211.238.142.74:8080/controller/image/${vo.guidevo.guide_img }"/>
 					</div>
 					<div>
 						<img id="blah3" src="#" alt="" />
@@ -162,50 +164,52 @@
 			</div>
 
 
-			<div class="2u 12u$(xsmall) gWrite_left">
+			<div class="2u 12u$(xsmall)">
 				<!-- 5 왼쪽 : 지역-->
-				<h5>지역</h5>
+				<h5>Tour Location</h5>
 			</div>
 			<div class="4u 12u$(xsmall)">
 				<!-- 5 오른쪽 -->
 				<div class="select-wrapper">
 					<select name="text_loc" id="demo-category">
-						<option value="">- 지역 -</option>
-						<option value="서울" checked>서울</option>
-						<option value="부산">부산</option>
-						<option value="제주도">제주도</option>
-						<option value="강원도">강원도</option>
+						<option value="">- Location -</option>
+						<option value="SEOUL">Seoul</option>
+						<option value="BUSAN">BuSan</option>
+						<option value="JEJU">JeJu</option>
+						<option value="INCHEON">Incheon</option>
+						<option value="BORYEONG">BorYeong</option>
+						<option value="YEOSU">YeoSu</option>
+						<option value="GYEONGJU">GyeongJu</option>
+						<option value="CHUNCHEON">ChunCheon</option>
 					</select>
 				</div>
 			</div>
 
-			<div class="1u 12u$(xsmall) gWrite_left">
+			<div class="1u 12u$(xsmall)">
 				<!-- 5-1 왼쪽 : 모집인원-->
-				<h5>모집인원</h5>
+				<h5>People</h5>
 			</div>
 			<div class="5u$ 12u$(xsmall)">
 				<!-- 5-1 오른쪽 -->
 				<div class="select-wrapper">
 					<select name="text_total_person" id="demo-category">
-						<option value="">${vo.text_total_person }명</option>
-						<option value="1">1명</option>
-						<option value="2">2명</option>
-						<option value="3">3명</option>
-						<option value="4">4명</option>
-						<option value="5">5명</option>
-						<option value="6">6명</option>
-						<option value="7">7명</option>
-						<option value="8">8명</option>
-						<option value="9">9명</option>
-						<option value="10">10명</option>
+						<option value="">- PEOPLE -</option>
+						<c:forEach var="i" begin="5" end="50" step="5">
+							<c:if test="${vo.text_total_person==i }">
+								<option selected="selected">${ i} People</option>
+							</c:if>
+							<c:if test="${vo.text_total_person!=i }">
+								<option>${ i} People</option>
+							</c:if>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
 
 
-			<div class="2u 12u$(xsmall) gWrite_left">
+			<div class="2u 12u$(xsmall)">
 				<!-- 6 왼쪽 : 비용-->
-				<h5>비용</h5>
+				<h5>Cost</h5>
 			</div>
 			<div class="10u$ 12u$(xsmall)">
 				<!-- 6 오른쪽 -->
@@ -213,9 +217,9 @@
 					placeholder="Cost" />
 			</div>
 
-			<div class="2u 12u$(xsmall) gWrite_left">
+			<div class="2u 12u$(xsmall)">
 				<!-- 7 왼쪽 : 비용상세-->
-				<h5>비용상세</h5>
+				<h5>Cost detail</h5>
 			</div>
 			<div class="10u$ 12u$(xsmall)">
 				<!-- 7 오른쪽 -->
@@ -223,52 +227,48 @@
 					placeholder="Enter your cost message" rows="6">${vo.guidevo.guide_cost_detail }</textarea>
 			</div>
 
-			<div class="2u 12u$(xsmall) gWrite_left">
+			<div class="2u 12u$(xsmall)">
 				<!-- 8 왼쪽 : 이동수단-->
-				<h5>이동수단</h5>
+				<h5>Move</h5>
 			</div>
 			<div class="10u$ 12u$(xsmall)">
 				<!-- 8 오른쪽 -->
-				<input type="radio" id="walking" name="text_move" value="walking" checked>
+				<input type="radio" id="walking" name="text_move" value="walking" ${vo.text_move eq 'walking'?"checked":"" }>
 					<label for="walking">walking</label> 
-				<input type="radio" id="car" name="text_move" value="car"> 
+				<input type="radio" id="car" name="text_move" value="car" ${vo.text_move eq 'car'?"checked":"" }> 
 					<label for="car">car</label>
-				<input type="radio" id="bicycle" name="text_move" value="bicycle">
+				<input type="radio" id="bicycle" name="text_move" value="bicycle" ${vo.text_move eq 'bicycle'?"checked":"" }>
 					<label for="bicycle">bicycle</label>
 			
 			</div>
 		
 			
-			<div class="2u 12u$(xsmall) gWrite_left">
+			<div class="2u 12u$(xsmall)">
 				<!-- 5 왼쪽 : 시간-->
-				<h5>시간</h5>
+				<h5>Time Check</h5>
 			</div>
 			<div class="2u 12u$(xsmall)">
 				<!-- 5 오른쪽 -->
 				<div class="select-wrapper">
 					<select name="text_time1" id="demo-category1">
-						<option value="">- 시간 -</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
+					<option value="">- START -</option>
+					<c:forEach var="i" begin="1" end="12">
+					<c:if test="${vo.text_time1==i }">
+						<option selected="selected">${ i}</option>
+					</c:if>
+					<c:if test="${vo.text_time1!=i }">
+						<option>${ i}</option>
+					</c:if>
+					</c:forEach>						
 					</select>
 				</div>
 			</div>
 			<div class="2u 12u$(xsmall)">
 				<div class="select-wrapper">
 					<select name="text_time2" id="demo-category2">
-						<option value="">- 밤낮 -</option>
-						<option value="am">AM</option>
-						<option value="pm">PM</option>
+						<option value="">- TIME -</option>
+						<option value="am" ${vo.text_time2 eq 'am'?"selected":"" }>AM</option>
+						<option value="pm" ${vo.text_time2 eq 'pm'?"selected":"" }>PM</option>
 					</select>
 				</div>
 			</div>
@@ -279,35 +279,31 @@
 				<!-- 5-1 오른쪽 -->
 				<div class="select-wrapper">
 					<select name="text_time3" id="demo-category3">
-						<option value="">- 시간 -</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="8">8</option>
-						<option value="9">9</option>
-						<option value="10">10</option>
-						<option value="11">11</option>
-						<option value="12">12</option>
+						<option value="">- END -</option>
+						<c:forEach var="i" begin="1" end="12">
+						<c:if test="${vo.text_time3==i }">
+							<option selected="selected">${ i}</option>
+						</c:if>
+						<c:if test="${vo.text_time3!=i }">
+							<option>${ i}</option>
+						</c:if>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
 			<div class="2u$ 12u$(xsmall)">
 				<div class="select-wrapper">
 					<select name="text_time4" id="demo-category4">
-						<option value="">- 밤낮 -</option>
-						<option value="am">AM</option>
-						<option value="pm">PM</option>
+						<option value="">- TIME -</option>
+						<option value="am" ${vo.text_time4 eq 'am'?"selected":"" }>AM</option>
+						<option value="pm" ${vo.text_time4 eq 'pm'?"selected":"" }>PM</option>
 					</select>
 				</div>
 			</div>
 
-			<div class="2u 12u$(xsmall) gWrite_left">
+			<div class="2u 12u$(xsmall)">
 				<!-- 1 왼쪽 : 만날장소-->
-				<h5>만날장소</h5>
+				<h5>Meet Place</h5>
 			</div>
 			<div class="10u$ 12u$(xsmall)">
 				<!-- 2 오른쪽 -->
@@ -316,9 +312,9 @@
 			</div>
 
 
-			<div class="2u 12u$(xsmall) gWrite_left">
+			<div class="2u 12u$(xsmall)">
 				<!-- 7 왼쪽 : 관광날짜-->
-				<h5>관광날짜</h5>
+				<h5>Tour Date</h5>
 			</div>
 			<div class="10u$ 12u$(xsmall)">
 				<!-- 7 오른쪽 -->
@@ -327,8 +323,8 @@
 		</div>
 	<br>
 	<ul class="actions fit small gWrbtn">
-		<li><button class="button special fit small" id="guide_update">수정</button></li>
-		<li><button class="button fit small" onclick="javascript:history.back()">취소</button></li>
+		<li><button class="button special fit small" id="guide_update">Modify</button></li>
+		<li><button class="button fit small" onclick="javascript:history.back()">Cancel</button></li>
 	</ul>
 	</form>
 	</section>
