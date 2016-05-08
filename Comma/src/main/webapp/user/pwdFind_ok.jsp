@@ -10,11 +10,10 @@
 </head>
 <body>
 	<c:if test="${pwd==null }">
-	 	아이디가 없습니다.
+	 	ID does not exist.
 	</c:if>
 	<c:if test="${pwd!=null }">
-		비밀번호는 ${pwd }입니다.
+		Your Password : ${pwd }
 	</c:if>
 </body>
 </html>
-

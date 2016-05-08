@@ -97,25 +97,27 @@ function hotspot(){
 				
 				<div class="2u$ 12u$(small) mainRight1">					<!-- 3 오른쪽 -->
 						<table id="mainRight">
-							<tr>
+							<!-- <tr onclick="location.href='introduceKor.do'">style="cursor:hand;" 
+							<a href="#">
 							  <td><span class="mainRight_span"><img src="images/home.png"></span></td>
-							  <th><a href="#">Home</a></th>
-							</tr>
-							<tr>
+							  <th>Home</th>
+							  </a>
+							</tr> -->
+							<tr style="cursor:Pointer;"onclick="location.href='introduceKor.do'">
 							  <td><span class="mainRight_span"><img src="images/comma.png"></span></td>
-							  <th><a href="#">Comma</a></th>
+							  <th>Comma</th>
 							</tr>
-							<tr>
+							<tr style="cursor:Pointer;"onclick="location.href='tourist.do'">
 							  <td><span class="mainRight_span"><img src="images/korea.png"></span></td>
-							  <th><a href="#">Tour</a></th>
+							  <th>Tour</th>
 							</tr>
-							<tr>
+							<tr style="cursor:Pointer;"onclick="location.href='guide.do'">
 							  <td><span class="mainRight_span"><img src="images/guide.png"></span></td>
-							  <th><a href="#">Request</a></th>
+							  <th>Request</th>
 							</tr>
-							<tr>
+							<tr style="cursor:Pointer;"onclick="location.href='board_list.do'">
 							  <td><span class="mainRight_span"><img src="images/commu.png"></span></td>
-							  <th><a href="#">Community</a></th>
+							  <th>Community</th>
 							</tr>
 						</table>
 					</div>
@@ -134,7 +136,7 @@ function hotspot(){
 		<!-- 도움... 누가 이미지 겹치는것좀 ㅎㅎ... -->
 		<!-- <img id="threeImg" src="http://file.theskinfood.com/resources/common/img/map_bg.png" alt="" style="position: relative; z-index: 1;"/> -->
 				<!-- 제목 왼쪽정렬 -->
-		<div id="threeDiv" class="row uniform" style="position: relative; z-index: 2;">
+		<div id="threeDiv" class="row uniform" style="position: relative ; z-index: 2;">
 		
 			<div class="6u 12u$(small) secondPart" id="guideRanking"> 
 				<h5>Best Guide 6</h5>
