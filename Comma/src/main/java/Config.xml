@@ -11,8 +11,9 @@
 		<typeAlias type="comma.sist.review.dao.ReviewVO" alias="Review"/>
 		<typeAlias type="comma.sist.reservation.dao.ReservationVO" alias="Reservation"/>
 		<typeAlias type="comma.sist.user.dao.ZipcodeVO" alias="Zipcode"/>
+		<typeAlias type="comma.sist.hotspot.HotspotVO" alias="Hotspot"/>
+		<typeAlias type="comma.sist.hotspot.SearchVO" alias="Search"/>
 		<typeAlias type="comma.sist.tourist.dao.TouristResVO" alias="TouristRes"/><!-- 보영추가 -->
-
 		<typeAlias type="comma.board.dao.BoardVO" alias="Board"/>
 		<typeAlias type="comma.board.dao.ReplyVO" alias="Reply"/>
 
@@ -47,6 +48,7 @@
 		<mapper resource="comma/sist/review/dao/review-mapper.xml"/> 
 		<mapper resource="comma/sist/wish/dao/wish-mapper.xml"/> 
 		<mapper resource="comma/sist/reservation/dao/reservation-mapper.xml"/>
-		<mapper resource="comma/board/dao/board-mapper.xml"/>		
+		<mapper resource="comma/sist/hotspot/hotspot-mapper.xml"/>
+		<mapper resource="comma/board/dao/board-mapper.xml"/>	
 	</mappers> 
 </configuration>
