@@ -348,7 +348,7 @@ public class GuideController {
 		
 	
 
-	
+	//예약하기
 	@RequestMapping("reserveGuide.do")
 	public String reserveGuide(HttpServletRequest req) throws Exception{
 		
@@ -364,13 +364,28 @@ public class GuideController {
 		vo.setUser_id(user_id);
 		vo.setReservation_person(Integer.parseInt(reservation_person));
 		
-		ReservationDAO.reserveGuide(vo);
 		
+		String sumTemp=ReservationDAO.reserveGuideCheck(Integer.parseInt(guide_no));	//예약가능한지
+		int sum=Integer.parseInt(sumTemp);
+		int total=ReservationDAO.reserveGuidePossible(Integer.parseInt(guide_no));
+		int res=Integer.parseInt(reservation_person);
 		
-		req.setAttribute("jsp", "mypage/mypage.jsp");
+		int count=ReservationDAO.reserveGuideExist(vo);
+		
+		if(total>=sum+res && count==0){					//예약!
+			ReservationDAO.reserveGuide(vo);		
+			req.setAttribute("jsp", "mypage/mypage.jsp");
+		}else{								//예약불가!
+			req.setAttribute("msg", "You can not reserve.<br/> The number of people who can reserve is already full.<br/> "
+					+ "Or You already made an appointment.<br/>Find other guide...");
+			req.setAttribute("jsp", "error.jsp");
+		}
+		
 		
 		return "main.jsp";
 	}
+	
+	
 	@RequestMapping("wishGuide.do")
 	public String wish_ok(HttpServletRequest request){
     

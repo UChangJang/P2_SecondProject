@@ -16,34 +16,36 @@
 		<section id="tabs">
 
 		<div class="tab1">
-			<a href="#">가이드 예약</a>
+			<a href="#">Guide Reservation</a>
 		</div>
 		<div class="tab2">
-			<a href="#">관광객 예약</a>
+			<a href="#">Tour Reservation</a>
 		</div>
 
 		<div class="box alt table-wrapper tabscontents t1">
 			<table class="alt">
 				<thead>
 					<tr>
-						<th width="7%">번호</th>
-						<th width="25%">제목</th>						
-						<th width="10%">별명</th>
-						<th width="10%">날짜</th>
-						<th width="7%">인원</th>
-						<th width="7%">상태</th>
+						<th width="7%">No</th>
+						<th width="10%">Loc</th>
+						<th width="20%">Title</th>
+						<th width="10%">Gudie</th>
+						<th width="10%">Date</th>
+						<th width="7%">Total</th>
+						<th width="7%">Del</th>
 					</tr>
 				</thead>
 				<tbody>
-				<c:forEach var="guidevo" items="${guidevo }">
+				<c:forEach var="vo" items="${guidevo }">
 					<tr>
-						<td width="5%" align="center">${guidevo.guidevo.guide_no }</td>
-						<td width="15%">${guidevo.guidevo.guide_subject }</td>
-						<td width="10%" align="center">${guidevo.uservo.user_nick }</td>
-						<td width="20%" align="center">${guidevo.text_tour_date }</td>
-						<td width="15%" align="center">${guidevo.reservationvo.reservation_person } / ${guidevo.text_total_person }</td>
-						<td width="10%" align="center">${guidevo.text_end }</td>
-						<td width="25%"><input type="button" value="삭제"></td>
+						<td width="7%" align="center">${vo.guidevo.guide_no }</td>
+						<td width="10%">${vo.text_loc }</td>
+						<td width="20%" align="center">
+							<a href="guideBoard.do?no=${vo.guidevo.guide_no }">${vo.guidevo.guide_subject }</a></td>
+						<td width="10%" align="center">${vo.uservo.user_id }</td>
+						<td width="10%" align="center">${vo.text_tour_date }</td>
+						<td width="7%" align="center">${vo.text_total_person }</td>
+						<td width="7%"><input type="button" value="Del"></td>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -53,27 +55,26 @@
 		<div class="box alt table-wrapper tabscontents t2">
 			<table class="alt">
 				<thead>
-				 
-					<tr>
-						<th width="7%">번호</th>
-						<th width="25%">제목</th>						
-						<th width="10%">별명</th>
-						<th width="10%">날짜</th>
-						<th width="7%">인원</th>
-						<th width="7%">상태</th>
+					 <tr>
+						<th width="7%">No</th>
+						<th width="10%">Loc</th>
+						<th width="10%">Theme</th>
+						<th width="10%">Tourist</th>
+						<th width="10%">Date</th>
+						<th width="7%">Y/N</th>
+						<th width="7%">Del</th>
 					</tr>
-				
 				</thead>
 				<tbody>
-				  <c:forEach var="tourvo" items="${tourvo }">
+				  <c:forEach var="vo" items="${tourvo }">
 					<tr>
-						<td width="5%" align="center">${tourvo.touristvo.tour_no }</td>
-						<td width="15%">${tourvo.touristvo.tour_theme }</td>
-						<td width="10%" align="center">${tourvo.uservo.user_nick }</td>
-						<td width="20%" align="center">${tourvo.text_tour_date }</td>
-						<td width="15%" align="center">${tourvo.reservationvo.reservation_person } / ${vo.text_total_person }</td>
-						<td width="10%" align="center">${tourvo.text_end }</td>
-						<td width="25%"><input type="button" value="삭제"></td>
+						<td width="7%" align="center">${vo.touristvo.tour_no }</td>
+						<td width="10%">${vo.text_loc }</td>
+						<td width="10%" align="center">${vo.touristvo.tour_theme }</td>
+						<td width="10%" align="center">${vo.uservo.user_id }</td>
+						<td width="10%" align="center">${vo.text_tour_date }</td>
+						<td width="7%" align="center">${vo.reservationvo.reservation_check }</td>
+						<td width="7%"><input type="button" value="Del"></td>
 					</tr>
 				  </c:forEach>
 				</tbody>

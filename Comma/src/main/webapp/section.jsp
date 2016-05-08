@@ -32,7 +32,7 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 		<span><a href="introduceKor.do">Introduce Korea</a></span>&nbsp;&nbsp;
 		<span><a href="guide.do">Tour Find</a></span>&nbsp;&nbsp; 
 		<span><a href="tourist.do">Tour Request</a></span>&nbsp;&nbsp; 
-		<span><a href="#">Community</a></span>&nbsp;&nbsp; 
+		<span><a href="board_list.do">Community</a></span>&nbsp;&nbsp; 
 	</div>
 	<span><img src="http://file.theskinfood.com/resources/common/img/dep2bg.png" width="100%" height="37" alt=""></span>
 </section>
