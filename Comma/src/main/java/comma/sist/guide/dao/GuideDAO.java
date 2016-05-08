@@ -9,6 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import comma.sist.common.*;
 import comma.sist.tourist.dao.TouristVO;
+
 import comma.sist.user.dao.UserVO;
 
 public class GuideDAO {
@@ -153,7 +154,72 @@ private static SqlSessionFactory	ssf;
 		return count;
 	}
 	
-	//가이드에서 내가 쓴 글
+
+	// 가이드 사람에 대한 상세보기
+	public static UserVO guideInfoShow(int guide_no){
+		
+		SqlSession session = ssf.openSession();
+		UserVO vo = session.selectOne("guideInfoShow",guide_no);
+		session.close();
+		
+		return vo;
+	}
+	
+	public static List<Integer> guideAllNumberWrited(String id){
+		
+		SqlSession session = ssf.openSession();
+		List<Integer> list = session.selectList("guideAllNumberWrited",id);
+		session.close();
+		return list;
+	}
+	
+	public static TextVO guideAllArticle(int guide_no){
+		
+		SqlSession session = ssf.openSession();
+		TextVO vo = session.selectOne("guideAllArticle",guide_no);
+		session.close();
+		
+		String cost = vo.getText_cost();
+		String s="";
+		if(cost.length()%3==0){
+			for(int i=1; i<=cost.length(); i+=3){
+				s += cost.substring(i-1,i+2)+",";
+			}
+			s = s.substring(0,s.length()-1);
+			vo.setText_cost(s);
+		}
+		else if(cost.length()%3==1){
+			s = cost.substring(0,1)+",";
+			for(int i=1; i<=cost.length(); i+=3){ // 1,4 4,7
+				if(i<cost.length())
+					s += cost.substring(i,i+3)+",";
+			}
+			s = s.substring(0,s.length()-1);
+			vo.setText_cost(s);
+		}
+		else if(cost.length()%3==2){
+			s = cost.substring(0,2)+",";
+			for(int i=2; i<=cost.length(); i+=3){ // 2,5 5,8
+				if(i<cost.length())
+					s += cost.substring(i,i+3)+",";
+			}
+			s = s.substring(0,s.length()-1);
+			vo.setText_cost(s);
+		}
+		
+		return vo;
+	}
+	
+	public static List<TextVO> guideReview(int guide_no){
+		
+		SqlSession session = ssf.openSession();
+		/*TextVO vo = session.selectOne("guideReview",guide_no);*/
+		List<TextVO> list = session.selectList("guideReview",guide_no);
+		session.close();
+		return list;
+	}
+	
+
 	public static List<TextVO> myGuideWriter(String id){
 		SqlSession session=ssf.openSession();
 		List<TextVO> vo = session.selectList("myGuideWriter",id);		

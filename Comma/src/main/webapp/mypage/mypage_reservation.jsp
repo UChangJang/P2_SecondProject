@@ -69,7 +69,7 @@
 				  <c:forEach var="vo" items="${tourvo }">
 					<tr>
 						<td width="7%" align="center">${vo.touristvo.tour_no }</td>
-						<td width="10%">${vo.text_loc }</td>
+						<td width="10%" id="tour${vo.touristvo.tour_no }" class="tourDetatil" style="cursor: pointer;">${vo.text_loc }</td>
 						<td width="10%" align="center">${vo.touristvo.tour_theme }</td>
 						<td width="10%" align="center">${vo.uservo.user_id }</td>
 						<td width="10%" align="center">${vo.text_tour_date }</td>
@@ -80,8 +80,48 @@
 				</tbody>
 			</table>
 		</div>
-
 		
+
+		<c:forEach var="tourvo" items="${tourvo }">
+	                <form class="white-popup mfp-hide" id="tourPopUp${tourvo.touristvo.tour_no }">
+	                  <h1>TourDetail</h1>
+	                    <table>
+	                     	<tr>
+	                     	  <td width="30%" align="right">tour</td>
+	                     	  <td width="70%" align="left">${tourvo.uservo.user_id}</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">tour date</td>
+	                     	  <td width="70%" align="left">${tourvo.text_tour_date }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">tour time</td>
+	                     	  <td width="70%" align="left">${tourvo.text_time1 }${tourvo.text_time2 }~${tourvo.text_time3 }${tourvo.text_time4 }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">cost</td>
+	                     	  <td width="70%" align="left">${tourvo.text_cost }</td>
+	                     	</tr>
+	                     	
+	                     	<tr>
+	                     	  <td width="30%" align="right">method</td>
+	                     	  <td width="70%" align="left">${tourvo.text_move }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">people</td>
+	                     	  <td width="70%" align="left">${tourvo.text_total_person }</td>
+	                     	</tr>
+	                     
+	                     	
+	                     	<tr>
+	                     	  <td colspan="2" align="center">³»¿ë</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${tourvo.touristvo.tour_detail}</textarea></td>
+	                     	</tr>
+	                     </table>         
+	               </form> 
+	               </c:forEach>  
 		</section>
 	</div>
 	</section>
@@ -107,6 +147,24 @@
 					$('.t' + index).fadeIn();
 					$(this).css('background-color', '#000').addClass('active');
 				});
+		$('.tourDetatil').click(function(){
+			
+			var id=$(this).attr('id');
+			var no=id.substring(4);
+			  $.magnificPopup.open({
+			        items :{src:'#tourPopUp'+no,type : 'inline'},
+			              preloader: false,focus: '#name',
+			              callbacks: {beforeOpen: function() {
+			                 if($(window).width() < 700) {
+			                    this.st.focus = false;
+			                 } else {
+			                    this.st.focus = '#name';
+			                 }
+			              }
+			        }
+
+			     });
+		})
 	</script>
 </body>
 </html>

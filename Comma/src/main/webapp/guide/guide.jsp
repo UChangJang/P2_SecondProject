@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>guide</title>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
 
@@ -73,6 +74,7 @@
 			}
 		}
 	}
+
 </script>
 </head>
 <body>
@@ -98,6 +100,7 @@
 
 	<section class="wrapper style5" id="guide_margin">
 		<div class="inner">
+
 				<div class="row uniform">
 					<div id="hotkeyword_guide">
 					<span><b>Hot Keyword</b></span>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -124,23 +127,28 @@
 		                           <option value="GYEONGGIDO">GYEONGGIDO</option>
 							</select>
 						</div>
+
 					</div>
 					
 					<div class="3u$ 12u$(xsmall)">
 						<ul class="actions">
 							<a href="#two" class="scrolly">
 								<li><input type="submit" value="GO" class="special" id="guideSearch" /></li>
+
 							</a>
 						</ul>
 					</div>
 				</div>
-
+				
+				
 				<div id="wrapdetail">
 					<div id="bt">Detail Searching</div>
+
 				</div>
 
 				<div class="row uniform" id="panel">					<!-- 상세검색div -->	
 					<div class="12u$ 12u$(xsmall)">
+
 						<div class="selectGuideMethod">						<!-- 1.방법 -->
 							<input type="radio" id="walking" name="method" class="guideLabel"> <!--checked뺌 -->
 								<label for="walking">walking</label> 
@@ -158,16 +166,21 @@
 								<option value="5">5person</option>
 								<option value="10">10person</option>
 								<option value="15">15person</option>
+
+						
 							</select>
 						</div>
 
+
 						<div id="demo1">									<!-- 3.날짜 -->
 							<input type="text" id="dt" placeholder="날짜선택">
+
 							<div id="dd"></div>
 						</div>
 						
 					</div>
 				</div>
+
 		</div>
 		
 		<!-- 3. 정렬 -->

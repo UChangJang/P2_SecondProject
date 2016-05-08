@@ -156,8 +156,6 @@
    var mapGyeongJu=${mapGyeongJu};
    var mapYeosu=${mapYeosu};
    
-   alert("mapSeoul:"+mapSeoul+",mapBusan:"+mapBusan+",mapJeju:"+mapJeju+",mapChuncheon:"+mapChuncheon
-		   +",mapYeosu:"+mapYeosu+",mapGyeongJu:"+mapGyeongJu);
       
 var citymap = {
      jeju: {

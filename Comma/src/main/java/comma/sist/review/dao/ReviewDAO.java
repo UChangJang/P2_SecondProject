@@ -25,11 +25,11 @@ private static SqlSessionFactory	ssf;
 		}
 	}
 	
-	public static List<TextVO> myAllReview(String id){
+	public static List<TextVO> myAllReview(int guide_no){
 		SqlSession session=ssf.openSession();
-		List<TextVO> vo = session.selectList("myAllReview",id);
+		List<TextVO> list = session.selectList("myAllReview",guide_no);
 		session.close();
-		return vo;
+		return list;
 	}
 	public static List<GuideVO> myAbleReview(String id){
 		SqlSession session=ssf.openSession();

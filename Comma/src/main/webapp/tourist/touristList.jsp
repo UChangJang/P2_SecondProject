@@ -154,27 +154,32 @@ function tourContent2() {
 					</c:forEach>
 						
 				</div>
-				</div>
+			</div>
 				<!-- 쪽지보내기 -->
-						 <form class="white-popup mfp-hide" id="letPop16">
+
+				<c:forEach var="list" items="${list }">
+			 <form class="white-popup mfp-hide" id="letPop16">
+
 	                  <h1>Message</h1>
 	                    <table>
 	                     	<tr>
 	                     	  <td width="30%" align="right">받는사람</td>
-	                     	  <td width="70%" align="left"></td>
-	                     	</tr>
-	                     	<tr>
-	                     	  <td width="30%" align="right">시간</td>
-	                     	  <td width="70%" align="left"></td>
+	                     	  <td width="70%" align="left" >
+	                     	  <input type="text" readonly="readonly" value="${list.touristvo.user_id }" name="message_receive"></td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2" align="center">내용</td>
 	                     	</tr>
 	                     	<tr>
-	                     	  <td colspan="2"><textarea rows="5" readonly="readonly"></textarea></td>
+	                     	  <td colspan="2"><textarea rows="5"  name="message_text" ></textarea></td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td>
+	                     	  <input type="button"  value="보내기"id="messageBtn${list.touristvo.tour_no}" class="messgaeBtn"> 
 	                     	</tr>
 	                     </table>         
 	               		</form> 
+	            </c:forEach>
 
 			
                
@@ -216,14 +221,12 @@ function tourContent2() {
 <script async src="//jsfiddle.net/cosmosjs/xQ8JC/3/embed/"></script> 
 <script type="text/javascript">
 
-$('.letter').click(function(){
-	
+$('.letter').click(function(){	
 	var id=$(this).attr('id');
-	var no=id.substring(3);
-	alert("쪽지보내기 클릭:"+id+","+no);  
-	
+
+	var no=id.substring(3);	
 	  $.magnificPopup.open({
-	        items :{src:'#letPop16',type : 'inline'},
+	        items :{src:'#message'+no,type : 'inline'},
 	              preloader: false,focus: '#name',
 	              callbacks: {beforeOpen: function() {
 	                 if($(window).width() < 700) {
@@ -234,8 +237,12 @@ $('.letter').click(function(){
 	              }
 	        	}
 	     });	
-	  alert(id+","+no); 
 });
+$('.messgaeBtn').click(function(){
+	var id=$(this).attr('id');
+	var no=id.substring(10);
+	$('#message'+no).submit();
+})
 </script>
 
 

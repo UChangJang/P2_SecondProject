@@ -11,6 +11,7 @@ import comma.sist.guide.dao.*;
 import comma.sist.reservation.dao.ReservationDAO;
 import comma.sist.reservation.dao.ReservationVO;
 import comma.sist.tourist.dao.TouristDAO;
+import comma.sist.user.dao.UserVO;
 import comma.sist.wish.dao.WishDAO;
 import comma.sist.wish.dao.WishVO;
 import comma.sist.common.*;
@@ -300,11 +301,41 @@ public class GuideController {
 	@RequestMapping("guideInfo.do")
 	public String guideInfo(HttpServletRequest request){
 		
-		String guide_no = request.getParameter("no");
+		String id = request.getParameter("id");
+		String guide_no = request.getParameter("guide_no");
 		System.out.println(guide_no);
+		System.out.println(id);
+		
+		UserVO uvo = GuideDAO.guideInfoShow(Integer.parseInt(guide_no));
+		
+		// 1. 가이드 ID에 대한 모든 가이드 글 번호 취득
+		List<Integer> gnList = GuideDAO.guideAllNumberWrited(id);
+		List<TextVO> list = new ArrayList<TextVO>();
+		List<TextVO> reviewList = new ArrayList<TextVO>();
+		for(int gn:gnList){
+			// 2. 가이드가 쓴글 정보를 담는다.
+			TextVO vo = GuideDAO.guideAllArticle(gn);
+			
+			// 3. 여러 사진이 있는 경우
+			StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
+			String imgName = st.nextToken();
+			vo.getGuidevo().setGuide_img(imgName);
+			
+			// 4. 리스트에 추가
+			list.add(vo);
+			
+			// 5. 리뷰
+			List<TextVO> review = GuideDAO.guideReview(gn);
+			for(TextVO rvo:review){
+				reviewList.add(rvo);
+			}
+			
+		}
 		
 		
-		
+		request.setAttribute("uvo", uvo);
+		request.setAttribute("list", list);
+		request.setAttribute("reviewList", reviewList);
 		request.setAttribute("jsp", "guide/guideInfo.jsp");
 		
 		return "main.jsp";

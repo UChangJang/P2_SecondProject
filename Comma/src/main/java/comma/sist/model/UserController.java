@@ -1,12 +1,8 @@
 package comma.sist.model;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.io.File;
-import java.util.List;
-import java.util.Map;
-
+import java.io.*;
+import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -149,9 +145,20 @@ public class UserController {
 		String user_img=UserDAO.userProfileImage(id);
 		req.setAttribute("user_img", user_img);
 		
-		List<TextVO> vo = ReviewDAO.myAllReview(id);	
+
+		List<Integer> myGuideNoList = GuideDAO.guideAllNumberWrited(id);
+		List<TextVO> myAllReview = new ArrayList<TextVO>();
+		for(int gn:myGuideNoList){
+			List<TextVO> list = ReviewDAO.myAllReview(gn);
+			for(TextVO vo:list){
+				myAllReview.add(vo);
+			}
+		}
+		
+		
 		List<GuideVO> guidevo=ReviewDAO.myAbleReview(id);
-		req.setAttribute("vo", vo);
+		
+		req.setAttribute("list", myAllReview);
 		req.setAttribute("guidevo", guidevo);
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_review.jsp");		

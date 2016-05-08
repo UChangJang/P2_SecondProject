@@ -139,8 +139,14 @@ $(function(){
 		$('#wish-form').submit(); 
 	 });
 	 
+	 
+	 
 }); 
 
+function gInfo_frm(){
+	
+	$('#guideInfo_frm').submit();
+}
 </script>
 </head>
 <body>
@@ -262,7 +268,11 @@ $(function(){
 					<div align=center class="mypictureGuide">
 					<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }">		
 						<div class="topBoardShort">
-						<a href="guideInfo.do?no=${vo.guidevo.guide_no }">${vo.uservo.user_name }</a>
+						<a href="#" onclick="gInfo_frm()">${vo.uservo.user_name }</a>
+						<form method="post" action="guideInfo.do" id="guideInfo_frm">
+							<input type="hidden" name="id" value="${vo.uservo.user_id }">
+							<input type="hidden" name="guide_no" value="${vo.guidevo.guide_no }">
+						</form>
 						</div>							
 					</div>
 				</div>

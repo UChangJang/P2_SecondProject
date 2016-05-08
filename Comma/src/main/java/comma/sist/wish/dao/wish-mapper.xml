@@ -6,15 +6,16 @@
 	<select id="myWishGuide" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList">
       select wish_no,guide_subject,user_nick,text_regdate,text_total_person,guide.guide_no
       from wish,text,guide,users
-      where wish.guide_no=guide.guide_no and guide.user_id=users.user_id and text.text_no=guide.text_no
+      where wish.guide_no=guide.guide_no and wish.user_id=#{user_id} and text.text_no=guide.text_no and guide.user_id=users.user_id
       order by wish_no desc
    </select>
    
    <select id="myWishTour" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList">
-      select wish_no,tour_theme,user_nick,text_regdate,text_total_person
+      select wish_no,tour_theme,user_nick,text_tour_date,text_cost,
+      text_time1,text_time2,text_time3,text_time4,text_total_person,tour_detail,text_move
       from wish,text,tour,users 
-      where wish.tour_no=tour.tour_no and tour.user_id=users.user_id and text.text_no=tour.text_no
-	  order by wish_no desc
+      where wish.tour_no=tour.tour_no and wish.user_id=#{user_id} and text.text_no=tour.text_no and tour.user_id=users.user_id
+	  order by wish_no desc	  
    </select>
 	
 	
