@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
-
 <script type="text/javascript">
 $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 	$('#tabControlTab').mouseover(function(){ 
@@ -17,7 +16,21 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 	
 	// ajax : hotspot
 	$()
+	$('.loc').click(function(){
+		id=$(this).attr('id');
+		loc=id.substring(3);
+		var param="loc="+encodeURIComponent(loc);
+		sendMessage("POST", "locHotSpot.do", param, hotspot)	
+	})
+
 });
+function hotspot(){
+	if(httpRequest.readyState==4){
+		if(httpRequest.status==200){		
+			$('#hotspot').html(httpRequest.responseText);
+		}
+	}
+}
 </script>
 </head>
 <body>
@@ -151,24 +164,18 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 						<c:if test="${i<=10 }">
 							<li class="tabControlTab selected odd" style="margin:0;padding:0;">
 								<span class="spot_num">&nbsp;${i}&nbsp;</span>
-								<p id="${vo.search_loc}" style="color:#000;float:none;text-align: left;">&nbsp;&nbsp;&nbsp;${vo.search_loc }</p>
+								<p id="loc${vo.search_loc}" class="loc" style="color:#000;float:none;text-align: left;">&nbsp;&nbsp;&nbsp;${vo.search_loc }</p>
 							</li>
 						</c:if>
 						<c:set var="i" value="${i+1 }"/>
 					</c:forEach>
 				</ul>
-				<ul class="tabControlBodys">
-					<c:set var="i" value="1"/>
-						<c:if test="${i<=10 }">
-							<li class="tabControlBody selected"
-								style="background-color: #BAB6A8;">
-								<c:forEach var="vo" items="${hlist }">
-								<p>${vo.text_hit}HIT&nbsp;${vo.text_tour_date}&nbsp;${vo.text_cost}won</p>
-								<c:set var="i" value="${i+1 }"/>
-								</c:forEach>
-							</li>
-						</c:if>
-					</ul>
+				
+				<ul class="">				
+						<li class="tabControlBody selected" id="hotspot"  style="background-color: #BAB6A8;"></li>		
+					
+					
+				</ul>
 				</div>
 			</div>			
 			</section>

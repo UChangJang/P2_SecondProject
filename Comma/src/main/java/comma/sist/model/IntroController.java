@@ -74,5 +74,14 @@ public class IntroController {
 		request.setAttribute("jsp", "mypage/mypage.jsp");
 		return "main.jsp";
 	}
+	@RequestMapping("locHotSpot.do")
+	public String hotspot(HttpServletRequest req){
+		String loc=req.getParameter("loc");
+		List<HotspotVO> list =HotspotDAO.allGiudeBoard(loc);
+		
+		req.setAttribute("list", list);
+		
+		return "best_spot.jsp";
+	}
 
 }

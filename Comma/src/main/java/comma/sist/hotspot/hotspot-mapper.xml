@@ -32,7 +32,7 @@
 		  	   AND text_tour_date >= today
 		  	   ORDER BY text_hit DESC)
 		  )
-	WHERE rownum<=2
+	WHERE rownum<=10
 ]]>
 </select>
 </mapper>

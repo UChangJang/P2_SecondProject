@@ -10,8 +10,10 @@
 	 </select>
 	 
 	 <!-- 마이페이지_내가 예약한 투어글들 -->
+	
 	 <select id="myTourReservation" resultMap="comma.sist.common.text-mapper.TextList" parameterType="String">
-	 	SELECT tour.tour_no as tour_no,reservation_no,text_loc,tour_theme,tour.user_id as user_id,text_tour_date,reservation_check
+	 	SELECT tour.tour_no as tour_no,reservation_no,text_loc,tour_theme,tour.user_id as user_id,text_tour_date,reservation_check,
+	 			text_time1,text_time2,text_time3,text_time4, text_cost, text_move,text_total_person,tour_detail
 	 	FROM tour,text,reservation 
 	 	WHERE reservation.user_id=#{user_id} AND reservation.tour_no=tour.tour_no AND text.text_no=tour.text_no	 	
 	 </select>

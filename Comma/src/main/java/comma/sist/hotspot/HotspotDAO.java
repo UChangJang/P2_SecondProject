@@ -29,7 +29,7 @@ public class HotspotDAO {
 	
 	// 선호지역에 해당하는 가이드 게시글 가져오기
 	public static List<HotspotVO> allGiudeBoard(String search_loc){		
-		
+		System.out.println(search_loc);
 		SqlSession session=ssf.openSession();
 		List<HotspotVO> list=session.selectList("allGuideBoard", search_loc);
 		// changeDate
@@ -39,6 +39,7 @@ public class HotspotDAO {
 								+list.get(i).getText_tour_date() +" "
 								+list.get(i).getText_cost());
 		}
+		//날짜 비용 히트수 
 		session.close();
 		return list;
 	}

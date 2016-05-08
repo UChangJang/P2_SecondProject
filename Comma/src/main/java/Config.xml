@@ -16,6 +16,7 @@
 		<typeAlias type="comma.sist.tourist.dao.TouristResVO" alias="TouristRes"/><!-- 보영추가 -->
 		<typeAlias type="comma.board.dao.BoardVO" alias="Board"/>
 		<typeAlias type="comma.board.dao.ReplyVO" alias="Reply"/>
+		
 
 	</typeAliases>
 	<environments default="development">
