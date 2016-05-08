@@ -4,6 +4,18 @@
 <html>
 <head>
 <title>guide</title>
+<script type="text/javascript">
+$(function(){
+	
+	$('#searchBtn_g').click(function(){
+		
+		var value = ('#loc_search').val();
+		
+		
+		$('#guideSearchFrm').submit();
+	});
+});
+</script>
 </head>
 <body>
 
@@ -38,7 +50,7 @@
 
 	<section class="wrapper style5" id="guide_margin">
 		<div class="inner">
-			<form method="post" action="#">
+			<form method="post" action="guide.do" id="guideSearchFrm">
 				<div class="row uniform">
 					<div id="hotkeyword_guide">
 					<span><b>Hot Keyword</b></span>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -48,21 +60,21 @@
 					</div>
 					
 					<div class="9u 12u$(xsmall)">
-						<input type="text" name="demo-name" id="demo-name" value=""
-							placeholder="지역 검색" />
+						<input type="text" name="searchvalue" id="loc_search"
+							placeholder="Location Search"/>
 					</div>
 					<div class="3u$ 12u$(xsmall)">
 						<ul class="actions">
 							<a href="#two" class="scrolly">
-								<li><input type="submit" value="Send Message"
-									class="special" /></li>
+								<li><button class="button special fit small" id="searchBtn_g">Search</button></li>
 							</a>
 						</ul>
 					</div>
 				</div>
-
+				
+				
 				<div id="wrapdetail">
-					<div id="bt">상세검색</div>
+					<div id="bt"><span>More</span></div>
 				</div>
 
 				<div class="row uniform" id="panel">
@@ -71,32 +83,31 @@
 					<div class="12u$ 12u$(xsmall)">
 						<!-- 2. 상세체크 -->
 						<div class="selectGuideMethod">
-							<input type="radio" id="demo-priority-low"
-							name="demo-priority" checked class="guideLabel"> 
-							<label for="demo-priority-low">걷기</label> <input type="radio"
-							id="demo-priority-normal" name="demo-priority"> <label
-							for="demo-priority-normal">자동차</label> <input type="radio"
-							id="demo-priority-high" name="demo-priority"> <label
-							for="demo-priority-high">자전거</label> 
-							</div>
-						<div class="select-wrapper" id="guide_howmany">
-							<select name="demo-category" id="demo-category">
-								<option value="">people&nbsp;&nbsp;&nbsp;&nbsp;</option>
-								<option value="1">1명</option>
-								<option value="2">2명</option>
-								<option value="3">3명</option>
-								<option value="4">4명</option>
-								<option value="5">5명</option>
-								<option value="6">6명</option>
-								<option value="7">7명</option>
-								<option value="8">8명</option>
-								<option value="9">9명</option>
-								<option value="10">10명</option>
+							<input type="radio" id="demo-priority-low" name="walking" checked class="guideLabel"> 
+								<label for="demo-priority-low">Walking</label> 
+							<input type="radio"	id="demo-priority-normal" name="car"> 
+								<label for="demo-priority-normal">Car</label> 
+							<input type="radio"	id="demo-priority-high" name="bicycle"> 
+								<label for="demo-priority-high">Bicycle</label> 
+						</div>
+						<div class="select-wrapper" id="guide_howmany" style="color: black">
+							<select name="people" id="demo-category">
+								<option value="">-People-</option>
+								<option value="1">1 Person</option>
+								<option value="2">2 People</option>
+								<option value="3">3 People</option>
+								<option value="4">4 People</option>
+								<option value="5">5 People</option>
+								<option value="6">6 People</option>
+								<option value="7">7 People</option>
+								<option value="8">8 People</option>
+								<option value="9">9 People</option>
+								<option value="10">10 People</option>
 							</select>
 						</div>
 
 						<div id="demo1">
-							<input type="text" id="dt" placeholder="날짜선택">
+							<input type="text" id="dt" placeholder="Select Date" name="date">
 							<div id="dd"></div>
 						</div>
 						
@@ -106,10 +117,10 @@
 				<div id="sortGuide">
 					<div class="select-wrapper tourist_local">
 						<select name="text_loc" id="demo-category">
-							<option value="">- 정렬 -</option>
-							<option value="최신">최신순</option>
-							<option value="가격">가격순</option>
-							<option value="인기가이드">인기가이드순</option>
+							<option value="">- Sort -</option>
+							<option value="Newest">Newest</option>
+							<option value="Cheapest">Cheapest</option>
+							<option value="Popular-Guide">Popular-Guide</option>
 						</select>
 					</div>
 				</div>

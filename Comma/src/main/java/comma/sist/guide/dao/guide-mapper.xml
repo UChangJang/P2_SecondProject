@@ -72,10 +72,26 @@
 		select count(guide_img) from guide where guide_img=#{guide_img}
 	</select>
 	
-	<!-- 가이드 후기 -->
-	<!-- <select id="guideReview" parameterType="int" resultMap="comma.sist.common.text-mapper.TextList">
-		 
-	</select> -->
+	<!-- 가이드 사람정보 및 후기 -->
+	<select id="guideInfoShow" parameterType="int" resultType="User">
+		select user_name,user_nick,user_img,user_sex,user_birth,user_introduce
+		from users,guide
+		where users.user_id=guide.user_id and guide_no=#{guide_no}
+	</select>
+	<select id="guideAllNumberWrited" parameterType="String" resultType="int">
+		select guide_no from guide where user_id=#{id} order by guide_no desc
+	</select>
+	<select id="guideAllArticle" parameterType="int" resultMap="comma.sist.common.text-mapper.TextList">
+		select text_cost,text_loc,text_regdate,text_move,text_time,guide_subject,
+			 users.user_id,user_name,user_nick,user_img,user_sex,user_birth,user_introduce,guide_img
+		from guide,text,users
+		where guide.text_no=text.text_no and users.user_id=guide.user_id and guide_no=#{guide_no}
+	</select>
+	<select id="guideReview" parameterType="int" resultMap="comma.sist.common.text-mapper.TextList">
+		 select review_text,review_score,user_nick,user_img
+		 from review,users
+		 where review.user_id=users.user_id and guide_no=#{guide_no}
+	</select>
 	
 
  	<select id="myGuideWriter" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList"> 

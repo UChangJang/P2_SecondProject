@@ -157,10 +157,14 @@ function tourContent2() {
 					</c:forEach>
 						
 				</div>
-				</div>
+			</div>
 				<!-- 쪽지보내기 -->
+<<<<<<< HEAD
 				<c:forEach var="list" items="${list }">
 						 <form class="white-popup mfp-hide" id="message${list.touristvo.tour_no}" action="tourMessage.do" method="POST">
+=======
+			 <form class="white-popup mfp-hide" id="letPop16">
+>>>>>>> refs/remotes/origin/master
 	                  <h1>Message</h1>
 	                    <table>
 	                     	<tr>

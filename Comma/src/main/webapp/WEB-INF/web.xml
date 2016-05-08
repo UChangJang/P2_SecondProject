@@ -7,6 +7,7 @@
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>C:\Users\BaeHyunGil\git\P2_SecondProject\Comma\src\main\webapp\WEB-INF\application.xml</param-value>
+
 </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>

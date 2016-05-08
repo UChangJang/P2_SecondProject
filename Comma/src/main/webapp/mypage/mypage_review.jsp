@@ -63,7 +63,7 @@
 					</tr>
 				</thead>
 				<tbody>
-				<c:forEach var="vo" items="${vo }">
+				<c:forEach var="vo" items="${list }">
 					<tr>
 						<td>${vo.reviewvo.review_no }</td>
 						<td>${vo.guidevo.guide_subject }</td>
