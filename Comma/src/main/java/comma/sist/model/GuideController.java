@@ -10,7 +10,7 @@ import comma.sist.guide.dao.*;
 
 import comma.sist.reservation.dao.ReservationDAO;
 import comma.sist.reservation.dao.ReservationVO;
-
+import comma.sist.user.dao.UserVO;
 import comma.sist.wish.dao.WishDAO;
 import comma.sist.wish.dao.WishVO;
 import comma.sist.common.*;
@@ -28,7 +28,60 @@ public class GuideController {
 		int totalpage = GuideDAO.guideTotalPage();
 		
 		// 현재 페이지
-		String page = request.getParameter("curpage");
+		String page = request.getParameter("page");
+		if(page==null) page = "1";
+		int curpage = Integer.parseInt(page);
+		
+		Map map = new HashMap();
+		int rowSize = 9;
+		int start = (rowSize*curpage) - (rowSize-1);
+		int end = rowSize*curpage;
+		map.put("start", start);
+		map.put("end", end);
+		
+
+		List<TextVO> list = GuideDAO.guideAllData(map);
+		
+		// 여러개의 사진인 경우
+		List<String> imgList = new ArrayList<String>();
+		for(TextVO vo:list){
+			if(vo.getGuidevo().getGuide_img()!=null){
+				StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
+				String ss = st.nextToken();
+				int k=0;
+				while(st.hasMoreTokens()){
+					if(k==0) {
+						imgList.add(ss);
+						k++;
+					}
+					else{
+						imgList.add(st.nextToken());
+					}
+				}
+				if(imgList.size()>1){
+					vo.getGuidevo().setGuide_img(ss);
+				}
+			}
+		}
+		
+		
+		request.setAttribute("curpage", page);
+		request.setAttribute("totalpage", totalpage);
+		request.setAttribute("list", list);
+		request.setAttribute("jsp", "guide/guide.jsp");
+		//request.setAttribute("mypage", "guide/guideList.jsp");
+		return "main.jsp";
+	}
+	
+	
+	@RequestMapping("guide_p.do")
+	public String guide_p(HttpServletRequest request){
+				
+		// 가이드 총페이지
+		int totalpage = GuideDAO.guideTotalPage();
+		
+		// 현재 페이지
+		String page = request.getParameter("page");
 		if(page==null) page = "1";
 		int curpage = Integer.parseInt(page);
 		
@@ -47,9 +100,12 @@ public class GuideController {
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
-		request.setAttribute("jsp", "guide/guide.jsp");		
+		request.setAttribute("jsp", "guide/guideList.jsp");
+		//request.setAttribute("mypage", "guide/guideList.jsp");
 		return "main.jsp";
 	}
+	
+	
 	
 	@RequestMapping("guideWrite.do")
 	public String guideWrite(HttpServletRequest request){
@@ -61,7 +117,7 @@ public class GuideController {
 	public String guide_Insert(HttpServletRequest request) throws Exception{
 		
 		request.setCharacterEncoding("EUC-KR");	
-		System.out.println("11");
+		
 		// \\211.238.142.74\Users\74\Git\P2_SecondProject\Comma\src\main\webapp\image
 		// http://211.238.142.74:8080/controller/image/seoul3.jpg  이미지 파일 읽어올때
 		// C:\springDev\springStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Comma\image
@@ -69,12 +125,12 @@ public class GuideController {
 		String path = "\\\\211.238.142.74\\Users\\74\\Git\\P2_SecondProject\\Comma\\src\\main\\webapp\\image";
 		String enctype = "EUC-KR";
 		int	size = 1024*1024*100; 
-		System.out.println("1232");
+		
 		MultipartRequest mr 
 				= new MultipartRequest(request,path,size,enctype,
 						new DefaultFileRenamePolicy());
 		
-		System.out.println("22");
+		
 		String guide_subject = mr.getParameter("guide_subject");
 		String guide_loc_intro = mr.getParameter("guide_loc_intro");
 		String guide_img = mr.getOriginalFileName("guide_img");
@@ -91,12 +147,25 @@ public class GuideController {
 		String guide_meet = mr.getParameter("guide_meet");	
 		String text_tour_date = mr.getParameter("text_tour_date");
 		
+		String guide_img2 = mr.getOriginalFileName("guide_img2");
+		String guide_detail2 = mr.getParameter("guide_detail2");
+		String guide_img3 = mr.getOriginalFileName("guide_img3");
+		String guide_detail3 = mr.getParameter("guide_detail3");
 		
-		System.out.println("33");
+		
+		guide_detail = guide_detail+"<br>"+guide_detail2+"<br>"+guide_detail3;
+		
+		if(guide_img2!=null && guide_img3==null){
+			guide_img = guide_img + "|" + guide_img2;		
+		}else if(guide_img2!=null && guide_img3!=null){
+			guide_img = guide_img + "|" + guide_img2 + "|" + guide_img3;	
+		}
+		
+		
 		int t_start = Integer.parseInt(text_time1);
 		int t_end = Integer.parseInt(text_time3);
 		int text_time = 0;
-		System.out.println("44");
+		
 		if((text_time2.equals("am") && text_time4.equals("am")) || (text_time2.equals("pm") && text_time4.equals("pm"))){
 			text_time = (int)(Math.abs(t_end-t_start));
 		}else if((text_time2.equals("am") && text_time4.equals("pm"))){
@@ -106,7 +175,7 @@ public class GuideController {
 			t_start -= 12;
 			text_time = t_end - t_start;
 		}
-		System.out.println("55");
+		
 		TextVO vo = new TextVO();
 		vo.getGuidevo().setGuide_subject(guide_subject);
 		vo.getGuidevo().setGuide_loc_intro(guide_loc_intro);
@@ -123,21 +192,45 @@ public class GuideController {
 		vo.setText_time4(text_time4);
 		vo.setText_tour_date(text_tour_date);
 		vo.setText_time(text_time);
-		System.out.println("66");
+		
 		HttpSession session = request.getSession();
 		String user_id = (String)session.getAttribute("id");
 		vo.getGuidevo().setUser_id(user_id);
-		System.out.println(user_id);
+		
 		vo.getGuidevo().setGuide_map("임시용"); // 바꿔야됨
 		
 		if(guide_img==null){
 			vo.getGuidevo().setGuide_img("");
 		}else{
-			File f = new File(path+"\\"+guide_img);
-			String s = f.getAbsolutePath();
+			
+			/*String s = f.getAbsolutePath();
 			System.out.println(s);
-			request.setAttribute("imgPath", s);
+			request.setAttribute("imgPath", s);*/
+			
+			File f = new File(path+"\\"+guide_img);
 			vo.getGuidevo().setGuide_img(guide_img);
+			
+			
+			
+			
+			// 똑같은 사진 올릴 경우
+			/*int count = GuideDAO.guideImgisExist(guide_img);
+			System.out.println(count);
+			if(count==0){
+				File f = new File(path+"\\"+guide_img);
+				vo.getGuidevo().setGuide_img(guide_img);
+			}else{
+				String s = "";
+				s = guide_img.substring(0, guide_img.lastIndexOf('.'))+count+guide_img.substring(guide_img.lastIndexOf('.'));
+				guide_img = s;
+				
+				
+				File f = new File(path+"\\"+guide_img);
+				
+				vo.getGuidevo().setGuide_img(guide_img);
+			}*/
+			
+			
 		}
 		
 		
@@ -159,6 +252,17 @@ public class GuideController {
 		int text_hit = GuideDAO.guideHitInfo(vo.getText_no());
 		vo.setText_hit(text_hit);
 		
+		
+		// Img 분리
+		List<String> imgList = new ArrayList<String>();
+		if(vo.getGuidevo().getGuide_img()!=null){
+			StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
+			while(st.hasMoreTokens()){
+				imgList.add(st.nextToken());
+				
+			}
+		}
+		
 		// 현재 로그인된 ID 와 글의 ID를 비교한다.
 		HttpSession session = request.getSession();
 		boolean confirmId = false;
@@ -166,8 +270,8 @@ public class GuideController {
 		if(vo.getUservo().getUser_id().equals((String)session.getAttribute("id"))){
 			confirmId = true;
 		}
-
 		
+		request.setAttribute("imgList", imgList);
 		request.setAttribute("confirmId", confirmId);
 		request.setAttribute("vo", vo);
 		request.setAttribute("jsp", "guide/guideBoard.jsp");		
@@ -198,8 +302,53 @@ public class GuideController {
 
 		return "guide/guideDelete.jsp";
 	}
-
 	
+	@RequestMapping("guideInfo.do")
+	public String guideInfo(HttpServletRequest request){
+		
+		String id = request.getParameter("id");
+		String guide_no = request.getParameter("guide_no");
+		System.out.println(guide_no);
+		System.out.println(id);
+		
+		UserVO uvo = GuideDAO.guideInfoShow(Integer.parseInt(guide_no));
+		
+		// 1. 가이드 ID에 대한 모든 가이드 글 번호 취득
+		List<Integer> gnList = GuideDAO.guideAllNumberWrited(id);
+		List<TextVO> list = new ArrayList<TextVO>();
+		List<TextVO> reviewList = new ArrayList<TextVO>();
+		for(int gn:gnList){
+			// 2. 가이드가 쓴글 정보를 담는다.
+			TextVO vo = GuideDAO.guideAllArticle(gn);
+			
+			// 3. 여러 사진이 있는 경우
+			StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
+			String imgName = st.nextToken();
+			vo.getGuidevo().setGuide_img(imgName);
+			
+			// 4. 리스트에 추가
+			list.add(vo);
+			
+			// 5. 리뷰
+			List<TextVO> review = GuideDAO.guideReview(gn);
+			for(TextVO rvo:review){
+				reviewList.add(rvo);
+			}
+			
+		}
+		
+		
+		request.setAttribute("uvo", uvo);
+		request.setAttribute("list", list);
+		request.setAttribute("reviewList", reviewList);
+		request.setAttribute("jsp", "guide/guideInfo.jsp");
+		
+		return "main.jsp";
+	}
+		
+	
+
+	//예약하기
 	@RequestMapping("reserveGuide.do")
 	public String reserveGuide(HttpServletRequest req) throws Exception{
 		
@@ -215,13 +364,28 @@ public class GuideController {
 		vo.setUser_id(user_id);
 		vo.setReservation_person(Integer.parseInt(reservation_person));
 		
-		ReservationDAO.reserveGuide(vo);
 		
+		String sumTemp=ReservationDAO.reserveGuideCheck(Integer.parseInt(guide_no));	//예약가능한지
+		int sum=Integer.parseInt(sumTemp);
+		int total=ReservationDAO.reserveGuidePossible(Integer.parseInt(guide_no));
+		int res=Integer.parseInt(reservation_person);
 		
-		req.setAttribute("jsp", "mypage/mypage.jsp");
+		int count=ReservationDAO.reserveGuideExist(vo);
+		
+		if(total>=sum+res && count==0){					//예약!
+			ReservationDAO.reserveGuide(vo);		
+			req.setAttribute("jsp", "mypage/mypage.jsp");
+		}else{								//예약불가!
+			req.setAttribute("msg", "You can not reserve.<br/> The number of people who can reserve is already full.<br/> "
+					+ "Or You already made an appointment.<br/>Find other guide...");
+			req.setAttribute("jsp", "error.jsp");
+		}
+		
 		
 		return "main.jsp";
 	}
+	
+	
 	@RequestMapping("wishGuide.do")
 	public String wish_ok(HttpServletRequest request){
     

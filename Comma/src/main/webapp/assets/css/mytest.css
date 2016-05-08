@@ -1,4 +1,24 @@
 @CHARSET "EUC-KR";
+
+.mytourRBtn:hover{
+	background-color: rgba(144, 144, 144, 0.25);
+}
+.mytourRBtn input:hover{
+	background-color: rgba(144, 144, 144, 0.25);
+}
+
+#boyoung .mytourRBtn .tourResViewBtn:hover{
+	background-color: rgba(144, 144, 144, 0.25);
+}
+.tourResViewBtn,.mytourRBtn{
+	box-shadow: inset 0 0 0;
+}
+.tourFit{
+	display:inline-block;
+	margin-right: 0;
+	float:left;
+	margin-top: 5em;
+}
 /* 메인 로그인 */
 .buttonGroup tbody tr:nth-child(2n + 1) {
     background-color: rgba(0,0,0,0);
@@ -159,6 +179,7 @@
 /* 로그인 창 */
 #login-form{
 	text-align: center;
+	max-width: 500px;
 }
 
 
@@ -711,7 +732,7 @@
 	  background: #004080;
 	  padding: 20px;
 	  width:auto;
-	  max-width: 500px;
+	  max-width: 700px;
 	  margin: 20px auto;
 	  border-radius: 3px;
 	}

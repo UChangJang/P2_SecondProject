@@ -11,8 +11,14 @@
 <body>
 <!-- Main -->
 <article id="main">
-	<header>
+	<header id="mypage_back">
 		<h2>My Page</h2>
+		<center>
+			<p>I will Find You!</p>
+			<p>Check the board to guide someone in Korea!</p>
+		</center>
+		<a href="#one" class="more scrolly"><img src="images/triangle.png">
+		<br>view more</a>
 	</header>
 	
 	<section class="wrapper style5">
@@ -28,11 +34,10 @@
 					  <tr>
 					    <td rowspan="4" class="mypic_td">
 							<div class="mypicture">
-								<img src="../controller/images/character.png">
+								<img src="http://211.238.142.74:8080/controller/profile/${user_img }">
 							</div>
 							<div class="mypictureCaption">
 								<h3>${sessionScope.id }</h3>
-								<h4>3°¡ÀÌµå 4°ü±¤</h4>	
 							</div>
 						</td>
 					  </tr>

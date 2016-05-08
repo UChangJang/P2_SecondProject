@@ -32,6 +32,7 @@
      <result column="user_introduce" property="uservo.user_introduce"/>
      <result column="reservation_no" property="reservationvo.reservation_no"/>
      <result column="reservation_person" property="reservationvo.reservation_person"/> 
+     <result column="reservation_check" property="reservationvo.reservation_check"/>
      <result column="review_no" property="reviewvo.review_no"/> 
      <result column="review_score" property="reviewvo.review_score"/> 
      <result column="review_text" property="reviewvo.review_text"/> 
@@ -44,7 +45,7 @@
    
    
    <parameterMap type="Text" id="TextList_param">
-      <parameter property="guidevo.guide_no" javaType="Guide"/>
+        <parameter property="guidevo.guide_no" javaType="Guide"/>
         <parameter property="guidevo.user_id"/>
         <parameter property="guidevo.guide_subject"/>
         <parameter property="guidevo.guide_loc_intro"/>
@@ -60,6 +61,8 @@
         <parameter property="text_regdate"/>
         <parameter property="text_time1"/>
         <parameter property="text_time2"/>
+        <parameter property="text_time3"/>	<!-- am/pm -->
+        <parameter property="text_time4"/>	<!-- am/pm -->
         <parameter property="text_move"/>
         <parameter property="text_hit"/>
         <parameter property="text_end"/>

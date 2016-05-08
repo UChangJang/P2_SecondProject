@@ -44,12 +44,13 @@
 	 </select>
 	 <update id="infoCorrection" parameterType="User">	 		
 	 	UPDATE USERS SET 
-	 	user_pwd=#{user_pwd},user_introduce=#{user_introduce},
-	 	user_mail=#{user_mail},user_nick=#{user_nick},
-	 	user_birth=#{user_birth},
-	 	user_sex=#{user_sex},user_addr=#{user_addr}	 	
-	 	where user_id=#{user_id}
+        user_pwd=#{user_pwd},user_introduce=#{user_introduce},
+        user_mail=#{user_mail},user_nick=#{user_nick},
+        user_birth=#{user_birth},user_img=#{user_img},
+        user_sex=#{user_sex},user_addr=#{user_addr}       
+        where user_id=#{user_id}
 	 </update>
+
 	 <select id="userProfileImage" parameterType="String" resultType="String">
 	 	select user_img from users where user_id=#{id}
 	 </select>

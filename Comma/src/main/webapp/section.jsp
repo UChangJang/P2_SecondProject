@@ -33,11 +33,11 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 	</ul>
 
 	<div id="mainMenu">&nbsp;&nbsp; 
-		<span><a href="#">Comma</a></span>&nbsp;&nbsp; 
-		<span><a href="#">Introduce Korea</a></span>&nbsp;&nbsp;
-		<span><a href="#">Tour Find</a></span>&nbsp;&nbsp; 
-		<span><a href="#">Tour Request</a></span>&nbsp;&nbsp; 
-		<span><a href="#">Community</a></span>&nbsp;&nbsp; 
+		<span><a href="main.do">Comma</a></span>&nbsp;&nbsp; 
+		<span><a href="introduceKor.do">Introduce Korea</a></span>&nbsp;&nbsp;
+		<span><a href="guide.do">Tour Find</a></span>&nbsp;&nbsp; 
+		<span><a href="tourist.do">Tour Request</a></span>&nbsp;&nbsp; 
+		<span><a href="board_list.do">Community</a></span>&nbsp;&nbsp; 
 	</div>
 	<span><img src="http://file.theskinfood.com/resources/common/img/dep2bg.png" width="100%" height="37" alt=""></span>
 </section>
@@ -59,11 +59,11 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 						<input type="text" id="dt" placeholder="DATE" class="mainSearch1"/>
 						<div class="select-wrapper">
 							<select name="demo-category" id="demo-category" class="mainSearch1">
-								<option value="">PEOPLE</option>
+								<option value="">-PEOPLE-</option>
 								<option value="1">1 person</option>
-								<option value="1">2 persons</option>
-								<option value="1">3 persons</option>
-								<option value="1">4 persons</option>
+								<option value="2">2 persons</option>
+								<option value="3">3 persons</option>
+								<option value="4">4 persons</option>
 							</select> 
 						<input type="submit" value="SEARCH" class="special mainSearch1" />
 						</div>
@@ -139,18 +139,6 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 						<span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">${vo.uservo.user_nick }(${vo.text_loc })</span>
 					</div>
 					</c:forEach>
-					<div id="guideRanking_container">
-						<div id="guideImg">
-						<div class="guideRank_mypicture">
-							<img id="profile" src="../controller/images/character.png"></div>
-							<div style="color:#3A2525; font-weight: bold;"><img id="guideRanking_ranker" src="images/guideRanking_ranker_img.png">&nbsp;3ST</div>
-						</div>
-					
-						<div class="guideRanking_review">
-							0점점입니다다다다다다다다다다다다다다다다다다다다다다다다다다다닫
-						</div>
-						<span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">X</span>
-					</div>
 					
 			</div>
 			
@@ -175,16 +163,11 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 							<li class="tabControlBody selected"
 								style="background-color: #BAB6A8;">
 								<c:forEach var="vo" items="${hlist }">
-								<c:if test="vo.text_loc=">
-								<p>${vo.text_hit}hit&nbsp;${vo.text_tour_date}&nbsp;${vo.text_cost}won</p>
+								<p>${vo.text_hit}HIT&nbsp;${vo.text_tour_date}&nbsp;${vo.text_cost}won</p>
 								<c:set var="i" value="${i+1 }"/>
-								</c:if>
 								</c:forEach>
 							</li>
 						</c:if>
-						
-					
-					
 					</ul>
 				</div>
 			</div>			

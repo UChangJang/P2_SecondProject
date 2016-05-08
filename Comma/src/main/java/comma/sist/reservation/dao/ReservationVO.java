@@ -10,7 +10,7 @@ public class ReservationVO {
 	private String user_id;
 	private int guide_no;
 	private int tour_no;
-	private int reservation_person;
+	private int reservation_person;		//예약3명이서 하겠다.
 	private String reservation_check;
 	private String reservation_cost;
 

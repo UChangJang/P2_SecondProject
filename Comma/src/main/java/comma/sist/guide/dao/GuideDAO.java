@@ -7,9 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import comma.sist.reservation.dao.ReservationVO;
-import comma.sist.wish.dao.WishVO;
 import comma.sist.common.*;
+import comma.sist.user.dao.UserVO;
 
 public class GuideDAO {
 
@@ -31,11 +30,47 @@ private static SqlSessionFactory	ssf;
 		
 		SqlSession session = ssf.openSession();
 		List<TextVO> list = session.selectList("guideAllData",map);
-		session.close();
+		session.close();	
+		
+		costModify(list);
 		
 		return list;
 		
 	} // guideAllData()
+	
+	// 가격에 3자리씩 끊어 ,붙이기
+	public static void costModify(List<TextVO> list){
+		
+		for(TextVO vo:list){
+			String cost = vo.getText_cost();
+			String s="";
+			if(cost.length()%3==0){
+				for(int i=1; i<=cost.length(); i+=3){
+					s += cost.substring(i-1,i+2)+",";
+				}
+				s = s.substring(0,s.length()-1);
+				vo.setText_cost(s);
+			}
+			else if(cost.length()%3==1){
+				s = cost.substring(0,1)+",";
+				for(int i=1; i<=cost.length(); i+=3){ // 1,4 4,7
+					if(i<cost.length())
+						s += cost.substring(i,i+3)+",";
+				}
+				s = s.substring(0,s.length()-1);
+				vo.setText_cost(s);
+			}
+			else if(cost.length()%3==2){
+				s = cost.substring(0,2)+",";
+				for(int i=2; i<=cost.length(); i+=3){ // 2,5 5,8
+					if(i<cost.length())
+						s += cost.substring(i,i+3)+",";
+				}
+				s = s.substring(0,s.length()-1);
+				vo.setText_cost(s);
+			}
+		}
+	} // costModify
 	
 	public static int guideTotalPage(){
 		
@@ -109,14 +144,98 @@ private static SqlSessionFactory	ssf;
 		session.close();
 	}
 	
+	public static int guideImgisExist(String img){
+		
+		SqlSession session = ssf.openSession();
+		int count = session.selectOne("guideImgisExist",img);
+		session.close();
+		return count;
+	}
+	
+
+	// 가이드 사람에 대한 상세보기
+	public static UserVO guideInfoShow(int guide_no){
+		
+		SqlSession session = ssf.openSession();
+		UserVO vo = session.selectOne("guideInfoShow",guide_no);
+		session.close();
+		
+		return vo;
+	}
+	
+	public static List<Integer> guideAllNumberWrited(String id){
+		
+		SqlSession session = ssf.openSession();
+		List<Integer> list = session.selectList("guideAllNumberWrited",id);
+		session.close();
+		return list;
+	}
+	
+	public static TextVO guideAllArticle(int guide_no){
+		
+		SqlSession session = ssf.openSession();
+		TextVO vo = session.selectOne("guideAllArticle",guide_no);
+		session.close();
+		
+		String cost = vo.getText_cost();
+		String s="";
+		if(cost.length()%3==0){
+			for(int i=1; i<=cost.length(); i+=3){
+				s += cost.substring(i-1,i+2)+",";
+			}
+			s = s.substring(0,s.length()-1);
+			vo.setText_cost(s);
+		}
+		else if(cost.length()%3==1){
+			s = cost.substring(0,1)+",";
+			for(int i=1; i<=cost.length(); i+=3){ // 1,4 4,7
+				if(i<cost.length())
+					s += cost.substring(i,i+3)+",";
+			}
+			s = s.substring(0,s.length()-1);
+			vo.setText_cost(s);
+		}
+		else if(cost.length()%3==2){
+			s = cost.substring(0,2)+",";
+			for(int i=2; i<=cost.length(); i+=3){ // 2,5 5,8
+				if(i<cost.length())
+					s += cost.substring(i,i+3)+",";
+			}
+			s = s.substring(0,s.length()-1);
+			vo.setText_cost(s);
+		}
+		
+		return vo;
+	}
+	
+	public static List<TextVO> guideReview(int guide_no){
+		
+		SqlSession session = ssf.openSession();
+		/*TextVO vo = session.selectOne("guideReview",guide_no);*/
+		List<TextVO> list = session.selectList("guideReview",guide_no);
+		session.close();
+		return list;
+	}
 	
 
 	public static List<TextVO> myGuideWriter(String id){
 		SqlSession session=ssf.openSession();
-		List<TextVO> vo = session.selectList("myGuideWriter",id);
+		List<TextVO> vo = session.selectList("myGuideWriter",id);		
 		session.close();
 		return vo;
 	}
+	
+	//예약한 인원 수 구하기 
+	public static String myGuideWriterPerson(int no){
+		SqlSession session=ssf.openSession();
+		System.out.println("dao진입=======");
+		String resPerson = session.selectOne("myresPerson",no);
+		System.out.println("예약인원!!!!====="+resPerson);		//왜 String?...null이면 0나오게 하자
+		session.close();
+		return resPerson;
+	}
+	
+	
 	public static List<TextVO> bestGuide(){
 		SqlSession session=ssf.openSession();
 		List<TextVO> vo=session.selectList("bestGuide");

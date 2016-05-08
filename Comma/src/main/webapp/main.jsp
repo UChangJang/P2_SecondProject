@@ -11,7 +11,7 @@
       <meta http-equiv="Content-Script-Type" content="text/javascript" />
       <meta http-equiv="Content-Style-Type" content="text/css" />
       <meta http-equiv="X-UA-Compatible" content="IE=10" />
-     <link href="images\CommaWorld(1).ico" rel="shortcut icon">
+      <link href="images\Comma.ico" rel="shortcut icon">
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/mytest.css" />
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/basic.css" />
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/style.css" />
@@ -122,6 +122,8 @@
                      <br>
                      <div class="logbtn">
                         <input name="idfind" value="idfind" id="idFindBtn" type="button">
+                        <input name="idfind-b" value="Login" id="idFindBtn-b" type="button">
+                        
                      </div>
                      <br>
                       <div name="idFindPrint" id="idFindPrint"></div>
@@ -142,6 +144,8 @@
                      <div class="logbtn">
                        
                         <input name="pwdfind" value="pwdfind" id="pwdFindBtn" type="button">
+                        <input name="pwdfind-b" value="Login" id="pwdFindBtn-b" type="button">
+                        
                      </div>
                      
                       <br><br>
@@ -155,14 +159,11 @@
                   <!-- 2추가:회원가입 레이어 팝업창-->
                   <form class="white-popup mfp-hide" id="join-form" action="join.do" method="post">
                      <h1>Join-us</h1>
-                     <div>
-                      
-                        <input name="id" id="join_id" required="" type="text" placeholder="ID"><span>
-                        <input name="id_check" value="확인" id="id_check"type="button"></span>
-                        </div>
+                     <div><span>
+                        <input name="id" id="join_id" required="" type="text" placeholder="ID">
+                        <input name="id_check" value="확인" id="id_check" type="button"></span>
+                     </div>
                         <div name="checkPrint" id="checkPrint"></div>
-                          
-                     
                      <br>
                      <div>
                         <input name="pwd" id="join_pwd" required="" type="password"   placeholder="Password">
@@ -208,7 +209,9 @@
                            <li class="title"><a href="#">가이드</a></li>
                            <div class="cont">
                               <li><a href="guide.do">1.가이드목록</a></li>
-                              <li><a href="guideWrite.do">2.가이드글쓰기</a></li>
+                              <c:if test="${sessionScope.id!=null}">	
+                             	 <li><a href="guideWrite.do">2.가이드글쓰기</a></li>
+                              </c:if>
                            </div>
                         </div>
 
@@ -216,12 +219,16 @@
                            <li class="title"><a href="#">관광객</a></li>
                            <div class="cont">
                               <li><a href="tourist.do">1.관광객목록</a></li>
-                              <li><a href="touristWrite.do">2.관광객글쓰기</a></li>
+                              <c:if test="${sessionScope.id!=null}">	
+                              	<li><a href="touristWrite.do">2.관광객글쓰기</a></li>
+                              </c:if>
                            </div>
                         </div>
+                         <c:if test="${sessionScope.id!=null}">
                         <div class="box">
                            <li><a href="mypage.do">마이페이지</a></li>
                         </div>
+                        </c:if>
                         <div class="box">
                            <li><a href="board_list.do">게시판</a>
                         </div>
@@ -388,6 +395,10 @@
            }
         }
      }
+     $('#idFindBtn-b').magnificPopup({
+         items :{src:'#login-form',type : 'inline'}
+      });
+
      
      $('#pwdfind-btn').magnificPopup({
          items :{src:'#pwdfind-form',type : 'inline'},
@@ -404,13 +415,13 @@
       
       $(function(){
         $('#pwdFindBtn').click(function(){      
-           var name=$('#name').val();
-           if(name.trim()==""){
-              $('#name').focus();
+           var id=$('#id').val();
+           if(id.trim()==""){
+              $('#id').focus();
               return;
            }
-           var param="name="+encodeURIComponent(name);
-           sendMessage("POST", "pwdFind.do", param, idfind)
+           var param="id="+encodeURIComponent(id);
+           sendMessage("POST", "pwdFind.do", param, pwdfind)
            
         });
        
@@ -422,10 +433,12 @@
            }
         }
      }
-   });  
-
+     $('#pwdFindBtn-b').magnificPopup({
+         items :{src:'#login-form',type : 'inline'}
+      });
    
-
+   
+ 
    function idCheck(){         
       if(httpRequest.readyState==4){
          if(httpRequest.status==200){               
@@ -433,7 +446,8 @@
          }
       }
    }
-   
+   })
+
    
    </script>
    

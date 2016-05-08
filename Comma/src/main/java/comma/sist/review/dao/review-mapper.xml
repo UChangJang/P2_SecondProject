@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.review.dao.review-mapper">
-    <select id="myAllReview" resultMap="comma.sist.common.text-mapper.TextList">
-    	select review_no,guide_subject,user_nick ,review_text,review_score  
+    <select id="myAllReview" parameterType="int" resultMap="comma.sist.common.text-mapper.TextList">
+    	select review_no,guide_subject,user_nick,review_text,review_score  
 		from guide,review,users
-        where review.guide_no=guide.guide_no and review.user_id=users.user_id
+        where review.guide_no=guide.guide_no and review.user_id=users.user_id and guide.guide_no=#{guide_no}
     </select>
     <select id="myAbleReview" parameterType="String" resultType="Guide">
     select guide.guide_no guide_no,guide_subject,guide.user_id user_id

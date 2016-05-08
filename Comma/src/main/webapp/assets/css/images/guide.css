@@ -1,0 +1,14 @@
+@CHARSET "EUC-KR";
+#main > #tourHeader{
+	padding: 7em 0 5em 0 ;		/* 상단이미지 12em 0 10em 0 ; */
+	background-image: url("../../images/korInfo2.jpg");
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+#tourHeader p{
+	text-align: center;
+	width: 30em;
+}

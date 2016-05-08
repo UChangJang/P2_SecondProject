@@ -12,7 +12,8 @@
 <script type="text/javascript">
 	$(function(){
 		
-		sendMessage("POST", "tourist_nextPrev.do", null, tourContent);
+		//sendMessage("POST", "tourist_nextPrev.do", null, tourContent);
+		
 		//1.검색했을 때
 		$('#tourSearch').click(function(){		//select_지역선택
 			var place=$('#place').val();		//1.지역값 가져오기
@@ -24,7 +25,7 @@
 			}
 			
 			var param="place="+place+"&date="+date;
-			sendMessage("POST", "tourist_search.do",param, tourContent);
+			sendMessage("POST", "tourist_search.do", param, tourContent);
 		});
 
 		//2.정렬
@@ -58,9 +59,14 @@
 
 	<!-- Main -->
 	<article id="main">
-		<header id="test">
-			<h2>가이드찾기</h2>
-			<p>가이드찾기설명</p>
+		<header id="tourHeader">
+			<h2>Tourist</h2>
+			<center>
+			<p>I will Find You!</p>
+			<p>Check the board to guide someone in Korea!</p>
+			</center>
+			<a href="#one" class="more scrolly"><img src="images/triangle.png">
+					<br>view more</a>
 		</header>
 
 		<section class="wrapper style5">
@@ -76,21 +82,26 @@
 						<div class="select-wrapper tourist_local">
 
 							<select name="text_loc1" id="place">
-								<option value="">- 지역 -</option>
-								<option value="seoul">seoul</option>
-								<option value="busan">busan</option>
-								<option value="jeju">jeju</option>
-								<option value="gangwon">gangwon</option>
-								<option value="jeonju">jeonju</option>
-								<option value="incheon">incheon</option>
-								<option value="chuncheon">chuncheon</option>
+								   <option value="">- PLACE -</option>
+		                           <option value="SEOUL">SEOUL</option>
+		                           <option value="DAEGU">DAEGU</option>
+		                           <option value="BUSAN">BUSAN</option>
+		                           <option value="JEJU">JEJU</option>
+		                           <option value="INCHEON">INCHEON</option>
+		                           <option value="CHUNCHEON">CHUNCHEON</option>
+		                           <option value="BORYEONG">BORYEONG</option>
+		                           <option value="JEONJU">JEONJU</option>
+		                           <option value="GYEONGJU">GYEONGJU</option>
+		                           <option value="YEOSU">YEOSU</option>
+		                           <option value="KANGWONDO">KANGWONDO</option>
+		                           <option value="GYEONGGIDO">GYEONGGIDO</option>
 							</select>
 						</div>
 					</div>
 
 					<div class="5u 12u$(xsmall)">
 						<div class="tourist_center" id="demo">
-							<input type="text" id="dt" placeholder="날짜선택">
+							<input type="text" id="dt" placeholder="DATE">
 							<div id="dd"></div>
 						</div>
 					</div>
@@ -111,12 +122,12 @@
 			<!-- 3. 정렬 -->
 			<div class="inner">
 				<br><br>
-				<div class="9u 12u$(xsmall)">
+				<div class="9u 12u$(xsmall) tourFit">
 					<h4>I FIND GUIDE!</h4>
 				</div>
-				<div class="select-wrapper tourist_select 3u$ 12u$(xsmall)">
+				<div class="select-wrapper tourist_select 3u$ 12u$(xsmall) tourFit">
 					<select name="text_loc2" id="sortType">
-						<option value="">- 정렬 -</option>
+						<option value="">- SORT -</option>
 						<option value="cost">Cost</option>
 						<option value="newest">Newest</option>
 					</select>
@@ -128,53 +139,62 @@
 
 
 		<!-- 5개 투어리스트 리스트 출력 -->
-		
 		<div id="tourContent">
-			<%-- <jsp:include page="${innerList }"></jsp:include> --%>
+			<jsp:include page="${innerjsp }"></jsp:include>
 		</div>
 
 	</article>
 
-
 	<script type="text/javascript">
+   var mapJeju=${mapJeju};
+   var mapSeoul=${mapSeoul};
+   var mapBusan=${mapBusan};
+   var mapChuncheon=${mapChuncheon};
+   var mapIncheon=${mapIncheon};
+   var mapBoryeong=${mapBoryeong};
+   var mapJeonju=${mapJeonju};
+   var mapGyeongJu=${mapGyeongJu};
+   var mapYeosu=${mapYeosu};
    
-// First, create an object containing LatLng and population for each city.
+   alert("mapSeoul:"+mapSeoul+",mapBusan:"+mapBusan+",mapJeju:"+mapJeju+",mapChuncheon:"+mapChuncheon
+		   +",mapYeosu:"+mapYeosu+",mapGyeongJu:"+mapGyeongJu);
+      
 var citymap = {
      jeju: {
     center: {lat: 33.4, lng: 126.5},
-    population: 30
+    population: mapJeju
   },
   busan: {
     center: {lat: 35.2, lng: 129},
-    population: 30
+    population: mapBusan
   },
   jeonju: {
     center: {lat: 35.8, lng: 127},
-    population: 30
+    population: mapJeonju
   },
   yeosu: {
     center: {lat: 34.7, lng: 127.58},
-    population: 40
+    population: mapYeosu
   },
   gyeongju: {
        center: {lat: 35.8, lng: 129.3},
-       population: 20
+       population: mapGyeongJu
      },
    boryeong: {
           center: {lat: 36.35, lng: 126.6},
-          population: 2
+          population: mapBoryeong
         },
    incheon: {
           center: {lat: 37.5, lng: 126.68},
-          population: 4
+          population: mapIncheon
         },
         seoul: {
              center: {lat: 37.6, lng: 126.9},
-             population: 40
+             population: mapSeoul
            },
            chuncheon: {
                 center: {lat: 37.85, lng: 127.7},
-                population: 20
+                population: mapChuncheon
               }
 };
 
@@ -200,17 +220,12 @@ function initMap() {
       center: citymap[city].center,     
       radius: Math.sqrt(citymap[city].population) * 8000
     });
-
-  }
-  
-  
+  } 
 }
 
     </script>
 	<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIq1i-4xWCw8MmkDAnt3jWBPKxInl1y5o&signed_in=true&callback=initMap"></script>
-
-
 
 </body>
 </html>

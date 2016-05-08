@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -33,18 +35,17 @@ private static SqlSessionFactory   ssf;
    
     //1. 5개의 전체 데이터 읽기
     public static List<TextVO> touristFiveData(Map map) { // map=1,5
-       SqlSession session = ssf.openSession(); // 객체생성      
-       List<TouristVO> list = session.selectList("touristFiveData", map); // 1-5번호까지의 tourist에서모든정보들가져옴
-       
+       SqlSession session = ssf.openSession(); // 객체생성    
+       List<TouristVO> list = session.selectList("touristFiveData", map); // 1-5번호까지의 tourist에서 모든정보들가져옴
        List<TextVO> list2 = new ArrayList<TextVO>(); // 이곳에 저장하겠다.
-       
+ 
        for(TouristVO tvo : list) {
           String tid = tvo.getUser_id();   //1.저장된 id가져옴  null...
-          int tno = tvo.getText_no();      //2.저장된 text번호 가져옴
+          int tno = tvo.getText_no();      //2.저장된 text번호 가져옴	    
+          
           UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
           TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
-          System.out.println("지역:" +tv.getText_loc()+",id:" +tid+",글전체에서번호:" +tno+",테마:" + tvo.getTour_theme());             
-             
+
           //list에 합치기_user
           tv.getUservo().setUser_nick(uv.getUser_nick());
           tv.getUservo().setUser_img(uv.getUser_img());
@@ -64,7 +65,7 @@ private static SqlSessionFactory   ssf;
     }
     
     //2. tourist정렬
-   public static List<TextVO> tourist_sort(Map map,String type) { // map=start(1) end(5)   //type=cost,newest
+   public static List<TextVO> tourist_sort(Map map,String type) { // map=start,end,place,date  //type=cost,newest
       SqlSession session = ssf.openSession(); // 객체생성   
       
       List<TouristVO> list = new ArrayList<TouristVO>();
@@ -122,7 +123,7 @@ private static SqlSessionFactory   ssf;
    
    
    //2. tourist검색(지역,날짜)
-   public static List<TextVO> tourist_search(Map map) { //5개의 데이터,seoul,20160331  
+   public static List<TextVO> tourist_search(Map map) { //5개의 데이터,JEJU,20160331  
       SqlSession session = ssf.openSession(); // 객체생성       
       List<TouristVO> list=session.selectList("touristSearchData", map); // tour에서 지역&날짜 동일한 5개 리스트 추출
  
@@ -179,14 +180,56 @@ private static SqlSessionFactory   ssf;
           return (int)(Math.ceil(count/5.0));
        }
       
-     // 게시판 글쓰
+      
+      //위시리스트
+      public static int wishSearch(Map map){
+    	     
+          SqlSession session = ssf.openSession();
+          int count=session.selectOne("wishSearch",map);
+          
+          session.close();
+          return count;
+          
+        } 
+      
+      //위시리스트 추가
+      public static void wishInsert(WishVO vo){
+          SqlSession session = ssf.openSession(true);
+          session.insert("wishInsert",vo);
+          session.close();
+          
+        } 
+      
+      
+      //예약조회
+      public static int resSearch(Map map){
+    	     
+          SqlSession session = ssf.openSession();
+          int count=session.selectOne("resSearch",map);
+          
+          session.close();
+          return count;
+          
+        }
+      
+      //예약 추가
+      public static void resInsert(Map map){
+          SqlSession session = ssf.openSession(true);
+          session.insert("resInsert",map);
+          session.close();
+          
+        } 
+      
+      
+      
+     // 게시판 글쓰기
      public static void textInsert(TextVO tvo){
      
         SqlSession session = ssf.openSession(true);
         session.insert("textInsert1",tvo);
         session.close();
         
-      } // textInsert(GuideVO vo)
+      } // textInsert(TextVO vo)
         
      
      public static void touristWrite(TextVO tvo){
@@ -197,18 +240,84 @@ private static SqlSessionFactory   ssf;
         
      } // touristWrite(TextVO tvo)
       
+     
+     //지도
+     public static int tourMap(String text_loc){	//seoul
+	     
+         SqlSession session = ssf.openSession();
+         int count=session.selectOne("tourMap",text_loc);
+         
+         session.close();
+         return count;
+         
+       }
+     
    
+     
+    //배현길
    public static List<WishVO> myWishTorist(String id){
       SqlSession session = ssf.openSession();
       List<WishVO> vo=session.selectList("myWishTorist",id);
       session.close();
       return vo;
    }
-   public static List<TouristVO> myTouristWriter(String id){
+   
+   
+   
+   
+   
+   
+   
+   //내가 쓴 관광객 글들 보기
+   public static List<TextVO> myTouristWriter(String id){
       SqlSession session=ssf.openSession();
-      List<TouristVO> vo = session.selectList("myTouristWriter",id);
+      System.out.println("dao진입tour:"+id);
+      List<TextVO> vo = session.selectList("myTouristWriter",id);
       session.close();
       return vo;
    }
+   
+   //예약한 인원 수 구하기 
+ 	public static String myTourWriterPerson(int no){
+ 		SqlSession session=ssf.openSession();
+ 		String resPerson = session.selectOne("myresPerson2",no);
+ 		session.close();
+ 		return resPerson;
+ 	}
+ 	
+ 	//예약한 인원 정보구하기
+ 	public static List<TouristResVO> tourResInfo(int no){	//no=17
+ 		SqlSession session=ssf.openSession();
+ 		List<TouristResVO> vo = session.selectList("tourResInfo",no);
+ 		if(vo.isEmpty()){
+ 			System.out.println("dao예약안했음");
+ 			session.close();
+ 			return null;
+ 		}else{
+ 			System.out.println("예약자:"+vo.size());
+	 		for(int i=0; i<vo.size(); i++){
+	 			System.out.println(vo.get(i).getUser_nick()+",ID:"+vo.get(i).getUser_id());
+	 		}
+	 		session.close();
+ 		}
+ 		return vo;
+ 	}
+ 	
+ 	//승인하기
+	public static void mytourOkUpdate(Map map){
+ 		SqlSession session=ssf.openSession(true);
+ 		System.out.println("1");
+ 		session.update("mytourOkUpdate",map);
+ 		System.out.println("2");
+ 		session.close();
+ 	}
+	//나머지 승인 안하기
+		public static void mytourNotOkUpdate(Map map){
+	 		SqlSession session=ssf.openSession(true);
+	 		System.out.println("!1");
+	 		session.update("mytourNotOkUpdate",map);
+	 		System.out.println("!2");
+	 		session.close();
+	 	}
    
 }

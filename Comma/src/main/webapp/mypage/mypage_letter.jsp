@@ -14,6 +14,7 @@
 			<div class="tab1"><a href="#">받은 쪽지</a></div>
 			<div class="tab2"><a href="#">보낸 쪽지</a></div>
 			
+			<!-- 1.받은 쪽지 -->
 			<div class="table-wrapper tabscontents t1">
 				<table class="alt">
 					<thead>					
@@ -25,6 +26,7 @@
 							<th width="7%">답장</th>
 						</tr>					
 					</thead>
+					
 					<tbody>
 					<c:forEach var="recvo" items="${recvo }">
 						<tr>
@@ -79,9 +81,11 @@
 			</div>
 			</section>
 			</div>
+
 	          <c:forEach var="recvo" items="${recvo }"  >
 	               <form class="white-popup mfp-hide" id="re${recvo.message_no }" method="post" action="messageDelete.do">
 	                  <h1>Message Detail</h1>
+
 	                    <table>
 	                     	<tr>
 	                     	  <td width="30%" align="right">보낸 사람</td>
@@ -106,6 +110,8 @@
 	                     </table>         
 	               </form> 
 	               
+	               
+	               <!--  -->
 	               	<form class="white-popup mfp-hide" id="send${recvo.message_no }"  method="post" action="messageSend.do" >
 	                  <h1>Message Reple</h1>
 	                    <table>
@@ -128,9 +134,8 @@
 	                     	</tr>
 	                     </table>         
 	               </form> 
-	          
-	               
 	               </c:forEach> 
+	               
 	               <c:forEach var="sendvo" items="${sendvo }">
 	                <form class="white-popup mfp-hide" id="sendpopup${sendvo.message_no }"  method="post" action="messageDelete.do">
 	                  <h1>Message</h1>
