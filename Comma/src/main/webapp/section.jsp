@@ -6,12 +6,17 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="ajax.js"></script>
+
 <script type="text/javascript">
 $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 	$('#tabControlTab').mouseover(function(){ 
-		var id=$('#spotRank').val();			// DB에서 만들어야함.(hit수, 검색수를 따져서..)
-		$(id).css('background-color','#ED4933')
+		
 	});
+	
+	// ajax : hotspot
+	$()
 });
 </script>
 </head>
@@ -129,7 +134,7 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 						</div>
 					
 						<div class="guideRanking_review">
-							${vo.reviewvo.review_score }점입니다.
+							${vo.reviewvo.review_score }점입니니다다다다다다다다다다다다다다다다다다다다다다다다다다다닫다.
 						</div>
 						<span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">${vo.uservo.user_nick }(${vo.text_loc })</span>
 					</div>
@@ -151,65 +156,35 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 			
 			<div class="6u$ 12u$(small) secondPart tabControlWrap" id="tabControlWrap">
 				<h5>Best Guide spot</h5>
+				
 				<ul class="tabControlTabs">
-					<li class="tabControlTab selected odd"><p><span id="${spotRank }divChange">&nbsp;1&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab even"><p><span id="divChange${spotRank }">&nbsp;2&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab odd"><p><span id="divChange${spotRank }">&nbsp;3&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab even"><p><span id="divChange${spotRank }">&nbsp;4&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab odd"><p><span id="divChange${spotRank }">&nbsp;5&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab even"><p><span id="divChange${spotRank }">&nbsp;6&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab odd"><p><span id="divChange${spotRank }">&nbsp;7&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab even"><p><span id="divChange${spotRank }">&nbsp;8&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab odd"><p><span id="divChange${spotRank }">&nbsp;9&nbsp;</span>&nbsp;서울</p></li>
-					<li class="tabControlTab even"><p><span id="divChange${spotRank }">10</span>&nbsp;서울</p></li>
-					
+					<c:set var="i" value="1"/>
+					<c:forEach var="vo" items="${slist }">
+						<c:if test="${i<=10 }">
+							<li class="tabControlTab selected odd" style="margin:0;padding:0;">
+								<span class="spot_num">&nbsp;${i}&nbsp;</span>
+								<p id="${vo.search_loc}" style="color:#000;float:none;text-align: left;">&nbsp;&nbsp;&nbsp;${vo.search_loc }</p>
+							</li>
+						</c:if>
+						<c:set var="i" value="${i+1 }"/>
+					</c:forEach>
 				</ul>
 				<ul class="tabControlBodys">
-					<li class="tabControlBody selected"
-						style="background-color: #BAB6A8;">
-						<p>4월7일1/먹방투어/2000원</p>
-						<p>4월7일1/먹방투어/2000원</p>
-						<p>4월7일1/먹방투어/2000원</p>
-						<p>4월7일1/먹방투어/2000원</p>
-						<p>4월7일1/먹방투어/2000원</p>
-						<p>4월7일1/먹방투어/2000원</p>
-						<p>4월7일1/먹방투어/2000원</p>
-						<p>4월7일1/먹방투어/2000원</p>
-						<p>4월7일1/먹방투어/2000원</p>
-						<p>4월7일1/먹방투어/2000원</p>
-					</li>
-					<li class="tabControlBody"
-						style="background-color: #89867C">
-						<p>4월7일2/먹방투어/2000원</p>
-						<p>4월7일2/먹방투어/2000원</p>
-						<p>4월7일2/먹방투어/2000원</p>
-						<p>4월7일2/먹방투어/2000원</p>
-						<p>4월7일2/먹방투어/2000원</p>
-					</li>
-					<li class="tabControlBody"
-						style="background-color: #BAB6A8;">
-						<p>4월7일3/먹방투어/2000원</p>
-						<p>4월7일3/먹방투어/2000원</p>
-						<p>4월7일3/먹방투어/2000원</p>
-						<p>4월7일3/먹방투어/2000원</p>
-						<p>4월7일3/먹방투어/2000원</p>
-					</li>
-					<li class="tabControlBody"
-						style="background-color: #89867C;">
-						<p>4월7일4/먹방투어/2000원</p>
-						<p>4월7일4/먹방투어/2000원</p>
-						<p>4월7일4/먹방투어/2000원</p>
-						<p>4월7일4/먹방투어/2000원</p>
-						<p>4월7일4/먹방투어/2000원</p>
-					</li>
-					<li class="tabControlBody"
-						style="background-color: #BAB6A8;">
-							<p>4월7일5/먹방투어/2000원</p>
-							<p>4월7일5/먹방투어/2000원</p>
-							<p>4월7일5/먹방투어/2000원</p>
-							<p>4월7일5/먹방투어/2000원</p>
-							<p>4월7일5/먹방투어/2000원</p>
-						</li>
+					<c:set var="i" value="1"/>
+						<c:if test="${i<=10 }">
+							<li class="tabControlBody selected"
+								style="background-color: #BAB6A8;">
+								<c:forEach var="vo" items="${hlist }">
+								<c:if test="vo.text_loc=">
+								<p>${vo.text_hit}hit&nbsp;${vo.text_tour_date}&nbsp;${vo.text_cost}won</p>
+								<c:set var="i" value="${i+1 }"/>
+								</c:if>
+								</c:forEach>
+							</li>
+						</c:if>
+						
+					
+					
 					</ul>
 				</div>
 			</div>			

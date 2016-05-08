@@ -8,6 +8,17 @@
     border-left: 0;
     border-right: 0;
 }
+/* spot */
+.spot_num{
+	color:#fff;
+	background-color:#ed4933;
+	border-radius:3px;
+	vertical-align: middle;
+	float:left;
+	margin-left:3em;
+	margin-right:0;
+	margin-top:0.3em;
+}
 /* 상단 2번째, 네비게이션 메뉴바 */
 .nav2Name{
 	font-weight: bold;

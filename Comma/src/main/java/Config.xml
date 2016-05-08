@@ -11,6 +11,8 @@
 		<typeAlias type="comma.sist.review.dao.ReviewVO" alias="Review"/>
 		<typeAlias type="comma.sist.reservation.dao.ReservationVO" alias="Reservation"/>
 		<typeAlias type="comma.sist.user.dao.ZipcodeVO" alias="Zipcode"/>
+		<typeAlias type="comma.sist.hotspot.HotspotVO" alias="Hotspot"/>
+		<typeAlias type="comma.sist.hotspot.SearchVO" alias="Search"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -42,6 +44,6 @@
 		<mapper resource="comma/sist/review/dao/review-mapper.xml"/> 
 		<mapper resource="comma/sist/wish/dao/wish-mapper.xml"/> 
 		<mapper resource="comma/sist/reservation/dao/reservation-mapper.xml"/>
-				
+		<mapper resource="comma/sist/hotspot/hotspot-mapper.xml"/>
 	</mappers> 
 </configuration>
