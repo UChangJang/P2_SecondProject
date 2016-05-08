@@ -2,6 +2,7 @@ package comma.sist.reservation.dao;
 
 import java.io.Reader;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -46,7 +47,6 @@ private static SqlSessionFactory	ssf;
 	
 	public static String reserveGuideCheck(int guide_no){
 		SqlSession session = ssf.openSession();
-		System.out.println("dao진입");
 		String sum=session.selectOne("reserveGuideCheck",guide_no);
 		System.out.println(sum);
 		session.close();
@@ -55,7 +55,6 @@ private static SqlSessionFactory	ssf;
 
 	public static int reserveGuidePossible(int guide_no){
 		SqlSession session = ssf.openSession();
-		System.out.println("dao진입22");
 		int total=session.selectOne("reserveGuidePossible",guide_no);
 		System.out.println(total);
 		session.close();
@@ -69,4 +68,18 @@ private static SqlSessionFactory	ssf;
 		session.close();
 		return count;
 	}
+	
+	public static void reserveGuideDelete(Map map){
+		SqlSession session = ssf.openSession();
+		int reservation_no = session.selectOne("reserveNoSearch",map);
+		session.close();
+		
+		session = ssf.openSession(true); // true
+		session.delete("reserveDeleteGuide",reservation_no);
+		session.close();
+		
+	}
+	
+	
+	
 }

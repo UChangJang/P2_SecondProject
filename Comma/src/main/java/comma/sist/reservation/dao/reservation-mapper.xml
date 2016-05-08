@@ -43,4 +43,14 @@
 		FROM reservation
 		WHERE user_id=#{user_id} AND guide_no=#{guide_no} 	
 	 </select>
+	 
+	 
+	 <!-- 가이드 예약 삭제 -->
+	 <select id="reserveNoSearch" parameterType="java.util.Map" resultType="int">
+	 	select reservation_no from reservation where guide_no=#{no} and user_id=#{user_id}
+	 </select>
+	 <delete id="reserveDeleteGuide" parameterType="int">
+	 	delete from reservation where reservation_no=#{reservation_no}
+	 </delete>
+	 
 </mapper>

@@ -20,11 +20,15 @@
 	
 	<!-- 미정 삭제 test요  어느테이블에서 삭제하나요 -->
     <delete id="myWishGuideDelete" parameterType="int">
-    DELETE FROM 
+    DELETE FROM wish
     WHERE wish_no=#{wish_no}
     </delete>
   
-  
+  	<delete id="myWishTourDelete" parameterType="int">
+    DELETE FROM wish
+    WHERE wish_no=#{wish_no}
+    </delete>
+  	
    <insert id="guideWishOk" parameterType="Wish">
           insert into wish(wish_no,user_id,guide_no)
            values((select max(wish_no)+1 from wish),#{user_id},#{guide_no})

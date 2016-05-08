@@ -262,7 +262,21 @@ private static SqlSessionFactory   ssf;
       return vo;
    }
    
-   
+   public static void touristDelete(int no){
+		
+		SqlSession session = ssf.openSession();
+		int text_no = session.selectOne("textnoSearch1",no);
+		System.out.println(text_no);
+		session.close();
+		
+		session = ssf.openSession(true);
+		// wish, reservation, review
+		session.delete("reservationTourDelete",no);
+		session.delete("wishTourDelete",no);
+		session.delete("TourDelete", no);
+		session.delete("textDelete",text_no);
+		session.close();
+	}
    
    
    
@@ -271,7 +285,7 @@ private static SqlSessionFactory   ssf;
    //내가 쓴 관광객 글들 보기
    public static List<TextVO> myTouristWriter(String id){
       SqlSession session=ssf.openSession();
-      System.out.println("dao진입tour:"+id);
+      //System.out.println("dao진입tour:"+id);
       List<TextVO> vo = session.selectList("myTouristWriter",id);
       session.close();
       return vo;

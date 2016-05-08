@@ -120,8 +120,8 @@ public class UserController {
 		req.setAttribute("mypage", "mypage/mypage_wishlist.jsp");		
 		return "main.jsp";
 	}
-	//미정 삭제 테스트
 	
+	//미정 삭제 테스트
 	@RequestMapping("wishlist_guide_delete.do")
 	   public String board_guide_delete(HttpServletRequest req){	
 		   String gwish_no=req.getParameter("gwish_no");
@@ -174,6 +174,11 @@ public class UserController {
 		
 		List<TextVO> guidevo = ReservationDAO.myGuideReservation(user_id);	
 		List<TextVO> tourvo = ReservationDAO.myTourReservation(user_id);	
+		for(TextVO vo:guidevo){
+			String sumTemp=ReservationDAO.reserveGuideCheck(vo.getGuidevo().getGuide_no());
+			if(sumTemp==null) sumTemp="0";
+			vo.setNum(Integer.parseInt(sumTemp));
+		}
 		
 		req.setAttribute("guidevo", guidevo);
 		req.setAttribute("tourvo", tourvo);
@@ -196,7 +201,7 @@ public class UserController {
 		
 		for(TextVO vo:guidevo){
 			int guideno=vo.getGuidevo().getGuide_no();
-			System.out.println("가이드글번호:"+guideno);
+			//System.out.println("가이드글번호:"+guideno);
 			
 			String respeople=GuideDAO.myGuideWriterPerson(guideno);		//예약한 인원 수
 			vo.getGuidevo().setReservation_person(respeople);
@@ -210,10 +215,10 @@ public class UserController {
 		
 		for(TextVO vo:touristvo){
 			int tourno=vo.getTouristvo().getTour_no();	//*각 투어글마다 투어내에서의 번호
-			System.out.println("\n투어글번호:"+tourno);
+			//System.out.println("\n투어글번호:"+tourno);
 			
 			String respeople=TouristDAO.myTourWriterPerson(tourno);	//*각 투어글마다 예약한 인원
-			System.out.println("투어번호:"+tourno+",예약자인원"+respeople);
+			//System.out.println("투어번호:"+tourno+",예약자인원"+respeople);
 			vo.getTouristvo().setReservation_person(respeople);
 			
 			List<TouristResVO> rvo=TouristDAO.tourResInfo(tourno);	//3.*내투어에 예약한 사람들 정보 불러오기
@@ -231,10 +236,52 @@ public class UserController {
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_mywriter.jsp");		
 		}catch(Exception e){
-			System.out.println("touristcontroller:"+e.getMessage());
+			System.out.println("mypage_mywriter:"+e.getMessage());
 		}
 		return "main.jsp";
 	}
+	
+	@RequestMapping("mypage_mywriter_gDel.do")
+	public String mypage_mywriter_gDel(HttpServletRequest request){
+		
+		String no = request.getParameter("no");		
+		System.out.println("가이드"+no);
+		//GuideDAO.guideDelete(Integer.parseInt(no));	
+
+		return "mypage/mywrite_deleteOk.jsp";
+	}
+	
+	@RequestMapping("mypage_mywriter_tDel.do")
+	public String mypage_mywriter_tDel(HttpServletRequest request){
+		
+		String no = request.getParameter("no");		
+		System.out.println("관광객"+no);
+		TouristDAO.touristDelete(Integer.parseInt(no));	
+
+		return "mypage/mywrite_deleteOk.jsp";
+	}
+	
+	
+	@RequestMapping("mypage_reserve_gDel.do")
+	public String mypage_reserve_gDel(HttpServletRequest request){
+		
+		// 아이디와 가이드 번호 => 나의 예약번호
+		String no = request.getParameter("no"); // 가이드 번호
+		
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("id");
+		System.out.println(user_id);
+		
+		Map map = new HashMap();
+		map.put("no", no);
+		map.put("user_id", user_id);
+		
+		ReservationDAO.reserveGuideDelete(map);
+		
+		
+		return "mypage/myreserve_deleteOk.jsp";
+	}
+	
 	
 	
 	@RequestMapping("mytourresv.do")

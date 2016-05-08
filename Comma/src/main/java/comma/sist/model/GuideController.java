@@ -271,6 +271,15 @@ public class GuideController {
 			confirmId = true;
 		}
 		
+		// 예약 꽉 찼는지 확인
+		String soldout = ReservationDAO.reserveGuideCheck(Integer.parseInt(no));
+		if(soldout==null) soldout="0";
+		boolean soldCheck = false;
+		if(vo.getText_total_person() == Integer.parseInt(soldout)){
+			soldCheck = true;
+		}
+		
+		request.setAttribute("soldCheck", soldCheck);
 		request.setAttribute("imgList", imgList);
 		request.setAttribute("confirmId", confirmId);
 		request.setAttribute("vo", vo);
@@ -366,6 +375,8 @@ public class GuideController {
 		
 		
 		String sumTemp=ReservationDAO.reserveGuideCheck(Integer.parseInt(guide_no));	//예약가능한지
+		if(sumTemp==null) sumTemp="0";
+		
 		int sum=Integer.parseInt(sumTemp);
 		int total=ReservationDAO.reserveGuidePossible(Integer.parseInt(guide_no));
 		int res=Integer.parseInt(reservation_person);

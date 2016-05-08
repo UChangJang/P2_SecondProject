@@ -316,7 +316,6 @@ public class TouristController {
       return "tourist/touristWriteOk.jsp";
 
    }
-
-
+   
 
 }

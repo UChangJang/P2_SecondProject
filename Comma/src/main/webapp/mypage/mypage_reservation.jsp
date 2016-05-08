@@ -44,8 +44,9 @@
 							<a href="guideBoard.do?no=${vo.guidevo.guide_no }">${vo.guidevo.guide_subject }</a></td>
 						<td width="10%" align="center">${vo.uservo.user_id }</td>
 						<td width="10%" align="center">${vo.text_tour_date }</td>
-						<td width="7%" align="center">${vo.text_total_person }</td>
-						<td width="7%"><input type="button" value="Del"></td>
+						<td width="7%" align="center">${vo.num}/${vo.text_total_person }</td>
+						<td width="7%"><input type="button" value="Del" class="reserve_gDel" id="reserveDelg${vo.guidevo.guide_no }"></td>
+						<form method="post" name="reserve_gDel_frm" action="mypage_reserve_gDel.do?no=" id="frm_resD"></form>
 					</tr>
 				</c:forEach>
 				</tbody>
@@ -74,7 +75,7 @@
 						<td width="10%" align="center">${vo.uservo.user_id }</td>
 						<td width="10%" align="center">${vo.text_tour_date }</td>
 						<td width="7%" align="center">${vo.reservationvo.reservation_check }</td>
-						<td width="7%"><input type="button" value="Del"></td>
+						<td width="7%"><input type="button" value="Del" class="reserve_tDel" id="reserveDelt${vo.touristvo.tour_no }"></td>
 					</tr>
 				  </c:forEach>
 				</tbody>
@@ -106,7 +107,27 @@
 
 					$('.t' + index).fadeIn();
 					$(this).css('background-color', '#000').addClass('active');
-				});
+		});
+		
+		$('.reserve_gDel').click(function(){
+			
+			var id = $(this).attr('id');
+			var no = id.substring(11);
+			
+			alert(no);
+			
+			
+			var c = $('#frm_resD').attr('action');
+			var param = c+no;
+			$('#frm_resD').attr('action',param);
+			$('#frm_resD').submit();
+			
+		    /* var m = document.reserve_gDel_frm;
+			m.action = "mypage_reserve_gDel.do?no="+no;
+			m.submit(); */
+			
+		});
+		
 	</script>
 </body>
 </html>

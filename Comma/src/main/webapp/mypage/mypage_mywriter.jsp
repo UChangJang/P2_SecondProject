@@ -76,7 +76,8 @@
 						<td>${guidevo.guidevo.guide_subject }</td>
 						<td><fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/></td>
 						<td>${guidevo.guidevo.reservation_person }/${guidevo.text_total_person }</td>
-						<td><input type="button" value="Del"></td>
+						<td><input type="button" value="Del" class="guideDelwritten" id="guideDelwrite${guidevo.guidevo.guide_no }"></td>
+						<form method="post" name="guideDelmypage"/>
 					</tr>
 					</c:forEach>
 				</tbody>
@@ -95,13 +96,13 @@
 						<th width="7%">Delete</th>
 					</tr>
 				</thead>
-
+				
 				<tbody>
 					<c:forEach var="vo" items="${touristvo }">
 						<tr id="boyoung">
 							<td>${vo.touristvo.tour_no }</td>
 							<!-- 목록내 번호 -->
-							<td><a href="guideBoard.do?no=${vo.touristvo.tour_no }">
+							<td><a href="tourist.do?no=${vo.touristvo.tour_no }">
 									${vo.text_loc }</a></td>
 							<td>${vo.touristvo.tour_theme }</td>
 							<td><fmt:formatDate value="${vo.text_regdate }"
@@ -110,7 +111,9 @@
 								<input style="box-shadow: inset 0 0 0;" type="button" value="${vo.touristvo.reservation_person }"
 								class=tourResViewBtn id="tourResBtn${vo.touristvo.tour_no }">
 							</td>
-							<td class="mytourRBtn"><input type="button" value="Del"></td>
+							<td><input type="button" value="Del" class="tourDelwritten" id="tourDelwrite${vo.touristvo.tour_no }"></td>
+							<!-- <form method="post" name="tourDelmypage"></form> -->
+							<form method="post" action="mypage_mywriter_tDel.do?no=" id="sdff" name="tourDelmypage"></form>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -133,7 +136,7 @@
 						<td align="center">${vo1.user_birth }</td>
 						<td>${vo1.reservation_check }</td>
 						<td>
-							<input type="button" value="승인" class="sendMyResBtn" id="tourRok${vo.touristvo.tour_no}&${vo1.user_id }">
+							<input type="button" value="permission" class="sendMyResBtn" id="tourRok${vo.touristvo.tour_no}&${vo1.user_id }">
 						</td>
 					</tr>
 				</c:forEach>
@@ -192,7 +195,30 @@
 
 			});
 
-		})
+		});
+		
+		$('.guideDelwritten').click(function(){
+			var id = $(this).attr('id');
+			var no = id.substring(13);
+			
+			var m = document.guideDelmypage;
+			m.action = "mypage_mywriter_gDel.do?no="+no;
+			m.submit();
+		});
+		
+		$('.tourDelwritten').click(function(){
+			var id = $(this).attr('id');
+			var no = id.substring(12);
+				
+			var c = $('#sdff').attr('action');
+			var param = c+no;
+			alert(param);
+			
+			$('#sdff').attr('action',param);
+			$('#sdff').submit();
+			
+		});
+		
 	</script>
 </body>
 </html>

@@ -113,6 +113,20 @@
            			#{touristvo.user_id},#{text_no},#{touristvo.tour_theme},#{touristvo.tour_detail})
    </insert>
    
+	<!-- 관광객 삭제 -->
+	<select id="textnoSearch1" parameterType="int" resultType="int">
+		select text_no from tour where tour_no=#{tour_no}
+	</select>
+	<delete id="reservationTourDelete" parameterType="int">
+		delete from reservation where tour_no=#{tour_no}
+	</delete>
+	<delete id="wishTourDelete" parameterType="int">
+		delete from wish where tour_no=#{tour_no}
+	</delete>
+	<delete id="TourDelete" parameterType="int">
+		delete from tour where tour_no=#{tour_no}
+	</delete>
+
    
    <!-- 지도값넣기 -->
    <select id="tourMap" resultType="int" parameterType="String">
