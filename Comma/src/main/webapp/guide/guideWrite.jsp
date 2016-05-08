@@ -167,16 +167,20 @@
 				<!-- 5 ¿À¸¥ÂÊ -->
 				<div class="select-wrapper">
 					<select name="text_loc" id="demo-category">
-						<option value="">- Location -</option>
-						<option value="SEOUL">Seoul</option>
-						<option value="BUSAN">BuSan</option>
-						<option value="JEJU">JeJu</option>
-						<option value="INCHEON">Incheon</option>
-						<option value="BORYEONG">BorYeong</option>
-						<option value="YEOSU">YeoSu</option>
-						<option value="GYEONGJU">GyeongJu</option>
-						<option value="CHUNCHEON">ChunCheon</option>
-					</select>
+						<option value="">- PLACE -</option>
+							<option value="SEOUL">SEOUL</option>
+							<option value="DAEGU">DAEGU</option>
+							<option value="BUSAN">BUSAN</option>
+							<option value="JEJU">JEJU</option>
+							<option value="INCHEON">INCHEON</option>
+							<option value="CHUNCHEON">CHUNCHEON</option>
+							<option value="BORYEONG">BORYEONG</option>
+							<option value="JEONJU">JEONJU</option>
+							<option value="GYEONGJU">GYEONGJU</option>
+							<option value="YEOSU">YEOSU</option>
+							<option value="KANGWONDO">KANGWONDO</option>
+							<option value="GYEONGGIDO">GYEONGGIDO</option>
+						</select>
 				</div>
 			</div>
 

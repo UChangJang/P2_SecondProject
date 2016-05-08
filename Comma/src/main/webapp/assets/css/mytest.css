@@ -314,13 +314,12 @@
 }
 
 #bt{
-	left:60%;width:5em;height:3em; 	
+	left:60%;width:10em;height:3em; 	
 	margin-top:2em;
 	margin-bottom:3em;
 	margin-left:40%;
 	margin-right:60%;
     padding: 5px;
-    width:6em;
     text-align: center;
 	cursor:pointer;
 	color:#400040;
@@ -1081,7 +1080,7 @@
 	margin-bottom: 0.8em;
 }
 .mainSearch1{
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
 }
 
 #mainTop{

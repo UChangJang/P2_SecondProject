@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.guide.dao.guide-mapper">
+
 	<!-- 가이드 목록리스트 -->
 	<select id="guideAllData" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
 		select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,num
@@ -105,6 +106,102 @@
    
          ]]>   
    </select>
+   
+   <!-- 가이드 검색_place -->
+   <select id="guideSearchPlace" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
+		SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,num
+		FROM (SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,rownum as num 
+				FROM (SELECT guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time 
+						FROM text,guide,users 
+						WHERE guide.user_id=users.user_id AND guide.text_no=text.text_no AND text_loc=#{place}
+						ORDER BY guide.guide_no DESC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
 
+	<!-- 검색후_가이드 총페이지수 -->
+	<select id="guideSearchTotalPage" resultType="int" parameterType="String">
+		SELECT ceil(count(guide_no)/9) 
+		FROM text,guide 
+		WHERE text_loc=#{place} AND text.text_no=guide.text_no
+	</select>
+	
+	<!-- detail가이드 검색 -->
+   <select id="guideSearchDe" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
+		SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,num
+		FROM (SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,rownum as num 
+				FROM (SELECT guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time 
+						FROM text,guide,users 
+						WHERE guide.user_id=users.user_id 
+						AND guide.text_no=text.text_no 
+						AND text_loc=#{place}
+						AND text_tour_date=#{date}
+						AND text_total_person>=#{people}
+						AND text_move=#{method}
+						ORDER BY guide.guide_no DESC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- detail검색후_가이드 총페이지수 -->
+	<select id="guideSearchDeTotalPage" resultType="int" parameterType="java.util.Map">
+		SELECT ceil(count(guide_no)/9) 
+		FROM text,guide 
+		WHERE text_loc=#{place} 
+				AND text.text_no=guide.text_no 
+				AND text_tour_date=#{date}
+				AND text_total_person>=#{people}
+				AND text_move=#{method}
+	</select>
+	
+	<!-- guide_위치만 검색후 정렬(cost) -->
+	  <select id="guideSortPrice" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
+		SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,num
+		FROM (SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,rownum as num 
+				FROM (SELECT guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time 
+						FROM text,guide,users 
+						WHERE guide.user_id=users.user_id AND guide.text_no=text.text_no AND text_loc=#{place}
+						ORDER BY text_cost ASC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- guide_위치만 검색후 정렬(newest) -->
+	  <select id="guideSortNewest" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
+		SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,num
+		FROM (SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,rownum as num 
+				FROM (SELECT guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time 
+						FROM text,guide,users 
+						WHERE guide.user_id=users.user_id AND guide.text_no=text.text_no AND text_loc=#{place}
+						ORDER BY guide.guide_no DESC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- guide_detail 검색후 정렬(cost) -->
+	  <select id="guideSortPriceDe" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
+		SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,num
+		FROM (SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,rownum as num 
+				FROM (SELECT guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time 
+						FROM text,guide,users 
+						WHERE guide.user_id=users.user_id AND guide.text_no=text.text_no 
+						AND text_loc=#{place}
+						AND text_tour_date=#{date}
+						AND text_total_person>=#{people}
+						AND text_move=#{method}
+						ORDER BY text_cost ASC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
+	
+	<!-- guide_detail 검색후 정렬(newest) -->
+	  <select id="guideSortNewestDe" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
+		SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,num
+		FROM (SELECT guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,rownum as num 
+				FROM (SELECT guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time 
+						FROM text,guide,users 
+						WHERE guide.user_id=users.user_id AND guide.text_no=text.text_no 
+						AND text_loc=#{place}
+						AND text_tour_date=#{date}
+						AND text_total_person>=#{people}
+						AND text_move=#{method}
+						ORDER BY guide.guide_no DESC))
+		WHERE num BETWEEN #{start} AND #{end}
+	</select>
 
 </mapper>

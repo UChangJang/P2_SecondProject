@@ -46,24 +46,54 @@ $(function(){			// 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 			<!-- 제목 왼쪽정렬 -->
 			<div class="row uniform" id="mainTop">
 				<div class="3u 12u$(small)">								<!-- 1 왼쪽 -->
+				
+				
+				
+				 <form method="post" action="quick_search.do">
 					<div id="mainSearch">
 						<div style="color: #53565B; font-style: bold">
-						<p><img src="images/search.png">&nbsp;&nbsp;EASY SEARCH</p></div>
-						<input type="text" name="demo-name" id="demo-name" value=""
-							placeholder="SPOT" class="mainSearch1"/> 
-						<input type="text" id="dt" placeholder="DATE" class="mainSearch1"/>
-						<div class="select-wrapper">
-							<select name="demo-category" id="demo-category" class="mainSearch1">
-								<option value="">-PEOPLE-</option>
-								<option value="1">1 person</option>
-								<option value="2">2 persons</option>
-								<option value="3">3 persons</option>
-								<option value="4">4 persons</option>
-							</select> 
-						<input type="submit" value="SEARCH" class="special mainSearch1" />
+							<p><img src="images/search.png">&nbsp;&nbsp;EASY SEARCH</p>
 						</div>
-
+						<div class="select-wrapper">
+								<select name="quick_place" id="quick_place" class="mainSearch1">
+									<option value="">PLACE</option>
+									<option value="SEOUL">SEOUL</option>
+									<option value="DAEGU">DAEGU</option>
+									<option value="BUSAN">BUSAN</option>
+									<option value="JEJU">JEJU</option>
+									<option value="INCHEON">INCHEON</option>
+									<option value="CHUNCHEON">CHUNCHEON</option>
+									<option value="BORYEONG">BORYEONG</option>
+									<option value="JEONJU">JEONJU</option>
+									<option value="GYEONGJU">GYEONGJU</option>
+									<option value="YEOSU">YEOSU</option>
+									<option value="KANGWONDO">KANGWONDO</option>
+									<option value="GYEONGGIDO">GYEONGGIDO</option>
+								</select> 
+							
+						<input type="text" name="quick_date" id="dt" placeholder="- DATE -" class="mainSearch1"/>
+							
+							<select name="quick_people" id="quick_people" class="mainSearch1">
+								<option value="">PEOPLE</option>
+								<option value="1">1 people</option>
+								<option value="2">2 people</option>
+								<option value="5">5 people</option>
+								<option value="10">10 people</option>
+								<option value="15">15 people</option>
+							</select> 
+							<select name="quick_method" id="quick_people" class="mainSearch1">
+								<option value="">HOW</option>
+								<option value="walk">walk</option>
+								<option value="bicycle">bicycle</option>
+								<option value="car">car</option>
+							</select> 
+							<input type="submit" value="SEARCH" class="special mainSearch1" id="section_search"/>
+						</div>
 					</div>
+				</form>
+				
+				
+				
 				</div>
 				
 				<div class="7u 12u$(small)">								<!-- 2 가운데 -->

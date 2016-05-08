@@ -45,7 +45,7 @@ private static SqlSessionFactory   ssf;
           
           UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
           TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
-
+          System.out.println("보잉테스트:"+tv.getText_time1()+","+tv.getText_time2());
           //list에 합치기_user
           tv.getUservo().setUser_nick(uv.getUser_nick());
           tv.getUservo().setUser_img(uv.getUser_img());
@@ -105,20 +105,6 @@ private static SqlSessionFactory   ssf;
       session.close();
       
       return list2;
-   }
-   
-   
-   //*******날짜 숫자만 뽑아내기
-   public static String datePicker(String date1){
-	   StringTokenizer st = new StringTokenizer(date1, "/");
-	   String month=st.nextToken();
-	   String day=st.nextToken();
-	   String year=st.nextToken();
-	   String date=year+month+day;
-	   
-	   System.out.println(day+","+month+","+year);
-	   
-	   return date;
    }
    
    
