@@ -16,6 +16,7 @@
 		<typeAlias type="comma.sist.tourist.dao.TouristResVO" alias="TouristRes"/><!-- 보영추가 -->
 		<typeAlias type="comma.board.dao.BoardVO" alias="Board"/>
 		<typeAlias type="comma.board.dao.ReplyVO" alias="Reply"/>
+		<typeAlias type="comma.sist.guide_find.GuideFindVO" alias="GuideFind"/>
 		
 
 	</typeAliases>
@@ -50,6 +51,7 @@
 		<mapper resource="comma/sist/wish/dao/wish-mapper.xml"/> 
 		<mapper resource="comma/sist/reservation/dao/reservation-mapper.xml"/>
 		<mapper resource="comma/sist/hotspot/hotspot-mapper.xml"/>
-		<mapper resource="comma/board/dao/board-mapper.xml"/>	
+		<mapper resource="comma/board/dao/board-mapper.xml"/>
+		<mapper resource="comma/sist/guide_find/guideFind-mapper.xml"/>
 	</mappers> 
 </configuration>

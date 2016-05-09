@@ -32,6 +32,7 @@ public class HotspotDAO {
 		System.out.println(search_loc);
 		SqlSession session=ssf.openSession();
 		List<HotspotVO> list=session.selectList("allGuideBoard", search_loc);
+		
 		// changeDate
 		//날짜 비용 히트수 
 		session.close();

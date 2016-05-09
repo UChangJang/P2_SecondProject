@@ -8,14 +8,6 @@
 <title>best</title>
 </head>
 <body>
-<c:forEach items="${list }" var="list">
-<tr>
-<td>
-${list.text_tour_date }-${list.text_cost }-${list.text_hit }
-</td>
-</tr>
-
-</c:forEach>
-
+	
 </body>
 </html>

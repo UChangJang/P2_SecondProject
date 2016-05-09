@@ -15,18 +15,18 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
    });
    
    // ajax : hotspot
-   $()
-   $('.loc').click(function(){
+   $('.loc').mouseover(function(){
       id=$(this).attr('id');
       loc=id.substring(3);
       var param="loc="+encodeURIComponent(loc);
       sendMessage("POST", "locHotSpot.do", param, hotspot)   
-   })
-
+   });
 });
 function hotspot(){
    if(httpRequest.readyState==4){
       if(httpRequest.status==200){      
+    	  
+    	  alert(httpRequest.responseText);
          $('#hotspot').html(httpRequest.responseText);
       }
    }
@@ -174,9 +174,7 @@ function hotspot(){
             </ul>
             
             <ul class="">            
-                  <li class="tabControlBody selected" id="hotspot"  style="background-color: #BAB6A8;"></li>      
-               
-               
+                  <li class="tabControlBody selected" id="hotspot" style="background-color: #BAB6A8;"></li> 
             </ul>
             </div>
          </div>         
@@ -192,45 +190,28 @@ function hotspot(){
             <div class="box alt">
                <div class="row uniform">
                   <div class="3u 12u$(small) thirdPart" id="localWeather">
-                     <h5 style="background-color: #808080; line-height: 2em; margin-bottom:0;">지역 날씨 정보</h5>
+                     <h5 style="background-color: #808080; line-height: 2em; margin-bottom:0;">LOCAL WEATHER</h5>
                      <div id="weather">
                         <c:forEach var="vo" items="${wlist }">
                         <li>
                            <img src="${vo.weaAddr }" alt="" />
-                           <p style="margin-top:0; font-size: 0.8em;"><b>${vo.loc }</b>&nbsp;&nbsp;${vo.tempera}º</p>
+                           <p style="margin-top:0; font-size: 0.8em;"><b>${vo.loc }</b>&nbsp;&nbsp;${vo.tempera}ºC</p>
                         </li>
                      </c:forEach>
                      </div>
                   </div>
 
                   <div class="9u$ 12u$(small) thirdPart" id="guideFind">
-                     <h5 style="background-color: #ed4933; line-height: 2em; margin-bottom:0;">가이드를 찾아요</h5>
+                     <h5 style="background-color: #ed4933; line-height: 2em; margin-bottom:0;">TOUR REQUEST LIST</h5>
                      <table>
-                        <tr>
-                           <td>[서울]</td>
-                           <td>2016/05/05</td>
-                           <td>2000d원</td>
-                        </tr>
-                        <tr>
-                           <td>[서울]</td>
-                           <td>2016/05/05</td>
-                           <td>2000d원</td>
-                        </tr>
-                        <tr>
-                           <td>[서울]</td>
-                           <td>2016/05/05</td>
-                           <td>2000d원</td>
-                        </tr>
-                        <tr>
-                           <td>[서울]</td>
-                           <td>2016/05/05</td>
-                           <td>2000d원</td>
-                        </tr>
-                        <tr>
-                           <td>[서울]</td>
-                           <td>2016/05/05</td>
-                           <td>2000d원</td>
-                        </tr>
+                        <c:forEach var="vo" items="${flist }">
+							<tr id="guidefindTr"  style="color:#8D7979;">
+								<td style="padding-left:3em; text-align: left;"><b style="color:#8D7979;">${vo.text_loc }</b></td>
+								<td style="text-align: center;">${vo.text_tour_date }</td>
+								<td style="text-align: right; padding-right:3em;">${vo.text_cost } <b style="color:#8D7979;">KPW</b></td>
+								<td style="text-align: right; padding-right:3em;">${vo.user_id }</td>
+							</tr>
+						</c:forEach>
                      </table>
                   </div>
                </div>
