@@ -142,7 +142,7 @@
 	                    <table>
 	                     	<tr>
 	                     	  <td width="30%" align="right">받는사람</td>
-	                     	  <td width="70%" align="left">${sendvo.message_send }</td>
+	                     	  <td width="70%" align="left">${sendvo.message_receive }</td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td width="30%" align="right">시간</td>
