@@ -71,42 +71,54 @@ function initialize(){
 	
 	if("${vo.guidevo.guide_map}"!=""){//board에서쓰일부분
 		alert("${vo.guidevo.guide_map}");
-	var te="${vo.guidevo.guide_map}";
-	alert("te="+te);
-	var t1 = te.substring(0,te.lastIndexOf(','));
-	var t2 = te.substring(te.lastIndexOf(',')+2);
-	alert(t1);
-	alert(t2);
-		var latlng = new google.maps.LatLng(t1, t2);
-		alert(latlng);
+
+		var te = "${vo.guidevo.guide_map}";
+		var t1 = te.substring(0,te.lastIndexOf(','));
+		var t2 = te.substring(te.lastIndexOf(',')+2);
+		
+		
+		var latlng = new google.maps.LatLng(t1,t2);
 	 	var myOptions = {
 		  	zoom: 8,
 		  	center:latlng,
 		  	mapTypeId: google.maps.MapTypeId.ROADMAP   
 		};
+	 	
+	 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	 	var mc = new MarkerClusterer(map,markers);
+	 	
+	 	markers.push(new google.maps.Marker({
+	 	   position: latlng,
+	 	   map: map
+	    	}));
+	 	mc.addMarker(markers[0],0);
+	 	
 	}
 	else{
-	 	var latlng = new google.maps.LatLng(36.5240220, 127.9265940);
+	 	var latlng = new google.maps.LatLng(37.5240220, 127.1065940);
 	 	var myOptions = {
-		  	zoom: 8,
+		  	zoom: 11,
 		  	center:latlng,
 		  	mapTypeId: google.maps.MapTypeId.ROADMAP   
 		};
+	 	
+	 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+		
+		var newControlDiv = document.createElement('DIV');
+		var newControl = new NewControl(newControlDiv, map);
+		newControlDiv.index = 1;
+		map.controls[google.maps.ControlPosition.TOP_RIGHT].push(newControlDiv);
+		// refresh 버튼을 누르면 newControl 함수를 실행합니다.
+		
+		markerCluster = new MarkerClusterer(map,markers);
+		// 위에서 생성한 markerCluster 변수에 MarkerClusterer 오브젝트를 생성합니다.
+		
+		infowindow = new google.maps.InfoWindow();
+		google.maps.event.addListener(map, 'click', Setmarker);
+		// 지도를 클릭했을 때 클릭한 지점에 마커를 생성하는 함수를 실행합니다.
+	 	
 	}
-	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 	
-	var newControlDiv = document.createElement('DIV');
-	var newControl = new NewControl(newControlDiv, map);
-	newControlDiv.index = 1;
-	map.controls[google.maps.ControlPosition.TOP_RIGHT].push(newControlDiv);
-	// refresh 버튼을 누르면 newControl 함수를 실행합니다.
-	
-	markerCluster = new MarkerClusterer(map,markers);
-	// 위에서 생성한 markerCluster 변수에 MarkerClusterer 오브젝트를 생성합니다.
-	
-	infowindow = new google.maps.InfoWindow();
-	google.maps.event.addListener(map, 'click', Setmarker);
-	// 지도를 클릭했을 때 클릭한 지점에 마커를 생성하는 함수를 실행합니다.
 };
 
 //클릭했을 때 마커를 생성하는 함수입니다.
@@ -115,7 +127,7 @@ function Setmarker(event) {
 	   position: event.latLng,
 	   map: map
    	}));
-   	alert(event.latLng);
+
    	document.guideInsertFmt.guide_map.value=event.latLng;
    	alert(document.guideInsertFmt.guide_map.value);
 	//markers 배열에 클릭한 지점에 위치하는 마커를 추가합니다.
@@ -126,7 +138,6 @@ function Setmarker(event) {
 	//markerCluster 클래스에 addMarker라는 마커를 추가시켜주는 함수를 통해 생성한 마커를 MarkerClusterer에 추가합니다.
 	i++; 
 };
-
 
 </script>
 </head>

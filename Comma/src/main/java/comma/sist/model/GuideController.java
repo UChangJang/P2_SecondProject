@@ -212,8 +212,10 @@ public class GuideController {
 		vo.getGuidevo().setUser_id(user_id);
 		
 		//vo.getGuidevo().setGuide_map("юс╫ц©К"); // ╧ы╡Ц╬ъ╣й
+
 		guide_map = guide_map.substring(1,guide_map.lastIndexOf(')'));
 		System.out.println(guide_map);
+
 		vo.getGuidevo().setGuide_map(guide_map);
 		
 		if(guide_img==null){
