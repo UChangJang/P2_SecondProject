@@ -91,11 +91,11 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
    </ul>
 
    <div id="mainMenu">&nbsp;&nbsp;
-      <span><a href="main.do">Comma</a></span>&nbsp;&nbsp;
-      <span><a href="introduceKor.do">Introduce Korea</a></span>&nbsp;&nbsp;
-      <span><a href="tourist.do">Tour</a></span>&nbsp;&nbsp; 
-      <span><a href="guide.do">Guide</a></span>&nbsp;&nbsp; 
-      <span><a href="board_list.do">Community</a></span>&nbsp;&nbsp; 
+      <span><a href="introduceSite.do">COMMA</a></span>&nbsp;&nbsp;
+      <span><a href="introduceKor.do">INTRODUCE KOREA</a></span>&nbsp;&nbsp;
+      <span><a href="tourist.do">TOURIST</a></span>&nbsp;&nbsp; 
+      <span><a href="guide.do">GUIDE</a></span>&nbsp;&nbsp; 
+      <span><a href="board_list.do">COMMUNITY</a></span>&nbsp;&nbsp; 
    </div>
    <span><img src="http://file.theskinfood.com/resources/common/img/dep2bg.png" width="100%" height="37" alt=""></span>
 </section>
@@ -165,40 +165,35 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 					<span class="image fit a">
 					<!-- <span class="mypictureMain"> -->
 						<div id="main_bn" style="max-height: 16.8em">
-							<li><img src="images/guide_banner.jpg" alt="" /></li>		<!-- 이미지 character과 맞추기!!! -->
-							<li><img src="images/tour_banner.jpg" alt="" /></li>
-							<li><img src="images/korea_banner.jpg" alt="" /></li>
-							<li><img src="images/character.png" alt="" /></li>
+							<li><a href="guide.do"><img src="images/guide_banner.jpg" alt="" /></a></li>		<!-- 이미지 character과 맞추기!!! -->
+							<li><a href="tourist.do"><img src="images/tour_banner.jpg" alt="" /></a></li>
+							<li><a href="introduceKor.do"><img src="images/korea_banner.jpg" alt="" /></a></li>
+							<li><a href="#"><img src="images/character.png" alt="" /></a></li>
 						</div>
 					</span>
 				</div>
 				
 				<div class="2u$ 12u$(small) mainRight1">					<!-- 3 오른쪽 -->
 						<table id="mainRight">
-
-							<tr style="cursor:Pointer">
-							  <td><span class="mainRight_span"><img src="images/home.png"></span></td>
-							  <th>Comma</th>
-							</tr>
 							<tr style="cursor:Pointer;"onclick="location.href='introduceSite.do'">
 							  <td><span class="mainRight_span"><img src="images/comma.png"></span></td>
-							  <th>Site</th>
+							  <th>COMMA</th>
 							</tr>
 							<tr style="cursor:Pointer;"onclick="location.href='introduceKor.do'">
-							  <td><span class="mainRight_span"><img src="images/comma.png"></span></td>
-							  <th>Korea</th>
+							  <td><span class="mainRight_span"><img src="images/korea.png"></span></td>
+							  <th>KOREA</th>
 							</tr>
 							<tr style="cursor:Pointer;"onclick="location.href='tourist.do'">
-							  <td><span class="mainRight_span"><img src="images/korea.png"></span></td>
-							  <th>Tour</th>
+							  <td><span class="mainRight_span"><img src="images/tour.png"></span></td>
+							  <th>TOURIST</th>
 							</tr>
 							<tr style="cursor:Pointer;"onclick="location.href='guide.do'">
 							  <td><span class="mainRight_span"><img src="images/guide.png"></span></td>
-							  <th>Guide</th>
+							  <th>GUIDE</th>
 							</tr>
 							<tr style="cursor:Pointer;"onclick="location.href='board_list.do'">
 							  <td><span class="mainRight_span"><img src="images/commu.png"></span></td>
-							  <th>Community</th>
+							  <th>COMMUNITY</th>
 							</tr>
 						</table>
 					</div>
@@ -220,7 +215,7 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
       <div id="threeDiv" class="row uniform" style="position: relative ; z-index: 2;">
       
          <div class="6u 12u$(small) secondPart" id="guideRanking"> 
-            <h5>Best Guide 6</h5>
+            <h5>Best Guide 3</h5>
               <c:forEach items="${bestGuide }" var="vo">
                <div id="guideRanking_container">
                   <div id="guideImg">
