@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
-
 <html>
-
 <head>
 <title>tourist</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -11,16 +9,13 @@
 
 <script type="text/javascript">
 	$(function(){
-		
-		//sendMessage("POST", "tourist_nextPrev.do", null, tourContent);
-		
-		//1.검색했을 때
+//1.검색했을 때
 		$('#tourSearch').click(function(){		//select_지역선택
 			var place=$('#place').val();		//1.지역값 가져오기
 			var date=$('#dt').val();			//2.날짜값 가져오기
 			alert(place+","+date);				//seoul, 31/03/2016
 			if(place=="" || date==""){			//둘 중 하나라도 없으면 검색안돼
-				alert("지역과 날짜를 입력하세요");
+				alert("Place and Date are essential condition in searching.");
 				return;
 			}
 			
@@ -37,7 +32,6 @@
 				return;
 			}
 			var param="place="+place+"&date="+date+"&type="+sortType;
-			alert(param);
 			sendMessage("POST", "tourist_sort.do",param, tourContent);	
 			
 		});

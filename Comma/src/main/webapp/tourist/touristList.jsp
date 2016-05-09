@@ -24,7 +24,7 @@ $(function(){
 					sendMessage("POST", "tourist_sort.do",param, tourContent2);
 				}	
 			}else{								//이전페이지로 가기 불가능
-				alert("첫페이지입니다.");
+				alert("This is the 1st page.");
 				return;
 			}
 		});
@@ -44,14 +44,14 @@ $(function(){
 					sendMessage("POST", "tourist_sort.do",param, tourContent2);
 				}	
 			}else{								//이전페이지로 가기 불가능
-				alert("끝페이지입니다.");
+				alert("This is the last page.");
 				return;
 			}
 		});
 		
 		$('.wishlist').click(function(){		//1.위시리스트에 담기(이미추가됨 or 추가완료)
 			<c:if test="${sessionScope.id==null }">	
-				alert("로그인이 필요합니다.");
+				alert("You should login first.");
 				return;
 			</c:if>
 			
@@ -63,16 +63,14 @@ $(function(){
 
 
 		$('.reserve').click(function(){		//2.예약하기(이미추가됨 or 추가완료)
-			alert("들어옴");
 			<c:if test="${sessionScope.id==null }">	
-				alert("로그인이 필요합니다.");
+				alert("You should login first.");
 				return;
 			</c:if>
 			
 			var id=$(this).attr('id');
-			var no=id.substring(3);	//res${vo.touristvo.tour_no}
+			var no=id.substring(3);			//res${vo.touristvo.tour_no}
 			var param="tour_no="+no+"&id="+"${sessionScope.id}";
-			alert(param);
 			sendMessage("POST", "resTourCheck.do", param, resCheck);
 		});
 });
@@ -246,8 +244,6 @@ $('.messgaeBtn').click(function(){
 	$('#message'+no).submit();
 })
 </script>
-
-
 
 
 </body>

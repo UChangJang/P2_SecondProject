@@ -410,12 +410,12 @@
 }
 .ThirdTable{
 	text-align: right;
-	margin-top: 42px;
+	margin-top: 2.5em;
 }
 .FourthTable{
 	align: center;
 	text-align: center;
-	margin-top: 15px;
+	margin-top: 0.1em;
 }
 
 
@@ -1094,7 +1094,7 @@
 	margin-bottom: 0.8em;
 }
 .mainSearch1{
-	margin-bottom: 0.5em;
+	margin-bottom: 0.8em;
 }
 
 #mainTop{

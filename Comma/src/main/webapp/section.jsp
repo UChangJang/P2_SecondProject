@@ -11,6 +11,32 @@
 <script type="text/javascript">
 var lid="";
 $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
+
+   $('#tabControlTab').mouseover(function(){ 
+      
+   });
+   
+   //퀵서치
+  $('#quick_search').click(function(){	//document.quickSearch.place.value
+	  if(document.quickSearch.place.value=="" || document.quickSearch.method.value=="" ||
+			  document.quickSearch.people.value=="" || document.quickSearch.date.value==""){
+		  /* alert("제대로 선택 안 하셨습니다."+document.quickSearch.place.value+","+document.quickSearch.method.value
+				  +","+document.quickSearch.people.value+","+document.quickSearch.date.value); */
+	  }else{
+		  /* alert("제대로 선택 하셨습니다."+document.quickSearch.place.value+","+document.quickSearch.method.value
+				  +","+document.quickSearch.people.value+","+document.quickSearch.date.value); */
+		  $('#quickSearch').submit();
+	  }
+	  
+   })
+   
+   $('.loc').click(function(){
+      id=$(this).attr('id');
+      loc=id.substring(3);
+      var param="loc="+encodeURIComponent(loc);
+      sendMessage("POST", "locHotSpot.do", param, hotspot)   
+   })
+
 		
 	$('.tabControlTab').mouseover(function(){
 		var id=$(this).attr('id');
@@ -35,6 +61,7 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 	      var id=$(this).attr('id');
 	      var loc=id.substring(3);
 	      var param="loc="+encodeURIComponent(loc);
+
 
 	      sendMessage("POST", "locHotSpot.do", param, hotspot);
 	});
@@ -83,20 +110,52 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
          <div class="row uniform" id="mainTop">
             <div class="3u 12u$(small)">                        <!-- 1 왼쪽 -->
                <div id="mainSearch">
-                  <div style="color: #53565B; font-style: bold">
-                  <p><img src="images/search.png">&nbsp;&nbsp;EASY SEARCH</p></div>
-                  <input type="text" name="demo-name" id="demo-name" value=""
-                     placeholder="SPOT" class="mainSearch1"/> 
-                  <input type="text" id="dt" placeholder="DATE" class="mainSearch1"/>
-                  <div class="select-wrapper">
-                     <select name="demo-category" id="demo-category" class="mainSearch1">
-                        <option value="">PEOPLE</option>
-                        <option value="1">1 person</option>
-                        <option value="2">2 persons</option>
-                        <option value="3">3 persons</option>
-                        <option value="4">4 persons</option>
-                     </select> 
-                  <input type="submit" value="SEARCH" class="special mainSearch1" />
+
+               	  <div class="select-wrapper">
+					<form method="post" action="quickSearch_ok.do" id="quickSearch" name="quickSearch" class="mainSearch1">
+								<div style="color: #53565B; font-style: bold;">
+									<p>
+										<img src="images/search.png">&nbsp;&nbsp;EASY SEARCH
+									</p>
+								</div>
+
+								<select name="place" id="placeQuick" class="mainSearch1" style="height: 2.3em;font-size:1.1em">
+									<option value="">PLACE</option>
+									<option value="SEOUL">SEOUL</option>
+									<option value="DAEGU">DAEGU</option>
+									<option value="BUSAN">BUSAN</option>
+									<option value="JEJU">JEJU</option>
+									<option value="INCHEON">INCHEON</option>
+									<option value="CHUNCHEON">CHUNCHEON</option>
+									<option value="BORYEONG">BORYEONG</option>
+									<option value="JEONJU">JEONJU</option>
+									<option value="GYEONGJU">GYEONGJU</option>
+									<option value="YEOSU">YEOSU</option>
+									<option value="KANGWONDO">KANGWONDO</option>
+									<option value="GYEONGGIDO">GYEONGGIDO</option>
+								</select> 
+								<input type="text" id="dt" placeholder="DATE"
+									class="mainSearch1" name="date" style="height: 2.3em;font-size:1.1em;color:#5E3327;"/> 
+								<select
+									name="people" id="peopleQuick" class="mainSearch1" style="height: 2.3em;font-size:1.1em">
+									<option value="">PEOPLE</option>
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="5">5</option>
+									<option value="10">10</option>
+									<option value="15">15</option>
+									<option value="20">20</option>
+								</select> 
+								<select name="method" id="methodQuick"
+									class="mainSearch1" style="height: 2.3em;font-size:1.1em">
+									<option value="">METHOD</option>
+									<option value="walking">walking</option>
+									<option value="car">car</option>
+									<option value="bicycle">bicycle</option>
+								</select> 
+								</form>
+								<button class="button fit small special mainSearch1" id="quick_search">SEARCH</button>
+
                   </div>
 
 					</div>

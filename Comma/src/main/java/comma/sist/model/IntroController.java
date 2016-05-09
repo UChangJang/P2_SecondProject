@@ -29,7 +29,9 @@ public class IntroController {
 		List<TextVO> bestGuide=GuideDAO.bestGuide();
 		List<SearchVO> slist= HotspotDAO.searchLocFind();		// hotspot
 		List<HotspotVO> hlist=new ArrayList<HotspotVO>();
+
 		List<GuideFindVO> flist=GuideFindDAO.guideFind();
+
 		
 		for(int i=0;i<slist.size();i++){
 			String search_loc=slist.get(i).getSearch_loc();
@@ -69,20 +71,7 @@ public class IntroController {
 		return "main.jsp";
 	}
 	
-	//main_quick_search °Ë»ö
-	@RequestMapping("quick_search.do")
-	public String quick_search(HttpServletRequest req){	
-		
-		String quick_date = req.getParameter("quick_date");
-		String quick_place = req.getParameter("quick_place");
-		String quick_people = req.getParameter("quick_people");
-		String quick_method = req.getParameter("quick_method");
-		
-		req.setAttribute("innerjsp", "guideList.jsp");
-		req.setAttribute("jsp", "guide/guide.jsp");
-		
-		return "main.jsp";
-	}
+	
 	@RequestMapping("locHotSpot.do")
 	public String hotspot(HttpServletRequest req){
 		String loc=req.getParameter("loc");

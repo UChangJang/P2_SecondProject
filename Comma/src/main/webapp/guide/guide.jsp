@@ -3,15 +3,21 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>guide</title>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">	<!-- 추가!!!!! -->
+<title>Guide</title>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
 
 <script type="text/javascript">
+
 	$(function(){
-		
-		//sendMessage("POST", "tourist_nextPrev.do", null, tourContent);
+		if("${place }"!=""){
+			place.value="${place}";
+			$("input#${method}").attr ("checked", "checked");
+			people.value="${people}";
+			document.getElementById('dt').value = "${date}"
+		} 
 		
 		//1.검색했을 때
 		$('#guideSearch').click(function(){		//select_지역선택
@@ -32,20 +38,17 @@
 			if(method_value==null){				//상세검색 안 할 때---------		//검색조건 만족여부 체크리스트
 				var param="place="+place;
 				sendMessage("POST", "guide_search.do", param, guideList);
-				alert("단순지역_검색버튼누름_:"+method_value+","+people+","+date);
 			}else{								//상세검색 할 때---------
 				var people=$('#people').val();		//3.인원 가져오기
 				var date=$('#dt').val();			//4.날짜값 가져오기		
 				var param="place="+place+"&method="+method_value+"&people="+people+"&date="+date;
 				sendMessage("POST", "guide_search_detail.do", param, guideList);
-				
 			}
 		});
 
 		//2.정렬
 		$('#sortType').change(function(){		
 			var sortType=$('#sortType').val();	//ex_가격높은순
-			
 			var place=$('#place').val();							//1.지역값 가져오기
 			var methods = document.getElementsByName('method');		//2.이동수단 가져오기
 			var method_value; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
@@ -111,7 +114,7 @@
 					
 					<div class="9u 12u$(xsmall)">
 						<div class="select-wrapper tourist_local">
-							<select name="text_loc1" id="place">					<!-- place -->
+							<select name="place" id="place">					<!-- place -->
 								   <option value="">- PLACE -</option>
 		                           <option value="SEOUL">SEOUL</option>
 		                           <option value="DAEGU">DAEGU</option>
@@ -205,7 +208,7 @@
 
 	<!-- 3x3가이드리스트 출력 -->
 	<div id="guideList">
-		<jsp:include page="guideList.jsp"></jsp:include>
+		<jsp:include page="${innerjsp }"></jsp:include>
 	</div>
 
 </article>
