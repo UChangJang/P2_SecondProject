@@ -165,7 +165,6 @@ public class GuideController {
 		String guide_detail3 = mr.getParameter("guide_detail3");
 		
 		String guide_map = mr.getParameter("guide_map");
-		System.out.println(guide_map);
 		
 		guide_detail = guide_detail+"\n-\n"+guide_detail2+"\n-\n"+guide_detail3;
 		
@@ -211,7 +210,10 @@ public class GuideController {
 		String user_id = (String)session.getAttribute("id");
 		vo.getGuidevo().setUser_id(user_id);
 		
-		vo.getGuidevo().setGuide_map("юс╫ц©К"); // ╧ы╡Ц╬ъ╣й
+		//vo.getGuidevo().setGuide_map("юс╫ц©К"); // ╧ы╡Ц╬ъ╣й
+		guide_map = guide_map.substring(1,guide_map.lastIndexOf(')'));
+		System.out.println(guide_map);
+		vo.getGuidevo().setGuide_map(guide_map);
 		
 		if(guide_img==null){
 			vo.getGuidevo().setGuide_img("");
