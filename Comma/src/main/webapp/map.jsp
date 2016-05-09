@@ -68,13 +68,24 @@ function NewControl(controlDiv, map) {
 }
 
 function initialize(){
- 	var latlng = new google.maps.LatLng(36.5240220, 127.9265940);
- 	var myOptions = {
-	  	zoom: 8,
-	  	center:latlng,
-	  	mapTypeId: google.maps.MapTypeId.ROADMAP   
-	};
 	
+	if("${vo.guidevo.guide_map}"!=""){//board에서쓰일부분
+		alert("come${vo.guidevo.guide_map}");
+		var latlng = new google.maps.LatLng("${vo.guidevo.guide_map}");
+	 	var myOptions = {
+		  	zoom: 14,
+		  	center:latlng,
+		  	mapTypeId: google.maps.MapTypeId.ROADMAP   
+		};
+	}
+	else{
+	 	var latlng = new google.maps.LatLng(36.5240220, 127.9265940);
+	 	var myOptions = {
+		  	zoom: 8,
+		  	center:latlng,
+		  	mapTypeId: google.maps.MapTypeId.ROADMAP   
+		};
+	}
 	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 	
 	var newControlDiv = document.createElement('DIV');
