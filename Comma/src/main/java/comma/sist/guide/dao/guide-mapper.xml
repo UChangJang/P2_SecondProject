@@ -4,9 +4,9 @@
 
 	<!-- 가이드 목록리스트 -->
 	<select id="guideAllData" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
-		select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,num
-		from (select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,rownum as num 
-		from (select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time from text,guide,users 
+		select guide_no,user_id,guide_subject,text_cost,user_name,user_nick,text_move,guide_img,text_loc,text_time,num
+		from (select guide_no,user_id,guide_subject,text_cost,user_name,user_nick,text_move,guide_img,text_loc,text_time,rownum as num 
+		from (select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,user_nick,text_move,guide_img,text_loc,text_time from text,guide,users 
 		where guide.user_id=users.user_id and guide.text_no=text.text_no order by guide.guide_no desc))
 		where num between #{start} and #{end}
 	</select>
@@ -17,7 +17,7 @@
 	</select>
 	
 	<select id="guideInfo" resultMap="comma.sist.common.text-mapper.TextList" parameterType="int">
-		select guide_no,guide.user_id,guide_detail,guide_img,user_img,user_name,user_introduce,guide_subject,text_total_person,text_move,guide_loc_intro,
+		select guide_no,guide.user_id,guide_detail,guide_img,user_img,user_name,user_nick,user_introduce,guide_subject,text_total_person,text_move,guide_loc_intro,
 				text.text_no,text_loc,text_cost,guide_cost_detail,text_tour_date,guide_meet,text_time1,text_time2,text_time3,text_time4,text_time
 		from guide,text,users 
 		where guide.guide_no=#{guide_no} and guide.text_no=text.text_no and guide.user_id=users.user_id

@@ -147,7 +147,7 @@ function guideContent() {
 							<div>
 								<%-- <img class="mypictureGuideList" src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }" alt=""> --%>
 								<input type="button" value="${vo.text_loc }" style="width:10em;font-size:9pt;padding-left:2px;padding-right:2px;float:right;background-color: #0080ff;color: white">
-								<span>${vo.uservo.user_name }</span>
+								<span>${vo.uservo.user_nick }(${vo.uservo.user_id })</span>
 							</div>
 							<div class="secondTable" style="font-size: 12pt;max-height: 2em;padding-top: 1px">${vo.guidevo.guide_subject }</div>
 							<div class="ThirdTable">

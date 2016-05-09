@@ -167,9 +167,9 @@ function gInfo_frm(){
         <div>
            <font color="pink">
            <input name="receive_name" id="receive_name" required="" type="text"
-              placeholder="Receive From" style="width:10em;float:left" disabled="disabled" value="${vo.uservo.user_name }"></font>  
+              placeholder="Receive From" style="width:10em;float:left" disabled="disabled" value="${vo.uservo.user_id }"></font>  
            <input name="send_name" id="send_name" required="" type="text"
-              placeholder="Send To" style="width:10em;float:right" disabled="disabled" value="${sessionScope.name }">
+              placeholder="Send To" style="width:10em;float:right" disabled="disabled" value="${sessionScope.id }">
         </div>
 		<br><br>
         <div>
@@ -268,7 +268,7 @@ function gInfo_frm(){
 					<div align=center class="mypictureGuide">
 					<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }">		
 						<div class="topBoardShort">
-						<a href="#" onclick="gInfo_frm()">${vo.uservo.user_name }</a>
+						<a href="#" onclick="gInfo_frm()">${vo.uservo.user_nick }</a>
 						<form method="post" action="guideInfo.do" id="guideInfo_frm">
 							<input type="hidden" name="id" value="${vo.uservo.user_id }">
 							<input type="hidden" name="guide_no" value="${vo.guidevo.guide_no }">
