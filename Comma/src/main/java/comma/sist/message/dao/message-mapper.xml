@@ -17,6 +17,10 @@
  	<delete id="messgeDelete" parameterType="int">
  		delete from message where message_no=#{no}
  	</delete>
+ 	<update id="messageCheck" parameterType="String">
+ 		update message set message_check='y' where message_receive=#{id}
+ 	
+ 	</update>
  	
  	
 </mapper>

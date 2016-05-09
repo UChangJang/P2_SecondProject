@@ -36,7 +36,7 @@
 							</td>
 							</c:if>
 							<c:if test="${recvo.message_check!='n' }">
-							<td style=" color: red; font: bold;">read 
+							<td style=" color: black; font: bold;">read 
 							</td>
 							</c:if>
 							

@@ -47,6 +47,12 @@ public class MessageDAO {
 		session.delete("messgeDelete",no);
 		session.close();
 	}
+	public static void messageCheck(String id){
+		SqlSession session=ssf.openSession(true);
+		session.update("messageCheck",id);
+		session.close();
+		
+	}
 	
 	
 }

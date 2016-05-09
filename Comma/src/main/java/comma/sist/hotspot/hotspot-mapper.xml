@@ -9,7 +9,7 @@
 	FROM (SELECT search_loc,search_hit, rownum 
 		  FROM search 
 		  ORDER BY search_hit DESC)
-	WHERE rownum<=2
+	WHERE rownum<=9
 	]]>
 </select>
 
@@ -22,9 +22,9 @@
  -->
 <select id="allGuideBoard" resultType="Hotspot" parameterType="String">
 <![CDATA[
-	SELECT text_no,text_loc,text_tour_date,text_cost,text_hit
-	FROM (SELECT text_no, text_loc, text_tour_date, text_cost, text_hit, rownum
-		  FROM(SELECT text_no, text_loc, text_tour_date, text_cost, text_hit, today
+	SELECT guide_no,text_loc,text_tour_date,text_cost,text_hit
+	FROM (SELECT guide_no, text_loc, text_tour_date, text_cost, text_hit, rownum
+		  FROM(SELECT guide_no, text_loc, text_tour_date, text_cost, text_hit, today
 		  	   FROM allGuideInfo_view, (SELECT a||'/'||b as today
 										FROM(SELECT TO_CHAR(SYSDATE,'MM/DD') as a, TO_CHAR(SYSDATE,'YYYY') as b 
 										FROM DUAL))

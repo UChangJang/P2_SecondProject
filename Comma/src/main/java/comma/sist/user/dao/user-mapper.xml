@@ -20,7 +20,7 @@
 	</select>
 	<!-- 회원가입 -->
 	<insert id="userJoin" parameterType="User"> 		
- 		insert into users(user_id,user_pwd,user_name,user_mail,user_nick) VALUES(#{user_id},#{user_pwd},#{user_name},#{user_mail},#{user_nick})
+ 		insert into users(user_id,user_pwd,user_name,user_mail,user_nick,user_img) VALUES(#{user_id},#{user_pwd},#{user_name},#{user_mail},#{user_nick},'default.png')
  	</insert>
  	<select id="userProfile" parameterType="String" resultType="User">
  		select * from users where user_id=#{id}

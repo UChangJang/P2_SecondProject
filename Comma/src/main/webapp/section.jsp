@@ -163,9 +163,9 @@ function hotspot(){
             <ul class="tabControlTabs">
                <c:set var="i" value="1"/>
                <c:forEach var="vo" items="${slist }">
-                  <c:if test="${i<=10 }">
+                  <c:if test="${i<=9 }">
                      <li class="tabControlTab selected odd" style="margin:0;padding:0;">
-                        <span class="spot_num">&nbsp;${i}&nbsp;</span>
+                        <span class="spot_num" style="margin-left:2em;">&nbsp;${i}&nbsp;</span>
                         <p id="loc${vo.search_loc}" class="loc" style="color:#000;float:none;text-align: left;">&nbsp;&nbsp;&nbsp;${vo.search_loc }</p>
                      </li>
                   </c:if>
