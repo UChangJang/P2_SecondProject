@@ -103,6 +103,20 @@ ul#tabs {
 	display: inline-block
 	
 }
+.mypictureReview img{
+	background-color: #333;
+	height : 6em;
+	width : 6em;
+	border-radius : 50%;
+	-webkit-border-radius : 50%;
+	-moz-border-radius : 50%;
+	overflow : hidden;
+	vertical-align : middle;
+	margin: 0 auto;	
+	border: 1px solid #fff;
+	display: inline-block
+	
+}
 .mypictureGuide img{
 	background-color: #333;
 	height : 3em;
@@ -114,6 +128,20 @@ ul#tabs {
 	vertical-align : middle;
 	margin: 0 auto;	
 	border: 1px solid #2e2e2e;
+	display: inline-block
+	
+}
+.mypictureGuideList img{
+	background-color: #333;
+	height : 2em;
+	width : 2em;
+	border-radius : 50%;
+	-webkit-border-radius : 50%;
+	-moz-border-radius : 50%;
+	overflow : hidden;
+	vertical-align : middle;
+	margin: 0 auto;	
+	border: 1px double #ffffff;
 	display: inline-block
 	
 }

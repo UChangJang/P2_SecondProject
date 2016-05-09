@@ -338,15 +338,15 @@ public class UserController {
 	public String infoCorrection_ok(HttpServletRequest req) throws Exception{
 		req.setCharacterEncoding("EUC-KR");
 		
-		
+		System.out.println("111");
 		String path = "\\\\211.238.142.74\\Users\\74\\Git\\P2_SecondProject\\Comma\\src\\main\\webapp\\profile";
 		String enctype = "EUC-KR";
 		int	size = 1024*1024*100; 
-		
+		System.out.println("222");
 		MultipartRequest mr 
 				= new MultipartRequest(req,path,size,enctype,
 						new DefaultFileRenamePolicy());
-		
+		System.out.println("3333");
 		String nick=mr.getParameter("nick");
 		String pwd=mr.getParameter("pwd");
 		String email=mr.getParameter("email");
@@ -360,7 +360,7 @@ public class UserController {
 		
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("id");
-		
+		System.out.println(id);
 		
 		
 		/*String nick=req.getParameter("nick");
@@ -390,7 +390,7 @@ public class UserController {
 			File f = new File(path+"\\"+user_img);
 			vo.setUser_img(user_img);
 		}
-
+		System.out.println(vo.getUser_img());
 		UserDAO.infoCorrection(vo);		
 		
 		return "mypage/infoCorrection_ok.jsp";

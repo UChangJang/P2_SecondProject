@@ -410,9 +410,12 @@
 }
 .ThirdTable{
 	text-align: right;
+	margin-top: 42px;
 }
 .FourthTable{
+	align: center;
 	text-align: center;
+	margin-top: 15px;
 }
 
 

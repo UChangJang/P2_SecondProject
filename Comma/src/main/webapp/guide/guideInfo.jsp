@@ -95,14 +95,14 @@
 					
 					<c:forEach var="review" items="${reviewList }">
 						<div class="2u">
-							<span class="image fit"> <a href="#">
+							<span class="mypictureReview"> <a href="#">
 								<img src="http://211.238.142.74:8080/controller/profile/${review.uservo.user_img }" alt="" /></a>
 							</span>
 						</div>
 
-						<div class="10u">
-							<span class="image fit">
-								<table class="alt">
+						<div class="9u">
+							<span class="image fit a">
+								<table>
 									<tr>
 										<td width=50%>${review.uservo.user_nick }</td>
 										<td width=50%>

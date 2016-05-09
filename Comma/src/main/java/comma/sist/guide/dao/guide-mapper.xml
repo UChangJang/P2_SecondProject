@@ -23,6 +23,11 @@
 		where guide.guide_no=#{guide_no} and guide.text_no=text.text_no and guide.user_id=users.user_id
 	</select>
 	
+	<!-- 가이드 별점평균 -->
+	<select id="guideStarSum" parameterType="int" resultType="String">
+		select avg(review_score) from review where guide_no=#{guide_no}
+	</select>
+	
 	<!-- 가이드 글 추가 -->
 	<insert id="textInsert" parameterType="Text">
 		insert into text values((select NVL(max(text_no)+1,1) from text),#{text_loc},#{text_cost},#{text_total_person},sysdate,
