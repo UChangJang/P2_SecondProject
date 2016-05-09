@@ -121,17 +121,17 @@ function tourContent2() {
 							<span class="image fit c">
 								<table class="plusDetail" id="d${vo.touristvo.tour_no}" >	<!-- #d3 이런식으로 보냄 -->
 									<tr>
-										<td colspan=3>[${vo.text_loc}]${vo.touristvo.tour_theme }</td>
+										<td colspan=3 style="font-weight:bold;">[ ${vo.text_loc} ]&nbsp;&nbsp;${vo.touristvo.tour_theme }</td>
 									</tr>
 									<tr>
-										<td>DATE:${vo.text_tour_date}</td>
-										<td>TIME:${vo.text_time1}${vo.text_time2 }~${vo.text_time3}${vo.text_time4}</td>	<!-- 날짜 -->
-										<td>PEOPLE:${vo.text_total_person} </td>
+										<td>DATE&nbsp;&nbsp;${vo.text_tour_date}</td>
+										<td>TIME&nbsp;&nbsp;${vo.text_time1}${vo.text_time2 } ~ ${vo.text_time3}${vo.text_time4}</td>	<!-- 날짜 -->
+										<td>PEOPLE&nbsp;&nbsp;${vo.text_total_person} </td>
 									</tr>
 									<tr>
-										<td>NICK:${vo.uservo.user_nick}[${vo.touristvo.user_id }]</td>
-										<td>METHOD:${vo.text_move}</td>
-										<td>COST:${vo.text_cost }</td>
+										<td>NICK&nbsp;&nbsp;${vo.uservo.user_nick}[${vo.touristvo.user_id }]</td>
+										<td>METHOD&nbsp;&nbsp;${vo.text_move}</td>
+										<td>COST&nbsp;&nbsp;￦${vo.text_cost }</td>
 									</tr>
 								</table>
 							</span>	
@@ -141,7 +141,7 @@ function tourContent2() {
 						<div class="3u 12u$(xsmall) dd${vo.touristvo.tour_no}" style="display:none"></div>
 						<div class="9u$ 12u$(xsmall) dd${vo.touristvo.tour_no}" style="display:none">					<!-- 리스트 -->
 							<div id="detail_textarea">
-								<textarea>${vo.touristvo.tour_detail }</textarea>
+								<textarea readonly="readonly">${vo.touristvo.tour_detail }</textarea>
 							</div>
 							<div id="detail_textarea1"> 
 								<span><button class="button tourB letter" id="let${vo.touristvo.tour_no}">Message</button></span>
@@ -156,24 +156,24 @@ function tourContent2() {
 				<!-- 쪽지보내기 -->
 
 				<c:forEach var="list" items="${list }">
-			 <form class="white-popup mfp-hide" id="letPop${list.touristvo.tour_no }">
+			 <form class="white-popup mfp-hide" id="letPop${list.touristvo.tour_no }" action="tourMessage.do" method="post">
 
 	                  <h1>Message</h1>
 	                    <table>
 	                     	<tr>
-	                     	  <td width="30%" align="right">받는사람</td>
+	                     	  <td width="30%" align="right">To</td>
 	                     	  <td width="70%" align="left" >
 	                     	  <input type="text" readonly="readonly" value="${list.touristvo.user_id }" name="message_receive"></td>
 	                     	</tr>
 	                     	<tr>
-	                     	  <td colspan="2" align="center">내용</td>
+	                     	  <td colspan="2" align="center">Content</td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2"><textarea rows="5"  name="message_text" ></textarea></td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td>
-	                     	  <input type="button"  value="보내기"id="messageBtn${list.touristvo.tour_no}" class="messgaeBtn"> 
+	                     	  <input type="button"  value="Send" id="messageBtn${list.touristvo.tour_no}" class="messgaeBtn"> 
 	                     	</tr>
 	                     </table>         
 	               		</form> 
@@ -241,7 +241,8 @@ $('.letter').click(function(){
 $('.messgaeBtn').click(function(){
 	var id=$(this).attr('id');
 	var no=id.substring(10);
-	$('#message'+no).submit();
+	alert(no)
+	$('#letPop'+no).submit();
 })
 </script>
 

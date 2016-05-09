@@ -86,23 +86,46 @@
 .topBoardShort{
 	font-weight: bold;
 }
-
+#reserveBtn1{
+	background-color: #ffffff;
+	box-shadow: inset 0 0 0 2px #fff;
+}
+#guideBoardTable{
+	margin:1em 0 0 0;
+}
+.gBoard0{
+	position: relative;
+	color:#0264a3;
+	padding: 0.3em 0.3em 0.3em 0.3em; 
+	background-color: #ffffff;
+	font-size: 1em;
+	font-weight: bold;
+}
+.gBoard{
+	text-align: center;
+	color:#ffffff;
+	text-shadow: white;
+}
+.gBoard1{
+	text-align: right;
+	color:#f7f7f7;
+}
 /* 가이드 board 사이드메뉴 */
 #guideBoardSide{
 	width:100%;
-	height: 20em;
-	background-color: #82d0e3;
+	height: 25em;
+	background-color: #0264a3;
 	border-radius:0.6em;
 }
 #reservenow{
+	color:white;
 	text-align: center;
 	font-weight: bold;
-	padding-top: 1em;
-	padding-bottom: 1em;
-	
+	padding-top: 1em;	
 }
 #guideBoardSide input{
-	margin-top: 2em;
+	margin-top: 2em; 
+
 }
 /*가이드 글쓰기 내용 추가*/
 .plusWrite1,.plusWrite2{
@@ -225,30 +248,31 @@
  /*상단 사이드 메뉴2*/
  #nav2{
 	margin-top:45px;
-    height:55px;
+    height:3.5em;
     position:fixed;
     left:0px;
     right:0px;
-    background:#8080c0 url(../images/nav.png) repeat-x center left;
+    background:#a4bbe5 url(../images/nav.png) repeat-x center left;
 	opacity:0;
 	z-index: 100;
     font-family: FontAwesome;
 }
 #nav2 ul{
+	text-align:center;
     height:38px;
     list-style:none;
     margin:0px auto 0px auto;
-    width:900px;   
+    width:1000px;   
     vertical-align: middle;
 }
 #nav2 ul li{
     display:inline;
     float:left;
     margin:0px 4px;
-    padding-top:1em;
+    padding-top:1.3em;
 }
 #nav2 a{
-    font-size:15px;
+    font-size:1em;
     font-weight:bold;
     float:left;/* 
     padding: 2px 4px; */
@@ -260,8 +284,8 @@
    /*  line-height:35px; */
 }
 #nav2 a:hover{
-    background:#408080 none;
-    color: #fff;
+    /* background:#408080 none; */
+    color: #c0c0c0;
 }
 /* 
 #nav2 a.top span, #nav2 a.bottom span{
@@ -356,7 +380,6 @@
 }
 #hotkeyword_guide span{
 	border-bottom: 1em;
-	text-decoration: underline;
 }
 /* 가이드찾기 상세정보 */
 .selectGuideMethod{
@@ -395,7 +418,49 @@
 	position: absolute;
 	top: 55%;
 	height: 10em;
-}   
+}  
+.listTextQuickly {				/* 마감임박 */
+    width: 100%;
+    background-color: #bb0000;
+    border-radius:0.2em;
+    color:white;
+    opacity: 1;
+    position: absolute;
+    top: 0%;
+    height:2em;
+    text-align: center;
+    border-color: white;
+    border: 0.2em;
+}
+.listTextQuickly h4{				/* 마감임박 */
+    color:white;
+    position: absolute;
+    text-align: center;
+}
+ .listTextFinish {				/* 예약종료 */
+    width: 100%;
+    background-color: black;
+    opacity: 0.6;
+    position: absolute;
+    top: 0%;
+    height: 100%;
+    text-align: center;
+    vertical-align: middle;
+    color:white;
+    border-style: solid;
+    border-color: white;
+}
+.listTextFinish h1{				/* 예약종료 */
+    letter-spacing: 0em;
+	font-size:2em;
+    position: absolute;
+    text-align: center;
+    vertical-align: middle;
+    margin:1em;
+    top:35%;
+    color:white;
+	opacity: 1;
+}
 .listText2{
 	width:100%;
 	position: absolute;

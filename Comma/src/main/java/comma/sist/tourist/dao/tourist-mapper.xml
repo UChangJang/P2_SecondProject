@@ -139,7 +139,8 @@
    
    <!-- 마이페이지_내가쓴 투어글 보기 -->
 	<select id="myTouristWriter" resultMap="comma.sist.common.text-mapper.TextList" parameterType="String">
-      SELECT tour_no,text_loc,tour_theme,text_regdate,text_total_person
+      SELECT tour_no,text_loc,tour_theme,text_tour_date,text_total_person,text_time1,text_time2,text_time3,text_time4,
+      			text_cost,text_move,user_id,tour_detail
       FROM tour,text 
       WHERE tour.text_no=text.text_no AND user_id=#{id} order by tour_no desc
    </select>

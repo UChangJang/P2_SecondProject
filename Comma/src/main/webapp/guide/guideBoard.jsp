@@ -247,9 +247,12 @@ function gInfo_frm(){
 
 <!-- Main -->
 <article id="main">
-	<header>
-		<h2>[제목]서울도심투어</h2>
-		<p>재밌는 관광</p>
+	<header id="header_guideBoard">
+		<br/><br/><br/>
+		<h1 style="font-size:2em;">[${vo.guidevo.guide_subject }]</h1>
+		<br/>
+		<h1 style="font-size:1.5em;"><font color="#0264a3">Guide&nbsp;&nbsp;</font>${vo.uservo.user_id }</h1>
+		<br/><br/>
 	</header>
 	
 	<section class="wrapper style5">
@@ -299,11 +302,11 @@ function gInfo_frm(){
 				<div class="9u 12u$(medium) side1">
 					<hr id="intropeople"/>
 					<h5>Guide Introduce</h5>
-					<textarea style="height:20em">${vo.uservo.user_introduce }</textarea>
+					<textarea style="height:20em" readonly="readonly">${vo.uservo.user_introduce }</textarea>
 
 					<hr id="introplace" />
 					<h5>Tour Style</h5>
-					<textarea style="height:20em">${vo.guidevo.guide_loc_intro }</textarea>
+					<textarea style="height:20em" readonly="readonly">${vo.guidevo.guide_loc_intro }</textarea>
 					
 					<hr id="pic"/>
 					<h4>Tour Location Image</h4>					
@@ -314,8 +317,15 @@ function gInfo_frm(){
 						</c:forEach>
 					</div> 
 					</span>
-					<textarea style="height:20em">${vo.guidevo.guide_detail }</textarea>
-
+					<textarea style="height:20em" readonly="readonly">${vo.guidevo.guide_detail }</textarea>
+					
+					
+					<!-- 지도 -->
+					<div style="height:15em">
+					<jsp:include page="../map.jsp"></jsp:include>
+					<div id="map_canvas" style="width:100%; height:100%"></div>
+					</div>
+					
 					<hr id="detail" />
 					<h5>Details</h5>
 					<div class="table-wrapper">
@@ -329,31 +339,31 @@ function gInfo_frm(){
 							<tbody>
 								<tr>
 									<td width="30%">Location</td>
-									<td><font color="blue">${vo.text_loc }</font></td>
+									<td><font color="grey">${vo.text_loc }</font></td>
 								</tr>
 								<tr>
 									<td width="30%">Cost</td>
-									<td><font color="blue">${vo.text_cost }</font></td>
+									<td><font color="grey">${vo.text_cost }</font></td>
 								</tr>
 								<tr>
 									<td width="30%">Include Content</td>
-									<td><font color="blue">${vo.guidevo.guide_cost_detail }</font></td>
+									<td><font color="grey">${vo.guidevo.guide_cost_detail }</font></td>
 								</tr>
 								<tr>
 									<td width="30%">Tour Scale</td>
-									<td><font color="blue">${vo.text_total_person }</font></td>
+									<td><font color="grey">${vo.text_total_person }</font></td>
 								</tr>
 								<tr>
 									<td width="30%">Tour Date</td>
-									<td><font color="blue">${vo.text_tour_date }</font></td>
+									<td><font color="grey">${vo.text_tour_date }</font></td>
 								</tr>
 								<tr>
 									<td width="30%">Tour Time</td>
-									<td><font color="blue">${vo.text_time1 }${vo.text_time2 } ~ ${vo.text_time3 }${vo.text_time4 }</font></td>
+									<td><font color="grey">${vo.text_time1 }${vo.text_time2 } ~ ${vo.text_time3 }${vo.text_time4 }</font></td>
 								</tr>
 								<tr>
 									<td width="30%">Guide Meeting</td>
-									<td><font color="blue">${vo.guidevo.guide_meet }</font></td>
+									<td><font color="grey">${vo.guidevo.guide_meet }</font></td>
 								</tr>
 							</tbody>
 						</table>
@@ -361,35 +371,7 @@ function gInfo_frm(){
 
 
 
-					<%-- <hr id="mention"/>
-					<h5>후기</h5>
-					<div class="box alt">
-						<div class="row uniform 50%">
-						
-						<c:forEach var="i" begin="1" end="5">
-							<div class="2u">
-								<span class="image fit"> <a href="guideWrite.do"><img
-										src="images/banner.jpg" alt="" /></a>
-								</span>
-							</div>
-
-							<div class="10u">
-								<span class="image fit">
-									<table class="alt">
-										<tr>
-											<td>안보영</td>
-											<td>별다섯개</td>
-										</tr>
-										<tr>
-											<td colspan=4>멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.</td>
-										</tr>
-									</table>
-								</span>
-							</div>
-						</c:forEach>
-							
-						</div>
-					</div> --%>
+					
 
 					<hr />
 					<c:if test="${confirmId == false }">
@@ -417,19 +399,29 @@ function gInfo_frm(){
 				<div class="3u$ side2">
 					<div id="guideBoardSide">
 						<div id="reservenow">RESERVE CONTROL</div>	
-						<div class="BoardSide1">${vo.guidevo.guide_subject }</div>
 						<hr>
-						<div class="BoardSide1">Cost:￦${vo.text_cost }</div>
-						<div class="BoardSide1">Date:${vo.text_tour_date }</div>
-						<div class="BoardSide1">PEOPLE:${vo.text_total_person }</div>
-						<div class="BoardSide1">VEHICLE:${vo.text_move }</div>
-						<div class="BoardSide1">HIT:${vo.text_hit }</div>
+						<div class="BoardSide1 gBoard0">${vo.guidevo.guide_subject }</div>
+					
+						<table id="guideBoardTable">
+							<tr>
+							<td class="gBoard">Cost</td>
+							<td class="gBoard1">￦${vo.text_cost }</td>
+							</tr>
+							<tr>
+							<td class="gBoard">Date</td>
+							<td class="gBoard1">${vo.text_tour_date }</td>
+							</tr>
+							<tr>
+							<td class="gBoard">VEHICLE</td>
+							<td class="gBoard1">${vo.text_move }</td>
+							</tr>
+						</table>
 						<div class="BoardSide1">
 						<c:if test="${soldCheck==false }">
 						<input type="button" value="reserve" id="reserveBtn1">
 						</c:if>
 						<c:if test="${soldCheck==true }">
-						<input type="button" value="SoldOut" disabled="disabled">
+						<input type="button" value="SoldOut" style="color:white" disabled="disabled" class="BoardBtn">
 						</c:if>
 						</div>
 					</div>

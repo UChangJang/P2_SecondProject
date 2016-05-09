@@ -21,7 +21,7 @@ import comma.sist.weather.*;
 
 @Controller("IC")
 public class IntroController {
-	
+	//
 	@RequestMapping("main.do")
 	public String mainStart(HttpServletRequest req){
 		

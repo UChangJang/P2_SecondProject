@@ -113,6 +113,7 @@ ul#tabs {
 	overflow : hidden;
 	vertical-align : middle;
 	margin: 0 auto;	
+	margin-left:2em;
 	border: 1px solid #fff;
 	display: inline-block
 	
