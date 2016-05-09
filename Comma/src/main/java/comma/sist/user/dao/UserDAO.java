@@ -38,10 +38,10 @@ public class UserDAO {
 		
 		String res = "";
 		SqlSession session = ssf.openSession();
-		System.out.println(id);
-		System.out.println(pwd);
+		
+		
 		int countID = session.selectOne("userCountID",id);
-		System.out.println(countID);
+		
 		if(countID==0) res = "NOID";
 		else{
 			UserVO vo = session.selectOne("userInfo",id);
@@ -64,7 +64,7 @@ public class UserDAO {
 	}
 	public static UserVO userProfile(String id){
 		SqlSession session=ssf.openSession();
-		System.out.println("DAO");
+		
 		UserVO vo =session.selectOne("userProfile",id);
 		return vo;
 		

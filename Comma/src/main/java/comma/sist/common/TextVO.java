@@ -18,8 +18,8 @@ public class TextVO {
 	private int		text_total_person;
 	private Date	text_regdate;
 	private String	text_time1;
-	private String	text_time2;
-	private String	text_time3; // am pm (start)
+	private String	text_time2;	// am pm (start)
+	private String	text_time3; 
 	private String	text_time4; // am pm (end)
 	private String	text_move;
 	private int		text_hit;

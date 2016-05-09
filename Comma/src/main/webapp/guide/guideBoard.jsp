@@ -402,7 +402,12 @@ function gInfo_frm(){
 					<c:if test="${confirmId == false }">
 					<ul class="actions fit small">
 						<li><button class="button special fit small" id="messageWrite">Message To</button></li>
+						<c:if test="${ soldCheck==true}">
+						<li><button class="button fit small" disabled="disabled">Sold-Out</button></li>
+						</c:if>
+						<c:if test="${ soldCheck==false}">
 						<li><button class="button fit small" id="reserveBtn">Reserve</button></li>
+						</c:if>
 						<li><button class="button special fit small" id="wishBtn">Wish</button></li>
 					</ul>
 					</c:if>
@@ -426,7 +431,14 @@ function gInfo_frm(){
 						<div class="BoardSide1">PEOPLE:${vo.text_total_person }Έν</div>
 						<div class="BoardSide1">VEHICLE:${vo.text_move }</div>
 						<div class="BoardSide1">HIT:${vo.text_hit }</div>
-						<div class="BoardSide1"><input type="button" value="reserve" id="reserveBtn1"></div>
+						<div class="BoardSide1">
+						<c:if test="${soldCheck==false }">
+						<input type="button" value="reserve" id="reserveBtn1">
+						</c:if>
+						<c:if test="${soldCheck==true }">
+						<input type="button" value="SoldOut" disabled="disabled">
+						</c:if>
+						</div>
 					</div>
 				</div>
 			</div>

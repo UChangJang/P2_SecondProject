@@ -63,7 +63,7 @@ $(function(){
 							<!-- 미정 삭제 test요 -->
 						<td><a href="wishlist_guide_delete.do?gwish_no=${guidevo.wishvo.wish_no }" style="background-color: rgb(0, 0, 0);">
 
-						<input type="button" value="삭제"></a></td> 
+						<input type="button" value="Delete"></a></td> 
 
 					</tr>
 					
@@ -97,7 +97,7 @@ $(function(){
 						</td>
 						<td>${tourvo.reservationvo.reservation_person}/${tourvo.text_total_person}</td>
 						<td><a href="wishlist_tour_delete.do?twish_no=${tourvo.wishvo.wish_no }">
-						<input type="button" value="삭제"></a></td>
+						<input type="button" value="Delete"></a></td>
 					</tr>
 					</c:forEach>
 						
