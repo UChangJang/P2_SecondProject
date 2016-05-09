@@ -50,7 +50,7 @@ public class GuideController {
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
 		request.setAttribute("jsp", "guide/guide.jsp");
-		request.setAttribute("innerjsp", "guideList.jsp");///////////////////////
+		request.setAttribute("innerjsp", "guideList.jsp");
 		return "main.jsp";
 	}
 	
@@ -182,39 +182,11 @@ public class GuideController {
 		if(guide_img==null){
 			vo.getGuidevo().setGuide_img("");
 		}else{
-			
-			/*String s = f.getAbsolutePath();
-			System.out.println(s);
-			request.setAttribute("imgPath", s);*/
-			
+
 			File f = new File(path+"\\"+guide_img);
 			vo.getGuidevo().setGuide_img(guide_img);
-			
-			
-			
-			
-			// 똑같은 사진 올릴 경우
-			/*int count = GuideDAO.guideImgisExist(guide_img);
-			System.out.println(count);
-			if(count==0){
-				File f = new File(path+"\\"+guide_img);
-				vo.getGuidevo().setGuide_img(guide_img);
-			}else{
-				String s = "";
-				s = guide_img.substring(0, guide_img.lastIndexOf('.'))+count+guide_img.substring(guide_img.lastIndexOf('.'));
-				guide_img = s;
-				
-				
-				File f = new File(path+"\\"+guide_img);
-				
-				vo.getGuidevo().setGuide_img(guide_img);
-			}*/
-			
-			
 		}
-		
-		
-		
+
 		GuideDAO.textInsert(vo);
 		GuideDAO.guideInsert(vo);
 		
@@ -273,8 +245,7 @@ public class GuideController {
 		
 		String no = request.getParameter("no");		
 		TextVO vo = GuideDAO.guideInfoData(Integer.parseInt(no));
-		
-		
+	
 		request.setAttribute("vo", vo);
 		request.setAttribute("jsp", "guide/guideUpdate.jsp");		
 
@@ -320,11 +291,9 @@ public class GuideController {
 			List<TextVO> review = GuideDAO.guideReview(gn);
 			for(TextVO rvo:review){
 				reviewList.add(rvo);
-			}
-			
+			}			
 		}
-		
-		
+			
 		request.setAttribute("uvo", uvo);
 		request.setAttribute("list", list);
 		request.setAttribute("reviewList", reviewList);
@@ -349,8 +318,7 @@ public class GuideController {
 		ReservationVO vo = new ReservationVO();
 		vo.setGuide_no(Integer.parseInt(guide_no));
 		vo.setUser_id(user_id);
-		vo.setReservation_person(Integer.parseInt(reservation_person));
-		
+		vo.setReservation_person(Integer.parseInt(reservation_person));		
 		
 		String sumTemp=ReservationDAO.reserveGuideCheck(Integer.parseInt(guide_no));	//예약가능한지
 		if(sumTemp==null) sumTemp="0";
@@ -369,8 +337,7 @@ public class GuideController {
 					+ "Or You already made an appointment.<br/>Find other guide...");
 			req.setAttribute("jsp", "error.jsp");
 		}
-		
-		
+
 		return "main.jsp";
 	}
 	
@@ -398,7 +365,6 @@ public class GuideController {
 	public String guide_search(HttpServletRequest request){
 		
 	      String place = request.getParameter("place");
-	      System.out.println(place);
 	      	
 	      //총 페이지
 	      int totalpage = GuideDAO.guideSearchTotalPage(place);
@@ -420,13 +386,6 @@ public class GuideController {
 	      GuideDAO.imgArrangement(list);
 	      GuideDAO.avgStar(list); // 별점 평균
 	      
-	      if(!list.isEmpty()){
-			   //System.out.println("비어있지 않아요");
-			   //System.out.println(list.get(0).getText_move());
-		   }else{
-			   //System.out.println("비어있음");
-		   }
-	      
 	      // 가이드 검색 히트수 증가
 	      GuideDAO.searchHitIncrease(place);
 	      
@@ -444,7 +403,6 @@ public class GuideController {
 		String method = request.getParameter("method");
 		String people = request.getParameter("people");
 		String date = request.getParameter("date");
-		System.out.println(place + "," + method + "," + people + "," + date);
 
 		Map map = new HashMap();
 		map.put("place", place);
@@ -474,13 +432,6 @@ public class GuideController {
 	      GuideDAO.imgArrangement(list); // 여러개 사진 처리
 	      GuideDAO.avgStar(list); // 별점 평균
 	      
-	       if(!list.isEmpty()){
-			   //System.out.println("비어있지 않아요");
-			   System.out.println(list.get(0).getText_move());
-		   }else{
-			   //System.out.println("비어있음");
-		   }
-	      
 	      // 가이드 검색 히트수 증가
 	      GuideDAO.searchHitIncrease(place);
 	      
@@ -492,15 +443,13 @@ public class GuideController {
 	
 		// 가이드 정렬
 	   @RequestMapping("guide_sort.do")
-	   //var param="place="+place+"&method="+method_value+"&people="+people+"&date="+date+"&type="+sortType;
-	   public String tourist_sort(HttpServletRequest req) throws Exception{
+	  public String tourist_sort(HttpServletRequest req) throws Exception{
 		   String place = req.getParameter("place"); 	// 1.장소
 		   String method = req.getParameter("method"); 	// 2.이동수단
 		   String people = req.getParameter("people"); 	// 3.인원
 		   String date = req.getParameter("date"); 		// 4.날짜
 		   String type = req.getParameter("type"); 		// 5.정렬타입
-		   System.out.println("정렬controller진입_place:" + place + " ,date:" + date+" ,method:"+method+" ,people:"+people+" ,type:"+type);
-		   
+		  
 		   String page = req.getParameter("page"); // page=몇페이지인지..처음은 무조건 1page
 			if (page == null) {
 				page = "1";
@@ -519,13 +468,6 @@ public class GuideController {
 			
 		   if(method==null || people=="" || date==""){											//1.지역만 검색
 			   list = GuideDAO.guide_sort_place(map, type); //start,end,place _ type
-			   System.out.println("지역만_정렬 끝낸 controller~~");
-			   if(!list.isEmpty()){
-				   System.out.println("비어있지 않아요");
-				   System.out.println(list.get(0).getText_move());
-			   }else{
-				   System.out.println("비어있음");
-			   }
 			   totalpage=GuideDAO.guideSearchTotalPage(place);   //총페이지수
 			   
 		   }else if(method != null && people!="" && date!=""){									//2.detail도 검색
@@ -535,18 +477,9 @@ public class GuideController {
 			   list = GuideDAO.guide_sort_detail(map, type); 	//start,end,place _ type
 			   GuideDAO.imgArrangement(list); // 여러개 사진 처리
 			   GuideDAO.avgStar(list); // 별점 평균
-			   
-			   if(!list.isEmpty()){
-				   System.out.println("비어있지 않아요");
-				   System.out.println(list.get(0).getText_move());
-			   }
-			   
-			   System.out.println("디테일_정렬 끝낸 controller~~");
+			 
 			   totalpage=GuideDAO.guideSearchDeTotalPage(map);   //총페이지수
 		   }
-		   
-		  // String dateTemp = req.getParameter("date"); // 2.날짜=03/31/2016
-		  // String date = TouristDAO.datePicker(dateTemp); // 날짜를 20160331로 만듬
 
 		   if (totalpage == 0)
 				totalpage = 1;
@@ -562,12 +495,10 @@ public class GuideController {
 	   @RequestMapping("quickSearch_ok.do")
 		public String quickSearch_ok(HttpServletRequest req){
 
-		   	System.out.println("성공적!");
 		   	String place = req.getParameter("place"); 		// 1.장소
 			String method = req.getParameter("method"); 	// 2.이동수단
 			String people = req.getParameter("people"); 	// 3.인원
 			String date = req.getParameter("date"); 		// 4.날짜
-			System.out.println("정렬controller진입_place:" + place + " ,date:" + date+" ,method:"+method+" ,people:"+people);
 			   
 			Map map = new HashMap();
 			map.put("place", place);
@@ -577,7 +508,6 @@ public class GuideController {
 
 			// 총 페이지
 			int totalpage = GuideDAO.guideSearchDeTotalPage(map);
-			System.out.println("총페이지수:" + totalpage);
 			if (totalpage == 0)
 				totalpage = 1;
 
@@ -593,15 +523,7 @@ public class GuideController {
 			map.put("start", start);
 			map.put("end", end);
 
-		      List<TextVO> list= GuideDAO.guideSearchDe(map);
-		      if(!list.isEmpty()){
-				   System.out.println("비어있지 않아요");
-				   System.out.println(list.get(0).getText_move());
-			   }else{
-				   System.out.println("비어있음");
-			   }
-		      
-		      
+		    List<TextVO> list= GuideDAO.guideSearchDe(map);	      
 			
 			// 여러개의 사진인 경우
 			List<String> imgList = new ArrayList<String>();
@@ -624,6 +546,9 @@ public class GuideController {
 					}
 				}
 			}
+			
+			GuideDAO.avgStar(list); // 별점 평균
+			GuideDAO.imgArrangement(list); // 여러개 사진 처리
 
 			req.setAttribute("place", place);
 			req.setAttribute("method", method);
@@ -634,7 +559,7 @@ public class GuideController {
 			req.setAttribute("totalpage", totalpage);	
 			req.setAttribute("jsp", "guide/guide.jsp");
 			req.setAttribute("list", list);
-			req.setAttribute("innerjsp", "guideList.jsp");//
+			req.setAttribute("innerjsp", "guideList.jsp");
 			return "main.jsp";
 		}
 	   

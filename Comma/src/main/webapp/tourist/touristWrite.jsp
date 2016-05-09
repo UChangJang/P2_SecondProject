@@ -4,8 +4,6 @@
 <html>
 <head>
    <title>Customer Write</title>
-   
-   <!-- <link rel="stylesheet" href="../controller/assets/css/guide.css" /> -->
 </head>
 <body>
 <!-- Main -->
