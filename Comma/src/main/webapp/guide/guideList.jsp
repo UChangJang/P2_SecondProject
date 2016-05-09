@@ -106,7 +106,7 @@ $(function(){
 					sendMessage("POST", "guide_search_detail.do",param,guideContent);
 				}	
 			}	
-		}else{								//이전페이지로 가기 불가능
+		}else{								//이전페이지로 가기 불가능.
 			alert("This is the last page.");
 			return;
 		}
