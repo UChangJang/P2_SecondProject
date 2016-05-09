@@ -23,6 +23,11 @@
 		where guide.guide_no=#{guide_no} and guide.text_no=text.text_no and guide.user_id=users.user_id
 	</select>
 	
+	<!-- 가이드 별점평균 -->
+	<select id="guideStarSum" parameterType="int" resultType="String">
+		select avg(review_score) from review where guide_no=#{guide_no}
+	</select>
+	
 	<!-- 가이드 글 추가 -->
 	<insert id="textInsert" parameterType="Text">
 		insert into text values((select NVL(max(text_no)+1,1) from text),#{text_loc},#{text_cost},#{text_total_person},sysdate,
@@ -94,11 +99,16 @@
 		 where review.user_id=users.user_id and guide_no=#{guide_no}
 	</select>
 	
-
+	
+	<!-- 가이드 검색 히트수 증가 -->
+	<update id="searchHitIncrease" parameterType="String">
+		update search set search_hit=search_hit+1 where search_loc=#{search_loc}
+	</update>
+	
  	<select id="myGuideWriter" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList"> 
 	  SELECT guide_no,guide_subject,text_regdate,text_total_person,text_end,text_loc
       FROM guide,text
-	  WHERE text.text_no=guide.text_no AND guide.user_id=#{id}   
+	  WHERE text.text_no=guide.text_no AND guide.user_id=#{id} order by guide_no desc   
 	</select> 
 
 	

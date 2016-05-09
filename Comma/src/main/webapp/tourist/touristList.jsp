@@ -115,7 +115,7 @@ function tourContent2() {
 						
 					<c:forEach var="vo" items="${list }">
 						<div class="3u">					<!-- 사진 -->
-							<span class="image fit">
+							<span class="mypictureTour">
 								<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }" alt=""/><!-- 이미지사진 -->
 							</span>	
 						</div>
@@ -158,7 +158,7 @@ function tourContent2() {
 				<!-- 쪽지보내기 -->
 
 				<c:forEach var="list" items="${list }">
-			 <form class="white-popup mfp-hide" id="letPop16">
+			 <form class="white-popup mfp-hide" id="letPop${list.touristvo.tour_no }">
 
 	                  <h1>Message</h1>
 	                    <table>
@@ -223,10 +223,12 @@ function tourContent2() {
 
 $('.letter').click(function(){	
 	var id=$(this).attr('id');
-
-	var no=id.substring(3);	
+	
+	var no=id.substring(3);
+	
+	alert(no)
 	  $.magnificPopup.open({
-	        items :{src:'#message'+no,type : 'inline'},
+	        items :{src:'#letPop'+no,type : 'inline'},
 	              preloader: false,focus: '#name',
 	              callbacks: {beforeOpen: function() {
 	                 if($(window).width() < 700) {
@@ -244,8 +246,6 @@ $('.messgaeBtn').click(function(){
 	$('#message'+no).submit();
 })
 </script>
-
-
 
 
 </body>

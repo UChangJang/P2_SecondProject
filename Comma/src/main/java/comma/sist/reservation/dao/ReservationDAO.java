@@ -48,7 +48,6 @@ private static SqlSessionFactory	ssf;
 	public static String reserveGuideCheck(int guide_no){
 		SqlSession session = ssf.openSession();
 		String sum=session.selectOne("reserveGuideCheck",guide_no);
-		System.out.println(sum);
 		session.close();
 		return sum;
 	}
@@ -56,10 +55,20 @@ private static SqlSessionFactory	ssf;
 	public static int reserveGuidePossible(int guide_no){
 		SqlSession session = ssf.openSession();
 		int total=session.selectOne("reserveGuidePossible",guide_no);
-		System.out.println(total);
 		session.close();
 		return total;
 	}
+	
+	// 가이드 예약목록
+	public static List<TextVO> reserveData(int no){
+		SqlSession session  = ssf.openSession();
+		List<TextVO> list = session.selectList("reserveData",no);
+		session.close();
+		return list;
+		
+	}
+	
+	
 	
 	//나의 예약여부 확인
 	public static int reserveGuideExist(ReservationVO vo){

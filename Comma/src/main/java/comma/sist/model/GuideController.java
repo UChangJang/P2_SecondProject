@@ -43,33 +43,14 @@ public class GuideController {
 
 		List<TextVO> list = GuideDAO.guideAllData(map);
 		
-		// 여러개의 사진인 경우
-		List<String> imgList = new ArrayList<String>();
-		for(TextVO vo:list){
-			if(vo.getGuidevo().getGuide_img()!=null){
-				StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
-				String ss = st.nextToken();
-				int k=0;
-				while(st.hasMoreTokens()){
-					if(k==0) {
-						imgList.add(ss);
-						k++;
-					}
-					else{
-						imgList.add(st.nextToken());
-					}
-				}
-				if(imgList.size()>1){
-					vo.getGuidevo().setGuide_img(ss);
-				}
-			}
-		}
-		
+		GuideDAO.avgStar(list); // 별점 평균
+		GuideDAO.imgArrangement(list); // 여러개 사진 처리
 		
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
 		request.setAttribute("jsp", "guide/guide.jsp");
+		request.setAttribute("innerjsp", "guideList.jsp");///////////////////////
 		return "main.jsp";
 	}
 	
@@ -93,10 +74,14 @@ public class GuideController {
 		map.put("end", end);		
 		
 		List<TextVO> list = GuideDAO.guideAllData(map);
-
+		GuideDAO.avgStar(list); // 별점 평균
+		GuideDAO.imgArrangement(list); // 여러개 사진 처리
+		
+		
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
+		
 		return "guide/guideList.jsp";
 	}
 	
@@ -312,8 +297,6 @@ public class GuideController {
 		
 		String id = request.getParameter("id");
 		String guide_no = request.getParameter("guide_no");
-		System.out.println(guide_no);
-		System.out.println(id);
 		
 		UserVO uvo = GuideDAO.guideInfoShow(Integer.parseInt(guide_no));
 		
@@ -434,12 +417,19 @@ public class GuideController {
 			map.put("place", place);
 			
 	      List<TextVO> list= GuideDAO.guideSearchPlace(map);
+	      GuideDAO.imgArrangement(list);
+	      GuideDAO.avgStar(list); // 별점 평균
+	      
 	      if(!list.isEmpty()){
-			   System.out.println("비어있지 않아요");
-			   System.out.println(list.get(0).getText_move());
+			   //System.out.println("비어있지 않아요");
+			   //System.out.println(list.get(0).getText_move());
 		   }else{
-			   System.out.println("비어있음");
+			   //System.out.println("비어있음");
 		   }
+	      
+	      // 가이드 검색 히트수 증가
+	      GuideDAO.searchHitIncrease(place);
+	      
 	      request.setAttribute("list", list);
 	      request.setAttribute("curpage", curpage);
 	      request.setAttribute("totalpage", totalpage);
@@ -481,12 +471,19 @@ public class GuideController {
 		map.put("end", end);
 
 	      List<TextVO> list= GuideDAO.guideSearchDe(map);
-	      if(!list.isEmpty()){
-			   System.out.println("비어있지 않아요");
+	      GuideDAO.imgArrangement(list); // 여러개 사진 처리
+	      GuideDAO.avgStar(list); // 별점 평균
+	      
+	       if(!list.isEmpty()){
+			   //System.out.println("비어있지 않아요");
 			   System.out.println(list.get(0).getText_move());
 		   }else{
-			   System.out.println("비어있음");
+			   //System.out.println("비어있음");
 		   }
+	      
+	      // 가이드 검색 히트수 증가
+	      GuideDAO.searchHitIncrease(place);
+	      
 	      request.setAttribute("list", list);
 	      request.setAttribute("curpage", curpage);
 	      request.setAttribute("totalpage", totalpage);
@@ -536,6 +533,9 @@ public class GuideController {
 			   map.put("people", people);
 			   map.put("date", date);
 			   list = GuideDAO.guide_sort_detail(map, type); 	//start,end,place _ type
+			   GuideDAO.imgArrangement(list); // 여러개 사진 처리
+			   GuideDAO.avgStar(list); // 별점 평균
+			   
 			   if(!list.isEmpty()){
 				   System.out.println("비어있지 않아요");
 				   System.out.println(list.get(0).getText_move());
@@ -548,11 +548,94 @@ public class GuideController {
 		  // String dateTemp = req.getParameter("date"); // 2.날짜=03/31/2016
 		  // String date = TouristDAO.datePicker(dateTemp); // 날짜를 20160331로 만듬
 
-
+		   if (totalpage == 0)
+				totalpage = 1;
+		   
 	      req.setAttribute("curpage", curpage);
 	      req.setAttribute("totalpage", totalpage);
 	      req.setAttribute("list", list);      
 	      
 	      return "guide/guideList.jsp";
 	   }
+			
+	   //퀵서치
+	   @RequestMapping("quickSearch_ok.do")
+		public String quickSearch_ok(HttpServletRequest req){
+
+		   	System.out.println("성공적!");
+		   	String place = req.getParameter("place"); 		// 1.장소
+			String method = req.getParameter("method"); 	// 2.이동수단
+			String people = req.getParameter("people"); 	// 3.인원
+			String date = req.getParameter("date"); 		// 4.날짜
+			System.out.println("정렬controller진입_place:" + place + " ,date:" + date+" ,method:"+method+" ,people:"+people);
+			   
+			Map map = new HashMap();
+			map.put("place", place);
+			map.put("method", method);
+			map.put("people", Integer.parseInt(people));
+			map.put("date", date);
+
+			// 총 페이지
+			int totalpage = GuideDAO.guideSearchDeTotalPage(map);
+			System.out.println("총페이지수:" + totalpage);
+			if (totalpage == 0)
+				totalpage = 1;
+
+			// 현재 페이지
+			String page = req.getParameter("page");
+			if (page == null)
+				page = "1";
+			int curpage = Integer.parseInt(page);
+
+			int rowSize = 9;
+			int start = (rowSize * curpage) - (rowSize - 1);
+			int end = rowSize * curpage;
+			map.put("start", start);
+			map.put("end", end);
+
+		      List<TextVO> list= GuideDAO.guideSearchDe(map);
+		      if(!list.isEmpty()){
+				   System.out.println("비어있지 않아요");
+				   System.out.println(list.get(0).getText_move());
+			   }else{
+				   System.out.println("비어있음");
+			   }
+		      
+		      
+			
+			// 여러개의 사진인 경우
+			List<String> imgList = new ArrayList<String>();
+			for(TextVO vo:list){
+				if(vo.getGuidevo().getGuide_img()!=null){
+					StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
+					String ss = st.nextToken();
+					int k=0;
+					while(st.hasMoreTokens()){
+						if(k==0) {
+							imgList.add(ss);
+							k++;
+						}
+						else{
+							imgList.add(st.nextToken());
+						}
+					}
+					if(imgList.size()>1){
+						vo.getGuidevo().setGuide_img(ss);
+					}
+				}
+			}
+
+			req.setAttribute("place", place);
+			req.setAttribute("method", method);
+			req.setAttribute("people", people);
+			req.setAttribute("date", date);
+			
+			req.setAttribute("curpage", page);
+			req.setAttribute("totalpage", totalpage);	
+			req.setAttribute("jsp", "guide/guide.jsp");
+			req.setAttribute("list", list);
+			req.setAttribute("innerjsp", "guideList.jsp");//
+			return "main.jsp";
+		}
+	   
 }

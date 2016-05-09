@@ -199,12 +199,19 @@ public class UserController {
 		
 		List<TextVO> guidevo2=new ArrayList<TextVO>();		//진짜 저장해서 넘길 공간
 		List<TextVO> guidevo=GuideDAO.myGuideWriter(id);	//1.내가 쓴 가이드글들 들고옴
-		
+		List<TextVO> guideResvo = new ArrayList<TextVO>();
 		for(TextVO vo:guidevo){
 			int guideno=vo.getGuidevo().getGuide_no();
 			//System.out.println("가이드글번호:"+guideno);
+			List<TextVO> gvo = ReservationDAO.reserveData(guideno);
+			if(gvo!=null){
+				for(TextVO v:gvo){
+					guideResvo.add(v);
+				}
+			}
 			
 			String respeople=GuideDAO.myGuideWriterPerson(guideno);		//예약한 인원 수
+			if(respeople==null) respeople="0";
 			vo.getGuidevo().setReservation_person(respeople);
 			guidevo2.add(vo);			
 		}
@@ -220,11 +227,12 @@ public class UserController {
 			
 			String respeople=TouristDAO.myTourWriterPerson(tourno);	//*각 투어글마다 예약한 인원
 			//System.out.println("투어번호:"+tourno+",예약자인원"+respeople);
+			if(respeople==null) respeople="0";
 			vo.getTouristvo().setReservation_person(respeople);
 			
 			List<TouristResVO> rvo=TouristDAO.tourResInfo(tourno);	//3.*내투어에 예약한 사람들 정보 불러오기
 			if(rvo==null){
-				System.out.println("controller예약자가 없네요");
+				//System.out.println("controller예약자가 없네요");
 			}else{
 				vo.setTourresvo(rvo);//list들 추가
 			}
@@ -233,7 +241,8 @@ public class UserController {
 
 		req.setAttribute("guidevo", guidevo2);
 		req.setAttribute("touristvo", touristvo2);		
-
+		req.setAttribute("guideResvo", guideResvo);
+		
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_mywriter.jsp");		
 		}catch(Exception e){
@@ -247,7 +256,7 @@ public class UserController {
 		
 		String no = request.getParameter("no");		
 		System.out.println("가이드"+no);
-		//GuideDAO.guideDelete(Integer.parseInt(no));	
+		GuideDAO.guideDelete(Integer.parseInt(no));	
 
 		return "mypage/mywrite_deleteOk.jsp";
 	}
@@ -329,15 +338,15 @@ public class UserController {
 	public String infoCorrection_ok(HttpServletRequest req) throws Exception{
 		req.setCharacterEncoding("EUC-KR");
 		
-		
+		System.out.println("111");
 		String path = "\\\\211.238.142.74\\Users\\74\\Git\\P2_SecondProject\\Comma\\src\\main\\webapp\\profile";
 		String enctype = "EUC-KR";
 		int	size = 1024*1024*100; 
-		
+		System.out.println("222");
 		MultipartRequest mr 
 				= new MultipartRequest(req,path,size,enctype,
 						new DefaultFileRenamePolicy());
-		
+		System.out.println("3333");
 		String nick=mr.getParameter("nick");
 		String pwd=mr.getParameter("pwd");
 		String email=mr.getParameter("email");
@@ -351,7 +360,7 @@ public class UserController {
 		
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("id");
-		
+		System.out.println(id);
 		
 		
 		/*String nick=req.getParameter("nick");
@@ -381,7 +390,7 @@ public class UserController {
 			File f = new File(path+"\\"+user_img);
 			vo.setUser_img(user_img);
 		}
-
+		System.out.println(vo.getUser_img());
 		UserDAO.infoCorrection(vo);		
 		
 		return "mypage/infoCorrection_ok.jsp";

@@ -16,10 +16,10 @@
 
 <script type="text/javascript">
 Shadowbox.init({
-	 players:["iframe"]
+    players:["iframe"]
 });
   $(function() {
-  	
+     
       $("#profile_img").on('change', function(){
           readURL(this);
       });
@@ -48,207 +48,207 @@ Shadowbox.init({
 }
   
  $(function(){
-	$('#sendBtn').click(function(){		
-		var pwd=$('#pwd').val();
-		var nick=$('#nick').val();
-		var email=$('#email').val();		
-		var pwd_check=$('#pwd_check').val();
-		var birth=$('#year').val()+"/"+$('#month').val()+"/"+$('#day').val();
-		var gender=$('#demo-priority-low').val();
-		var tel=$('#tel1').val()+"-"+$('#tel2').val()+"-"+$('#tel3').val();
-		var addr=$('#addr1').val()+"-"+$('#addr2').val();
-		if(nick.trim()==""){
-			alert("nick입력")
-			$('#nick').focus();
-			return;
-		}
-		if(pwd.trim()==""){
-			alert("pwd입력")
-			$('#pwd').focus();
-			return;
-		}
-		if(pwd!=pwd_check){
-			alert("pwd check확인")
-			$('#pwd').focus();	
-			return;
-		}
-		if(email.trim()==""){
-			alert("email입력")
-			$('#email').focus();
-			return;
-		}
-		$('#infoCorrectionFrm').submit();
-				
-		
-		
-	})
+   $('#sendBtn').click(function(){      
+      var pwd=$('#pwd').val();
+      var nick=$('#nick').val();
+      var email=$('#email').val();      
+      var pwd_check=$('#pwd_check').val();
+      var birth=$('#year').val()+"/"+$('#month').val()+"/"+$('#day').val();
+      var gender=$('#demo-priority-low').val();
+      var tel=$('#tel1').val()+"-"+$('#tel2').val()+"-"+$('#tel3').val();
+      var addr=$('#addr1').val()+"-"+$('#addr2').val();
+      if(nick.trim()==""){
+         alert("nick입력")
+         $('#nick').focus();
+         return;
+      }
+      if(pwd.trim()==""){
+         alert("pwd입력")
+         $('#pwd').focus();
+         return;
+      }
+      if(pwd!=pwd_check){
+         alert("pwd check확인")
+         $('#pwd').focus();   
+         return;
+      }
+      if(email.trim()==""){
+         alert("email입력")
+         $('#email').focus();
+         return;
+      }
+      $('#infoCorrectionFrm').submit();
+            
+      
+      
+   })
 })
        
    </script>
 
 </head>
 <body>
-	<h3>복구중....</h3>
+   <h3>복구중....</h3>
 
 
-	<section class="wrapper style5" id="two">		
-		<div class="inner">
-			<h4>기본정보</h4>
-			<div class="table-wrapper">
-			<form name="infoCorrection_frm" action="infoCorrection_ok.do" method=post id=infoCorrectionFrm enctype="multipart/form-data">
-				<table class="infomodify">				  
-						<tr>
+   <section class="wrapper style5" id="two">      
+      <div class="inner">
+         <h4>기본정보</h4>
+         <div class="table-wrapper">
+         <form name="infoCorrection_frm" action="infoCorrection_ok.do" method=post id=infoCorrectionFrm enctype="multipart/form-data">
+            <table class="infomodify">              
+                  <tr>
 
-							<td rowspan="3">							
-								<input type='file' id="profile_img" name="user_img"/>
-								<img id="blah" src="#" alt="your image" style="height:16em"/>				
-							</td>
-						
-							<th>ID</th>							
-							<td>
-								<input type="text" name=id id="id" value="${id }" readonly="readonly">
-							</td>
-															
-							<th>Nickname</th>							
-							<td>
+                     <td rowspan="3">                     
+                        <input type='file' id="profile_img" name="user_img"/>
+                        <img id="blah" src="#" alt="your image" style="height:16em"/>            
+                     </td>
+                  
+                     <th>ID</th>                     
+                     <td>
+                        <input type="text" name=id id="id" value="${id }" readonly="readonly">
+                     </td>
+                                             
+                     <th>Nickname</th>                     
+                     <td>
 
-								<input type="text" name=nick id="nick" value="${vo.user_nick }">
+                        <input type="text" name=nick id="nick" value="${vo.user_nick }">
 
-							</td>
-							
-						</tr>
-						<tr>
-							<th>Password</th>
-							<td><input type="password" name=pwd id="pwd" value=""  /></td>
-							<th>Password check</th>
-							<td><input type="password" id="pwd_check" value="" /></td>
-						</tr>
-						<tr >
-							
-							<th>E-Mail</th>
-							<td colspan=3 style="padding-top: 2em;">
-								<input type="email" name=email id="email" value="${vo.user_mail }" size="8" style="width: 20em;display:inline;"/>
-							</td>
-						</tr>
-				</table>
-				<hr/>
-				
-				<h4>추가정보</h4>
-				
-				<table class="infomodify">
+                     </td>
+                     
+                  </tr>
+                  <tr>
+                     <th>Password</th>
+                     <td><input type="password" name=pwd id="pwd" value=""  /></td>
+                     <th>Password check</th>
+                     <td><input type="password" id="pwd_check" value="" /></td>
+                  </tr>
+                  <tr >
+                     
+                     <th>E-Mail</th>
+                     <td colspan=3 style="padding-top: 2em;">
+                        <input type="email" name=email id="email" value="${vo.user_mail }" size="8" style="width: 20em;display:inline;"/>
+                     </td>
+                  </tr>
+            </table>
+            <hr/>
+            
+            <h4>추가정보</h4>
+            
+            <table class="infomodify">
 
-						<tr>
-							<th>생년월일</th>
-							<td>
-							<div id="demo">
-								<select name=year id=year>
-								 <c:forEach begin="1960" end="2010" var="y">
-								   <option value=${y }>${y }Year</option>
-								 </c:forEach>								 							 
-								</select>      						
-   							</div>
-   							</td>
-   							
-   							<td>
-   							 <div id="demo" >
+                  <tr>
+                     <th>생년월일</th>
+                     <td>
+                     <div id="demo">
+                        <select name=year id=year>
+                         <c:forEach begin="1960" end="2010" var="y">
+                           <option value=${y }>${y }Year</option>
+                         </c:forEach>                                               
+                        </select>                        
+                        </div>
+                        </td>
+                        
+                        <td>
+                         <div id="demo" >
 
-   							   <select name=month id=month>
-	   							  <c:forEach begin="01" end="12" var="m">	   							  
-									<option value=${m }>${m }Month</option>
-								  </c:forEach>
-								 </select>
-							  </div>
-   							</td>
-   							
-   							  
-   							<td>
-   							  <div id="demo" >
-   							    <select name=day id=day>
-	   							 <c:forEach begin="01" end="31" var="d">
+                           <select name=month id=month>
+                             <c:forEach begin="01" end="12" var="m">                             
+                           <option value=${m }>${m }Month</option>
+                          </c:forEach>
+                         </select>
+                       </div>
+                        </td>
+                        
+                          
+                        <td>
+                          <div id="demo" >
+                            <select name=day id=day>
+                            <c:forEach begin="01" end="31" var="d">
 
-									<option value=${d }>${d }day</option>
-								 </c:forEach>
-								</select>
-							   </div>
-   							</td>
-   							
-						</tr>
-						 <tr>
-							<th >성별</th>
-							<td colspan="3">	
-							<input type="radio" class="gender" id="demo-priority-low" name="demo-priority" value="남자"/>
-							<label for="demo-priority-low">male</label>
-							<input type="radio" class="gender" id="demo-priority-normal" name="demo-priority" value="여자"/>
-							<label for="demo-priority-normal">female</label>
-							</td>
-						</tr>
-						<tr>
-							<th>Mobile</th>
-							<td class="phonemy1" colspan="3">
-								<select id="tel1" name=tel1  style="width: 5em; display: inline;">
-									<option value="010">010</option>
-									<option value="011">011</option>
-									<option value="017">017</option>
-									<option value="016">016</option>
-								</select>						
-								- <input type="text" id="tel2" name=tel2 size="4" style="width: 8em; display: inline;" >
-								- <input type="text" id="tel3" name=tel3 size="4" style="width: 8em; display: inline;">
-							</td>							
-						</tr>
-						<tr>
-				            <th>우편번호</th>
-							<td class="post" colspan="3">				
-								<input type="text" id="post1" name=post1 size="4" readonly="readonly" style="width: 8em; display: inline; " >
-								- <input type="text" id="post2" name=post2 size="4" readonly="readonly" style="width: 8em; display: inline;">
-								<input type=button value="우편번호 검색" onclick="postfind()">
-							</td>	
-				         </tr>
-				         <tr>
-				            <th>주소</th>
-				            <td colspan="3">
-				               <input type=text name=addr1 size=45 id=addr1 readonly>
-				            </td>
-				         </tr>
-				         <tr>
-				            <th>상세주소</th>
-				            <td colspan="3">
-				               <input type=text name=addr2 size=45  id=addr2 >
-				            </td>
-				         </tr>
-				</table>
-				<table>
-					<thead>
-						<tr><b>Introduce Yourself, shortly!</b></tr>
-					</thead>
-					<tbody>
-						<textarea rows="4" cols="50" name=introduce>${vo.user_introduce }</textarea>
-					</tbody>
-					
+                           <option value=${d }>${d }day</option>
+                         </c:forEach>
+                        </select>
+                        </div>
+                        </td>
+                        
+                  </tr>
+                   <tr>
+                     <th >성별</th>
+                     <td colspan="3">   
+                     <input type="radio" class="gender" id="demo-priority-low" name="demo-priority" value="남자"/>
+                     <label for="demo-priority-low">male</label>
+                     <input type="radio" class="gender" id="demo-priority-normal" name="demo-priority" value="여자"/>
+                     <label for="demo-priority-normal">female</label>
+                     </td>
+                  </tr>
+                  <tr>
+                     <th>Mobile</th>
+                     <td class="phonemy1" colspan="3">
+                        <select id="tel1" name=tel1  style="width: 5em; display: inline;">
+                           <option value="010">010</option>
+                           <option value="011">011</option>
+                           <option value="017">017</option>
+                           <option value="016">016</option>
+                        </select>                  
+                        - <input type="text" id="tel2" name=tel2 size="4" style="width: 8em; display: inline;" >
+                        - <input type="text" id="tel3" name=tel3 size="4" style="width: 8em; display: inline;">
+                     </td>                     
+                  </tr>
+                  <tr>
+                        <th>우편번호</th>
+                     <td class="post" colspan="3">            
+                        <input type="text" id="post1" name=post1 size="4" readonly="readonly" style="width: 8em; display: inline; " >
+                        - <input type="text" id="post2" name=post2 size="4" readonly="readonly" style="width: 8em; display: inline;">
+                        <input type=button value="우편번호 검색" onclick="postfind()">
+                     </td>   
+                     </tr>
+                     <tr>
+                        <th>주소</th>
+                        <td colspan="3">
+                           <input type=text name=addr1 size=45 id=addr1 readonly>
+                        </td>
+                     </tr>
+                     <tr>
+                        <th>상세주소</th>
+                        <td colspan="3">
+                           <input type=text name=addr2 size=45  id=addr2 >
+                        </td>
+                     </tr>
+            </table>
+            <table>
+               <thead>
+                  <tr><b>Introduce Yourself, shortly!</b></tr>
+               </thead>
+               <tbody>
+                  <textarea rows="4" cols="50" name=introduce>${vo.user_introduce }</textarea>
+               </tbody>
+               
 
-					<tfoot/> 					
-				</table>
-				<table >
-					 <tr height=30>
-			            <td colspan=2 align=center style="background-color: white;">
-			               <input type=button value="Modify" id=sendBtn>
-			               <input type=button value="Cancel">
-			            </td>
-			         </tr>
-			    </table>
-				</form>
+               <tfoot/>                
+            </table>
+            <table >
+                <tr height=30>
+                     <td colspan=2 align=center style="background-color: white;">
+                        <input type=button value="Modify" id=sendBtn>
+                        <input type=button value="Cancel">
+                     </td>
+                  </tr>
+             </table>
+            </form>
 
-			</div>
-		</div>
-	</section>
+         </div>
+      </div>
+   </section>
 
-	
-<!-- 			달력 
-			<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-			<script src="../assets/js/dcalendar.picker.js"></script>
-				<script>
-				$('#calendar-demo').dcalendar();
-				$('#dt').dcalendarpicker();
-				</script> -->
-			
+   
+<!--          달력 
+         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+         <script src="../assets/js/dcalendar.picker.js"></script>
+            <script>
+            $('#calendar-demo').dcalendar();
+            $('#dt').dcalendarpicker();
+            </script> -->
+         
 </body>
 </html>
