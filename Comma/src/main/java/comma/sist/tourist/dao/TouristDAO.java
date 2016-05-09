@@ -45,7 +45,7 @@ private static SqlSessionFactory   ssf;
           
           UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
           TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
-          System.out.println("보잉테스트:"+tv.getText_time1()+","+tv.getText_time2());
+          //System.out.println("보잉테스트:"+tv.getText_time1()+","+tv.getText_time2());
           //list에 합치기_user
           tv.getUservo().setUser_nick(uv.getUser_nick());
           tv.getUservo().setUser_img(uv.getUser_img());
@@ -244,7 +244,7 @@ private static SqlSessionFactory   ssf;
 		
 		SqlSession session = ssf.openSession();
 		int text_no = session.selectOne("textnoSearch1",no);
-		System.out.println(text_no);
+		//System.out.println(text_no);
 		session.close();
 		
 		session = ssf.openSession(true);
@@ -282,13 +282,13 @@ private static SqlSessionFactory   ssf;
  		SqlSession session=ssf.openSession();
  		List<TouristResVO> vo = session.selectList("tourResInfo",no);
  		if(vo.isEmpty()){
- 			System.out.println("dao예약안했음");
+ 			//System.out.println("dao예약안했음");
  			session.close();
  			return null;
  		}else{
- 			System.out.println("예약자:"+vo.size());
+ 			//System.out.println("예약자:"+vo.size());
 	 		for(int i=0; i<vo.size(); i++){
-	 			System.out.println(vo.get(i).getUser_nick()+",ID:"+vo.get(i).getUser_id());
+	 			//System.out.println(vo.get(i).getUser_nick()+",ID:"+vo.get(i).getUser_id());
 	 		}
 	 		session.close();
  		}

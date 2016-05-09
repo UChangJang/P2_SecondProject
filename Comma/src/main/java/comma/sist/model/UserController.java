@@ -199,12 +199,19 @@ public class UserController {
 		
 		List<TextVO> guidevo2=new ArrayList<TextVO>();		//진짜 저장해서 넘길 공간
 		List<TextVO> guidevo=GuideDAO.myGuideWriter(id);	//1.내가 쓴 가이드글들 들고옴
-		
+		List<TextVO> guideResvo = new ArrayList<TextVO>();
 		for(TextVO vo:guidevo){
 			int guideno=vo.getGuidevo().getGuide_no();
 			//System.out.println("가이드글번호:"+guideno);
+			List<TextVO> gvo = ReservationDAO.reserveData(guideno);
+			if(gvo!=null){
+				for(TextVO v:gvo){
+					guideResvo.add(v);
+				}
+			}
 			
 			String respeople=GuideDAO.myGuideWriterPerson(guideno);		//예약한 인원 수
+			if(respeople==null) respeople="0";
 			vo.getGuidevo().setReservation_person(respeople);
 			guidevo2.add(vo);			
 		}
@@ -220,11 +227,12 @@ public class UserController {
 			
 			String respeople=TouristDAO.myTourWriterPerson(tourno);	//*각 투어글마다 예약한 인원
 			//System.out.println("투어번호:"+tourno+",예약자인원"+respeople);
+			if(respeople==null) respeople="0";
 			vo.getTouristvo().setReservation_person(respeople);
 			
 			List<TouristResVO> rvo=TouristDAO.tourResInfo(tourno);	//3.*내투어에 예약한 사람들 정보 불러오기
 			if(rvo==null){
-				System.out.println("controller예약자가 없네요");
+				//System.out.println("controller예약자가 없네요");
 			}else{
 				vo.setTourresvo(rvo);//list들 추가
 			}
@@ -233,7 +241,8 @@ public class UserController {
 
 		req.setAttribute("guidevo", guidevo2);
 		req.setAttribute("touristvo", touristvo2);		
-
+		req.setAttribute("guideResvo", guideResvo);
+		
 		req.setAttribute("jsp", "mypage/mypage.jsp");
 		req.setAttribute("mypage", "mypage/mypage_mywriter.jsp");		
 		}catch(Exception e){

@@ -93,7 +93,29 @@ public class GuideController {
 		map.put("end", end);		
 		
 		List<TextVO> list = GuideDAO.guideAllData(map);
-
+		// 여러개의 사진인 경우
+		List<String> imgList = new ArrayList<String>();
+		for(TextVO vo:list){
+			if(vo.getGuidevo().getGuide_img()!=null){
+				StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
+				String ss = st.nextToken();
+				int k=0;
+				while(st.hasMoreTokens()){
+					if(k==0) {
+						imgList.add(ss);
+						k++;
+					}
+					else{
+						imgList.add(st.nextToken());
+					}
+				}
+				if(imgList.size()>1){
+					vo.getGuidevo().setGuide_img(ss);
+				}
+			}
+		}
+		
+		
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
@@ -481,6 +503,27 @@ public class GuideController {
 		map.put("end", end);
 
 	      List<TextVO> list= GuideDAO.guideSearchDe(map);
+	      // 여러개의 사진인 경우
+			List<String> imgList = new ArrayList<String>();
+			for(TextVO vo:list){
+				if(vo.getGuidevo().getGuide_img()!=null){
+					StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
+					String ss = st.nextToken();
+					int k=0;
+					while(st.hasMoreTokens()){
+						if(k==0) {
+							imgList.add(ss);
+							k++;
+						}
+						else{
+							imgList.add(st.nextToken());
+						}
+					}
+					if(imgList.size()>1){
+						vo.getGuidevo().setGuide_img(ss);
+					}
+				}
+			}
 	      if(!list.isEmpty()){
 			   System.out.println("비어있지 않아요");
 			   System.out.println(list.get(0).getText_move());
@@ -536,6 +579,27 @@ public class GuideController {
 			   map.put("people", people);
 			   map.put("date", date);
 			   list = GuideDAO.guide_sort_detail(map, type); 	//start,end,place _ type
+			    // 여러개의 사진인 경우
+			    List<String> imgList = new ArrayList<String>();
+				for(TextVO vo:list){
+					if(vo.getGuidevo().getGuide_img()!=null){
+						StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
+						String ss = st.nextToken();
+						int k=0;
+						while(st.hasMoreTokens()){
+							if(k==0) {
+								imgList.add(ss);
+								k++;
+							}
+							else{
+								imgList.add(st.nextToken());
+							}
+						}
+						if(imgList.size()>1){
+							vo.getGuidevo().setGuide_img(ss);
+						}
+					}
+				}
 			   if(!list.isEmpty()){
 				   System.out.println("비어있지 않아요");
 				   System.out.println(list.get(0).getText_move());
