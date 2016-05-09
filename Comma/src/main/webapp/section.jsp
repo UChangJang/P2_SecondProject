@@ -244,7 +244,7 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
                               </c:if>
                           </c:forEach>
                       </c:forEach>
-                      ${vo.reviewvo.review_score }점입니다
+                      ${vo.reviewvo.review_score }점
                       가이드의 총 글 수 :${vo.guidevo.guide_no }  
                       가이드에게 달린 총 리뷰수 : ${vo.reviewvo.review_no }
                   </div>
