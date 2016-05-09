@@ -3,15 +3,21 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>guide</title>
+<title>Guide</title>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
 
 <script type="text/javascript">
+
 	$(function(){
-		
-		//sendMessage("POST", "tourist_nextPrev.do", null, tourContent);
+		if("${place }"!=""){
+			//alert("상세검색하셨습니다."+"${place}"+","+"${method}"+","+"${people}"+","+"${date}");
+			place.value="${place}";
+			$("input#${method}").attr ("checked", "checked");
+			people.value="${people}";
+			document.getElementById('dt').value = "${date}"
+		} 
 		
 		//1.검색했을 때
 		$('#guideSearch').click(function(){		//select_지역선택
@@ -111,7 +117,7 @@
 					
 					<div class="9u 12u$(xsmall)">
 						<div class="select-wrapper tourist_local">
-							<select name="text_loc1" id="place">					<!-- place -->
+							<select name="place" id="place">					<!-- place -->
 								   <option value="">- PLACE -</option>
 		                           <option value="SEOUL">SEOUL</option>
 		                           <option value="DAEGU">DAEGU</option>
@@ -205,7 +211,7 @@
 
 	<!-- 3x3가이드리스트 출력 -->
 	<div id="guideList">
-		<jsp:include page="guideList.jsp"></jsp:include>
+		<jsp:include page="${innerjsp }"></jsp:include>
 	</div>
 
 </article>

@@ -29,9 +29,11 @@ public class HotspotDAO {
 	
 	// 선호지역에 해당하는 가이드 게시글 가져오기
 	public static List<HotspotVO> allGiudeBoard(String search_loc){		
-		System.out.println(search_loc);
+		System.out.println(search_loc+"hi");
 		SqlSession session=ssf.openSession();
+		System.out.println("aa");
 		List<HotspotVO> list=session.selectList("allGuideBoard", search_loc);
+		System.out.println("bb");
 		// changeDate
 		System.out.println("list.size(): "+list.size());
 		for(int i=0;i<list.size();i++){
