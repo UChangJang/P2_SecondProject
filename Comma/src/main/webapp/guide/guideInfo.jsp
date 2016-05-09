@@ -10,48 +10,52 @@
 <body>
 <!-- Main -->
 <article id="main">
-	<header>
-		<h2>[제목]서울도심투어</h2>
-		<p>재밌는 관광</p>
+	<header id="header_guideInfo">
+		<br/><br/><br/>
+		<h1 style="font-size:2em;">Guide Information</h1>
+		<br/>
+		<h1 style="font-size:1.5em;"><font color="#0264a3">Guide&nbsp;&nbsp;</font>[ ${uvo.user_nick } ]</h1>
+		<br/><br/>
 	</header>
 	
 	<section class="wrapper style5">
 		<div class="inner">
-			
+			<div align=center><h2>Guide Profile</h2></div>
 			<div class="row side0">
-				<div class="9u 12u$(medium)">								<!-- 1 왼쪽 -->
-					<div align=center><h2>Guide Profile</h2></div>
+				
+				<div class="5u 12u$(medium)">								<!-- 1 왼쪽 -->
 					<div align=center class="mypictureInfo">
 					<img src="http://211.238.142.74:8080/controller/profile/${uvo.user_img }">		
 						<div class="topBoardShort">${uvo.user_name }</div>
-						<div class="topBoardShort"><br>
-						<table width="300">
+					</div>
+				</div>	
+				
+					<div class="7u$ 12u$(medium)">	
+						<div class="topBoardShort"><br><br>
+						<table>
 							<tr>
-								<td align=right>Gender:</td>
-								<td>${uvo.user_sex }</td>
+								<td align=center>Gender</td>
+								<td><c:if test="${uvo.user_sex =='남자'}">Man</c:if><c:if test="${uvo.user_sex =='여자'}">Woman</c:if></td>
 							</tr>
 							<tr>
-								<td align=right>NickName:</td>
+								<td align=center>NickName</td>
 								<td>${uvo.user_nick }</td>
 							</tr>
 							<tr>
-								<td align=right>Birth:</td>
+								<td align=center>Birth</td>
 								<td>${uvo.user_birth }</td>
 							</tr>
 						</table>
 						</div>							
 					</div>
 				</div>
+
 				
-				
-				
-				<div class="9u 12u$(medium) side1">
-				
+				<div class="12u 12u$(medium) side1">
 					<!-- 가이드 소개 -->
 					<hr id="intropeople"/>
 					<h5>Guide Introduce</h5>
-					<textarea style="height:20em">${uvo.user_introduce }</textarea>
-
+					<textarea style="height:14em" readonly="readonly"><c:if test="${uvo.user_introduce ==null}">No guide introduce</c:if>${uvo.user_introduce }</textarea>
 					
 					<!-- 가이드가 쓴 글 (사진+내용) -->
 					<hr id="pic"/>
@@ -70,7 +74,7 @@
 							<span class="image fit a">
 								<table class="plusDetail" >	
 									<tr align=center>
-										<td style="font-size: 12pt"><b>[<font color="red">${vo.text_loc }</font>] ${vo.guidevo.guide_subject }</b></td>
+										<td style="font-size: 12pt"><b>[ ${vo.text_loc } ]&nbsp;&nbsp;${vo.guidevo.guide_subject }</b></td>
 									</tr>
 									<tr>
 										<td align="center">Vehicle: <font color="red">${vo.text_move }</font> &nbsp;&nbsp;&nbsp;&nbsp; Time Required: <font color="red">${vo.text_time }hour</font></td>		
@@ -89,12 +93,12 @@
 		
 				<!-- 후기 -->
 				<hr id="mention"/>
-				<h5>Review</h5>
+				<h4>Review</h4>
 				<div class="box alt">
 					<div class="row uniform 50%">
 					
 					<c:forEach var="review" items="${reviewList }">
-						<div class="2u">
+						<div class="3u">
 							<span class="mypictureReview"> <a href="#">
 								<img src="http://211.238.142.74:8080/controller/profile/${review.uservo.user_img }" alt="" /></a>
 							</span>
@@ -132,11 +136,6 @@
 				</div>
 
 				<hr />
-					<!-- <ul class="actions fit small">
-						<li><button class="button special fit small" id="messageWrite">Message To</button></li>
-						<li><button class="button fit small" id="reserveBtn">Reserve</button></li>
-						<li><button class="button special fit small" id="wishBtn">Wish</button></li>
-					</ul> -->
 	
 				</div>
 		

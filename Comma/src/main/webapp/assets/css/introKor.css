@@ -1,9 +1,4 @@
 @CHARSET "EUC-KR";
-
-/* .image {
-    position:relative;
-    float:left; optional
-} */
 .image .text{ 
 position:absolute;
 background-color:#ffffff;
@@ -99,14 +94,42 @@ opacity:0.5;}
 	background-repeat: no-repeat;
 	background-size: cover;
 	text-align: center;
+	margin-top: -1em;
 }
 #header_guideList p{
 	text-align: center;
 	width: 30em;
 }
 
+#main > #header_guideBoard{	
+	padding: 7em 14em 5em 14em ;		/* 상단이미지 12em 0 10em 0 ; */
+	background-image: url("../../images/guide_back.jpg");
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+#header_guideBoard p{
+	text-align: center;
+	width: 30em;
+	padding: 7em 14em 5em 14em ;
+}
 
-
+#main > #header_guideInfo{	
+	padding: 7em 14em 5em 14em ;		/* 상단이미지 12em 0 10em 0 ; */
+	background-image: url("../../images/guide_back.jpg");
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+}
+#header_guideInfo p{
+	text-align: center;
+	width: 30em;
+	padding: 7em 14em 5em 14em ;
+}
 /* #header_guideList video{
 	position: absolute;
 	top:0px;
