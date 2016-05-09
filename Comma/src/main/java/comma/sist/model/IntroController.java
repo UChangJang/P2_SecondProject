@@ -6,6 +6,8 @@ import javax.servlet.http.HttpSession;
 import comma.sist.common.TextVO;
 import comma.sist.controller.*;
 import comma.sist.guide.dao.GuideDAO;
+import comma.sist.guide_find.GuideFindDAO;
+import comma.sist.guide_find.GuideFindVO;
 import comma.sist.hotspot.HotspotDAO;
 import comma.sist.hotspot.HotspotVO;
 import comma.sist.hotspot.SearchVO;
@@ -27,17 +29,20 @@ public class IntroController {
 		List<TextVO> bestGuide=GuideDAO.bestGuide();
 		List<SearchVO> slist= HotspotDAO.searchLocFind();		// hotspot
 		List<HotspotVO> hlist=new ArrayList<HotspotVO>();
+		List<GuideFindVO> flist=GuideFindDAO.guideFind();
+		
 		for(int i=0;i<slist.size();i++){
 			String search_loc=slist.get(i).getSearch_loc();
 
 			hlist=HotspotDAO.allGiudeBoard(search_loc);
-
 		}
 
 		req.setAttribute("bestGuide", bestGuide);
 		req.setAttribute("slist", slist);						// hotspot ÀúÀå
 		req.setAttribute("hlist", hlist);
 		req.setAttribute("wlist", wlist);
+		req.setAttribute("flist", flist);
+		
 		req.setAttribute("jsp", "section.jsp");
 		return "main.jsp";
 	}
@@ -82,7 +87,6 @@ public class IntroController {
 	public String hotspot(HttpServletRequest req){
 		String loc=req.getParameter("loc");
 		List<HotspotVO> list =HotspotDAO.allGiudeBoard(loc);
-		
 		req.setAttribute("list", list);
 		
 		return "best_spot.jsp";

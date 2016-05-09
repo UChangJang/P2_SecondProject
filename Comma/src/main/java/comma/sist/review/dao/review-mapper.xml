@@ -10,7 +10,7 @@
     select guide.guide_no guide_no,guide_subject,guide.user_id user_id
     from guide,reservation,text
     where reservation_check='n'and text_end='n' and guide.text_no=text.text_no and 
-    reservation.guide_no=guide.guide_no and reservation.user_id=#{id}
+    reservation.guide_no=guide.guide_no and reservation.user_id=#{id} 
     </select>
     <insert id="reviewWrite" parameterType="Review">
 		insert into review values(
