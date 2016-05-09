@@ -94,7 +94,12 @@
 		 where review.user_id=users.user_id and guide_no=#{guide_no}
 	</select>
 	
-
+	
+	<!-- 가이드 검색 히트수 증가 -->
+	<update id="searchHitIncrease" parameterType="String">
+		update search set search_hit=search_hit+1 where search_loc=#{search_loc}
+	</update>
+	
  	<select id="myGuideWriter" parameterType="String" resultMap="comma.sist.common.text-mapper.TextList"> 
 	  SELECT guide_no,guide_subject,text_regdate,text_total_person,text_end,text_loc
       FROM guide,text

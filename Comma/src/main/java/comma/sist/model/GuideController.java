@@ -457,11 +457,15 @@ public class GuideController {
 			
 	      List<TextVO> list= GuideDAO.guideSearchPlace(map);
 	      if(!list.isEmpty()){
-			   System.out.println("비어있지 않아요");
+			   //System.out.println("비어있지 않아요");
 			   System.out.println(list.get(0).getText_move());
 		   }else{
-			   System.out.println("비어있음");
+			   //System.out.println("비어있음");
 		   }
+	      
+	      // 가이드 검색 히트수 증가
+	      GuideDAO.searchHitIncrease(place);
+	      
 	      request.setAttribute("list", list);
 	      request.setAttribute("curpage", curpage);
 	      request.setAttribute("totalpage", totalpage);
@@ -503,7 +507,7 @@ public class GuideController {
 		map.put("end", end);
 
 	      List<TextVO> list= GuideDAO.guideSearchDe(map);
-	      // 여러개의 사진인 경우
+	        // 여러개의 사진인 경우
 			List<String> imgList = new ArrayList<String>();
 			for(TextVO vo:list){
 				if(vo.getGuidevo().getGuide_img()!=null){
@@ -524,12 +528,16 @@ public class GuideController {
 					}
 				}
 			}
-	      if(!list.isEmpty()){
-			   System.out.println("비어있지 않아요");
+	       if(!list.isEmpty()){
+			   //System.out.println("비어있지 않아요");
 			   System.out.println(list.get(0).getText_move());
 		   }else{
-			   System.out.println("비어있음");
+			   //System.out.println("비어있음");
 		   }
+	      
+	      // 가이드 검색 히트수 증가
+	      GuideDAO.searchHitIncrease(place);
+	      
 	      request.setAttribute("list", list);
 	      request.setAttribute("curpage", curpage);
 	      request.setAttribute("totalpage", totalpage);
