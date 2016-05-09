@@ -107,9 +107,8 @@
 						<tr id="boyoung">
 							<td>${vo.touristvo.tour_no }</td>
 							<!-- 목록내 번호 -->
-							<td><a href="tourist.do?no=${vo.touristvo.tour_no }">
-									${vo.text_loc }</a></td>
-							<td>${vo.touristvo.tour_theme }</td>
+							<td>${vo.text_loc }</td>
+							<td id="myTour${vo.touristvo.tour_no }" class="myTour" style="cursor: pointer;">${vo.touristvo.tour_theme }</td>
 							<td><fmt:formatDate value="${vo.text_regdate }"
 									pattern="yy/MM/dd" /></td>
 							<td class="mytourRBtn">
@@ -176,7 +175,45 @@
 		</table>
 		</form>
 	</c:forEach>
-	
+	<c:forEach var="tourvo" items="${touristvo }">
+	                <form class="white-popup mfp-hide" id="tourPopUp${tourvo.touristvo.tour_no }">
+	                  <h1>TourDetail</h1>
+	                    <table>
+	                     	<tr>
+	                     	  <td width="30%" align="right">tour</td>
+	                     	  <td width="70%" align="left">${tourvo.uservo.user_id}</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">tour date</td>
+	                     	  <td width="70%" align="left">${tourvo.text_tour_date }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">tour time</td>
+	                     	  <td width="70%" align="left">${tourvo.text_time1 }${tourvo.text_time2 }~${tourvo.text_time3 }${tourvo.text_time4 }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">cost</td>
+	                     	  <td width="70%" align="left">${tourvo.text_cost }</td>
+	                     	</tr>
+	                     	
+	                     	<tr>
+	                     	  <td width="30%" align="right">method</td>
+	                     	  <td width="70%" align="left">${tourvo.text_move }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">people</td>
+	                     	  <td width="70%" align="left">${tourvo.text_total_person }</td>
+	                     	</tr>	                     
+	                     	
+	                     	<tr>
+	                     	  <td colspan="2" align="center">내용</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${tourvo.touristvo.tour_detail}</textarea></td>
+	                     	</tr>
+	                     </table>         
+	               </form> 
+	               </c:forEach>  
 	</section>
 
 
@@ -279,9 +316,6 @@
 		$('.tourDelwritten').click(function(){
 			var id = $(this).attr('id');
 			var no = id.substring(12);
-			
-			alert(no);
-			
 			var c = $('#frm_wrtD').attr('action');
 			var param = c+no;
 			
@@ -289,6 +323,28 @@
 			$('#frm_wrtD').submit();
 			
 		});
+		$('.myTour').click(function(){
+			var id=$(this).attr('id');
+			var no = id.substring(6);
+			$.magnificPopup.open({
+				items : {
+					src : '#tourPopUp'+no,
+					type : 'inline'
+				},
+				preloader : false,
+				focus : '#name',
+				callbacks : {
+					beforeOpen : function() {
+						if ($(window).width() < 700) {
+							this.st.focus = false;
+						} else {
+							this.st.focus = '#messageTextarea';
+						}
+					}
+				}
+
+			});
+		})
 		
 
 	</script>

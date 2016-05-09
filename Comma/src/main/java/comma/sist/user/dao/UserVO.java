@@ -14,8 +14,17 @@ public class UserVO {
 	private String		user_sex;
 	private String		user_addr;
 	private String		user_introduce;
+	private String 		user_tel;
 	
 	
+	
+	
+	public String getUser_tel() {
+		return user_tel;
+	}
+	public void setUser_tel(String user_tel) {
+		this.user_tel = user_tel;
+	}
 	public String getUser_id() {
 		return user_id;
 	}

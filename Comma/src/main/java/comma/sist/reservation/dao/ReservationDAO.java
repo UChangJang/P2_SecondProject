@@ -80,15 +80,24 @@ private static SqlSessionFactory	ssf;
 	
 	public static void reserveGuideDelete(Map map){
 		SqlSession session = ssf.openSession();
-		int reservation_no = session.selectOne("reserveNoSearch",map);
+		int reservation_no = session.selectOne("reserveNoSearch_g",map);
 		session.close();
 		
 		session = ssf.openSession(true); // true
-		session.delete("reserveDeleteGuide",reservation_no);
+		session.delete("reserveDeleteGT",reservation_no);
 		session.close();
 		
 	}
 	
+	public static void reserveTourDelete(Map map){
+		SqlSession session = ssf.openSession();
+		int reservation_no = session.selectOne("reserveNoSearch_t",map);
+		session.close();
+		
+		session = ssf.openSession(true); // true
+		session.delete("reserveDeleteGT",reservation_no);
+		session.close();
+	}
 	
 	
 }

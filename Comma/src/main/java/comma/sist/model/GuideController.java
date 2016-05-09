@@ -39,12 +39,28 @@ public class GuideController {
 		int end = rowSize*curpage;
 		map.put("start", start);
 		map.put("end", end);
-		
 
 		List<TextVO> list = GuideDAO.guideAllData(map);
-		
 		GuideDAO.avgStar(list); // 별점 평균
 		GuideDAO.imgArrangement(list); // 여러개 사진 처리
+		
+		int i=0;
+		for(TextVO vo:list){
+			int guide_no=vo.getGuidevo().getGuide_no();
+			String sumTemp=ReservationDAO.reserveGuideCheck(guide_no);	//예약가능한지
+			if(sumTemp==null) sumTemp="0";
+			int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
+			int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
+			System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+			if(total==sum){						//예약불가
+				list.get(i).setResNum(1);
+			}else if(total-sum<=3){					//마감임박
+				list.get(i).setResNum(0);
+			}else{
+				list.get(i).setResNum(2);
+			}
+			i++;
+		}
 		
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
@@ -77,7 +93,23 @@ public class GuideController {
 		GuideDAO.avgStar(list); // 별점 평균
 		GuideDAO.imgArrangement(list); // 여러개 사진 처리
 		
-		
+		int i=0;
+		for(TextVO vo:list){
+			int guide_no=vo.getGuidevo().getGuide_no();
+			String sumTemp=ReservationDAO.reserveGuideCheck(guide_no);	//예약가능한지
+			if(sumTemp==null) sumTemp="0";
+			int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
+			int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
+			System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+			if(total==sum){						//예약불가
+				list.get(i).setResNum(1);
+			}else if(total-sum<=3){					//마감임박
+				list.get(i).setResNum(0);
+			}else{
+				list.get(i).setResNum(2);
+			}
+			i++;
+		}
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
@@ -132,8 +164,10 @@ public class GuideController {
 		String guide_img3 = mr.getOriginalFileName("guide_img3");
 		String guide_detail3 = mr.getParameter("guide_detail3");
 		
+		String guide_map = mr.getParameter("guide_map");
+		System.out.println(guide_map);
 		
-		guide_detail = guide_detail+"<br>"+guide_detail2+"<br>"+guide_detail3;
+		guide_detail = guide_detail+"\n-\n"+guide_detail2+"\n-\n"+guide_detail3;
 		
 		if(guide_img2!=null && guide_img3==null){
 			guide_img = guide_img + "|" + guide_img2;		
@@ -177,7 +211,10 @@ public class GuideController {
 		String user_id = (String)session.getAttribute("id");
 		vo.getGuidevo().setUser_id(user_id);
 		
-		vo.getGuidevo().setGuide_map("임시용"); // 바꿔야됨
+		//vo.getGuidevo().setGuide_map("임시용"); // 바꿔야됨
+		guide_map = guide_map.substring(1,guide_map.lastIndexOf(')'));
+		System.out.println(guide_map);
+		vo.getGuidevo().setGuide_map(guide_map);
 		
 		if(guide_img==null){
 			vo.getGuidevo().setGuide_img("");
@@ -388,7 +425,24 @@ public class GuideController {
 	      
 	      // 가이드 검색 히트수 증가
 	      GuideDAO.searchHitIncrease(place);
-	      
+			int i=0;
+			for(TextVO vo:list){
+				int guide_no=vo.getGuidevo().getGuide_no();
+				String sumTemp=ReservationDAO.reserveGuideCheck(guide_no);	//예약가능한지
+				if(sumTemp==null) sumTemp="0";
+				int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
+				int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
+				System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+				if(total==sum){						//예약불가
+					list.get(i).setResNum(1);
+				}else if(total-sum<=3){					//마감임박
+					list.get(i).setResNum(0);
+				}else{
+					list.get(i).setResNum(2);
+				}
+				i++;
+			}
+			
 	      request.setAttribute("list", list);
 	      request.setAttribute("curpage", curpage);
 	      request.setAttribute("totalpage", totalpage);
@@ -434,7 +488,24 @@ public class GuideController {
 	      
 	      // 가이드 검색 히트수 증가
 	      GuideDAO.searchHitIncrease(place);
-	      
+			int i=0;
+			for(TextVO vo:list){
+				int guide_no=vo.getGuidevo().getGuide_no();
+				String sumTemp=ReservationDAO.reserveGuideCheck(guide_no);	//예약가능한지
+				if(sumTemp==null) sumTemp="0";
+				int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
+				int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
+				System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+				if(total==sum){						//예약불가
+					list.get(i).setResNum(1);
+				}else if(total-sum<=3){					//마감임박
+					list.get(i).setResNum(0);
+				}else{
+					list.get(i).setResNum(2);
+				}
+				i++;
+			}
+			
 	      request.setAttribute("list", list);
 	      request.setAttribute("curpage", curpage);
 	      request.setAttribute("totalpage", totalpage);
@@ -483,7 +554,24 @@ public class GuideController {
 
 		   if (totalpage == 0)
 				totalpage = 1;
-		   
+			int i=0;
+			for(TextVO vo:list){
+				int guide_no=vo.getGuidevo().getGuide_no();
+				String sumTemp=ReservationDAO.reserveGuideCheck(guide_no);	//예약가능한지
+				if(sumTemp==null) sumTemp="0";
+				int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
+				int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
+				System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+				if(total==sum){						//예약불가
+					list.get(i).setResNum(1);
+				}else if(total-sum<=3){					//마감임박
+					list.get(i).setResNum(0);
+				}else{
+					list.get(i).setResNum(2);
+				}
+				i++;
+			}
+			
 	      req.setAttribute("curpage", curpage);
 	      req.setAttribute("totalpage", totalpage);
 	      req.setAttribute("list", list);      
@@ -550,6 +638,24 @@ public class GuideController {
 			GuideDAO.avgStar(list); // 별점 평균
 			GuideDAO.imgArrangement(list); // 여러개 사진 처리
 
+			int i=0;
+			for(TextVO vo:list){
+				int guide_no=vo.getGuidevo().getGuide_no();
+				String sumTemp=ReservationDAO.reserveGuideCheck(guide_no);	//예약가능한지
+				if(sumTemp==null) sumTemp="0";
+				int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
+				int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
+				System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+				if(total==sum){						//예약불가
+					list.get(i).setResNum(1);
+				}else if(total-sum<=3){					//마감임박
+					list.get(i).setResNum(0);
+				}else{
+					list.get(i).setResNum(2);
+				}
+				i++;
+			}
+			
 			req.setAttribute("place", place);
 			req.setAttribute("method", method);
 			req.setAttribute("people", people);

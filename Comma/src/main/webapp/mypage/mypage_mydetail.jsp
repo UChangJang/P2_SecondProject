@@ -143,7 +143,15 @@ Shadowbox.init({
                      <div id="demo">
                         <select name=year id=year>
                          <c:forEach begin="1960" end="2010" var="y">
-                           <option value=${y }>${y }Year</option>
+                         
+                         	<c:if test="${year==y }">							
+								<option value=${y } selected="selected">${y }Year</option>
+							</c:if>
+							<c:if test="${year!=y }">						
+								<option value=${y }>${y }Year</option>
+							</c:if>
+                         
+                           
                          </c:forEach>                                               
                         </select>                        
                         </div>
@@ -154,7 +162,12 @@ Shadowbox.init({
 
                            <select name=month id=month>
                              <c:forEach begin="01" end="12" var="m">                             
-                           <option value=${m }>${m }Month</option>
+                           <c:if test="${month==m }">							
+								<option value=${m } selected="selected">${m }Month</option>
+							</c:if>
+							<c:if test="${month!=m }">						
+								<option value=${m }>${m }Month</option>
+							</c:if>
                           </c:forEach>
                          </select>
                        </div>
@@ -166,7 +179,12 @@ Shadowbox.init({
                             <select name=day id=day>
                             <c:forEach begin="01" end="31" var="d">
 
-                           <option value=${d }>${d }day</option>
+                          <c:if test="${day==d }">							
+								<option value=${d } selected="selected">${d }day</option>
+							</c:if>
+							<c:if test="${day!=d }">						
+								<option value=${d }>${d }day</option>
+							</c:if>
                          </c:forEach>
                         </select>
                         </div>
@@ -176,9 +194,9 @@ Shadowbox.init({
                    <tr>
                      <th >성별</th>
                      <td colspan="3">   
-                     <input type="radio" class="gender" id="demo-priority-low" name="demo-priority" value="남자"/>
+                     <input type="radio" class="gender" id="demo-priority-low" name="demo-priority" value="남자"  ${vo.user_sex eq '남자'?"checked":"" }/>
                      <label for="demo-priority-low">male</label>
-                     <input type="radio" class="gender" id="demo-priority-normal" name="demo-priority" value="여자"/>
+                     <input type="radio" class="gender" id="demo-priority-normal" name="demo-priority" value="여자" ${vo.user_sex eq '여자'?"checked":"" } />
                      <label for="demo-priority-normal">female</label>
                      </td>
                   </tr>
@@ -186,35 +204,16 @@ Shadowbox.init({
                      <th>Mobile</th>
                      <td class="phonemy1" colspan="3">
                         <select id="tel1" name=tel1  style="width: 5em; display: inline;">
-                           <option value="010">010</option>
-                           <option value="011">011</option>
-                           <option value="017">017</option>
-                           <option value="016">016</option>
+                        
+                           <option value="010" ${tel1 eq '010'?"selected":"" } >010</option>
+                           <option value="011" ${tel1 eq '011'?"selected":"" }>011</option>
+                           <option value="017" ${tel1 eq '017'?"selected":"" }>017</option>
+                           <option value="016" ${tel1 eq '016'?"selected":"" }>016</option>
                         </select>                  
-                        - <input type="text" id="tel2" name=tel2 size="4" style="width: 8em; display: inline;" >
-                        - <input type="text" id="tel3" name=tel3 size="4" style="width: 8em; display: inline;">
+                        - <input type="text" id="tel2" name=tel2 size="4" value="${tel2 }" style="width: 8em; display: inline;" >
+                        - <input type="text" id="tel3" name=tel3 size="4"  value="${tel3 }" style="width: 8em; display: inline;">
                      </td>                     
-                  </tr>
-                  <tr>
-                        <th>우편번호</th>
-                     <td class="post" colspan="3">            
-                        <input type="text" id="post1" name=post1 size="4" readonly="readonly" style="width: 8em; display: inline; " >
-                        - <input type="text" id="post2" name=post2 size="4" readonly="readonly" style="width: 8em; display: inline;">
-                        <input type=button value="우편번호 검색" onclick="postfind()">
-                     </td>   
-                     </tr>
-                     <tr>
-                        <th>주소</th>
-                        <td colspan="3">
-                           <input type=text name=addr1 size=45 id=addr1 readonly>
-                        </td>
-                     </tr>
-                     <tr>
-                        <th>상세주소</th>
-                        <td colspan="3">
-                           <input type=text name=addr2 size=45  id=addr2 >
-                        </td>
-                     </tr>
+                  </tr>  
             </table>
             <table>
                <thead>
