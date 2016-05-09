@@ -76,6 +76,7 @@
 						<td width="10%" align="center">${vo.text_tour_date }</td>
 						<td width="7%" align="center">${vo.reservationvo.reservation_check }</td>
 						<td width="7%"><input type="button" value="Del" class="reserve_tDel" id="reserveDelt${vo.touristvo.tour_no }"></td>
+						<form method="post" name="reserve_tDel_frm" action="mypage_reserve_tDel.do?no=" id="frm_resT"></form>
 					</tr>
 				  </c:forEach>
 				</tbody>
@@ -166,6 +167,21 @@
 		    /* var m = document.reserve_gDel_frm;
 			m.action = "mypage_reserve_gDel.do?no="+no;
 			m.submit(); */
+			
+		});
+		
+		$('.reserve_tDel').click(function(){
+			
+			var id = $(this).attr('id');
+			var no = id.substring(11);
+			
+			alert(no);
+			
+			var c = $('#frm_resT').attr('action');
+			var param = c+no;
+			
+			$('#frm_resT').attr('action',param);
+			$('#frm_resT').submit();
 			
 		});
 		

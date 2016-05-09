@@ -132,8 +132,10 @@ public class GuideController {
 		String guide_img3 = mr.getOriginalFileName("guide_img3");
 		String guide_detail3 = mr.getParameter("guide_detail3");
 		
+		String guide_map = mr.getParameter("guide_map");
+		System.out.println(guide_map);
 		
-		guide_detail = guide_detail+"<br>"+guide_detail2+"<br>"+guide_detail3;
+		guide_detail = guide_detail+"\n-\n"+guide_detail2+"\n-\n"+guide_detail3;
 		
 		if(guide_img2!=null && guide_img3==null){
 			guide_img = guide_img + "|" + guide_img2;		

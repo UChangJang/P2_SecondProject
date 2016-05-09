@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <title>가이드 글 작성</title>
 <link rel="stylesheet" type="text/css" href="../controller/assets/css/introKor.css" />
-<!-- 사진 삽입 코드 (url:http://touchsoul.tistory.com/84) -->
-<!-- <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.0.min.js"></script> -->
 <script type="text/javascript">
 	$(function() {
 		$("#profile_img").on('change', function() {
@@ -53,6 +51,12 @@
 			reader.readAsDataURL(input.files[0]);
 		}
 	}
+	
+	$('.qwer').click(function(){
+		
+		alert(dfsdf);
+	});
+	
 </script>
 
 </head>
@@ -68,7 +72,7 @@
 
 
 	<section> <!-- 글쓰기 -->
-	<form method="post" action="guideWrite_ok.do" id="guideInsertFmt" enctype="multipart/form-data">
+	<form method="post" action="guideWrite_ok.do" id="guideInsertFmt" enctype="multipart/form-data" name="guideInsertFmt">
 		<div class="row uniform" id="guideWrite_text">
 			<div class="2u 12u$(xsmall)">
 				<!-- 1 왼쪽 : 제목-->
@@ -319,7 +323,16 @@
 				<input type="text" name="guide_meet" id="demo-name" value=""
 					placeholder="Meet place" />
 			</div>
-
+			<div class="2u 12u$(xsmall)">
+				<h5>Map</h5>
+			</div>
+			<div class="10u$ 12u$(xsmall)">
+				<div style="height:15em">
+					<jsp:include page="../map.jsp"></jsp:include>
+					<input type="text" name="guide_map" value="">
+					<div id="map_canvas" style="width:100%; height:100%"></div>
+				</div>
+			</div>
 
 			<div class="2u 12u$(xsmall)">
 				<!-- 7 왼쪽 : 관광날짜-->
