@@ -83,18 +83,14 @@ public class TouristController {
       int end=curpage*rowSize;					//20
       map.put("start", start);
       map.put("end", end);
-      System.out.println("touristController입니다.....1");
+      
       List<TextVO> list=TouristDAO.touristFiveData(map);   //1과 5 넘겨줌=>5개의 touristVO만 가져오게 됨
-      System.out.println("touristController입니다.....2");
       int totalpage=TouristDAO.boardTotalPage();   //총페이지수=5page
    
       //req.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
       req.setAttribute("curpage", curpage);
       req.setAttribute("totalpage", totalpage);
-      req.setAttribute("list", list);              
-	  
-      System.out.println("끝------------------------글번호:"+start+","+end);
-      
+      req.setAttribute("list", list);                    
       
       return "tourist/touristList.jsp";
    }
@@ -125,10 +121,9 @@ public class TouristController {
 		System.out.println("정렬타입:"+type+","+"start:"+start+","+"end:"+end+","+"place:"+place+","+"date:"+date );
 
 		List<TextVO> list = TouristDAO.tourist_sort(map, type); 
-		System.out.println(2);
+		
       
-      int totalpage=TouristDAO.searchTotalPage(map);   //총페이지수=2page
-            System.out.println(3);      
+      int totalpage=TouristDAO.searchTotalPage(map);   //총페이지수=2page  
       //req.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
       req.setAttribute("curpage", curpage);
       req.setAttribute("totalpage", totalpage);
@@ -151,11 +146,11 @@ public class TouristController {
       }
       
       int curpage=Integer.parseInt(page);
-      System.out.println("hihi");
+      
       Map map=new HashMap();					//5개 데이터를 한번에 보여줌
       int rowSize=5;
       int start=(curpage*rowSize)-(rowSize-1);
-      System.out.println("hihi2");
+      
       int end=curpage*rowSize;
       map.put("start", start);
       map.put("end", end);
@@ -163,10 +158,10 @@ public class TouristController {
       map.put("date", date);
       
       List<TextVO> list=TouristDAO.tourist_search(map);   //5개의 데이터,seoul,20160331   
-            System.out.println("tourist_search1");
+            
       
       int totalpage=TouristDAO.searchTotalPage(map);   //검색 후 _총 페이지 수
-            System.out.println("tourist_search2");      
+                
       req.setAttribute("curpage", curpage);
       req.setAttribute("totalpage", totalpage);
       req.setAttribute("list", list);
@@ -190,10 +185,10 @@ public class TouristController {
       Map map=new HashMap();		
       map.put("tour_no", tour_no);
       map.put("user_id", user_id);
-      System.out.println("호호호");
+      
       
       int count=TouristDAO.wishSearch(map);		//존재=1 ,존재x=0
-      System.out.println("count:"+count);
+    
       String result="";
       
       if(count==0){				//존재x
@@ -203,10 +198,10 @@ public class TouristController {
     	  
     	  System.out.println(vo.getUser_id()+",투어번호:"+vo.getTour_no()+",가이드번호:"+vo.getGuide_no());
     	  TouristDAO.wishInsert(vo);
-    	  System.out.println("추가완료");
+    	 
     	  result="0";
       }else if(count==1){		//존재o
-    	  System.out.println("추가불가");
+    	  
     	  result="1";
       }
       
@@ -229,16 +224,16 @@ public class TouristController {
       map.put("user_id", user_id);
       
       int count=TouristDAO.resSearch(map);		//존재=1 ,존재x=0
-      System.out.println("예약count:"+count);
+     
       String result="";
       
       if(count==0){				//존재x
     	  System.out.println("투어번호:"+map.get("tour_no")+",가이드번호:"+map.get("user_id"));
     	  TouristDAO.resInsert(map);
-    	  System.out.println("예약추가완료");
+    	  
     	  result="0";
       }else if(count==1){		//존재o
-    	  System.out.println("예약추가불가");
+    	  
     	  result="1";
       }
       
@@ -308,12 +303,11 @@ public class TouristController {
       
       TouristDAO.textInsert(tvo);		//textvo에 입력
       TouristDAO.touristWrite(tvo);		//tour에 입력
-      System.out.println("tourInsert");
+    
 
       return "tourist/touristWriteOk.jsp";
 
    }
-
-
+   
 
 }

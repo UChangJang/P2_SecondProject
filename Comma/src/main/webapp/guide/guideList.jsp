@@ -78,20 +78,20 @@ $(function(){
 			if(place==""){											//1.검색안했을 때	(정렬도 필요없음)	
 				var param="page="+${curpage+1};
 				sendMessage("POST", "guide_p.do",param, guideContent);
-				alert(method_value+","+people+","+date+","+sortType);
-				alert("다음버튼누름_검색안했을때:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
+				//alert(method_value+","+people+","+date+","+sortType);
+				//alert("다음버튼누름_검색안했을때:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
 			}
 			else if(place!="" && method_value==null){				//2.지역_검색했을 때
 				//2-1.정렬 했을 때
 				var sortType=$('#sortType').val();	//가격높은순
 				
 				if(sortType!=""){	//정렬했을 때
-					alert("다음버튼누름_지역검색_정렬o:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
+					//alert("다음버튼누름_지역검색_정렬o:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
 					var param="page="+${curpage+1}+"&place="+place+"&type="+sortType;
 					sendMessage("POST", "guide_sort.do",param,guideContent);
 					
 				}else{				//정렬안했을 때
-					alert("다음버튼누름_지역검색_정렬x:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
+					//alert("다음버튼누름_지역검색_정렬x:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
 					var param="page="+${curpage+1}+"&place="+place;
 					sendMessage("POST", "guide_search.do",param,guideContent);
 				}
@@ -145,17 +145,19 @@ function guideContent() {
 						<div class="listText" id="testtest"></div>
 						<div class="listText2">
 							<div>
-								<span>Image</span>&nbsp;<span>${vo.uservo.user_name }</span>
+								<%-- <img class="mypictureGuideList" src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }" alt=""> --%>
+								<input type="button" value="${vo.text_loc }" style="width:10em;font-size:9pt;padding-left:2px;padding-right:2px;float:right;background-color: #0080ff;color: white">
+								<span>${vo.uservo.user_name }</span>
 							</div>
-							<div class="secondTable">[${vo.text_loc}]${vo.guidevo.guide_subject }</div>
+							<div class="secondTable" style="font-size: 12pt;max-height: 2em;padding-top: 1px">${vo.guidevo.guide_subject }</div>
 							<div class="ThirdTable">
-								<span>￦${vo.text_cost }</span>
+								<span><font color="#0080ff">￦${vo.text_cost }</font></span>
 							</div>
 							<div class="FourthTable">
-								<span>Means</span>&nbsp;<span><font color="pink">${vo.text_move }</font></span>
-							</div>
-							<div class="FourthTable">
-								<span>Rank</span>&nbsp;<span><font color="pink">15개</font></span>
+								<span><font color="red">${vo.text_move }</font></span>
+								<span><font color="yellow">
+								<c:forEach var="k" begin="1" end="${vo.num }">★</c:forEach><c:if test="${vo.num!=5 }"><c:forEach var="l" begin="${vo.num+1 }" end="5">☆</c:forEach></c:if>
+								</font></span>
 							</div>
 						</div>
 					</span>

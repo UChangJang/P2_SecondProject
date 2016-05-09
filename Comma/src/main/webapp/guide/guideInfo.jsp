@@ -27,15 +27,15 @@
 						<div class="topBoardShort"><br>
 						<table width="300">
 							<tr>
-								<td align=right>성별:</td>
+								<td align=right>Gender:</td>
 								<td>${uvo.user_sex }</td>
 							</tr>
 							<tr>
-								<td align=right>닉네임:</td>
+								<td align=right>NickName:</td>
 								<td>${uvo.user_nick }</td>
 							</tr>
 							<tr>
-								<td align=right>생년월일:</td>
+								<td align=right>Birth:</td>
 								<td>${uvo.user_birth }</td>
 							</tr>
 						</table>
@@ -62,7 +62,7 @@
 						
 					<c:forEach var="vo" items="${list }">
 						<div class="3u">					<!-- 사진 -->
-							<span class="image fit">
+							<span class="mypictureAchi">
 								<img src="http://211.238.142.74:8080/controller/image/${vo.guidevo.guide_img }" alt=""/><!-- 이미지사진 -->
 							</span>	
 						</div>
@@ -70,13 +70,13 @@
 							<span class="image fit a">
 								<table class="plusDetail" >	
 									<tr align=center>
-										<td>[${vo.text_loc }] ${vo.guidevo.guide_subject }</td>
+										<td style="font-size: 12pt"><b>[<font color="red">${vo.text_loc }</font>] ${vo.guidevo.guide_subject }</b></td>
 									</tr>
 									<tr>
-										<td>${vo.text_move }&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${vo.text_time }</td>
+										<td align="center">Vehicle: <font color="red">${vo.text_move }</font> &nbsp;&nbsp;&nbsp;&nbsp; Time Required: <font color="red">${vo.text_time }hour</font></td>		
 									</tr>
 									<tr>
-										<td>￦${vo.text_cost }</td>
+										<td align="right"><font color="red">￦${vo.text_cost }</font></td>
 									</tr>
 								</table>
 							</span>	
@@ -95,14 +95,14 @@
 					
 					<c:forEach var="review" items="${reviewList }">
 						<div class="2u">
-							<span class="image fit"> <a href="#">
+							<span class="mypictureReview"> <a href="#">
 								<img src="http://211.238.142.74:8080/controller/profile/${review.uservo.user_img }" alt="" /></a>
 							</span>
 						</div>
 
-						<div class="10u">
-							<span class="image fit">
-								<table class="alt">
+						<div class="9u">
+							<span class="image fit a">
+								<table>
 									<tr>
 										<td width=50%>${review.uservo.user_nick }</td>
 										<td width=50%>

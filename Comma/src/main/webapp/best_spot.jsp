@@ -11,7 +11,11 @@
 <c:forEach items="${list }" var="list">
 <tr>
 <td>
-${list.text_tour_date }-${list.text_cost }-${list.text_hit }
+<p>
+	<a href="guideBoard.do?no=${list.guide_no }">
+	<b>${list.text_tour_date }</b>&nbsp;&nbsp;&nbsp;${list.text_cost }<b>KPW</b>&nbsp;&nbsp;&nbsp;${list.text_hit }<b>HIT</b>
+	</a>
+</p>
 </td>
 </tr>
 

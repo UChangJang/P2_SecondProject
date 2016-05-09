@@ -44,7 +44,7 @@
 				var date=$('#dt').val();			//4.날짜값 가져오기		
 				var param="place="+place+"&method="+method_value+"&people="+people+"&date="+date;
 				sendMessage("POST", "guide_search_detail.do", param, guideList);
-				alert("디테일_검색버튼누름_:"+method_value+","+people+","+date);
+				
 			}
 		});
 

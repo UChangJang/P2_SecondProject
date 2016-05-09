@@ -69,14 +69,20 @@
 				</thead>
 				<tbody>
 				<c:forEach var="guidevo" items="${guidevo }">
-					<tr>
+					<form action="guideBoard.do" id="myGuideFtn${guidevo.guidevo.guide_no }" method="post" >
+					    <input type="hidden" value="${guidevo.guidevo.guide_no }" name="no">
+					</form>
+					<tr>					
 						<td>${guidevo.guidevo.guide_no }</td>	<!-- 목록내 번호 -->
-						<td><a href="guideBoard.do?no=${guidevo.guidevo.guide_no }">
-						</a>${guidevo.text_loc }</td>
-						<td>${guidevo.guidevo.guide_subject }</td>
+						<td>${guidevo.text_loc }</td>
+						<td  id="myGuide${guidevo.guidevo.guide_no }" class="myGuide" style="cursor: pointer;">${guidevo.guidevo.guide_subject }</td>
 						<td><fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/></td>
-						<td>${guidevo.guidevo.reservation_person }/${guidevo.text_total_person }</td>
-						<td><input type="button" value="Del"></td>
+						<td class="mytourRBtn">
+						<input style="box-shadow: inset 0 0 0;" type="button" value="${guidevo.guidevo.reservation_person }/${guidevo.text_total_person }" 
+							class=guideResViewBtn id="guideResBtn${guidevo.guidevo.guide_no }">
+						</td>
+						<td><input type="button" value="Del" class="guideDelwritten" id="guideDelwrite${guidevo.guidevo.guide_no }"></td>
+						<form method="post" action="mypage_mywriter_gDel.do?no=" id="frm_wrgD" name="guideDelmypage"></form>
 					</tr>
 					</c:forEach>
 				</tbody>
@@ -95,13 +101,13 @@
 						<th width="7%">Delete</th>
 					</tr>
 				</thead>
-
+				
 				<tbody>
 					<c:forEach var="vo" items="${touristvo }">
 						<tr id="boyoung">
 							<td>${vo.touristvo.tour_no }</td>
 							<!-- 목록내 번호 -->
-							<td><a href="guideBoard.do?no=${vo.touristvo.tour_no }">
+							<td><a href="tourist.do?no=${vo.touristvo.tour_no }">
 									${vo.text_loc }</a></td>
 							<td>${vo.touristvo.tour_theme }</td>
 							<td><fmt:formatDate value="${vo.text_regdate }"
@@ -110,7 +116,9 @@
 								<input style="box-shadow: inset 0 0 0;" type="button" value="${vo.touristvo.reservation_person }"
 								class=tourResViewBtn id="tourResBtn${vo.touristvo.tour_no }">
 							</td>
-							<td class="mytourRBtn"><input type="button" value="Del"></td>
+							<td><input type="button" value="Del" class="tourDelwritten" id="tourDelwrite${vo.touristvo.tour_no }"></td>
+							<!-- <form method="post" name="tourDelmypage"></form> -->
+							<form method="post" action="mypage_mywriter_tDel.do?no=" id="frm_wrtD" name="tourDelmypage"></form>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -119,7 +127,7 @@
 		</section>
 	</div>
 
-	<!-- 예약자 명단 --> 
+	<!-- 예약자 관광객 명단 --> 
 	<c:forEach var="vo" items="${touristvo }">
 		<form class="resMy white-popup mfp-hide"
 			id="tourRok1${vo.touristvo.tour_no}" method="post"
@@ -133,7 +141,7 @@
 						<td align="center">${vo1.user_birth }</td>
 						<td>${vo1.reservation_check }</td>
 						<td>
-							<input type="button" value="승인" class="sendMyResBtn" id="tourRok${vo.touristvo.tour_no}&${vo1.user_id }">
+							<input type="button" value="permission" class="sendMyResBtn" id="tourRok${vo.touristvo.tour_no}&${vo1.user_id }">
 						</td>
 					</tr>
 				</c:forEach>
@@ -145,7 +153,29 @@
 			</table>
 		</form>
 	</c:forEach>
-
+	
+	<!-- 예약자 가이드 명단 -->
+	<c:forEach var="vo" items="${guidevo }">
+		<form class="resMy white-popup mfp-hide" method="post" id="guideRok1${vo.guidevo.guide_no }" action="#">
+		<h1>${vo.guidevo.guide_no } Reserve List</h1>
+		<table>
+			<tr align=center>
+				<th>Name</th>
+				<th>ID</th>
+				<th>PEOPLE</th>
+			</tr>
+			<c:forEach var="res" items="${guideResvo }">
+			<c:if test="${res.guidevo.guide_no eq vo.guidevo.guide_no }">
+			<tr>
+				<td>${res.uservo.user_name }</td>
+				<td>${res.uservo.user_id }</td>
+				<td>${res.reservationvo.reservation_person }</td>
+			</tr>
+			</c:if>
+			</c:forEach>
+		</table>
+		</form>
+	</c:forEach>
 	
 	</section>
 
@@ -172,7 +202,7 @@
 		
 		$('.tourResViewBtn').click(function() {
 			var id = $(this).attr('id');
-			var no = id.substring(10)
+			var no = id.substring(10);
 			$.magnificPopup.open({
 				items : {
 					src : '#tourRok1' + no,
@@ -192,7 +222,75 @@
 
 			});
 
-		})
+
+		});
+		
+		$('.guideResViewBtn').click(function() {
+			var id = $(this).attr('id');
+			var no = id.substring(11);
+			$.magnificPopup.open({
+				items : {
+					src : '#guideRok1' + no,
+					type : 'inline'
+				},
+				preloader : false,
+				focus : '#name',
+				callbacks : {
+					beforeOpen : function() {
+						if ($(window).width() < 700) {
+							this.st.focus = false;
+						} else {
+							this.st.focus = '#messageTextarea';
+						}
+					}
+				}
+
+			});
+
+
+		});
+		
+		
+		
+		
+		$('.myGuide').click(function(){
+			var id=$(this).attr('id');
+			var no=id.substring(7);			
+			$('#myGuideFtn'+no).submit();
+			
+			
+		});
+
+	
+		
+		$('.guideDelwritten').click(function(){
+			var id = $(this).attr('id');
+			var no = id.substring(13);
+			
+			alert(no);
+			
+			var c = $('#frm_wrgD').attr('action');
+			var param = c+no;
+			$('#frm_wrgD').attr('action',param);
+			$('#frm_wrgD').submit();
+			
+		});
+		
+		$('.tourDelwritten').click(function(){
+			var id = $(this).attr('id');
+			var no = id.substring(12);
+			
+			alert(no);
+			
+			var c = $('#frm_wrtD').attr('action');
+			var param = c+no;
+			
+			$('#frm_wrtD').attr('action',param);
+			$('#frm_wrtD').submit();
+			
+		});
+		
+
 	</script>
 </body>
 </html>

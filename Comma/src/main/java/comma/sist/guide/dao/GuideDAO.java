@@ -74,6 +74,65 @@ private static SqlSessionFactory	ssf;
 		}
 	} // costModify
 	
+	public static void imgArrangement(List<TextVO> list){
+		
+		 // 여러개의 사진인 경우
+	     List<String> imgList = new ArrayList<String>();
+	     for(TextVO vo:list){
+			
+	    	 if(vo.getGuidevo().getGuide_img()!=null){
+	    		 StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
+	    		 String ss = st.nextToken();
+	    		 int k=0;
+	    		 while(st.hasMoreTokens()){
+	    			 if(k==0) {
+	    				 imgList.add(ss);
+	    				 k++;
+	    			 }
+	    			 else{
+	    				 imgList.add(st.nextToken());
+	    			 }
+	    		 }
+	    		 if(imgList.size()>1){
+	    			 vo.getGuidevo().setGuide_img(ss);
+	    		 }
+	    	 }
+	     }
+		
+	} // 여러개 사진인 경우
+	
+	public static void avgStar(List<TextVO> list){
+		
+		// 별점 평균
+		int reviewCount = 0;
+		for(TextVO vo:list){
+			List<Integer> gnList = GuideDAO.guideAllNumberWrited(vo.getUservo().getUser_id());
+			double sum = 0;
+			if(gnList!=null){
+				for(int number:gnList){
+					 String s = GuideDAO.guideStarSum(number);
+					 if(s!=null){
+						 sum += Double.parseDouble(s);
+						 reviewCount++;
+					 }
+				}
+				int avg = (int)Math.round(sum/reviewCount);
+				vo.setNum(avg);
+			}
+			reviewCount = 0;
+		}
+		
+	} // 별점 평균 구하기
+	
+	
+	public static String guideStarSum(int num){
+		SqlSession session = ssf.openSession();
+		String avg = session.selectOne("guideStarSum",num);
+		session.close();
+		return avg;
+	} // 가이드 평균별점
+	
+	
 	public static int guideTotalPage(){
 		
 		SqlSession session = ssf.openSession();
@@ -235,6 +294,12 @@ private static SqlSessionFactory	ssf;
 		return resPerson;
 	}
 	
+	public static void searchHitIncrease(String loc){
+		SqlSession session = ssf.openSession(true);
+		session.update("searchHitIncrease",loc);
+		session.close();
+	}
+	
 	
 	public static List<TextVO> bestGuide(){
 		SqlSession session=ssf.openSession();
@@ -246,10 +311,9 @@ private static SqlSessionFactory	ssf;
 	//가이드검색
 	public static List<TextVO> guideSearchPlace(Map map){
 		SqlSession session=ssf.openSession();
-		System.out.println("검색dao진입=======");
 		List<TextVO> list = session.selectList("guideSearchPlace",map);
-		System.out.println("검색dao끝===");
 		session.close();
+		costModify(list);
 		return list;
 	}
 	//검색후 총페이지 구하기
@@ -263,19 +327,19 @@ private static SqlSessionFactory	ssf;
 	//detail검색
 	public static List<TextVO> guideSearchDe(Map map){
 		SqlSession session=ssf.openSession();
-		System.out.println("detail검색dao진입=======");
 		List<TextVO> list = session.selectList("guideSearchDe",map);
-		System.out.println("detail검색dao끝===");
 		session.close();
+		costModify(list);
 		return list;
 	}
 	//detail검색후 총페이지 구하기
-		public static int guideSearchDeTotalPage(Map map){		
-			SqlSession session = ssf.openSession();
-			int total  = session.selectOne("guideSearchDeTotalPage",map);
-			session.close();		
-			return total;		
-		}
+	public static int guideSearchDeTotalPage(Map map){		
+		SqlSession session = ssf.openSession();
+		int total  = session.selectOne("guideSearchDeTotalPage",map);
+		session.close();
+		
+		return total;		
+	}
 		
 
 		
@@ -294,6 +358,7 @@ private static SqlSessionFactory	ssf;
 			
 		}
 		session.close();
+		costModify(list);
 		return list;
 	}
 	
@@ -312,6 +377,7 @@ private static SqlSessionFactory	ssf;
 				
 			}
 			session.close();
+			costModify(list);
 			return list;
 		}
 	

@@ -28,7 +28,7 @@ private static SqlSessionFactory	ssf;
 	
 	public static List<TextVO> myWishGuide(String id){
 		SqlSession session=ssf.openSession();
-		System.out.println(id);
+		
 		List<TextVO> vo = session.selectList("myWishGuide",id);
 		
 		return vo;
@@ -45,14 +45,14 @@ private static SqlSessionFactory	ssf;
 	public static void myWishGuideDelete(int wish_no)
     {
     	SqlSession session=ssf.openSession(true);
-    	session.delete("myWishDelete",wish_no);
+    	session.delete("myWishGuideDelete",wish_no);
     	session.close();
     }
 
 	public static void myWishTourDelete(int wish_no)
     {
     	SqlSession session=ssf.openSession(true);
-    	session.delete("myWishDelete",wish_no);
+    	session.delete("myWishTourDelete",wish_no);
     	session.close();
     }
 	

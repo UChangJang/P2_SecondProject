@@ -43,28 +43,8 @@ public class GuideController {
 
 		List<TextVO> list = GuideDAO.guideAllData(map);
 		
-		// 여러개의 사진인 경우
-		List<String> imgList = new ArrayList<String>();
-		for(TextVO vo:list){
-			if(vo.getGuidevo().getGuide_img()!=null){
-				StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
-				String ss = st.nextToken();
-				int k=0;
-				while(st.hasMoreTokens()){
-					if(k==0) {
-						imgList.add(ss);
-						k++;
-					}
-					else{
-						imgList.add(st.nextToken());
-					}
-				}
-				if(imgList.size()>1){
-					vo.getGuidevo().setGuide_img(ss);
-				}
-			}
-		}
-		
+		GuideDAO.avgStar(list); // 별점 평균
+		GuideDAO.imgArrangement(list); // 여러개 사진 처리
 		
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
@@ -94,7 +74,10 @@ public class GuideController {
 		map.put("end", end);		
 		
 		List<TextVO> list = GuideDAO.guideAllData(map);
-
+		GuideDAO.avgStar(list); // 별점 평균
+		GuideDAO.imgArrangement(list); // 여러개 사진 처리
+		
+		
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
@@ -268,6 +251,15 @@ public class GuideController {
 			confirmId = true;
 		}
 		
+		// 예약 꽉 찼는지 확인
+		String soldout = ReservationDAO.reserveGuideCheck(Integer.parseInt(no));
+		if(soldout==null) soldout="0";
+		boolean soldCheck = false;
+		if(vo.getText_total_person() == Integer.parseInt(soldout)){
+			soldCheck = true;
+		}
+		
+		request.setAttribute("soldCheck", soldCheck);
 		request.setAttribute("imgList", imgList);
 		request.setAttribute("confirmId", confirmId);
 		request.setAttribute("vo", vo);
@@ -305,8 +297,6 @@ public class GuideController {
 		
 		String id = request.getParameter("id");
 		String guide_no = request.getParameter("guide_no");
-		System.out.println(guide_no);
-		System.out.println(id);
 		
 		UserVO uvo = GuideDAO.guideInfoShow(Integer.parseInt(guide_no));
 		
@@ -363,6 +353,8 @@ public class GuideController {
 		
 		
 		String sumTemp=ReservationDAO.reserveGuideCheck(Integer.parseInt(guide_no));	//예약가능한지
+		if(sumTemp==null) sumTemp="0";
+		
 		int sum=Integer.parseInt(sumTemp);
 		int total=ReservationDAO.reserveGuidePossible(Integer.parseInt(guide_no));
 		int res=Integer.parseInt(reservation_person);
@@ -425,12 +417,19 @@ public class GuideController {
 			map.put("place", place);
 			
 	      List<TextVO> list= GuideDAO.guideSearchPlace(map);
+	      GuideDAO.imgArrangement(list);
+	      GuideDAO.avgStar(list); // 별점 평균
+	      
 	      if(!list.isEmpty()){
-			   System.out.println("비어있지 않아요");
-			   System.out.println(list.get(0).getText_move());
+			   //System.out.println("비어있지 않아요");
+			   //System.out.println(list.get(0).getText_move());
 		   }else{
-			   System.out.println("비어있음");
+			   //System.out.println("비어있음");
 		   }
+	      
+	      // 가이드 검색 히트수 증가
+	      GuideDAO.searchHitIncrease(place);
+	      
 	      request.setAttribute("list", list);
 	      request.setAttribute("curpage", curpage);
 	      request.setAttribute("totalpage", totalpage);
@@ -472,12 +471,19 @@ public class GuideController {
 		map.put("end", end);
 
 	      List<TextVO> list= GuideDAO.guideSearchDe(map);
-	      if(!list.isEmpty()){
-			   System.out.println("비어있지 않아요");
+	      GuideDAO.imgArrangement(list); // 여러개 사진 처리
+	      GuideDAO.avgStar(list); // 별점 평균
+	      
+	       if(!list.isEmpty()){
+			   //System.out.println("비어있지 않아요");
 			   System.out.println(list.get(0).getText_move());
 		   }else{
-			   System.out.println("비어있음");
+			   //System.out.println("비어있음");
 		   }
+	      
+	      // 가이드 검색 히트수 증가
+	      GuideDAO.searchHitIncrease(place);
+	      
 	      request.setAttribute("list", list);
 	      request.setAttribute("curpage", curpage);
 	      request.setAttribute("totalpage", totalpage);
@@ -527,6 +533,9 @@ public class GuideController {
 			   map.put("people", people);
 			   map.put("date", date);
 			   list = GuideDAO.guide_sort_detail(map, type); 	//start,end,place _ type
+			   GuideDAO.imgArrangement(list); // 여러개 사진 처리
+			   GuideDAO.avgStar(list); // 별점 평균
+			   
 			   if(!list.isEmpty()){
 				   System.out.println("비어있지 않아요");
 				   System.out.println(list.get(0).getText_move());

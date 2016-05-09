@@ -26,23 +26,37 @@
 	</insert>
 	
 	<!-- 가이드 글에서 총 예약확정된 인원 구하기 -->
-	<select id="reserveGuideCheck" resultType="String" parameterType="int">
+	 <select id="reserveGuideCheck" resultType="String" parameterType="int">
 	 	SELECT sum(reservation_person)
 		FROM reservation
 		WHERE guide_no=#{guide_no}	 	
 	 </select>
 	 
 	 <!-- 가이드 글의 예약가능 인원 수 구하기 -->
-	<select id="reserveGuidePossible" resultType="int" parameterType="int">
+	 <select id="reserveGuidePossible" resultType="int" parameterType="int">
 	 	SELECT text_total_person
 		FROM guide,text
 		WHERE guide_no=#{guide_no} AND text.text_no=guide.text_no 	
 	 </select>
 	 
-	  <!-- 가이드 글에서 내가 이미 예약했는지 확인 -->
-	<select id="reserveGuideExist" resultType="int" parameterType="Reservation">
+	 <!-- 가이드 글에서 내가 이미 예약했는지 확인 -->
+	 <select id="reserveGuideExist" resultType="int" parameterType="Reservation">
 	 	SELECT count(*)
 		FROM reservation
 		WHERE user_id=#{user_id} AND guide_no=#{guide_no} 	
 	 </select>
+	 
+	 <!-- 가이드 예약 목록 -->
+	 <select id="reserveData" parameterType="int" resultMap="comma.sist.common.text-mapper.TextList">
+	 	select guide_no,reservation.user_id,user_name,reservation_person from reservation,users where reservation.user_id=users.user_id and guide_no=#{guide_no}
+	 </select>
+	 
+	 <!-- 가이드 예약 삭제 -->
+	 <select id="reserveNoSearch" parameterType="java.util.Map" resultType="int">
+	 	select reservation_no from reservation where guide_no=#{no} and user_id=#{user_id}
+	 </select>
+	 <delete id="reserveDeleteGuide" parameterType="int">
+	 	delete from reservation where reservation_no=#{reservation_no}
+	 </delete>
+	 
 </mapper>

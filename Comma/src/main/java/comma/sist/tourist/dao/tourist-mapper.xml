@@ -113,6 +113,20 @@
            			#{touristvo.user_id},#{text_no},#{touristvo.tour_theme},#{touristvo.tour_detail})
    </insert>
    
+	<!-- 관광객 삭제 -->
+	<select id="textnoSearch1" parameterType="int" resultType="int">
+		select text_no from tour where tour_no=#{tour_no}
+	</select>
+	<delete id="reservationTourDelete" parameterType="int">
+		delete from reservation where tour_no=#{tour_no}
+	</delete>
+	<delete id="wishTourDelete" parameterType="int">
+		delete from wish where tour_no=#{tour_no}
+	</delete>
+	<delete id="TourDelete" parameterType="int">
+		delete from tour where tour_no=#{tour_no}
+	</delete>
+
    
    <!-- 지도값넣기 -->
    <select id="tourMap" resultType="int" parameterType="String">
@@ -127,7 +141,7 @@
 	<select id="myTouristWriter" resultMap="comma.sist.common.text-mapper.TextList" parameterType="String">
       SELECT tour_no,text_loc,tour_theme,text_regdate,text_total_person
       FROM tour,text 
-      WHERE tour.text_no=text.text_no AND user_id=#{id}
+      WHERE tour.text_no=text.text_no AND user_id=#{id} order by tour_no desc
    </select>
     
     <!-- 마이페이지_내 투어 리스트에 예약한 인원수 구하기 -->

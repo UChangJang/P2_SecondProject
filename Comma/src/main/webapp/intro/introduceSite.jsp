@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+   pageEncoding="EUC-KR"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -35,130 +35,110 @@
                 //사운드를 0 즉 음소거 상태로 만듭니다.
             }
 </script>
+
 </head>
 <body>
+
 <div id="nav2" style="background-color: #72BBF0">
-	<ul class="nav2mouseOver">
-		<li><a class="scrolly" href="#one">What is Comma?</a></li>&nbsp;&nbsp;
-		<li><a class="scrolly" href="#two">How to using Comma?</a></li>
-	</ul>
+   <ul class="nav2mouseOver">
+      <li><a class="scrolly" href="#one">What is Comma?</a></li>&nbsp;&nbsp;
+      <li><a class="scrolly" href="#two">How to using Comma?</a></li>&nbsp;&nbsp;
+      <li><a class="scrolly" href="#three">Use Cases of Celeb</a></li>
+   </ul>
 </div>
 
 <!-- Main -->
 <article id="main">
-	<header id="header_siteInto">
-		<p><img alt="" src="images/commaLogo2.png"></p>
-		<p><a href="#one" class="more scrolly"><img src="images/triangle.png"><br>
-		view more</a></p>
-	</header>
+   <header id="header_siteInto">
+      <p><img alt="" src="images/commaLogo2.png"></p>
+      <p><a href="#one" class="more scrolly"><img src="images/triangle.png"><br>
+      view more</a></p>
+   </header>
 
-	<section class="wrapper style5" id="one">
-		<!-- 배경 색... -->
-	<div class="inner">
-		<!-- 글자들 간격들 조절 -->
+   <section class="wrapper style5" id="one">
+      <!-- 배경 색... -->
+   <div class="inner">
+      <!-- 글자들 간격들 조절 -->
+      <p><img alt="" src="images/WhatisComma.PNG">
+      </p>
+      <h3>1.What is Comma?</h3>
+      <h5><p>Comma,
+         This website is very useful for your trip
+         In Korea</p></h5>
+      </br>
+      <h5>Why we shoud using a Comma?</h5>
+      </br>
+      <p><h6>Convenience</h6>
+      - It is not difficult seeking a guide for your trip, if you choosing a travel destination. 
+      You can handle it comfortably.</br></br>
 
-		<h3>1.What is Comma?</h3>
-		<p>Morbi mattis mi consectetur tortor elementum, varius
-			pellentesque velit convallis. Aenean tincidunt lectus auctor
-			mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et
-			ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi,
-			id malesuada justo. Maecenas sagittis felis ac sagittis semper.
-			Curabitur purus leo, tempus sed finibus eget, fringilla quis
-			risus. Maecenas et lorem quis sem varius sagittis et a est.
-			Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt
-			bibendum. Interdum et malesuada fames ac ante ipsum primis in
-			faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer
-			eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-			Aliquam eleifend ligula non velit accumsan cursus. Etiam ut
-			gravida sapien.</p>
+      <h6>Without qualification</h6>
+      - We don't need to qualification for travel guide. You can doing a travel guide for someone, 
+      or sometimes you call a travel guide for your trip. There is no limit for your role.</br></br>
 
-		<p>Vestibulum ultrices risus velit, sit amet blandit massa
-			auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum
-			porttitor mollis id vel diam. Praesent sit amet posuere risus, eu
-			faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in,
-			auctor porta quam. Proin nec dui cursus, posuere dui eget
-			interdum. Fusce lectus magna, sagittis at facilisis vitae,
-			pellentesque at etiam. Quisque posuere leo quis sem commodo, vel
-			scelerisque nisi scelerisque. Suspendisse id quam vel tortor
-			tincidunt suscipit. Nullam auctor orci eu dolor consectetur,
-			interdum ullamcorper ante tincidunt. Mauris felis nec felis
-			elementum varius.</p>
+      <h6>Safe</h6>
+      - Although, there is no limit for our travel guide, but we should take a people, identities are confirmed.</p>
+      </br>
+      <hr/>
 
-		<hr />
-
-		<h4>Feugiat aliquam</h4>
-		<p>Nam sapien ante, varius in pulvinar vitae, rhoncus id massa.
-			Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam
-			lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam,
-			semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum
-			nisl. Aenean erat diam, tempus aliquet erat.</p>
-
-		<p>Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut.
-			Phasellus rutrum cursus velit, eget condimentum nunc blandit vel.
-			In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet
-			eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed
-			viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum
-			ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh
-			quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis
-			fermentum. Proin mauris dui, at vestibulum sit amet, auctor
-			bibendum neque.</p>
-
-	</div>
+   </div>
 </section>
 
 <section class="wrapper style6" id="two">
-	<!-- 배경 색... -->
-	<div class="inner">
-		<!-- 글자들 간격들 조절 -->
+   <!-- 배경 색... -->
+   <div class="inner">
+      <!-- 글자들 간격들 조절 -->
 
-			<h3>2.How to using Comma?</h3>
-			<p>Morbi mattis mi consectetur tortor elementum, varius
-				pellentesque velit convallis. Aenean tincidunt lectus auctor
-				mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et
-				ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi,
-				id malesuada justo. Maecenas sagittis felis ac sagittis semper.
-				Curabitur purus leo, tempus sed finibus eget, fringilla quis
-				risus. Maecenas et lorem quis sem varius sagittis et a est.
-				Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt
-				bibendum. Interdum et malesuada fames ac ante ipsum primis in
-				faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer
-				eget ultricies odio. Nam vel ex a orci fringilla tincidunt.
-				Aliquam eleifend ligula non velit accumsan cursus. Etiam ut
-				gravida sapien.</p>
+         <h3>2.How to using Comma?</h3>
+         <p>Easy Search
+         - If you are in main page, please look at left side. You can find a 'Easy Search' section. 
+         You can select What you want to a Spot, Date, and total person in your travel.</p>
 
-			<p>Vestibulum ultrices risus velit, sit amet blandit massa
-				auctor sit amet. Sed eu lectus sem. Phasellus in odio at ipsum
-				porttitor mollis id vel diam. Praesent sit amet posuere risus, eu
-				faucibus lectus. Vivamus ex ligula, tempus pulvinar ipsum in,
-				auctor porta quam. Proin nec dui cursus, posuere dui eget
-				interdum. Fusce lectus magna, sagittis at facilisis vitae,
-				pellentesque at etiam. Quisque posuere leo quis sem commodo, vel
-				scelerisque nisi scelerisque. Suspendisse id quam vel tortor
-				tincidunt suscipit. Nullam auctor orci eu dolor consectetur,
-				interdum ullamcorper ante tincidunt. Mauris felis nec felis
-				elementum varius.</p>
+         <p>Guide
+         - If you want to finding a guide, first you need to click 'tour find' in main page. 
+         When you in the guide page, you can see the search field. And when you click detail search field, 
+         you can doing a detail search. And you should scroll down, you can see the Guide list field. 
+         This field is a list up our guide ahd they are wait for you. When you click a some guide, 
+         you can see the introducing a this guide and reserve button. When you click the reserve button, 
+         then reserve check field is appear. So, you can selecting a Cost, Date, Location, Guide Name, 
+         and Reserve People numbers. Finally, if you are click the reserve button, it is the end of the guide find. 
+         </p>
+         <p>Traveler
+         - When you in the Tour request page, you can see the map and people wait for a finding a guide. 
+         They are selecting a tour location what they want before contact a guide. Also, they choose date,time,people numbers, 
+         tour type(walking, bicycle, car...etc), and cost(this cost is what they want hiring a guide). 
+         If guide, he click the reserve button, then appear the popup, and message'Reserve Clear'.
+         When you click the OK Button, it is finished(finding a guide and finding a tour team). 
+         If you want to check your reserve, please click the 'menu' and 'My page'. When you see the My page, 
+         you can see the guide reserve, and travel reserve. So you can check the reserve what you want. 
+         </p>
 
-			<hr />
+         <hr/>
 
-			<h4>Feugiat aliquam</h4>
-			<p>Nam sapien ante, varius in pulvinar vitae, rhoncus id massa.
-				Donec varius ex in mauris ornare, eget euismod urna egestas. Etiam
-				lacinia tempor ipsum, sodales porttitor justo. Aliquam dolor quam,
-				semper in tortor eu, volutpat efficitur quam. Fusce nec fermentum
-				nisl. Aenean erat diam, tempus aliquet erat.</p>
+         <h4>If you don't understand it, please watch this video.</h4>
+         <p>[Guide]</p>
+         <p><video width="720" height="600" controls="controls" poster="images/guideposter.png">
+   			<source src="images/Guide.mp4" type="video/mp4"/>
+			</video></p>
 
-			<p>Etiam iaculis nulla ipsum, et pharetra libero rhoncus ut.
-				Phasellus rutrum cursus velit, eget condimentum nunc blandit vel.
-				In at pulvinar lectus. Morbi diam ante, vulputate et imperdiet
-				eget, fermentum non dolor. Ut eleifend sagittis tincidunt. Sed
-				viverra commodo mi, ac rhoncus justo. Duis neque ligula, elementum
-				ut enim vel, posuere finibus justo. Vivamus facilisis maximus nibh
-				quis pulvinar. Quisque hendrerit in ipsum id tellus facilisis
-				fermentum. Proin mauris dui, at vestibulum sit amet, auctor
-				bibendum neque.</p>
+         <p>[Traveler]</p>
+         <p><video width="720" height="600" controls="controls" poster="images/travelerposter.jpg">
+         <source src="images/traveler.mp4" type="video/mp4"/></video></p>
 
-		</div>
-	</section>
+      </div>
+   </section>
+   <section class="wrapper style5" id="three">
+      <!-- 배경 색... -->
+   <div class="inner">
+      <!-- 글자들 간격들 조절 -->
+      <h3>3.Use Cases of Celeb</h3>
+      <p><img alt="" src="images/UseCasesCeleb.PNG">
+      </p>
+      
+      <hr/>
+
+   </div>
+</section>
 </article>
 </body>
 </html>
