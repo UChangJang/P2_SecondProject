@@ -34,7 +34,7 @@ private static SqlSessionFactory	ssf;
 		List<TextVO> list = session.selectList("guideAllData",map);
 		session.close();	
 		
-		costModify(list);
+		costModify(list);//세자리끊기
 		
 		return list;
 		

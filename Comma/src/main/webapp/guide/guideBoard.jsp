@@ -5,13 +5,6 @@
 <html>
 <head>
 <title>guideBoard</title>
-<!-- bxSlider() 함수 자체가 이상하다고 판단!! 다른곳에 넣는 순간 다른 jquery가 중지됨... -->
-<!-- <script type="text/javascript">
-	$(function() {
-		$('.bxslider').bxSlider();
-	});
-</script> -->
-
 
 <script type=text/javascript>
 
@@ -154,11 +147,11 @@ function gInfo_frm(){
 
 <div id="nav2">
 	<ul>
-	 	 <li><a class="scrolly" href="#intropeople">가이드소개</a></li>
-	 	 <li><a class="scrolly" href="#introplace">관광소개</a></li>
-		 <li><a class="scrolly" href="#pic">주요사진</a></li>
-		 <li><a class="scrolly" href="#detail">상세정보</a></li>
-		 <li><a class="scrolly" href="#mention">후기</a></li>
+	 	 <li><a class="scrolly" href="#intropeople">Guide</a></li>
+	 	 <li><a class="scrolly" href="#introplace">Location</a></li>
+		 <li><a class="scrolly" href="#pic">Picture</a></li>
+		 <li><a class="scrolly" href="#detail">Detail</a></li>
+		 <li><a class="scrolly" href="#mention">Comments</a></li>
 	</ul>
 	
 	 <!-- 쪽지보내기 양식 -->
@@ -192,22 +185,22 @@ function gInfo_frm(){
        		<tr>
        			<td>Cost:</td>
        			<td><input name="text_cost" id="" required="" type="text"
-              placeholder="가격" style="width:12em;float:right" disabled="disabled" value="${vo.text_cost }"></td>
+              placeholder="Price" style="width:12em;float:right" disabled="disabled" value="${vo.text_cost }"></td>
        		</tr>
        		<tr>
        			<td>Date:</td>
        			<td><input name="text_tour_date" id="" required="" type="text"
-              placeholder="날짜" style="width:12em;float:right" disabled="disabled" value="${vo.text_tour_date }"></td>
+              placeholder="Date" style="width:12em;float:right" disabled="disabled" value="${vo.text_tour_date }"></td>
        		</tr>
        		<tr>
        			<td>Location:</td>
        			<td><input name="text_loc" id="" required="" type="text"
-              placeholder="여행지" style="width:12em;float:right" disabled="disabled" value="${vo.text_loc }"></td>
+              placeholder="Place" style="width:12em;float:right" disabled="disabled" value="${vo.text_loc }"></td>
        		</tr>
        		<tr>
        			<td>Guide Name:</td>
        			<td><input name="user_name" id="" required="" type="text"
-              placeholder="가이드" style="width:12em;float:right" disabled="disabled" value="${vo.uservo.user_name }"></td>
+              placeholder="Guide" style="width:12em;float:right" disabled="disabled" value="${vo.uservo.user_name }"></td>
        		</tr>
        		<tr>
        			<td>Reserve People:</td>
@@ -215,15 +208,15 @@ function gInfo_frm(){
        			<div class="select-wrapper">
 					<select name="reservation_person" id="reservation_person" style="width:12em;color: pink;background: black;float:right">
 						<option value="">- People -</option>
-						<option value="1">1명</option>
-						<option value="2">2명</option>
-						<option value="3">3명</option>
-						<option value="4">4명</option>
-						<option value="5">5명</option>
-						<option value="6">6명</option>
-						<option value="7">7명</option>
-						<option value="8">8명</option>
-						<option value="9">9명</option>					
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>					
 					</select>
 				</div>
 				</td>
@@ -426,9 +419,9 @@ function gInfo_frm(){
 						<div id="reservenow">RESERVE CONTROL</div>	
 						<div class="BoardSide1">${vo.guidevo.guide_subject }</div>
 						<hr>
-						<div class="BoardSide1">Cost:${vo.text_cost }원</div>
+						<div class="BoardSide1">Cost:￦${vo.text_cost }</div>
 						<div class="BoardSide1">Date:${vo.text_tour_date }</div>
-						<div class="BoardSide1">PEOPLE:${vo.text_total_person }명</div>
+						<div class="BoardSide1">PEOPLE:${vo.text_total_person }</div>
 						<div class="BoardSide1">VEHICLE:${vo.text_move }</div>
 						<div class="BoardSide1">HIT:${vo.text_hit }</div>
 						<div class="BoardSide1">
