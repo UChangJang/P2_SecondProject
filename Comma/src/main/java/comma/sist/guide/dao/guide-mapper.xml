@@ -4,9 +4,9 @@
 
 	<!-- 가이드 목록리스트 -->
 	<select id="guideAllData" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
-		select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,num
-		from (select guide_no,user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time,rownum as num 
-		from (select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time from text,guide,users 
+		select guide_no,user_id,guide_subject,text_cost,user_name,user_nick,text_move,guide_img,text_loc,text_time,num
+		from (select guide_no,user_id,guide_subject,text_cost,user_name,user_nick,text_move,guide_img,text_loc,text_time,rownum as num 
+		from (select guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,user_nick,text_move,guide_img,text_loc,text_time from text,guide,users 
 		where guide.user_id=users.user_id and guide.text_no=text.text_no order by guide.guide_no desc))
 		where num between #{start} and #{end}
 	</select>
@@ -17,7 +17,7 @@
 	</select>
 	
 	<select id="guideInfo" resultMap="comma.sist.common.text-mapper.TextList" parameterType="int">
-		select guide_no,guide.user_id,guide_detail,guide_img,user_img,user_name,user_introduce,guide_subject,text_total_person,text_move,guide_loc_intro,
+		select guide_no,guide.user_id,guide_detail,guide_img,user_img,user_name,user_nick,user_introduce,guide_subject,text_total_person,text_move,guide_loc_intro,
 				text.text_no,text_loc,text_cost,guide_cost_detail,text_tour_date,guide_meet,text_time1,text_time2,text_time3,text_time4,text_time
 		from guide,text,users 
 		where guide.guide_no=#{guide_no} and guide.text_no=text.text_no and guide.user_id=users.user_id
@@ -25,7 +25,7 @@
 	
 	<!-- 가이드 별점평균 -->
 	<select id="guideStarSum" parameterType="int" resultType="String">
-		select avg(review_score) from review where guide_no=#{guide_no}
+		select AVG(review_score) from review where guide_no=#{guide_no}
 	</select>
 	
 	<!-- 가이드 글 추가 -->
@@ -121,7 +121,8 @@
 	  
 	<select id="bestGuide" resultMap="comma.sist.common.text-mapper.TextList">
       <![CDATA[ 
-            select score review_score,user_nick,id text_loc,rownum review_no from
+            select round(score,1) review_score,user_nick,id text_loc,rownum num,(select count(guide_no) from guide where user_id=id) guide_no,
+			(select count(review_no) from review,guide where review.guide_no=guide.guide_no and guide.user_id=id) review_no from
             (select avg(review_score) score,user_nick,users.user_id id
             from review,users,guide
             where review.guide_no=guide.guide_no and
@@ -132,6 +133,7 @@
    
          ]]>   
    </select>
+
    
    <!-- 가이드 검색_place -->
    <select id="guideSearchPlace" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
@@ -229,5 +231,5 @@
 						ORDER BY guide.guide_no DESC))
 		WHERE num BETWEEN #{start} AND #{end}
 	</select>
-
+	
 </mapper>

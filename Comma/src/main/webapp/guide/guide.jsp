@@ -3,6 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">	<!-- 추가!!!!! -->
 <title>Guide</title>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -12,7 +13,6 @@
 
 	$(function(){
 		if("${place }"!=""){
-			//alert("상세검색하셨습니다."+"${place}"+","+"${method}"+","+"${people}"+","+"${date}");
 			place.value="${place}";
 			$("input#${method}").attr ("checked", "checked");
 			people.value="${people}";
@@ -38,20 +38,17 @@
 			if(method_value==null){				//상세검색 안 할 때---------		//검색조건 만족여부 체크리스트
 				var param="place="+place;
 				sendMessage("POST", "guide_search.do", param, guideList);
-				alert("단순지역_검색버튼누름_:"+method_value+","+people+","+date);
 			}else{								//상세검색 할 때---------
 				var people=$('#people').val();		//3.인원 가져오기
 				var date=$('#dt').val();			//4.날짜값 가져오기		
 				var param="place="+place+"&method="+method_value+"&people="+people+"&date="+date;
 				sendMessage("POST", "guide_search_detail.do", param, guideList);
-				
 			}
 		});
 
 		//2.정렬
 		$('#sortType').change(function(){		
 			var sortType=$('#sortType').val();	//ex_가격높은순
-			
 			var place=$('#place').val();							//1.지역값 가져오기
 			var methods = document.getElementsByName('method');		//2.이동수단 가져오기
 			var method_value; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
@@ -100,7 +97,7 @@
 		<p>I will Guide You!</p>
 		<p>Check the board to find the best guide to you!</p>
 		</center>
-		<a href="#one" class="more scrolly"><img src="images/triangle.png">
+		<a href="#guide_margin" class="more scrolly"><img src="images/triangle.png">
 				<br>view more</a>
 	</header>
 

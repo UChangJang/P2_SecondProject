@@ -92,7 +92,7 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 
    <div id="mainMenu">&nbsp;&nbsp;
       <span><a href="introduceSite.do">COMMA</a></span>&nbsp;&nbsp;
-      <span><a href="introduceKor.do">INTRODUCE KOREA</a></span>&nbsp;&nbsp;
+      <span><a href="introduceKor.do">ABOUT KOREA</a></span>&nbsp;&nbsp;
       <span><a href="tourist.do">TOURIST</a></span>&nbsp;&nbsp; 
       <span><a href="guide.do">GUIDE</a></span>&nbsp;&nbsp; 
       <span><a href="board_list.do">COMMUNITY</a></span>&nbsp;&nbsp; 
@@ -119,39 +119,39 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 									</p>
 								</div>
 
-								<select name="place" id="placeQuick" class="mainSearch1" style="height: 2.3em;font-size:1.1em">
-									<option value="">PLACE</option>
-									<option value="SEOUL">SEOUL</option>
-									<option value="DAEGU">DAEGU</option>
-									<option value="BUSAN">BUSAN</option>
-									<option value="JEJU">JEJU</option>
-									<option value="INCHEON">INCHEON</option>
-									<option value="CHUNCHEON">CHUNCHEON</option>
-									<option value="BORYEONG">BORYEONG</option>
-									<option value="JEONJU">JEONJU</option>
-									<option value="GYEONGJU">GYEONGJU</option>
-									<option value="YEOSU">YEOSU</option>
-									<option value="KANGWONDO">KANGWONDO</option>
-									<option value="GYEONGGIDO">GYEONGGIDO</option>
+								<select name="place" id="placeQuick" class="mainSearch1" style="height: 2.3em;font-size:1.1em; color:#bab6a8">
+									<option value=""  style="color:#bab6a8">PLACE</option>
+									<option value="SEOUL" style="color:#bab6a8">SEOUL</option>
+									<option value="DAEGU" style="color:#bab6a8">DAEGU</option>
+									<option value="BUSAN" style="color:#bab6a8">BUSAN</option>
+									<option value="JEJU" style="color:#bab6a8">JEJU</option>
+									<option value="INCHEON" style="color:#bab6a8">INCHEON</option>
+									<option value="CHUNCHEON" style="color:#bab6a8">CHUNCHEON</option>
+									<option value="BORYEONG" style="color:#bab6a8">BORYEONG</option>
+									<option value="JEONJU" style="color:#bab6a8">JEONJU</option>
+									<option value="GYEONGJU" style="color:#bab6a8">GYEONGJU</option>
+									<option value="YEOSU" style="color:#bab6a8">YEOSU</option>
+									<option value="KANGWONDO" style="color:#bab6a8">KANGWONDO</option>
+									<option value="GYEONGGIDO" style="color:#bab6a8">GYEONGGIDO</option>
 								</select> 
 								<input type="text" id="dt" placeholder="DATE"
-									class="mainSearch1" name="date" style="height: 2.3em;font-size:1.1em;color:#5E3327;"/> 
+									class="mainSearch1" name="date" style="height: 2.3em;font-size:1.1em; color:#bab6a8;"/> 
 								<select
-									name="people" id="peopleQuick" class="mainSearch1" style="height: 2.3em;font-size:1.1em">
-									<option value="">PEOPLE</option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="5">5</option>
-									<option value="10">10</option>
-									<option value="15">15</option>
-									<option value="20">20</option>
+									name="people" id="peopleQuick" class="mainSearch1" style="height: 2.3em;font-size:1.1em; color:#bab6a8">
+									<option value="" style="color:#bab6a8">PEOPLE</option>
+									<option value="1" style="color:#bab6a8">1</option>
+									<option value="2" style="color:#bab6a8">2</option>
+									<option value="5" style="color:#bab6a8">5</option>
+									<option value="10" style="color:#bab6a8">10</option>
+									<option value="15" style="color:#bab6a8">15</option>
+									<option value="20" style="color:#bab6a8">20</option>
 								</select> 
 								<select name="method" id="methodQuick"
-									class="mainSearch1" style="height: 2.3em;font-size:1.1em">
-									<option value="">METHOD</option>
-									<option value="walking">walking</option>
-									<option value="car">car</option>
-									<option value="bicycle">bicycle</option>
+									class="mainSearch1" style="height: 2.3em;font-size:1.1em; color:#bab6a8">
+									<option value="" style="color:#bab6a8">METHOD</option>
+									<option value="walking" style="color:#bab6a8">walking</option>
+									<option value="car" style="color:#bab6a8">car</option>
+									<option value="bicycle" style="color:#bab6a8">bicycle</option>
 								</select> 
 								</form>
 								<button class="button fit small special mainSearch1" id="quick_search">SEARCH</button>
@@ -175,6 +175,10 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 				
 				<div class="2u$ 12u$(small) mainRight1">					<!-- 3 오른쪽 -->
 						<table id="mainRight">
+							<tr style="cursor:Pointer;"onclick="#">
+							  <td><span class="mainRight_span"><img src="images/home.png"></span></td>
+							  <th>HOME</th>
+							</tr>
 							<tr style="cursor:Pointer;"onclick="location.href='introduceSite.do'">
 							  <td><span class="mainRight_span"><img src="images/comma.png"></span></td>
 							  <th>COMMA</th>
@@ -221,17 +225,33 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
                   <div id="guideImg">
                   <div class="guideRank_mypicture">
                      <img id="profile" src="../controller/images/character.png"></div>
-                     <div style="color:#3A2525; font-weight: bold;"><img id="guideRanking_ranker" src="images/guideRanking_ranker_img.png">&nbsp;${vo.reviewvo.review_no }ST</div>
+                     <div style="color:#3A2525; font-weight: bold;"><img id="guideRanking_ranker" src="images/guideRanking_ranker_img.png">&nbsp;${vo.num }ST</div>
                   </div>
                
-                  <div class="guideRanking_review">
-                     ${vo.reviewvo.review_score }점입니니다다다다다다다다다다다다다다다다다다다다다다다다다다다닫다.
+                  <div class="guideRanking_review">                  
+                  
+                  	<c:forEach var="i" begin="1" end="5">
+                  			<c:forEach var="score" items="${scoreList }">
+                              <c:if test="${score==i }">
+                                 <c:forEach var="j" begin="1" end="${i }">
+                               		  ★
+                                 </c:forEach>
+                                 <c:if test="${i!=5 }">
+                                 <c:forEach var="j" begin="${i+1 }" end="5">
+                                	 ☆
+                                 </c:forEach>
+                                 </c:if>
+                              </c:if>
+                          </c:forEach>
+                      </c:forEach>
+                      ${vo.reviewvo.review_score }점입니다
+                      가이드의 총 글 수 :${vo.guidevo.guide_no }  
+                      가이드에게 달린 총 리뷰수 : ${vo.reviewvo.review_no }
                   </div>
                   <span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">${vo.uservo.user_nick }(${vo.text_loc })</span>
                </div>
                </c:forEach>
-               
-         </div>
+       	  </div>
          
          <div class="6u$ 12u$(small) secondPart tabControlWrap" id="tabControlWrap">
             <h5>Best Guide spot</h5>
@@ -259,7 +279,7 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
             </ul>
             
             <ul class="">            
-                  <li class="tabControlBody selected" id="hotspot" style="background-color: #BAB6A8;"></li>
+                  <li class="tabControlBody selected" id="hotspot"></li>
             </ul>
             </div>
          </div>         

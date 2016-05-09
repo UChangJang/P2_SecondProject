@@ -213,11 +213,9 @@ public class TouristController {
    /* 5.예약하기 */
    @RequestMapping("resTourCheck.do")
    public String resTourCheck(HttpServletRequest req){
-	  //"tour_no="+no+"&id="+"${sessionScope.id}";
 	  String tour_no=req.getParameter("tour_no");		//1.투어번호받음
       String user_id=req.getParameter("id");			//2.사용자id받음
       System.out.println("tour:"+tour_no+",id:"+user_id);
-      //wish에 : reservation_no, user_id, tour_no
       
       Map map=new HashMap();		
       map.put("tour_no", tour_no);
@@ -236,6 +234,7 @@ public class TouristController {
     	  
     	  result="1";
       }
+      System.out.println("예약결과:"+result);
       
       req.setAttribute("result", result);
       return "tourist/resOk.jsp";

@@ -9,16 +9,17 @@
 </head>
 <body>
 <c:forEach items="${list }" var="list">
+<center>
+<a href="guideBoard.do?no=${list.guide_no }">
 <tr>
-<td>
-<p>
-	<a href="guideBoard.do?no=${list.guide_no }">
-	<b>${list.text_tour_date }</b>&nbsp;&nbsp;&nbsp;${list.text_cost }<b>KPW</b>&nbsp;&nbsp;&nbsp;${list.text_hit }<b>HIT</b>
-	</a>
-</p>
-</td>
+	<p>
+		<td><b>${list.text_tour_date }</b></td>
+		<td>${list.text_cost }<b>KPW</b></td>
+		<td>${list.text_hit }<b>HIT</b></td>
+	</p>
 </tr>
-
+</a>
+</center>
 </c:forEach>
 
 </body>

@@ -34,7 +34,7 @@ private static SqlSessionFactory	ssf;
 		List<TextVO> list = session.selectList("guideAllData",map);
 		session.close();	
 		
-		costModify(list);
+		costModify(list);//¼¼ÀÚ¸®²÷±â
 		
 		return list;
 		
@@ -380,5 +380,12 @@ private static SqlSessionFactory	ssf;
 			costModify(list);
 			return list;
 		}
+		public static int countMyGuide(String id){
+			SqlSession session=ssf.openSession();
+			int countMyGuide=session.selectOne("countMyGuide",id);
+			session.close();
+			return countMyGuide;
+		}
+	
 	
 }
