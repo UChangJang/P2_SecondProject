@@ -13,6 +13,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import comma.sist.common.TextVO;
+import comma.sist.guide.dao.GuideDAO;
 import comma.sist.tourist.dao.TouristVO;
 import comma.sist.user.dao.UserVO;
 import comma.sist.wish.dao.WishVO;
@@ -45,7 +46,7 @@ private static SqlSessionFactory   ssf;
           
           UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
           TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
-          System.out.println("보잉테스트:"+tv.getText_time1()+","+tv.getText_time2());
+          //System.out.println("보잉테스트:"+tv.getText_time1()+","+tv.getText_time2());
           //list에 합치기_user
           tv.getUservo().setUser_nick(uv.getUser_nick());
           tv.getUservo().setUser_img(uv.getUser_img());
@@ -60,6 +61,7 @@ private static SqlSessionFactory   ssf;
           list2.add(tv);
        }
        session.close();
+       GuideDAO.costModify(list2);
        
        return list2;
     }
@@ -96,6 +98,7 @@ private static SqlSessionFactory   ssf;
          list2.add(tv);
       }
       session.close();
+      GuideDAO.costModify(list2);
       
       return list2;
    }
@@ -111,14 +114,8 @@ private static SqlSessionFactory   ssf;
          String tid = tvo.getUser_id();   //1.저장된 id가져옴  null...
             
          int tno = tvo.getText_no();      //2.저장된 text번호 가져옴
-            
-            
-         
-         UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
-            
-         
-         TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
-            
+         UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴    
+         TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴        
 
          //list에 합치기_user
          tv.getUservo().setUser_nick(uv.getUser_nick());
@@ -135,6 +132,7 @@ private static SqlSessionFactory   ssf;
          list2.add(tv);
       }
       session.close();
+      GuideDAO.costModify(list2);
       
       return list2;
    }
@@ -244,7 +242,7 @@ private static SqlSessionFactory   ssf;
 		
 		SqlSession session = ssf.openSession();
 		int text_no = session.selectOne("textnoSearch1",no);
-		System.out.println(text_no);
+		//System.out.println(text_no);
 		session.close();
 		
 		session = ssf.openSession(true);
@@ -282,13 +280,13 @@ private static SqlSessionFactory   ssf;
  		SqlSession session=ssf.openSession();
  		List<TouristResVO> vo = session.selectList("tourResInfo",no);
  		if(vo.isEmpty()){
- 			System.out.println("dao예약안했음");
+ 			//System.out.println("dao예약안했음");
  			session.close();
  			return null;
  		}else{
- 			System.out.println("예약자:"+vo.size());
+ 			//System.out.println("예약자:"+vo.size());
 	 		for(int i=0; i<vo.size(); i++){
-	 			System.out.println(vo.get(i).getUser_nick()+",ID:"+vo.get(i).getUser_id());
+	 			//System.out.println(vo.get(i).getUser_nick()+",ID:"+vo.get(i).getUser_id());
 	 		}
 	 		session.close();
  		}

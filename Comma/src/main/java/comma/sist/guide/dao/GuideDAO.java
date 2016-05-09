@@ -235,6 +235,12 @@ private static SqlSessionFactory	ssf;
 		return resPerson;
 	}
 	
+	public static void searchHitIncrease(String loc){
+		SqlSession session = ssf.openSession(true);
+		session.update("searchHitIncrease",loc);
+		session.close();
+	}
+	
 	
 	public static List<TextVO> bestGuide(){
 		SqlSession session=ssf.openSession();

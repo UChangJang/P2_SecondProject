@@ -77,7 +77,10 @@
 						<td>${guidevo.text_loc }</td>
 						<td  id="myGuide${guidevo.guidevo.guide_no }" class="myGuide" style="cursor: pointer;">${guidevo.guidevo.guide_subject }</td>
 						<td><fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/></td>
-						<td>${guidevo.reservationvo.reservation_person }/${guidevo.text_total_person }</td>
+						<td class="mytourRBtn">
+						<input style="box-shadow: inset 0 0 0;" type="button" value="${guidevo.guidevo.reservation_person }/${guidevo.text_total_person }" 
+							class=guideResViewBtn id="guideResBtn${guidevo.guidevo.guide_no }">
+						</td>
 						<td><input type="button" value="Del" class="guideDelwritten" id="guideDelwrite${guidevo.guidevo.guide_no }"></td>
 						<form method="post" action="mypage_mywriter_gDel.do?no=" id="frm_wrgD" name="guideDelmypage"></form>
 					</tr>
@@ -124,7 +127,7 @@
 		</section>
 	</div>
 
-	<!-- 예약자 명단 --> 
+	<!-- 예약자 관광객 명단 --> 
 	<c:forEach var="vo" items="${touristvo }">
 		<form class="resMy white-popup mfp-hide"
 			id="tourRok1${vo.touristvo.tour_no}" method="post"
@@ -150,7 +153,29 @@
 			</table>
 		</form>
 	</c:forEach>
-
+	
+	<!-- 예약자 가이드 명단 -->
+	<c:forEach var="vo" items="${guidevo }">
+		<form class="resMy white-popup mfp-hide" method="post" id="guideRok1${vo.guidevo.guide_no }" action="#">
+		<h1>${vo.guidevo.guide_no } Reserve List</h1>
+		<table>
+			<tr align=center>
+				<th>Name</th>
+				<th>ID</th>
+				<th>PEOPLE</th>
+			</tr>
+			<c:forEach var="res" items="${guideResvo }">
+			<c:if test="${res.guidevo.guide_no eq vo.guidevo.guide_no }">
+			<tr>
+				<td>${res.uservo.user_name }</td>
+				<td>${res.uservo.user_id }</td>
+				<td>${res.reservationvo.reservation_person }</td>
+			</tr>
+			</c:if>
+			</c:forEach>
+		</table>
+		</form>
+	</c:forEach>
 	
 	</section>
 
@@ -177,7 +202,7 @@
 		
 		$('.tourResViewBtn').click(function() {
 			var id = $(this).attr('id');
-			var no = id.substring(10)
+			var no = id.substring(10);
 			$.magnificPopup.open({
 				items : {
 					src : '#tourRok1' + no,
@@ -198,7 +223,36 @@
 			});
 
 
-		})
+		});
+		
+		$('.guideResViewBtn').click(function() {
+			var id = $(this).attr('id');
+			var no = id.substring(11);
+			$.magnificPopup.open({
+				items : {
+					src : '#guideRok1' + no,
+					type : 'inline'
+				},
+				preloader : false,
+				focus : '#name',
+				callbacks : {
+					beforeOpen : function() {
+						if ($(window).width() < 700) {
+							this.st.focus = false;
+						} else {
+							this.st.focus = '#messageTextarea';
+						}
+					}
+				}
+
+			});
+
+
+		});
+		
+		
+		
+		
 		$('.myGuide').click(function(){
 			var id=$(this).attr('id');
 			var no=id.substring(7);			

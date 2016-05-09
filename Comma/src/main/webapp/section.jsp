@@ -174,7 +174,8 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
             
             <ul class="tabControlTabs">
                <c:set var="i" value="1"/>
-               <c:forEach var="vo" items="${slist }">
+				<c:forEach var="vo" items="${slist }">
+
                   <c:if test="${i<=10 }">
                   	<c:if test="${i<=9 }">
                      <li id="li${vo.search_loc }" class="tabControlTab odd" style="margin:0;padding:0;">
