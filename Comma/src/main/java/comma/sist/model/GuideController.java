@@ -211,7 +211,8 @@ public class GuideController {
 		String user_id = (String)session.getAttribute("id");
 		vo.getGuidevo().setUser_id(user_id);
 		
-		vo.getGuidevo().setGuide_map("юс╫ц©К"); // ╧ы╡Ц╬ъ╣й
+		//vo.getGuidevo().setGuide_map("юс╫ц©К"); // ╧ы╡Ц╬ъ╣й
+		vo.getGuidevo().setGuide_map(guide_map);
 		
 		if(guide_img==null){
 			vo.getGuidevo().setGuide_img("");
