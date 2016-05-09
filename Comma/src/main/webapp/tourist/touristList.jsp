@@ -156,7 +156,7 @@ function tourContent2() {
 				<!-- 쪽지보내기 -->
 
 				<c:forEach var="list" items="${list }">
-			 <form class="white-popup mfp-hide" id="letPop${list.touristvo.tour_no }">
+			 <form class="white-popup mfp-hide" id="letPop${list.touristvo.tour_no }" action="tourMessage.do" method="post">
 
 	                  <h1>Message</h1>
 	                    <table>
@@ -241,7 +241,8 @@ $('.letter').click(function(){
 $('.messgaeBtn').click(function(){
 	var id=$(this).attr('id');
 	var no=id.substring(10);
-	$('#message'+no).submit();
+	alert(no)
+	$('#letPop'+no).submit();
 })
 </script>
 

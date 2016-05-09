@@ -3,4 +3,4 @@
 <%
 	response.sendRedirect("main.do");
 %>
-<!-- 수정 a -->
+<!-- 수정 b -->

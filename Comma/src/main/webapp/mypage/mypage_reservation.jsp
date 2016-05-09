@@ -70,8 +70,8 @@
 				  <c:forEach var="vo" items="${tourvo }">
 					<tr>
 						<td width="7%" align="center">${vo.touristvo.tour_no }</td>
-						<td width="10%" id="tour${vo.touristvo.tour_no }" class="tourDetatil" style="cursor: pointer;">${vo.text_loc }</td>
-						<td width="10%" align="center">${vo.touristvo.tour_theme }</td>
+						<td width="10%" align="center" >${vo.text_loc }</td>
+						<td width="10%" align="center" id="tour${vo.touristvo.tour_no }" class="tourDetatil" style="cursor: pointer;">${vo.touristvo.tour_theme }</td>
 						<td width="10%" align="center">${vo.uservo.user_id }</td>
 						<td width="10%" align="center">${vo.text_tour_date }</td>
 						<td width="7%" align="center">${vo.reservationvo.reservation_check }</td>
@@ -111,8 +111,7 @@
 	                     	<tr>
 	                     	  <td width="30%" align="right">people</td>
 	                     	  <td width="70%" align="left">${tourvo.text_total_person }</td>
-	                     	</tr>
-	                     
+	                     	</tr>	                     
 	                     	
 	                     	<tr>
 	                     	  <td colspan="2" align="center">³»¿ë</td>
