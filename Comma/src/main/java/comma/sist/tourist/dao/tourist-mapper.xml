@@ -141,7 +141,7 @@
 	<select id="myTouristWriter" resultMap="comma.sist.common.text-mapper.TextList" parameterType="String">
       SELECT tour_no,text_loc,tour_theme,text_regdate,text_total_person
       FROM tour,text 
-      WHERE tour.text_no=text.text_no AND user_id=#{id}
+      WHERE tour.text_no=text.text_no AND user_id=#{id} order by tour_no desc
    </select>
     
     <!-- 마이페이지_내 투어 리스트에 예약한 인원수 구하기 -->

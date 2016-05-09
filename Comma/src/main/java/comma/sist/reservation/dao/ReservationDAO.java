@@ -59,6 +59,17 @@ private static SqlSessionFactory	ssf;
 		return total;
 	}
 	
+	// 가이드 예약목록
+	public static List<TextVO> reserveData(int no){
+		SqlSession session  = ssf.openSession();
+		List<TextVO> list = session.selectList("reserveData",no);
+		session.close();
+		return list;
+		
+	}
+	
+	
+	
 	//나의 예약여부 확인
 	public static int reserveGuideExist(ReservationVO vo){
 		SqlSession session = ssf.openSession();
