@@ -142,17 +142,24 @@ function guideContent() {
 								<input type="button" value="${vo.text_loc }" style="width:10em;font-size:9pt;padding-left:2px;padding-right:2px;float:right;background-color: #0080ff;color: white">
 								<span>${vo.uservo.user_nick }(${vo.uservo.user_id })</span>
 							</div>
-							<div class="secondTable" style="font-size: 12pt;max-height: 2em;padding-top: 1px">${vo.guidevo.guide_subject }</div>
+							<div class="secondTable" style="font-weight:bold;font-size: 12pt;max-height: 2em;padding-top: 1px">${vo.guidevo.guide_subject }</div>
 							<div class="ThirdTable">
-								<span><font color="#0080ff">£Ü${vo.text_cost }</font></span>
+								<span><font color="white">£Ü${vo.text_cost }</font></span>
 							</div>
 							<div class="FourthTable">
-								<span><font color="red">${vo.text_move }</font></span>
+								<span style="font-weight:bold"><font color="white">${vo.text_move }</font></span>
 								<span><font color="yellow">
 								<c:forEach var="k" begin="1" end="${vo.num }">¡Ú</c:forEach><c:if test="${vo.num!=5 }"><c:forEach var="l" begin="${vo.num+1 }" end="5">¡Ù</c:forEach></c:if>
 								</font></span>
 							</div>
 						</div>
+						
+						<c:if test="${vo.resNum==0 }">
+							<div class="listTextQuickly" style="font-weight:bold;">HURRY UP!!</div>
+						</c:if>
+						<c:if test="${vo.resNum==1 }">
+							<div class="listTextFinish"" style="font-weight:bold;"><h1>Complete<br>Reservation </h1></div>
+						</c:if>
 					</span>
 				</div>
 			</c:forEach>
