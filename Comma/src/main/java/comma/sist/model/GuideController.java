@@ -334,8 +334,6 @@ public class GuideController {
 		
 		String id = request.getParameter("id");
 		String guide_no = request.getParameter("guide_no");
-		System.out.println(guide_no);
-		System.out.println(id);
 		
 		UserVO uvo = GuideDAO.guideInfoShow(Integer.parseInt(guide_no));
 		
