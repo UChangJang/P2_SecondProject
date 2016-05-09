@@ -5,6 +5,7 @@ import java.util.*;
 import comma.sist.guide.dao.GuideVO;
 import comma.sist.reservation.dao.ReservationVO;
 import comma.sist.review.dao.ReviewVO;
+import comma.sist.tourist.dao.TouristResVO;
 import comma.sist.tourist.dao.TouristVO;
 import comma.sist.user.dao.UserVO;
 import comma.sist.wish.dao.WishVO;
@@ -17,8 +18,8 @@ public class TextVO {
 	private int		text_total_person;
 	private Date	text_regdate;
 	private String	text_time1;
-	private String	text_time2;
-	private String	text_time3; // am pm (start)
+	private String	text_time2;	// am pm (start)
+	private String	text_time3; 
 	private String	text_time4; // am pm (end)
 	private String	text_move;
 	private int		text_hit;
@@ -31,10 +32,19 @@ public class TextVO {
 	private ReviewVO reviewvo=new ReviewVO();
 	private WishVO wishvo=new WishVO();
 	
+	private List<TouristResVO> tourresvo=new ArrayList<TouristResVO>();	//투어에 예약한 사람-보영추가
+	
 	private int		text_time;		// 소요시간
 	private int		num;
 	
 	
+	
+	public List<TouristResVO> getTourresvo() {
+		return  tourresvo;
+	}
+	public void setTourresvo(List<TouristResVO> tourresvo) {
+		this.tourresvo = tourresvo;
+	}
 	
 	public int getNum() {
 		return num;

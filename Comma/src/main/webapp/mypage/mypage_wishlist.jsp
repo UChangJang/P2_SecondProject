@@ -63,7 +63,7 @@ $(function(){
 							<!-- 미정 삭제 test요 -->
 						<td><a href="wishlist_guide_delete.do?gwish_no=${guidevo.wishvo.wish_no }" style="background-color: rgb(0, 0, 0);">
 
-						<input type="button" value="삭제"></a></td> 
+						<input type="button" value="Delete"></a></td> 
 
 					</tr>
 					
@@ -90,20 +90,60 @@ $(function(){
 				<c:forEach var="tourvo" items="${tourvo }">
 					<tr>
 						<td>${tourvo.wishvo.wish_no }</td>
-						<td>${tourvo.touristvo.tour_theme }</td>
+						<td id="tour${tourvo.wishvo.wish_no }" class="tourDetatil" style="cursor: pointer;">${tourvo.touristvo.tour_theme }</td>
 						<td>${tourvo.uservo.user_nick }</td>
 						<td>
-						<fmt:formatDate value="${tourvo.text_regdate }" pattern="yy/MM/dd"/>
+						${tourvo.text_tour_date }
 						</td>
 						<td>${tourvo.reservationvo.reservation_person}/${tourvo.text_total_person}</td>
 						<td><a href="wishlist_tour_delete.do?twish_no=${tourvo.wishvo.wish_no }">
-						<input type="button" value="삭제"></a></td>
+						<input type="button" value="Delete"></a></td>
 					</tr>
 					</c:forEach>
 						
 				</tbody>
 			</table>
 		</div>
+		<c:forEach var="tourvo" items="${tourvo }">
+	                <form class="white-popup mfp-hide" id="tourPopUp${tourvo.wishvo.wish_no }">
+	                  <h1>TourDetail</h1>
+	                    <table>
+	                     	<tr>
+	                     	  <td width="30%" align="right">tour</td>
+	                     	  <td width="70%" align="left">${tourvo.uservo.user_nick}</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">tour date</td>
+	                     	  <td width="70%" align="left">${tourvo.text_tour_date }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">tour time</td>
+	                     	  <td width="70%" align="left">${tourvo.text_time1 }${tourvo.text_time2 }~${tourvo.text_time3 }${tourvo.text_time4 }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">cost</td>
+	                     	  <td width="70%" align="left">${tourvo.text_cost }</td>
+	                     	</tr>
+	                     	
+	                     	<tr>
+	                     	  <td width="30%" align="right">method</td>
+	                     	  <td width="70%" align="left">${tourvo.text_move }</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td width="30%" align="right">people</td>
+	                     	  <td width="70%" align="left">${tourvo.text_total_person }</td>
+	                     	</tr>
+	                     
+	                     	
+	                     	<tr>
+	                     	  <td colspan="2" align="center">내용</td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${tourvo.touristvo.tour_detail}</textarea></td>
+	                     	</tr>
+	                     </table>         
+	               </form> 
+	               </c:forEach>  
 
 		
 		</section>
@@ -131,6 +171,24 @@ $(function(){
 					$('.t' + index).fadeIn();
 					$(this).css('background-color', '#ee8c7f').addClass('active');
 				});
+		$('.tourDetatil').click(function(){
+			
+			var id=$(this).attr('id');
+			var no=id.substring(4);
+			  $.magnificPopup.open({
+			        items :{src:'#tourPopUp'+no,type : 'inline'},
+			              preloader: false,focus: '#name',
+			              callbacks: {beforeOpen: function() {
+			                 if($(window).width() < 700) {
+			                    this.st.focus = false;
+			                 } else {
+			                    this.st.focus = '#name';
+			                 }
+			              }
+			        }
+
+			     });
+		})
 	</script>
 </body>
 </html>

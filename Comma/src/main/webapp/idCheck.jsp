@@ -9,10 +9,10 @@
 </head>
 <body>
 	  <c:if test="${count==0 }">
-         <td>사용가능한아이디</td>      
+         <td>ID is available.</td>      
       </c:if>
       <c:if test="${count!=0 }">
-         <td style="color: red;">사용불가</td>     
+         <td style="color: red;">The ID is already in use. Please choose a different ID.</td>     
       </c:if>
 
 </body>

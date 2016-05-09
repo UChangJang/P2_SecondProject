@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -43,7 +45,7 @@ private static SqlSessionFactory   ssf;
           
           UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
           TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
-
+          System.out.println("보잉테스트:"+tv.getText_time1()+","+tv.getText_time2());
           //list에 합치기_user
           tv.getUservo().setUser_nick(uv.getUser_nick());
           tv.getUservo().setUser_img(uv.getUser_img());
@@ -103,20 +105,6 @@ private static SqlSessionFactory   ssf;
       session.close();
       
       return list2;
-   }
-   
-   
-   //*******날짜 숫자만 뽑아내기
-   public static String datePicker(String date1){
-	   StringTokenizer st = new StringTokenizer(date1, "/");
-	   String month=st.nextToken();
-	   String day=st.nextToken();
-	   String year=st.nextToken();
-	   String date=year+month+day;
-	   
-	   System.out.println(day+","+month+","+year);
-	   
-	   return date;
    }
    
    
@@ -259,11 +247,77 @@ private static SqlSessionFactory   ssf;
       session.close();
       return vo;
    }
-   public static List<TouristVO> myTouristWriter(String id){
+   
+   public static void touristDelete(int no){
+		
+		SqlSession session = ssf.openSession();
+		int text_no = session.selectOne("textnoSearch1",no);
+		System.out.println(text_no);
+		session.close();
+		
+		session = ssf.openSession(true);
+		// wish, reservation, review
+		session.delete("reservationTourDelete",no);
+		session.delete("wishTourDelete",no);
+		session.delete("TourDelete", no);
+		session.delete("textDelete",text_no);
+		session.close();
+	}
+   
+   
+   
+   
+   
+   //내가 쓴 관광객 글들 보기
+   public static List<TextVO> myTouristWriter(String id){
       SqlSession session=ssf.openSession();
-      List<TouristVO> vo = session.selectList("myTouristWriter",id);
+      //System.out.println("dao진입tour:"+id);
+      List<TextVO> vo = session.selectList("myTouristWriter",id);
       session.close();
       return vo;
    }
+   
+   //예약한 인원 수 구하기 
+ 	public static String myTourWriterPerson(int no){
+ 		SqlSession session=ssf.openSession();
+ 		String resPerson = session.selectOne("myresPerson2",no);
+ 		session.close();
+ 		return resPerson;
+ 	}
+ 	
+ 	//예약한 인원 정보구하기
+ 	public static List<TouristResVO> tourResInfo(int no){	//no=17
+ 		SqlSession session=ssf.openSession();
+ 		List<TouristResVO> vo = session.selectList("tourResInfo",no);
+ 		if(vo.isEmpty()){
+ 			System.out.println("dao예약안했음");
+ 			session.close();
+ 			return null;
+ 		}else{
+ 			System.out.println("예약자:"+vo.size());
+	 		for(int i=0; i<vo.size(); i++){
+	 			System.out.println(vo.get(i).getUser_nick()+",ID:"+vo.get(i).getUser_id());
+	 		}
+	 		session.close();
+ 		}
+ 		return vo;
+ 	}
+ 	
+ 	//승인하기
+	public static void mytourOkUpdate(Map map){
+ 		SqlSession session=ssf.openSession(true);
+ 		System.out.println("1");
+ 		session.update("mytourOkUpdate",map);
+ 		System.out.println("2");
+ 		session.close();
+ 	}
+	//나머지 승인 안하기
+		public static void mytourNotOkUpdate(Map map){
+	 		SqlSession session=ssf.openSession(true);
+	 		System.out.println("!1");
+	 		session.update("mytourNotOkUpdate",map);
+	 		System.out.println("!2");
+	 		session.close();
+	 	}
    
 }

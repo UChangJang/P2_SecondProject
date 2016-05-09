@@ -99,7 +99,7 @@
 
    <!--  tourist게시판 글쓰기 -->
    <insert id="textInsert1" parameterMap="comma.sist.common.text-mapper.TextList_param">
-      INSERT INTO text(text_no,text_loc,text_cost,text_total_person,text_regdate,text_time2,text_time4,text_time1,text_time3,text_time,text_move,text_hit,text_end,text_tour_date) 
+      INSERT INTO text(text_no,text_loc,text_cost,text_total_person,text_regdate,text_time1,text_time2,text_time3,text_time4,text_time,text_move,text_hit,text_end,text_tour_date) 
       VALUES((SELECT NVL(MAX(text_no)+1,1) FROM text),#{text_loc},#{text_cost},#{text_total_person},sysdate,
       #{text_time1},#{text_time2},#{text_time3},#{text_time4},#{text_time},#{text_move},0,'n',#{text_tour_date})
    </insert>
@@ -113,6 +113,20 @@
            			#{touristvo.user_id},#{text_no},#{touristvo.tour_theme},#{touristvo.tour_detail})
    </insert>
    
+	<!-- 관광객 삭제 -->
+	<select id="textnoSearch1" parameterType="int" resultType="int">
+		select text_no from tour where tour_no=#{tour_no}
+	</select>
+	<delete id="reservationTourDelete" parameterType="int">
+		delete from reservation where tour_no=#{tour_no}
+	</delete>
+	<delete id="wishTourDelete" parameterType="int">
+		delete from wish where tour_no=#{tour_no}
+	</delete>
+	<delete id="TourDelete" parameterType="int">
+		delete from tour where tour_no=#{tour_no}
+	</delete>
+
    
    <!-- 지도값넣기 -->
    <select id="tourMap" resultType="int" parameterType="String">
@@ -120,6 +134,46 @@
       FROM tour,text 
       WHERE tour.text_no=text.text_no AND text_loc=#{text_no}
    </select>
-
+   
+   
+   
+   <!-- 마이페이지_내가쓴 투어글 보기 -->
+	<select id="myTouristWriter" resultMap="comma.sist.common.text-mapper.TextList" parameterType="String">
+      SELECT tour_no,text_loc,tour_theme,text_regdate,text_total_person
+      FROM tour,text 
+      WHERE tour.text_no=text.text_no AND user_id=#{id}
+   </select>
     
+    <!-- 마이페이지_내 투어 리스트에 예약한 인원수 구하기 -->
+	<select id="myresPerson2" resultType="String" parameterType="int">
+		SELECT count(*)
+		FROM reservation
+		WHERE tour_no=#{no}
+	</select>
+	
+	
+	<!-- 마이페이지_내 투어 리스트에 예약한 가이드들 정보불러오기 -->
+	<select id="tourResInfo" resultType="TouristRes" parameterType="int">
+		SELECT user_nick,user_sex,user_birth,reservation_check,users.user_id as user_id
+		FROM reservation,users
+		WHERE tour_no=#{no} AND users.user_id=reservation.user_id
+	</select>
+   
+   <!-- 마이페이지_승인하기 -->
+	<update id="mytourOkUpdate" parameterType="java.util.Map">
+		UPDATE reservation SET
+		reservation_check='Y'
+		WHERE user_id=#{user_id} AND tour_no=#{tour_no}	
+	</update>
+	
+	<!-- 마이페이지_나머지는 승인 안하기 -->
+	<update id="mytourNotOkUpdate" parameterType="java.util.Map">
+		UPDATE reservation SET
+		reservation_check='N'
+		WHERE user_id!=#{user_id} AND tour_no=#{tour_no}
+	</update>
+   
+   
+   
+   
 </mapper>

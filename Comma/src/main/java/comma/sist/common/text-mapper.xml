@@ -18,6 +18,8 @@
      <result column="text_regdate" property="text_regdate"/>
      <result column="text_time1" property="text_time1"/>
      <result column="text_time2" property="text_time2"/>
+     <result column="text_time3" property="text_time3"/>
+     <result column="text_time4" property="text_time4"/>
      <result column="text_time" property="text_time"/>
      <result column="text_move" property="text_move"/>
      <result column="text_hit" property="text_hit"/>
@@ -32,6 +34,7 @@
      <result column="user_introduce" property="uservo.user_introduce"/>
      <result column="reservation_no" property="reservationvo.reservation_no"/>
      <result column="reservation_person" property="reservationvo.reservation_person"/> 
+     <result column="reservation_check" property="reservationvo.reservation_check"/>
      <result column="review_no" property="reviewvo.review_no"/> 
      <result column="review_score" property="reviewvo.review_score"/> 
      <result column="review_text" property="reviewvo.review_text"/> 

@@ -1,5 +1,18 @@
 @CHARSET "EUC-KR";
 
+.mytourRBtn:hover{
+	background-color: rgba(144, 144, 144, 0.25);
+}
+.mytourRBtn input:hover{
+	background-color: rgba(144, 144, 144, 0.25);
+}
+
+#boyoung .mytourRBtn .tourResViewBtn:hover{
+	background-color: rgba(144, 144, 144, 0.25);
+}
+.tourResViewBtn,.mytourRBtn{
+	box-shadow: inset 0 0 0;
+}
 .tourFit{
 	display:inline-block;
 	margin-right: 0;
@@ -14,6 +27,17 @@
     border: solid 0px #fff;
     border-left: 0;
     border-right: 0;
+}
+/* spot */
+.spot_num{
+	color:#fff;
+	background-color:#ed4933;
+	border-radius:3px;
+	vertical-align: middle;
+	float:left;
+	margin-left:3em;
+	margin-right:0;
+	margin-top:0.3em;
 }
 /* 상단 2번째, 네비게이션 메뉴바 */
 .nav2Name{
@@ -155,6 +179,7 @@
 /* 로그인 창 */
 #login-form{
 	text-align: center;
+	max-width: 500px;
 }
 
 
@@ -300,13 +325,12 @@
 }
 
 #bt{
-	left:60%;width:5em;height:3em; 	
+	left:60%;width:10em;height:3em; 	
 	margin-top:2em;
 	margin-bottom:3em;
 	margin-left:40%;
 	margin-right:60%;
     padding: 5px;
-    width:6em;
     text-align: center;
 	cursor:pointer;
 	color:#400040;
@@ -707,7 +731,7 @@
 	  background: #004080;
 	  padding: 20px;
 	  width:auto;
-	  max-width: 500px;
+	  max-width: 700px;
 	  margin: 20px auto;
 	  border-radius: 3px;
 	}
@@ -1067,7 +1091,7 @@
 	margin-bottom: 0.8em;
 }
 .mainSearch1{
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
 }
 
 #mainTop{

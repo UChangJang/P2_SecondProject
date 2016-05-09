@@ -5,7 +5,7 @@ public class ReviewVO {
 	private int review_no;
 	private int guide_no;
 	private String user_id;
-	private int review_score;
+	private double review_score;
 	private String review_text;
 	
 
@@ -28,10 +28,10 @@ public class ReviewVO {
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
-	public int getReview_score() {
+	public double getReview_score() {
 		return review_score;
 	}
-	public void setReview_score(int review_score) {
+	public void setReview_score(double review_score) {
 		this.review_score = review_score;
 	}
 	public String getReview_text() {

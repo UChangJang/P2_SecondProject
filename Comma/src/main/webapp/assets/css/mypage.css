@@ -55,9 +55,9 @@ ul#tabs {
 	padding: 5px;
 	padding-top: 13px;
 	text-decoration: none;
-	border-radius : 2em 2em 0.3em 0.3em;
-	-webkit-border-radius : 2em 2em 0.3em 0.3em;
-	-moz-border-radius : 2em 2em 0.3em 0.3em;
+	border-radius : 0.3em 0.3em 0.3em 0.3em;
+	-webkit-border-radius : 0.3em 0.3em 0.3em 0.3em;
+	-moz-border-radius : 0.3em 0.3em 0.3em 0.3em;
 }
 .tab2 a{
 	color:#fff;
@@ -70,9 +70,9 @@ ul#tabs {
 	padding: 5px;
 	padding-top: 13px;
 	text-decoration: none;
-	border-radius : 0.5em 2em 0.3em 0.3em;
-	-webkit-border-radius : 0.5em 2em 0.3em 0.3em;
-	-moz-border-radius : 0.5em 2em 0.3em 0.3em;
+	border-radius : 0.3em 0.3em 0.3em 0.3em;
+	-webkit-border-radius : 0.3em 0.3em 0.3em 0.3em;
+	-moz-border-radius : 0.3em 0.3em 0.3em 0.3em;
 }
 
 .active {
@@ -114,6 +114,21 @@ ul#tabs {
 	vertical-align : middle;
 	margin: 0 auto;	
 	border: 1px solid #2e2e2e;
+	display: inline-block
+	
+}
+.mypictureInfo img{
+	background-color: #444;
+	align : center;
+	height : 15em;
+	width : 15em;
+	border-radius : 50%;
+	-webkit-border-radius : 50%;
+	-moz-border-radius : 50%;
+	overflow : hidden;
+	vertical-align : middle;
+	margin: 0 auto;	
+	border: 2px solid #2e2e2e;
 	display: inline-block
 	
 }

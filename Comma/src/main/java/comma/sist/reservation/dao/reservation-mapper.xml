@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="comma.sist.reservation.dao.reservation-mapper">
-						
-	 <select id="myGuideReservation" resultMap="comma.sist.common.text-mapper.TextList">
-	 	select reservation_no,guide_subject,user_nick,text_tour_date,reservation_person,text_total_person
-	 	from guide,users,text,reservation 
-	 	where reservation.user_id=users.user_id and reservation.guide_no=guide.guide_no and text.text_no=guide.text_no	
+	
+	 <!-- 마이페이지_내가 예약한 가이드글들 -->
+	 <select id="myGuideReservation" resultMap="comma.sist.common.text-mapper.TextList" parameterType="String">
+	 	SELECT guide.guide_no as guide_no,reservation_no,text_loc,guide_subject,text_tour_date,guide.user_id as user_id,text_total_person
+	 	FROM reservation,guide,text 
+	 	WHERE reservation.user_id=#{user_id} AND guide.guide_no=reservation.guide_no AND text.text_no=guide.text_no
 	 </select>
-	 <select id="myTourReservation" resultMap="comma.sist.common.text-mapper.TextList">
-	 	select reservation_no,tour_theme,user_nick,text_tour_date,reservation_person,text_total_person
-	 	from tour,users,text,reservation 
-	 	where reservation.user_id=users.user_id and reservation.tour_no=tour.tour_no and text.text_no=tour.text_no	 	
+	 
+	 <!-- 마이페이지_내가 예약한 투어글들 -->
+	
+	 <select id="myTourReservation" resultMap="comma.sist.common.text-mapper.TextList" parameterType="String">
+	 	SELECT tour.tour_no as tour_no,reservation_no,text_loc,tour_theme,tour.user_id as user_id,text_tour_date,reservation_check,
+	 			text_time1,text_time2,text_time3,text_time4, text_cost, text_move,text_total_person,tour_detail
+	 	FROM tour,text,reservation 
+	 	WHERE reservation.user_id=#{user_id} AND reservation.tour_no=tour.tour_no AND text.text_no=tour.text_no	 	
 	 </select>
 	
 	<!-- 가이드 글에서 예약하기 -->
@@ -20,6 +25,34 @@
 				#{reservation_person},'n') 
 	</insert>
 	
-	
-
+	<!-- 가이드 글에서 총 예약확정된 인원 구하기 -->
+	<select id="reserveGuideCheck" resultType="String" parameterType="int">
+	 	SELECT sum(reservation_person)
+		FROM reservation
+		WHERE guide_no=#{guide_no}	 	
+	 </select>
+	 
+	 <!-- 가이드 글의 예약가능 인원 수 구하기 -->
+	<select id="reserveGuidePossible" resultType="int" parameterType="int">
+	 	SELECT text_total_person
+		FROM guide,text
+		WHERE guide_no=#{guide_no} AND text.text_no=guide.text_no 	
+	 </select>
+	 
+	  <!-- 가이드 글에서 내가 이미 예약했는지 확인 -->
+	<select id="reserveGuideExist" resultType="int" parameterType="Reservation">
+	 	SELECT count(*)
+		FROM reservation
+		WHERE user_id=#{user_id} AND guide_no=#{guide_no} 	
+	 </select>
+	 
+	 
+	 <!-- 가이드 예약 삭제 -->
+	 <select id="reserveNoSearch" parameterType="java.util.Map" resultType="int">
+	 	select reservation_no from reservation where guide_no=#{no} and user_id=#{user_id}
+	 </select>
+	 <delete id="reserveDeleteGuide" parameterType="int">
+	 	delete from reservation where reservation_no=#{reservation_no}
+	 </delete>
+	 
 </mapper>

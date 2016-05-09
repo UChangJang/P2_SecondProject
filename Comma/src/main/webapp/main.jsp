@@ -11,7 +11,7 @@
       <meta http-equiv="Content-Script-Type" content="text/javascript" />
       <meta http-equiv="Content-Style-Type" content="text/css" />
       <meta http-equiv="X-UA-Compatible" content="IE=10" />
-      <link href="images\CommaWorld(1).ico" rel="shortcut icon">
+      <link href="images\Comma.ico" rel="shortcut icon">
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/mytest.css" />
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/basic.css" />
       <link rel="stylesheet" type="text/css" href="../controller/assets/css/style.css" />
@@ -79,12 +79,12 @@
                
                   <!-- 1추가:로그인 레이어 팝업창-->
                   <c:if test="${sessionScope.id!=null }">
-                     ${sessionScope.name }님 환영합니다.
+                    Dear ${sessionScope.name }, Welcome to Comma!
                      <button class="button special log" id="logout-btn">Logout</button>
                      <form method="post" id="logout-frm" action="logout.do" hidden="hidden"></form>
                   </c:if>
                   <c:if test="${sessionScope.id==null }">
-                  <button class="button special log" id="join-btn">Sign In</button>&nbsp;&nbsp;
+                  <button class="button special log" id="join-btn">Sign Up</button>&nbsp;&nbsp;
                   <button class="button special log" id="login-btn">Login</button> 
                   <form class="white-popup mfp-hide" id="login-form" method="post" action="login.do">
                      <h1>Log-In</h1>
@@ -101,7 +101,7 @@
                      <table class="buttonGroup">
                        <tr>
                          <td><input name="login" value="login" id="log-btn" type="button"></td>
-                         <td><input name="join" value="join" id=join-btn type="button"></td>
+                         <td><input name="join" value="SIGN UP" id=logjoin-btn type="button"></td>
                        </tr>
                        <tr>
                          <td><input name="idfind" value="find id" id="idfind-btn" type="button"></td>
@@ -121,7 +121,7 @@
                      </div>
                      <br>
                      <div class="logbtn">
-                        <input name="idfind" value="idfind" id="idFindBtn" type="button">
+                        <input name="idfind" value="find id" id="idFindBtn" type="button">
                         <input name="idfind-b" value="Login" id="idFindBtn-b" type="button">
                         
                      </div>
@@ -143,7 +143,7 @@
           
                      <div class="logbtn">
                        
-                        <input name="pwdfind" value="pwdfind" id="pwdFindBtn" type="button">
+                        <input name="pwdfind" value="find pwd" id="pwdFindBtn" type="button">
                         <input name="pwdfind-b" value="Login" id="pwdFindBtn-b" type="button">
                         
                      </div>
@@ -158,10 +158,11 @@
                   
                   <!-- 2추가:회원가입 레이어 팝업창-->
                   <form class="white-popup mfp-hide" id="join-form" action="join.do" method="post">
-                     <h1>Join-us</h1>
+                     <h1>SIGN-UP</h1>
                      <div><span>
                         <input name="id" id="join_id" required="" type="text" placeholder="ID">
-                        <input name="id_check" value="확인" id="id_check" type="button"></span>
+                          <br>
+                        <input name="id_check" value="Check ID" id="id_check" type="button"></span>
                      </div>
                         <div name="checkPrint" id="checkPrint"></div>
                      <br>
@@ -170,7 +171,7 @@
                      </div>
                      <br>
                      <div>
-                        <input name="pwd" id="join_pwd_check" required="" type="password" placeholder="Password">
+                        <input name="pwd" id="join_pwd_check" required="" type="password" placeholder="Re-enter password">
                      </div>
                      <br>
                      <div>
@@ -186,7 +187,7 @@
                      </div>
                      <br>
                      <div class="joinBtn">
-                        <input name="join" value="join" id="join" type="button">
+                        <input name="join" value="Submit" id="join" type="button">
                      </div>                     
                   </form> 
                   </c:if>
@@ -347,11 +348,14 @@
          
          
       });
+      
+      $('#logjoin-btn ').magnificPopup({
+    	  items :{src:'#join-form',type : 'inline'}
+       });
+
       $('#id_check').click(function(){        
         var id = $('#join_id').val();
-        
         if(id.trim()==""){
-           alert(id)
            $('#join_id').focus();
            return;
         }
