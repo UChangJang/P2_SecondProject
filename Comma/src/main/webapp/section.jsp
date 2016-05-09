@@ -103,7 +103,7 @@ function hotspot(){
 							  <th>Home</th>
 							  </a>
 							</tr> -->
-							<tr style="cursor:Pointer;"onclick="location.href='introduceKor.do'">
+							<tr style=c"cursor:Pointer;"onclick="location.href='introduceKor.do'">
 							  <td><span class="mainRight_span"><img src="images/comma.png"></span></td>
 							  <th>Comma</th>
 							</tr>

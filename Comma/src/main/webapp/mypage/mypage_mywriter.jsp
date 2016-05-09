@@ -69,11 +69,13 @@
 				</thead>
 				<tbody>
 				<c:forEach var="guidevo" items="${guidevo }">
-					<tr>
+					<form action="guideBoard.do" id="myGuideFtn${guidevo.guidevo.guide_no }" method="post" >
+					    <input type="hidden" value="${guidevo.guidevo.guide_no }" name="no">
+					</form>
+					<tr>					
 						<td>${guidevo.guidevo.guide_no }</td>	<!-- 목록내 번호 -->
-						<td><a href="guideBoard.do?no=${guidevo.guidevo.guide_no }">
-						</a>${guidevo.text_loc }</td>
-						<td>${guidevo.guidevo.guide_subject }</td>
+						<td>${guidevo.text_loc }</td>
+						<td  id="myGuide${guidevo.guidevo.guide_no }" class="myGuide" style="cursor: pointer;">${guidevo.guidevo.guide_subject }</td>
 						<td><fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/></td>
 						<td>${guidevo.guidevo.reservation_person }/${guidevo.text_total_person }</td>
 						<td><input type="button" value="Del"></td>
@@ -193,6 +195,13 @@
 			});
 
 		})
+		$('.myGuide').click(function(){
+			var id=$(this).attr('id');
+			var no=id.substring(7);			
+			$('#myGuideFtn'+no).submit();
+			
+			
+		});
 	</script>
 </body>
 </html>
