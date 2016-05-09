@@ -247,7 +247,7 @@ public class UserController {
 		
 		String no = request.getParameter("no");		
 		System.out.println("∞°¿ÃµÂ"+no);
-		//GuideDAO.guideDelete(Integer.parseInt(no));	
+		GuideDAO.guideDelete(Integer.parseInt(no));	
 
 		return "mypage/mywrite_deleteOk.jsp";
 	}

@@ -69,15 +69,17 @@
 				</thead>
 				<tbody>
 				<c:forEach var="guidevo" items="${guidevo }">
-					<tr>
+					<form action="guideBoard.do" id="myGuideFtn${guidevo.guidevo.guide_no }" method="post" >
+					    <input type="hidden" value="${guidevo.guidevo.guide_no }" name="no">
+					</form>
+					<tr>					
 						<td>${guidevo.guidevo.guide_no }</td>	<!-- 목록내 번호 -->
-						<td><a href="guideBoard.do?no=${guidevo.guidevo.guide_no }">
-						</a>${guidevo.text_loc }</td>
-						<td>${guidevo.guidevo.guide_subject }</td>
+						<td>${guidevo.text_loc }</td>
+						<td  id="myGuide${guidevo.guidevo.guide_no }" class="myGuide" style="cursor: pointer;">${guidevo.guidevo.guide_subject }</td>
 						<td><fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/></td>
-						<td>${guidevo.guidevo.reservation_person }/${guidevo.text_total_person }</td>
+						<td>${guidevo.reservationvo.reservation_person }/${guidevo.text_total_person }</td>
 						<td><input type="button" value="Del" class="guideDelwritten" id="guideDelwrite${guidevo.guidevo.guide_no }"></td>
-						<form method="post" name="guideDelmypage"/>
+						<form method="post" action="mypage_mywriter_gDel.do?no=" id="frm_wrgD" name="guideDelmypage"></form>
 					</tr>
 					</c:forEach>
 				</tbody>
@@ -113,7 +115,7 @@
 							</td>
 							<td><input type="button" value="Del" class="tourDelwritten" id="tourDelwrite${vo.touristvo.tour_no }"></td>
 							<!-- <form method="post" name="tourDelmypage"></form> -->
-							<form method="post" action="mypage_mywriter_tDel.do?no=" id="sdff" name="tourDelmypage"></form>
+							<form method="post" action="mypage_mywriter_tDel.do?no=" id="frm_wrtD" name="tourDelmypage"></form>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -195,30 +197,46 @@
 
 			});
 
+
+		})
+		$('.myGuide').click(function(){
+			var id=$(this).attr('id');
+			var no=id.substring(7);			
+			$('#myGuideFtn'+no).submit();
+			
+			
 		});
+
+	
 		
 		$('.guideDelwritten').click(function(){
 			var id = $(this).attr('id');
 			var no = id.substring(13);
 			
-			var m = document.guideDelmypage;
-			m.action = "mypage_mywriter_gDel.do?no="+no;
-			m.submit();
+			alert(no);
+			
+			var c = $('#frm_wrgD').attr('action');
+			var param = c+no;
+			$('#frm_wrgD').attr('action',param);
+			$('#frm_wrgD').submit();
+			
 		});
 		
 		$('.tourDelwritten').click(function(){
 			var id = $(this).attr('id');
 			var no = id.substring(12);
-				
-			var c = $('#sdff').attr('action');
-			var param = c+no;
-			alert(param);
 			
-			$('#sdff').attr('action',param);
-			$('#sdff').submit();
+			alert(no);
+			
+			var c = $('#frm_wrtD').attr('action');
+			var param = c+no;
+			
+			$('#frm_wrtD').attr('action',param);
+			$('#frm_wrtD').submit();
 			
 		});
 		
+
 	</script>
 </body>
 </html>

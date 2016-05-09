@@ -48,8 +48,8 @@ function hotspot(){
    <div id="mainMenu">&nbsp;&nbsp; 
       <span><a href="main.do">Comma</a></span>&nbsp;&nbsp; 
       <span><a href="introduceKor.do">Introduce Korea</a></span>&nbsp;&nbsp;
-      <span><a href="guide.do">Tour Find</a></span>&nbsp;&nbsp; 
-      <span><a href="tourist.do">Tour Request</a></span>&nbsp;&nbsp; 
+      <span><a href="guide.do">Tour</a></span>&nbsp;&nbsp; 
+      <span><a href="tourist.do">Guide</a></span>&nbsp;&nbsp; 
       <span><a href="board_list.do">Community</a></span>&nbsp;&nbsp; 
    </div>
    <span><img src="http://file.theskinfood.com/resources/common/img/dep2bg.png" width="100%" height="37" alt=""></span>
@@ -81,50 +81,50 @@ function hotspot(){
                   <input type="submit" value="SEARCH" class="special mainSearch1" />
                   </div>
 
-               </div>
-            </div>
-            
-            <div class="7u 12u$(small)">                        <!-- 2 가운데 -->
-               <span class="image fit a">
-                  <div id="main_bn">
-                     <li><img src="images/guide_banner.jpg" alt="" /></li>      <!-- 이미지 character과 맞추기!!! -->
-                     <li><img src="images/tour_banner.jpg" alt="" /></li>
-                     <li><img src="images/korea_banner.jpg" alt="" /></li>
-                     <li><img src="images/character.png" alt="" /></li>
-                  </div>
-               </span>
-            </div>
-            
-            <div class="2u$ 12u$(small) mainRight1">               <!-- 3 오른쪽 -->
-                  <table id="mainRight">
-                     <!-- <tr onclick="location.href='introduceKor.do'">style="cursor:hand;" 
-                     <a href="#">
-                       <td><span class="mainRight_span"><img src="images/home.png"></span></td>
-                       <th>Home</th>
-                       </a>
-                     </tr> -->
-                     <tr style="cursor:Pointer;"onclick="location.href='introduceKor.do'">
-                       <td><span class="mainRight_span"><img src="images/comma.png"></span></td>
-                       <th>Comma</th>
-                     </tr>
-                     <tr style="cursor:Pointer;"onclick="location.href='tourist.do'">
-                       <td><span class="mainRight_span"><img src="images/korea.png"></span></td>
-                       <th>Tour</th>
-                     </tr>
-                     <tr style="cursor:Pointer;"onclick="location.href='guide.do'">
-                       <td><span class="mainRight_span"><img src="images/guide.png"></span></td>
-                       <th>Request</th>
-                     </tr>
-                     <tr style="cursor:Pointer;"onclick="location.href='board_list.do'">
-                       <td><span class="mainRight_span"><img src="images/commu.png"></span></td>
-                       <th>Community</th>
-                     </tr>
-                  </table>
-               </div>
-               
-            </div>
-         </section>
-      </div>
+					</div>
+				</div>
+				
+				<div class="7u 12u$(small)">								<!-- 2 가운데 -->
+					<span class="image fit a">
+						<div id="main_bn">
+							<li><img src="images/guide_banner.jpg" alt="" /></li>		<!-- 이미지 character과 맞추기!!! -->
+							<li><img src="images/tour_banner.jpg" alt="" /></li>
+							<li><img src="images/korea_banner.jpg" alt="" /></li>
+							<li><img src="images/character.png" alt="" /></li>
+						</div>
+					</span>
+				</div>
+				
+				<div class="2u$ 12u$(small) mainRight1">					<!-- 3 오른쪽 -->
+						<table id="mainRight">
+							<!-- <tr onclick="location.href='introduceKor.do'">style="cursor:hand;" 
+							<a href="#">
+							  <td><span class="mainRight_span"><img src="images/home.png"></span></td>
+							  <th>Home</th>
+							  </a>
+							</tr> -->
+							<tr style=c"cursor:Pointer;"onclick="location.href='introduceKor.do'">
+							  <td><span class="mainRight_span"><img src="images/comma.png"></span></td>
+							  <th>Comma</th>
+							</tr>
+							<tr style="cursor:Pointer;"onclick="location.href='tourist.do'">
+							  <td><span class="mainRight_span"><img src="images/korea.png"></span></td>
+							  <th>Tour</th>
+							</tr>
+							<tr style="cursor:Pointer;"onclick="location.href='guide.do'">
+							  <td><span class="mainRight_span"><img src="images/guide.png"></span></td>
+							  <th>Guide</th>
+							</tr>
+							<tr style="cursor:Pointer;"onclick="location.href='board_list.do'">
+							  <td><span class="mainRight_span"><img src="images/commu.png"></span></td>
+							  <th>Community</th>
+							</tr>
+						</table>
+					</div>
+					
+				</div>
+			</section>
+		</div>
 </section>
 
 

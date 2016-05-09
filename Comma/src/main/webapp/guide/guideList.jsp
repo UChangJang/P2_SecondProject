@@ -78,20 +78,20 @@ $(function(){
 			if(place==""){											//1.검색안했을 때	(정렬도 필요없음)	
 				var param="page="+${curpage+1};
 				sendMessage("POST", "guide_p.do",param, guideContent);
-				alert(method_value+","+people+","+date+","+sortType);
-				alert("다음버튼누름_검색안했을때:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
+				//alert(method_value+","+people+","+date+","+sortType);
+				//alert("다음버튼누름_검색안했을때:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
 			}
 			else if(place!="" && method_value==null){				//2.지역_검색했을 때
 				//2-1.정렬 했을 때
 				var sortType=$('#sortType').val();	//가격높은순
 				
 				if(sortType!=""){	//정렬했을 때
-					alert("다음버튼누름_지역검색_정렬o:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
+					//alert("다음버튼누름_지역검색_정렬o:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
 					var param="page="+${curpage+1}+"&place="+place+"&type="+sortType;
 					sendMessage("POST", "guide_sort.do",param,guideContent);
 					
 				}else{				//정렬안했을 때
-					alert("다음버튼누름_지역검색_정렬x:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
+					//alert("다음버튼누름_지역검색_정렬x:"+place+","+method_value+","+people+","+date+","+sortType);////////////////////////////////////
 					var param="page="+${curpage+1}+"&place="+place;
 					sendMessage("POST", "guide_search.do",param,guideContent);
 				}

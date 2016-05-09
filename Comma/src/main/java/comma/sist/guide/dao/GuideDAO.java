@@ -246,9 +246,7 @@ private static SqlSessionFactory	ssf;
 	//가이드검색
 	public static List<TextVO> guideSearchPlace(Map map){
 		SqlSession session=ssf.openSession();
-		System.out.println("검색dao진입=======");
 		List<TextVO> list = session.selectList("guideSearchPlace",map);
-		System.out.println("검색dao끝===");
 		session.close();
 		return list;
 	}
@@ -263,9 +261,7 @@ private static SqlSessionFactory	ssf;
 	//detail검색
 	public static List<TextVO> guideSearchDe(Map map){
 		SqlSession session=ssf.openSession();
-		System.out.println("detail검색dao진입=======");
 		List<TextVO> list = session.selectList("guideSearchDe",map);
-		System.out.println("detail검색dao끝===");
 		session.close();
 		return list;
 	}

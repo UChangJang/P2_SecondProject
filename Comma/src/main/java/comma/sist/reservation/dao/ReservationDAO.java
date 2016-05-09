@@ -48,7 +48,6 @@ private static SqlSessionFactory	ssf;
 	public static String reserveGuideCheck(int guide_no){
 		SqlSession session = ssf.openSession();
 		String sum=session.selectOne("reserveGuideCheck",guide_no);
-		System.out.println(sum);
 		session.close();
 		return sum;
 	}
@@ -56,7 +55,6 @@ private static SqlSessionFactory	ssf;
 	public static int reserveGuidePossible(int guide_no){
 		SqlSession session = ssf.openSession();
 		int total=session.selectOne("reserveGuidePossible",guide_no);
-		System.out.println(total);
 		session.close();
 		return total;
 	}

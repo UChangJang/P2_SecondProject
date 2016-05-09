@@ -78,16 +78,9 @@ private static SqlSessionFactory   ssf;
       
       for(TouristVO tvo : list) {
          String tid = tvo.getUser_id();   //1.저장된 id가져옴  null...
-            System.out.println("id:" +tid);
-         int tno = tvo.getText_no();      //2.저장된 text번호 가져옴
-            System.out.print("글전체에서번호:" +tno);
-            System.out.print(",테마:" + tvo.getTour_theme());   //3.저장된 테마가져옴
-         
-         UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
-            System.out.print(",닉네임:" +uv.getUser_nick());      //저장된 닉네임 가져오기
-         
+         int tno = tvo.getText_no();      //2.저장된 text번호 가져옴         
+         UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴       
          TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
-            System.out.print(",지역:" +tv.getText_loc()+",가격:"+tv.getText_cost());              //저장된 지역 가져오기
          //list에 합치기_user
          tv.getUservo().setUser_nick(uv.getUser_nick());
          tv.getUservo().setUser_img(uv.getUser_img());
@@ -114,19 +107,18 @@ private static SqlSessionFactory   ssf;
       List<TouristVO> list=session.selectList("touristSearchData", map); // tour에서 지역&날짜 동일한 5개 리스트 추출
  
       List<TextVO> list2 = new ArrayList<TextVO>(); // 이곳에 저장하겠다.
-      System.out.println("dao진입");
       for(TouristVO tvo : list) {
          String tid = tvo.getUser_id();   //1.저장된 id가져옴  null...
-            System.out.println("id:" +tid);
+            
          int tno = tvo.getText_no();      //2.저장된 text번호 가져옴
-            System.out.println("글전체에서번호:" +tno);
-            System.out.println("테마:" + tvo.getTour_theme());   //3.저장된 테마가져옴
+            
+            
          
          UserVO uv = session.selectOne("touristUserData", tid); // users에서user_id와 일치하는 5개의 정보들 가져옴
-            System.out.println("닉네임:" +uv.getUser_nick());      //저장된 닉네임 가져오기
+            
          
          TextVO tv = session.selectOne("touristTextData", tno); // text에서 text_no와 일치하는 5개의 정보들 가져옴
-            System.out.println("지역:" +tv.getText_loc());               //저장된 지역 가져오기
+            
 
          //list에 합치기_user
          tv.getUservo().setUser_nick(uv.getUser_nick());
@@ -306,17 +298,17 @@ private static SqlSessionFactory   ssf;
  	//승인하기
 	public static void mytourOkUpdate(Map map){
  		SqlSession session=ssf.openSession(true);
- 		System.out.println("1");
+ 		
  		session.update("mytourOkUpdate",map);
- 		System.out.println("2");
+ 		
  		session.close();
  	}
 	//나머지 승인 안하기
 		public static void mytourNotOkUpdate(Map map){
 	 		SqlSession session=ssf.openSession(true);
-	 		System.out.println("!1");
+	 	
 	 		session.update("mytourNotOkUpdate",map);
-	 		System.out.println("!2");
+	 	
 	 		session.close();
 	 	}
    
