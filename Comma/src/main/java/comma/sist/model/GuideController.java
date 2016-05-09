@@ -10,6 +10,7 @@ import comma.sist.guide.dao.*;
 
 import comma.sist.reservation.dao.ReservationDAO;
 import comma.sist.reservation.dao.ReservationVO;
+import comma.sist.tourist.dao.TouristDAO;
 import comma.sist.user.dao.UserVO;
 import comma.sist.wish.dao.WishDAO;
 import comma.sist.wish.dao.WishVO;
@@ -69,7 +70,6 @@ public class GuideController {
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
 		request.setAttribute("jsp", "guide/guide.jsp");
-		//request.setAttribute("mypage", "guide/guideList.jsp");
 		return "main.jsp";
 	}
 	
@@ -90,19 +90,14 @@ public class GuideController {
 		int start = (rowSize*curpage) - (rowSize-1);
 		int end = rowSize*curpage;
 		map.put("start", start);
-		map.put("end", end);
-		
+		map.put("end", end);		
 		
 		List<TextVO> list = GuideDAO.guideAllData(map);
-		
-		
-		
+
 		request.setAttribute("curpage", page);
 		request.setAttribute("totalpage", totalpage);
 		request.setAttribute("list", list);
-		request.setAttribute("jsp", "guide/guideList.jsp");
-		//request.setAttribute("mypage", "guide/guideList.jsp");
-		return "main.jsp";
+		return "guide/guideList.jsp";
 	}
 	
 	
@@ -414,5 +409,150 @@ public class GuideController {
 	      
 	      return "guide/guideWishOk.jsp";
 	}
+	
+	//가이드 검색
+	@RequestMapping("guide_search.do")
+	public String guide_search(HttpServletRequest request){
+		
+	      String place = request.getParameter("place");
+	      System.out.println(place);
+	      	
+	      //총 페이지
+	      int totalpage = GuideDAO.guideSearchTotalPage(place);
+	      if(totalpage==0) totalpage=1;
+	      // 현재 페이지
+			String page = request.getParameter("page");
+			if(page==null) page = "1";
+			int curpage = Integer.parseInt(page);
+			
+			Map map = new HashMap();
+			int rowSize = 9;
+			int start = (rowSize*curpage) - (rowSize-1);
+			int end = rowSize*curpage;
+			map.put("start", start);
+			map.put("end", end);
+			map.put("place", place);
+			
+	      List<TextVO> list= GuideDAO.guideSearchPlace(map);
+	      if(!list.isEmpty()){
+			   System.out.println("비어있지 않아요");
+			   System.out.println(list.get(0).getText_move());
+		   }else{
+			   System.out.println("비어있음");
+		   }
+	      request.setAttribute("list", list);
+	      request.setAttribute("curpage", curpage);
+	      request.setAttribute("totalpage", totalpage);
+	      return "guide/guideList.jsp";
+	}
 
+	//가이드 detail 검색
+	@RequestMapping("guide_search_detail.do")
+	public String guide_search_detail(HttpServletRequest request){
+
+		String place = request.getParameter("place");
+		String method = request.getParameter("method");
+		String people = request.getParameter("people");
+		String date = request.getParameter("date");
+		System.out.println(place + "," + method + "," + people + "," + date);
+
+		Map map = new HashMap();
+		map.put("place", place);
+		map.put("method", method);
+		map.put("people", Integer.parseInt(people));
+		map.put("date", date);
+
+		// 총 페이지
+		int totalpage = GuideDAO.guideSearchDeTotalPage(map);
+		System.out.println("총페이지수:" + totalpage);
+		if (totalpage == 0)
+			totalpage = 1;
+
+		// 현재 페이지
+		String page = request.getParameter("page");
+		if (page == null)
+			page = "1";
+		int curpage = Integer.parseInt(page);
+
+		int rowSize = 9;
+		int start = (rowSize * curpage) - (rowSize - 1);
+		int end = rowSize * curpage;
+		map.put("start", start);
+		map.put("end", end);
+
+	      List<TextVO> list= GuideDAO.guideSearchDe(map);
+	      if(!list.isEmpty()){
+			   System.out.println("비어있지 않아요");
+			   System.out.println(list.get(0).getText_move());
+		   }else{
+			   System.out.println("비어있음");
+		   }
+	      request.setAttribute("list", list);
+	      request.setAttribute("curpage", curpage);
+	      request.setAttribute("totalpage", totalpage);
+	      return "guide/guideList.jsp";
+	}
+	
+		// 가이드 정렬
+	   @RequestMapping("guide_sort.do")
+	   //var param="place="+place+"&method="+method_value+"&people="+people+"&date="+date+"&type="+sortType;
+	   public String tourist_sort(HttpServletRequest req) throws Exception{
+		   String place = req.getParameter("place"); 	// 1.장소
+		   String method = req.getParameter("method"); 	// 2.이동수단
+		   String people = req.getParameter("people"); 	// 3.인원
+		   String date = req.getParameter("date"); 		// 4.날짜
+		   String type = req.getParameter("type"); 		// 5.정렬타입
+		   System.out.println("정렬controller진입_place:" + place + " ,date:" + date+" ,method:"+method+" ,people:"+people+" ,type:"+type);
+		   
+		   String page = req.getParameter("page"); // page=몇페이지인지..처음은 무조건 1page
+			if (page == null) {
+				page = "1";
+			}
+			int curpage = Integer.parseInt(page);
+			Map map = new HashMap();
+			int rowSize = 9;
+			int start = (curpage * rowSize) - (rowSize - 1);
+			int end = curpage * rowSize;
+			map.put("start", start);		//시작번호와 끝번호 받음
+			map.put("end", end);
+			map.put("place", place);
+			System.out.println("시작번호:"+start+",끝번호:"+end);
+			int totalpage=1;
+			List<TextVO> list = new ArrayList<TextVO>();
+			
+		   if(method==null || people=="" || date==""){											//1.지역만 검색
+			   list = GuideDAO.guide_sort_place(map, type); //start,end,place _ type
+			   System.out.println("지역만_정렬 끝낸 controller~~");
+			   if(!list.isEmpty()){
+				   System.out.println("비어있지 않아요");
+				   System.out.println(list.get(0).getText_move());
+			   }else{
+				   System.out.println("비어있음");
+			   }
+			   totalpage=GuideDAO.guideSearchTotalPage(place);   //총페이지수
+			   
+		   }else if(method != null && people!="" && date!=""){									//2.detail도 검색
+			   map.put("method", method);
+			   map.put("people", people);
+			   map.put("date", date);
+			   list = GuideDAO.guide_sort_detail(map, type); 	//start,end,place _ type
+			   if(!list.isEmpty()){
+				   System.out.println("비어있지 않아요");
+				   System.out.println(list.get(0).getText_move());
+			   }
+			   
+			   System.out.println("디테일_정렬 끝낸 controller~~");
+			   totalpage=GuideDAO.guideSearchDeTotalPage(map);   //총페이지수
+		   }
+		   
+		  // String dateTemp = req.getParameter("date"); // 2.날짜=03/31/2016
+		  // String date = TouristDAO.datePicker(dateTemp); // 날짜를 20160331로 만듬
+
+
+	      req.setAttribute("curpage", curpage);
+	      req.setAttribute("totalpage", totalpage);
+	      req.setAttribute("list", list);      
+	      
+	      return "guide/guideList.jsp";
+	   }
 }

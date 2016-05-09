@@ -18,6 +18,8 @@
      <result column="text_regdate" property="text_regdate"/>
      <result column="text_time1" property="text_time1"/>
      <result column="text_time2" property="text_time2"/>
+     <result column="text_time3" property="text_time3"/>
+     <result column="text_time4" property="text_time4"/>
      <result column="text_time" property="text_time"/>
      <result column="text_move" property="text_move"/>
      <result column="text_hit" property="text_hit"/>

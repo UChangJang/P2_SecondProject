@@ -104,8 +104,7 @@ public class TouristController {
    @RequestMapping("tourist_sort.do")
    public String tourist_sort(HttpServletRequest req) throws Exception{
 		String place = req.getParameter("place"); // 1.장소=seoul
-		String dateTemp = req.getParameter("date"); // 2.날짜=03/31/2016
-		String date = TouristDAO.datePicker(dateTemp); // 날짜를 20160331로 만듬
+		String date = req.getParameter("date"); // 2.날짜=03/31/2016
 		System.out.println("place:" + place + ",date:" + date);
 
 		String page = req.getParameter("page"); // page=몇페이지인지..처음은 무조건 1page
@@ -143,8 +142,7 @@ public class TouristController {
 	  try{
 	   req.setCharacterEncoding("UTF-8");
       String place=req.getParameter("place");			//1.장소=seoul
-      String dateTemp=req.getParameter("date");			//2.날짜=03/31/2016
-      String date=TouristDAO.datePicker(dateTemp);					//날짜를 20160331로 만듬
+      String date=req.getParameter("date");			//2.날짜=03/31/2016
       System.out.println("place:"+place+",date:"+date);
       
       String page=req.getParameter("page");      //3.검색은 무조건 1page(다음페이지 눌렀을 때도 여기로 와서 해결)
@@ -262,8 +260,7 @@ public class TouristController {
 	   
       String tour_theme = req.getParameter("tour_theme");
       String text_loc = req.getParameter("text_loc");
-      String text_tour_date_temp = req.getParameter("text_tour_date");
-      String text_tour_date = TouristDAO.datePicker(text_tour_date_temp);
+      String text_tour_date = req.getParameter("text_tour_date");
       String text_cost = req.getParameter("text_cost");
       String text_total_person = req.getParameter("text_total_person");
       String text_time1 = req.getParameter("text_time1");		//숫자
@@ -298,8 +295,8 @@ public class TouristController {
       tvo.setText_cost(text_cost);
       tvo.setText_total_person(Integer.parseInt(text_total_person));
       tvo.setText_time1(text_time1);		//시간
-      tvo.setText_time2(text_time3);		//시간
-      tvo.setText_time3(text_time2);		//시간
+      tvo.setText_time2(text_time2);		//시간
+      tvo.setText_time3(text_time3);		//시간
       tvo.setText_time4(text_time4);		//시간
       tvo.setText_move(text_move);     
       tvo.setText_time(text_time);			//총 시간

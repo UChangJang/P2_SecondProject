@@ -28,6 +28,17 @@
     border-left: 0;
     border-right: 0;
 }
+/* spot */
+.spot_num{
+	color:#fff;
+	background-color:#ed4933;
+	border-radius:3px;
+	vertical-align: middle;
+	float:left;
+	margin-left:3em;
+	margin-right:0;
+	margin-top:0.3em;
+}
 /* 상단 2번째, 네비게이션 메뉴바 */
 .nav2Name{
 	font-weight: bold;
@@ -314,13 +325,12 @@
 }
 
 #bt{
-	left:60%;width:5em;height:3em; 	
+	left:60%;width:10em;height:3em; 	
 	margin-top:2em;
 	margin-bottom:3em;
 	margin-left:40%;
 	margin-right:60%;
     padding: 5px;
-    width:6em;
     text-align: center;
 	cursor:pointer;
 	color:#400040;
@@ -1081,7 +1091,7 @@
 	margin-bottom: 0.8em;
 }
 .mainSearch1{
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
 }
 
 #mainTop{

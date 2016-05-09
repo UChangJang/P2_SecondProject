@@ -27,8 +27,7 @@ $(function(){
 		return;
 	}
 	var param="id="+encodeURIComponent(id);
-	sendMessage("POST", "../pwdFind.do", param, pwdfind)
-	
+	sendMessage("POST", "../pwdFind.do", param, pwdfind)	
 })
 })
 function idfind(){

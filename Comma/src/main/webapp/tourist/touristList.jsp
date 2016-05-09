@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>Tourist</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript">
@@ -34,7 +34,6 @@ $(function(){
 			if('${curpage}'<'${totalpage}'){		//다음페이지로 가기 가능
 				var place=$('#place').val();		//1.지역값 가져오기
 				var date=$('#dt').val();			//2.날짜값 가져오기
-				alert('${curpage}'+","+'${totalpage}');
 				
 				if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
 					var param="page="+${curpage+1};
@@ -76,8 +75,6 @@ $(function(){
 			alert(param);
 			sendMessage("POST", "resTourCheck.do", param, resCheck);
 		});
-
-
 });
 
 
@@ -130,7 +127,7 @@ function tourContent2() {
 									</tr>
 									<tr>
 										<td>DATE:${vo.text_tour_date}</td>
-										<td>TIME:${vo.text_time2}${vo.text_time1 }~${vo.text_time4}${vo.text_time3}</td>	<!-- 날짜 -->
+										<td>TIME:${vo.text_time1}${vo.text_time2 }~${vo.text_time3}${vo.text_time4}</td>	<!-- 날짜 -->
 										<td>PEOPLE:${vo.text_total_person} </td>
 									</tr>
 									<tr>
@@ -159,25 +156,30 @@ function tourContent2() {
 				</div>
 			</div>
 				<!-- 쪽지보내기 -->
+
+				<c:forEach var="list" items="${list }">
 			 <form class="white-popup mfp-hide" id="letPop16">
+
 	                  <h1>Message</h1>
 	                    <table>
 	                     	<tr>
 	                     	  <td width="30%" align="right">받는사람</td>
-	                     	  <td width="70%" align="left"></td>
-	                     	</tr>
-	                     	<tr>
-	                     	  <td width="30%" align="right">시간</td>
-	                     	  <td width="70%" align="left"></td>
+	                     	  <td width="70%" align="left" >
+	                     	  <input type="text" readonly="readonly" value="${list.touristvo.user_id }" name="message_receive"></td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2" align="center">내용</td>
 	                     	</tr>
 	                     	<tr>
-	                     	  <td colspan="2"><textarea rows="5" readonly="readonly"></textarea></td>
+	                     	  <td colspan="2"><textarea rows="5"  name="message_text" ></textarea></td>
+	                     	</tr>
+	                     	<tr>
+	                     	  <td>
+	                     	  <input type="button"  value="보내기"id="messageBtn${list.touristvo.tour_no}" class="messgaeBtn"> 
 	                     	</tr>
 	                     </table>         
 	               		</form> 
+	            </c:forEach>
 
 			
                
@@ -219,14 +221,12 @@ function tourContent2() {
 <script async src="//jsfiddle.net/cosmosjs/xQ8JC/3/embed/"></script> 
 <script type="text/javascript">
 
-$('.letter').click(function(){
-	
+$('.letter').click(function(){	
 	var id=$(this).attr('id');
-	var no=id.substring(3);
-	alert("쪽지보내기 클릭;"+id+","+no);  
-	
+
+	var no=id.substring(3);	
 	  $.magnificPopup.open({
-	        items :{src:'#letPop16',type : 'inline'},
+	        items :{src:'#message'+no,type : 'inline'},
 	              preloader: false,focus: '#name',
 	              callbacks: {beforeOpen: function() {
 	                 if($(window).width() < 700) {
@@ -237,8 +237,12 @@ $('.letter').click(function(){
 	              }
 	        	}
 	     });	
-	  alert(id+","+no); 
 });
+$('.messgaeBtn').click(function(){
+	var id=$(this).attr('id');
+	var no=id.substring(10);
+	$('#message'+no).submit();
+})
 </script>
 
 

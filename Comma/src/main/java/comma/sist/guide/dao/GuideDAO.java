@@ -8,6 +8,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 import comma.sist.common.*;
+import comma.sist.tourist.dao.TouristVO;
+
 import comma.sist.user.dao.UserVO;
 
 public class GuideDAO {
@@ -228,9 +230,7 @@ private static SqlSessionFactory	ssf;
 	//예약한 인원 수 구하기 
 	public static String myGuideWriterPerson(int no){
 		SqlSession session=ssf.openSession();
-		System.out.println("dao진입=======");
 		String resPerson = session.selectOne("myresPerson",no);
-		System.out.println("예약인원!!!!====="+resPerson);		//왜 String?...null이면 0나오게 하자
 		session.close();
 		return resPerson;
 	}
@@ -242,5 +242,77 @@ private static SqlSessionFactory	ssf;
 		session.close();
 		return vo;
 	}
+	
+	//가이드검색
+	public static List<TextVO> guideSearchPlace(Map map){
+		SqlSession session=ssf.openSession();
+		System.out.println("검색dao진입=======");
+		List<TextVO> list = session.selectList("guideSearchPlace",map);
+		System.out.println("검색dao끝===");
+		session.close();
+		return list;
+	}
+	//검색후 총페이지 구하기
+	public static int guideSearchTotalPage(String place){		
+		SqlSession session = ssf.openSession();
+		int total  = session.selectOne("guideSearchTotalPage",place);
+		session.close();		
+		return total;		
+	}
+	
+	//detail검색
+	public static List<TextVO> guideSearchDe(Map map){
+		SqlSession session=ssf.openSession();
+		System.out.println("detail검색dao진입=======");
+		List<TextVO> list = session.selectList("guideSearchDe",map);
+		System.out.println("detail검색dao끝===");
+		session.close();
+		return list;
+	}
+	//detail검색후 총페이지 구하기
+		public static int guideSearchDeTotalPage(Map map){		
+			SqlSession session = ssf.openSession();
+			int total  = session.selectOne("guideSearchDeTotalPage",map);
+			session.close();		
+			return total;		
+		}
+		
 
+		
+	// guide정렬_place---------------------------------
+	public static List<TextVO> guide_sort_place(Map map, String type) { 	//map=start,end,place //type=cost,newest
+		SqlSession session = ssf.openSession(); // 객체생성
+
+		List<TextVO> list = new ArrayList<TextVO>();
+		if (type.equals("cost")) { 			// 1.가격순
+			list = session.selectList("guideSortPrice", map); // 1-5번호까지의
+																// tourist에서모든정보들가져옴
+		} else if (type.equals("newest")) { // 2.등록일자순
+			list = session.selectList("guideSortNewest", map);
+			
+		}else if(type.equals("ranking")){	//3.랭킹순
+			
+		}
+		session.close();
+		return list;
+	}
+	
+	// guide정렬_place,method,---------------------------------
+		public static List<TextVO> guide_sort_detail(Map map, String type) { 	//map=start,end,place,method,people,date //type=cost,newest
+			SqlSession session = ssf.openSession(); // 객체생성
+
+			List<TextVO> list = new ArrayList<TextVO>();
+			if (type.equals("cost")) { 			// 1.가격순
+				list = session.selectList("guideSortPriceDe", map); // 1-5번호까지의
+																	// tourist에서모든정보들가져옴
+			} else if (type.equals("newest")) { // 2.등록일자순
+				list = session.selectList("guideSortNewestDe", map);
+				
+			}else if(type.equals("ranking")){	//3.랭킹순
+				
+			}
+			session.close();
+			return list;
+		}
+	
 }

@@ -90,6 +90,7 @@ public class UserController {
 		UserDAO.userJoin(vo);
 		return "user/join.jsp";
 	}
+	
 	@RequestMapping("mypage_mydetail.do")
 	public String mypage_detail(HttpServletRequest req){
 		HttpSession session = req.getSession();
@@ -407,6 +408,7 @@ public class UserController {
 		
 		return "user/pwdFind_ok.jsp";
 	}
+	
 	@RequestMapping("reviewWrite.do")
 	public String reviewWrite(HttpServletRequest req) throws Exception{
 		

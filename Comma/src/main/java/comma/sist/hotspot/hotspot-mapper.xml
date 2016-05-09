@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comma.sist.hotspot.hotspot-mapper">
+
+<!-- 지역 순위 출력값 저장 -->
+<select id="searchLocFind" resultType="Search">
+	<![CDATA[
+	SELECT search_loc
+	FROM (SELECT search_loc,search_hit, rownum 
+		  FROM search 
+		  ORDER BY search_hit DESC)
+	WHERE rownum<=2
+	]]>
+</select>
+
+<!-- 
+	CREATE OR REPLACE VIEW allGuideInfo_view 
+   AS SELECT text.text_no, text_loc, text_tour_date, text_cost, text_hit  
+   FROM guide,text 
+   WHERE text.text_no=guide.text_no
+   WITH READ ONLY
+ -->
+<select id="allGuideBoard" resultType="Hotspot" parameterType="String">
+<![CDATA[
+	SELECT text_no,text_loc,text_tour_date,text_cost,text_hit
+	FROM (SELECT text_no, text_loc, text_tour_date, text_cost, text_hit, rownum
+		  FROM(SELECT text_no, text_loc, text_tour_date, text_cost, text_hit, today
+		  	   FROM allGuideInfo_view, (SELECT a||'/'||b as today
+										FROM(SELECT TO_CHAR(SYSDATE,'MM/DD') as a, TO_CHAR(SYSDATE,'YYYY') as b 
+										FROM DUAL))
+		  	   WHERE text_loc = #{search_loc}
+		  	   AND text_tour_date >= today
+		  	   ORDER BY text_hit DESC)
+		  )
+	WHERE rownum<=10
+]]>
+</select>
+</mapper>

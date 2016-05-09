@@ -58,7 +58,28 @@ public class MessageController {
 		MessageDAO.messgeDelete(Integer.parseInt(no));
 		return "mypage/messageSend_ok.jsp";
 	}
-
+	@RequestMapping("tourMessage.do")
+	public String tourMessage(HttpServletRequest req) throws Exception{
+		req.setCharacterEncoding("EUC-KR");
+		
+		HttpSession session = req.getSession();
+		String send_id = (String)session.getAttribute("id");
+		String receive_id = req.getParameter("message_receive");
+		String message_text = req.getParameter("message_text");
+		System.out.println(send_id);
+		System.out.println(message_text);
+		System.out.println(receive_id);
+		
+		
+		MessageVO vo = new MessageVO();
+		vo.setMessage_receive(receive_id);
+		vo.setMessage_send(send_id);
+		vo.setMessage_text(message_text);
+		
+		MessageDAO.messageSend(vo);
+		
+		return "tourist/message.jsp";
+	}
 	
 	
 	
