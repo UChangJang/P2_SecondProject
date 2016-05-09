@@ -8,13 +8,13 @@ public class HotspotVO {
 	private String text_tour_date;
 	private String text_cost;
 	private String text_hit;
-	private int text_no;
+	private int guide_no;
 	
-	public int getText_no() {
-		return text_no;
+	public int getGuide_no() {
+		return guide_no;
 	}
-	public void setText_no(int text_no) {
-		this.text_no = text_no;
+	public void setGuide_no(int guide_no) {
+		this.guide_no = guide_no;
 	}
 	public String getText_hit() {
 		return text_hit;

@@ -8,6 +8,18 @@
 <title>best</title>
 </head>
 <body>
-	
+<c:forEach items="${list }" var="list">
+<tr>
+<td>
+<p>
+	<a href="guideBoard.do?no=${list.guide_no }">
+	<b>${list.text_tour_date }</b>&nbsp;&nbsp;&nbsp;${list.text_cost }<b>KPW</b>&nbsp;&nbsp;&nbsp;${list.text_hit }<b>HIT</b>
+	</a>
+</p>
+</td>
+</tr>
+
+</c:forEach>
+
 </body>
 </html>

@@ -46,7 +46,6 @@ public class IntroController {
 			String search_loc=slist.get(i).getSearch_loc();
 
 			hlist=HotspotDAO.allGiudeBoard(search_loc);
-
 		}
 
 		req.setAttribute("bestGuide", bestGuide);
@@ -99,9 +98,6 @@ public class IntroController {
 	public String hotspot(HttpServletRequest req){
 		String loc=req.getParameter("loc");
 		List<HotspotVO> list =HotspotDAO.allGiudeBoard(loc);
-		for(int i=0;i<=list.size();i++){
-			System.out.println("controller "+list.get(i).getText_loc()+" "+list.get(i).getText_no());
-		}
 		req.setAttribute("list", list);
 		
 		return "best_spot.jsp";

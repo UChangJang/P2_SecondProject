@@ -9,28 +9,46 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
 <script type="text/javascript">
+var lid="";
 $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
-   $('#tabControlTab').mouseover(function(){ 
-      
-   });
-   
+		
+	$('.tabControlTab').mouseover(function(){
+		var id=$(this).attr('id');
+		lid=id
+		$('#'+id).find('span').css("background-color","#FED53E");
+	});
+	
+	$('.tabControlTab').mouseleave(function(){
+		$('#'+lid).find('span').css("background-color","#ED4933");
+	});
+	
+	$('.tabControlBody').mouseover(function(){
+		$('#'+lid).find('span').css("background-color","#FED53E");
+	});
+	
+	$('.tabControlBody').mouseleave(function(){
+		$('#'+lid).find('span').css("background-color","#ED4933");
+	});
+	
    // ajax : hotspot
    $('.loc').mouseover(function(){
-      id=$(this).attr('id');
-      loc=id.substring(3);
-      var param="loc="+encodeURIComponent(loc);
-      sendMessage("POST", "locHotSpot.do", param, hotspot)   
-   });
+	      var id=$(this).attr('id');
+	      var loc=id.substring(3);
+	      var param="loc="+encodeURIComponent(loc);
+
+	      sendMessage("POST", "locHotSpot.do", param, hotspot);
+	});
 });
-function hotspot(){
-   if(httpRequest.readyState==4){
-      if(httpRequest.status==200){      
-    	  
-    	  alert(httpRequest.responseText);
-         $('#hotspot').html(httpRequest.responseText);
-      }
-   }
-}
+
+	function hotspot(){
+		
+	   if(httpRequest.readyState==4){
+	
+	      if(httpRequest.status==200){
+	         $('#hotspot').html(httpRequest.responseText);
+	      }
+	   }
+	}
 </script>
 </head>
 <body>
@@ -72,7 +90,7 @@ function hotspot(){
                   <input type="text" id="dt" placeholder="DATE" class="mainSearch1"/>
                   <div class="select-wrapper">
                      <select name="demo-category" id="demo-category" class="mainSearch1">
-                        <option value="">-PEOPLE-</option>
+                        <option value="">PEOPLE</option>
                         <option value="1">1 person</option>
                         <option value="2">2 persons</option>
                         <option value="3">3 persons</option>
@@ -97,12 +115,6 @@ function hotspot(){
 				
 				<div class="2u$ 12u$(small) mainRight1">					<!-- 3 오른쪽 -->
 						<table id="mainRight">
-							<!-- <tr onclick="location.href='introduceKor.do'">style="cursor:hand;" 
-							<a href="#">
-							  <td><span class="mainRight_span"><img src="images/home.png"></span></td>
-							  <th>Home</th>
-							  </a>
-							</tr> -->
 							<tr style=c"cursor:Pointer;"onclick="location.href='introduceKor.do'">
 							  <td><span class="mainRight_span"><img src="images/comma.png"></span></td>
 							  <th>Comma</th>
@@ -164,17 +176,25 @@ function hotspot(){
                <c:set var="i" value="1"/>
                <c:forEach var="vo" items="${slist }">
                   <c:if test="${i<=10 }">
-                     <li class="tabControlTab selected odd" style="margin:0;padding:0;">
+                  	<c:if test="${i<=9 }">
+                     <li id="li${vo.search_loc }" class="tabControlTab odd" style="margin:0;padding:0;">
                         <span class="spot_num">&nbsp;${i}&nbsp;</span>
-                        <p id="loc${vo.search_loc}" class="loc" style="color:#000;float:none;text-align: left;">&nbsp;&nbsp;&nbsp;${vo.search_loc }</p>
+                        <p id="loc${vo.search_loc}" class="loc" style="text-transform: uppercase; color:#000;float:none;text-align: left;">&nbsp;&nbsp;${vo.search_loc }</p>
                      </li>
+                     </c:if>
+                     <c:if test="${i>9 }">
+                      <li id="li${vo.search_loc }" class="tabControlTab odd" style="margin:0;padding:0;">
+                        <span class="spot_num">${i}</span>
+                        <p id="loc${vo.search_loc}" class="loc" style="text-transform: uppercase; color:#000;float:none;text-align: left;">&nbsp;&nbsp;${vo.search_loc }</p>
+                      </li>
+                     </c:if>
                   </c:if>
-                  <c:set var="i" value="${i+1 }"/>
+                  <c:set var="i" value="${i+1 }"/>                  
                </c:forEach>
             </ul>
             
             <ul class="">            
-                  <li class="tabControlBody selected" id="hotspot" style="background-color: #BAB6A8;"></li> 
+                  <li class="tabControlBody selected" id="hotspot" style="background-color: #BAB6A8;"></li>
             </ul>
             </div>
          </div>         

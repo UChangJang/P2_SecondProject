@@ -24,7 +24,6 @@ public class GuideFindDAO {
 	public static List<GuideFindVO> guideFind(){
 		SqlSession session=ssf.openSession();
 		List<GuideFindVO> list=session.selectList("guideFind");
-		System.out.println("guideFind: "+list.get(0).getText_loc());
 		session.close();
 		return list;
 	}
