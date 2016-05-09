@@ -70,10 +70,17 @@ function NewControl(controlDiv, map) {
 function initialize(){
 	
 	if("${vo.guidevo.guide_map}"!=""){//board에서쓰일부분
-		alert("come${vo.guidevo.guide_map}");
-		var latlng = new google.maps.LatLng("${vo.guidevo.guide_map}");
+		alert("${vo.guidevo.guide_map}");
+	var te="${vo.guidevo.guide_map}";
+	alert("te="+te);
+	var t1 = te.substring(0,te.lastIndexOf(','));
+	var t2 = te.substring(te.lastIndexOf(',')+2);
+	alert(t1);
+	alert(t2);
+		var latlng = new google.maps.LatLng(t1, t2);
+		alert(latlng);
 	 	var myOptions = {
-		  	zoom: 14,
+		  	zoom: 8,
 		  	center:latlng,
 		  	mapTypeId: google.maps.MapTypeId.ROADMAP   
 		};
