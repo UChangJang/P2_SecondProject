@@ -7,30 +7,41 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>자유롭게 </title>
+
+	
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="../../ajax.js"></script>
+<script type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="table.css">
+<link rel="stylesheet" type="text/css" href="../controller/assets/css/board.css" />
 </head>
 <body>
-  <center>
-    <h3>게시판</h3>
-    <header id="table_header">
-		<p><img alt="사진이 없성" src="images/boardlist.png"></p>
-	</header>
-    <!-- <table border=0 width=700>
-      <tr>
-        <td align=left>
-         <a href="board_insert.do">
-         <img src="board/image/btn_write.gif" border=0></a>
-        </td>
+<article id="main">
+		<header id="header_board">
+			<h2 class="headerMagin" style=color:black;>Q&A</h2>
+			<center>
+			<p>Planning your next trip to Korea and have a question? </p>
+			<p>Write your question to Q&A!</p>
+			</center>
+			<a href="#one" class="more scrolly"><img src="images/triangle.png">
+					<br>view more</a>
+		</header>
+<section class="wrapper style5" id=one>
+	<div class="inner">
+		<div class="box alt">
+    <center>
+<div class="box alt ">				<!-- 게시판 틀 -->
+			<table class="alt">
+				<thead>
+					<tr>
+        <th width=10%>No</th>
+        <th width=45%>Title</th>
+        <th width=15%>Name</th>
+        <th width=20%>Date</th>
+        <th width=10%>Hit</th>
       </tr>
-    </table> -->
-    <table id="table_content">
-      <tr>
-        <th width=10%>번호</th>
-        <th width=45%>제목</th>
-        <th width=15%>이름</th>
-        <th width=20%>작성일</th>
-        <th width=10%>조회수</th>
-      </tr>
+      </thead>
+      <tbody>
       <c:forEach var="vo" items="${list }">
         <tr class="dataTr">
          <td width=10% class="tdcenter">${vo.no }</td>
@@ -52,20 +63,32 @@
          <td width=10% class="tdcenter">${vo.hit }</td>
         </tr>
       </c:forEach>
+     </tbody>
     </table>
-    <table id="table_content">
-      <tr>
-        <td align=right>
-          <a href="board_insert.do">
-          <img src="board/image/btn_write.gif" border=1></a>
-          <a href="board_list.do?page=${curpage>1?curpage-1:curpage }">
-          <img src="board/image/prev.gif" border=0></a>&nbsp;
-          <a href="board_list.do?page=${curpage<totalpage?curpage+1:curpage }">
-          <img src="board/image/next.gif" border=0></a>&nbsp;&nbsp;
-          ${curpage } page / ${totalpage } pages
-        </td>
-      </tr>
-    </table>
+			
+			
+			
+				
+				
+          
+        
+          
+					<img src="images/prev.png" border=0 id="prevBtn">&nbsp;
+					<img src="images/next.png" border=0 id="nextBtn">&nbsp;&nbsp;
+					${curpage} page / ${totalpage } pages 
+				&nbsp;&nbsp;
+				<a href="board_insert.do">
+          <input type=button value="Write" style="height:40px" id="WriteBtn"></button></a>
+		
+			
+			
+  
+     
+    </div>
   </center>
+  		</div>
+		</div>
+	
+</section>
 </body>
 </html>
