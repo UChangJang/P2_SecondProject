@@ -3,4 +3,4 @@
 <%
 	response.sendRedirect("main.do");
 %>
-<!-- ¼öÁ¤ b -->
+<!-- dd -->

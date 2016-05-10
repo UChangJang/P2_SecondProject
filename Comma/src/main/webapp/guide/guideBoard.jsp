@@ -158,11 +158,11 @@ function gInfo_frm(){
      <form class="white-popup mfp-hide" id="message-form" method="post" action="messageSend.do">
         <h1>Message</h1>
         <div>
-           <font color="pink">
-           <input name="receive_name" id="receive_name" required="" type="text"
-              placeholder="Receive From" style="width:10em;float:left" disabled="disabled" value="${vo.uservo.user_id }"></font>  
-           <input name="send_name" id="send_name" required="" type="text"
-              placeholder="Send To" style="width:10em;float:right" disabled="disabled" value="${sessionScope.id }">
+          	<input name="send_name" id="send_name" required="" type="text"
+              placeholder="Send To" style="width:10em;float:left" disabled="disabled" value="${sessionScope.id }">
+            <font color="pink">
+           	<input name="receive_name" id="receive_name" required="" type="text"
+              placeholder="Receive From" style="width:10em;float:left;margin-left:0.5em;" disabled="disabled" value="${vo.uservo.user_id }"></font>  
         </div>
 		<br><br>
         <div>

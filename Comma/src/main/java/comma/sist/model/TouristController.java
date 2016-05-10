@@ -40,10 +40,10 @@ public class TouristController {
       int mapChuncheon=TouristDAO.tourMap("CHUNCHEON");
       int mapIncheon=TouristDAO.tourMap("INCHEON");
       int mapBoryeong=TouristDAO.tourMap("BORYEONG");
-      int mapJeonju=TouristDAO.tourMap("JEONSU");
+      int mapJeonju=TouristDAO.tourMap("JEONJU");
       int mapGyeongJu=TouristDAO.tourMap("GYEONGJU");
       int mapYeosu=TouristDAO.tourMap("YEOSU");
-      
+      System.out.println("¿Œ√µ:"+mapIncheon);
       //req.setAttribute("today", new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
       req.setAttribute("mapSeoul", mapSeoul); 
       req.setAttribute("mapJeju", mapJeju); 

@@ -544,7 +544,8 @@ public class GuideController {
 			List<TextVO> list = new ArrayList<TextVO>();
 			
 		   if(method==null || people=="" || date==""){											//1.지역만 검색
-			   list = GuideDAO.guide_sort_place(map, type); //start,end,place _ type
+			   System.out.println("정렬이름:"+type);
+			   list = GuideDAO.guide_sort_place(map, type); 	 //start,end,place _ type
 			   totalpage=GuideDAO.guideSearchTotalPage(place);   //총페이지수
 			   
 		   }else if(method != null && people!="" && date!=""){									//2.detail도 검색

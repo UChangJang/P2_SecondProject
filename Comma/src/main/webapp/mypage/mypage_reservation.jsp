@@ -115,7 +115,7 @@
 	                     	</tr>	                     
 	                     	
 	                     	<tr>
-	                     	  <td colspan="2" align="center">³»¿ë</td>
+	                     	  <td colspan="2" align="center">Content</td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${tourvo.touristvo.tour_detail}</textarea></td>
@@ -136,7 +136,6 @@
 		$('#tabs div a').on(
 				'click',
 				function() {
-					// alert('');
 					index = $(this).parent().index() + 1;
 					if (index == 3) {
 						index = 2;
@@ -154,10 +153,7 @@
 			
 			var id = $(this).attr('id');
 			var no = id.substring(11);
-			
-			//alert(no);
-			
-			
+
 			var c = $('#frm_resD').attr('action');
 			var param = c+no;
 			$('#frm_resD').attr('action',param);

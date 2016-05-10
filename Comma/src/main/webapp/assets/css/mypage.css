@@ -37,8 +37,7 @@
 	width:10.5em;
 }
 .tabscontents {
-	display: none; 
-	border:1px solid grey; 
+	display: none;
 	position: relative; 
 }
 ul#tabs {
