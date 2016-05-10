@@ -3,4 +3,4 @@
 <%
 	response.sendRedirect("main.do");
 %>
-<!-- dd -->
+<!-- 2차프로젝트 완료! -->

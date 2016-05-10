@@ -547,6 +547,8 @@ public class GuideController {
 			   System.out.println("정렬이름:"+type);
 			   list = GuideDAO.guide_sort_place(map, type); 	 //start,end,place _ type
 			   totalpage=GuideDAO.guideSearchTotalPage(place);   //총페이지수
+			   GuideDAO.imgArrangement(list); // 여러개 사진 처리
+			   GuideDAO.avgStar(list); // 별점 평균
 			   
 		   }else if(method != null && people!="" && date!=""){									//2.detail도 검색
 			   map.put("method", method);
