@@ -12,7 +12,8 @@
 $(function(){
 		//1.이전버튼 
 		$('#prevBtn').click(function(){		//select_지역선택
-			if('${curpage}'>1){					//이전페이지로 가기 가능
+			var curpage=${curpage};
+			if(curpage>1){					//이전페이지로 가기 가능
 				var place=$('#place').val();		//1.지역값 가져오기
 				var date=$('#dt').val();			//2.날짜값 가져오기
 				if(place=="" || date==""){			//*검색어없이 최신순으로 볼때
@@ -31,7 +32,11 @@ $(function(){
 		
 		//2.다음 버튼
 		$('#nextBtn').click(function(){		//select_지역선택
-			if('${curpage}'<'${totalpage}'){		//다음페이지로 가기 가능
+			
+			var totalpage=${totalpage};
+			var curpage=${curpage};
+			alert(curpage+','+totalpage);
+			 if(curpage < totalpage){		//다음페이지로 가기 가능
 				var place=$('#place').val();		//1.지역값 가져오기
 				var date=$('#dt').val();			//2.날짜값 가져오기
 				
@@ -44,6 +49,7 @@ $(function(){
 					sendMessage("POST", "tourist_sort.do",param, tourContent2);
 				}	
 			}else{								//이전페이지로 가기 불가능
+				
 				alert("This is the last page.");
 				return;
 			}
