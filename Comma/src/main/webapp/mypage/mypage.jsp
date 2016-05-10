@@ -25,7 +25,7 @@
 		<div class="inner">
 		
 			<!-- 메뉴 작성 -->
-			<section>
+			<section id="one">
 				<div class="row uniform">
 					<table class="2kk 12u$(small)" id="mypageMenu">
 					  <thead>

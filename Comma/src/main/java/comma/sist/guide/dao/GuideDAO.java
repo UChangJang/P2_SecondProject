@@ -380,5 +380,12 @@ private static SqlSessionFactory	ssf;
 			costModify(list);
 			return list;
 		}
+		public static int countMyGuide(String id){
+			SqlSession session=ssf.openSession();
+			int countMyGuide=session.selectOne("countMyGuide",id);
+			session.close();
+			return countMyGuide;
+		}
+	
 	
 }

@@ -304,7 +304,7 @@
 			var id = $(this).attr('id');
 			var no = id.substring(13);
 			
-			alert(no);
+			//alert(no);
 			
 			var c = $('#frm_wrgD').attr('action');
 			var param = c+no;

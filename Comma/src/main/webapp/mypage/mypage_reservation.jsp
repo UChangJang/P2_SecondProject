@@ -155,7 +155,7 @@
 			var id = $(this).attr('id');
 			var no = id.substring(11);
 			
-			alert(no);
+			//alert(no);
 			
 			
 			var c = $('#frm_resD').attr('action');
@@ -174,7 +174,7 @@
 			var id = $(this).attr('id');
 			var no = id.substring(11);
 			
-			alert(no);
+			//alert(no);
 			
 			var c = $('#frm_resT').attr('action');
 			var param = c+no;

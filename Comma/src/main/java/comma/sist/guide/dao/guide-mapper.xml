@@ -25,7 +25,7 @@
 	
 	<!-- 가이드 별점평균 -->
 	<select id="guideStarSum" parameterType="int" resultType="String">
-		select avg(review_score) from review where guide_no=#{guide_no}
+		select AVG(review_score) from review where guide_no=#{guide_no}
 	</select>
 	
 	<!-- 가이드 글 추가 -->
@@ -121,7 +121,8 @@
 	  
 	<select id="bestGuide" resultMap="comma.sist.common.text-mapper.TextList">
       <![CDATA[ 
-            select score review_score,user_nick,id text_loc,rownum review_no from
+            select round(score,1) review_score,user_nick,id text_loc,rownum num,(select count(guide_no) from guide where user_id=id) guide_no,
+			(select count(review_no) from review,guide where review.guide_no=guide.guide_no and guide.user_id=id) review_no from
             (select avg(review_score) score,user_nick,users.user_id id
             from review,users,guide
             where review.guide_no=guide.guide_no and
@@ -132,6 +133,7 @@
    
          ]]>   
    </select>
+
    
    <!-- 가이드 검색_place -->
    <select id="guideSearchPlace" resultMap="comma.sist.common.text-mapper.TextList" parameterType="java.util.Map">
@@ -229,5 +231,5 @@
 						ORDER BY guide.guide_no DESC))
 		WHERE num BETWEEN #{start} AND #{end}
 	</select>
-
+	
 </mapper>

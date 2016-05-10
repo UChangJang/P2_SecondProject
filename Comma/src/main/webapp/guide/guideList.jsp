@@ -106,7 +106,7 @@ $(function(){
 					sendMessage("POST", "guide_search_detail.do",param,guideContent);
 				}	
 			}	
-		}else{								//이전페이지로 가기 불가능
+		}else{								//이전페이지로 가기 불가능.
 			alert("This is the last page.");
 			return;
 		}
@@ -170,8 +170,8 @@ function guideContent() {
 			<table id="table_content">
 			<tr>
 				<td align=right>
-					<img src="images/prev.png" border=0 id="prevBtn">&nbsp;
-					<img src="images/next.png" border=0 id="nextBtn">&nbsp;&nbsp;
+					<img src="images/prev.png" border=0 id="prevBtn" style="cursor: pointer;">&nbsp;
+					<img src="images/next.png" border=0 id="nextBtn" style="cursor: pointer;">&nbsp;&nbsp;
 					${curpage} page / ${totalpage } pages 
 				</td>
 			</tr>

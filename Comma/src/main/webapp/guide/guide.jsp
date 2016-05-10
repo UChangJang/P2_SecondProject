@@ -97,7 +97,7 @@
 		<p>I will Guide You!</p>
 		<p>Check the board to find the best guide to you!</p>
 		</center>
-		<a href="#one" class="more scrolly"><img src="images/triangle.png">
+		<a href="#guide_margin" class="more scrolly"><img src="images/triangle.png">
 				<br>view more</a>
 	</header>
 

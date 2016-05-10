@@ -418,8 +418,10 @@ function gInfo_frm(){
 							</tr>
 						</table>
 						<div class="BoardSide1">
+						<c:if test="${sessionScope.id ne vo.uservo.user_id }">
 						<c:if test="${soldCheck==false }">
 						<input type="button" value="reserve" id="reserveBtn1">
+						</c:if>
 						</c:if>
 						<c:if test="${soldCheck==true }">
 						<input type="button" value="SoldOut" style="color:white" disabled="disabled" class="BoardBtn">
