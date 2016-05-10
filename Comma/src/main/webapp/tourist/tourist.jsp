@@ -3,12 +3,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>tourist</title>
+<title>Tourist</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="ajax.js"></script>
-
 <script type="text/javascript">
-	$(function(){
+$(function(){
 //1.검색했을 때
 		$('#tourSearch').click(function(){		//select_지역선택
 			var place=$('#place').val();		//1.지역값 가져오기
@@ -18,7 +17,6 @@
 				alert("Place and Date are essential condition in searching.");
 				return;
 			}
-			
 			var param="place="+place+"&date="+date;
 			sendMessage("POST", "tourist_search.do", param, tourContent);
 		});
@@ -69,7 +67,6 @@
 
 					<!-- 1. 지도 -->
 					<div id="map"></div>
-
 
 					<!-- 2. 검색창 -->
 					<div class="5u 12u$(xsmall)">
