@@ -51,7 +51,7 @@ public class GuideController {
 			if(sumTemp==null) sumTemp="0";
 			int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
 			int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
-			System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+			//System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
 			if(total==sum){						//예약불가
 				list.get(i).setResNum(1);
 			}else if(total-sum<=3){					//마감임박
@@ -100,7 +100,7 @@ public class GuideController {
 			if(sumTemp==null) sumTemp="0";
 			int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
 			int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
-			System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+			//System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
 			if(total==sum){						//예약불가
 				list.get(i).setResNum(1);
 			}else if(total-sum<=3){					//마감임박
@@ -211,8 +211,10 @@ public class GuideController {
 		vo.getGuidevo().setUser_id(user_id);
 		
 		//vo.getGuidevo().setGuide_map("임시용"); // 바꿔야됨
+
 		guide_map = guide_map.substring(1,guide_map.lastIndexOf(')'));
-		System.out.println(guide_map);
+		//System.out.println(guide_map);
+
 		vo.getGuidevo().setGuide_map(guide_map);
 		
 		if(guide_img==null){
@@ -293,7 +295,7 @@ public class GuideController {
 	public String guideDelete(HttpServletRequest request){
 		
 		String no = request.getParameter("no");		
-		System.out.println("가이드"+no);
+		//System.out.println("가이드"+no);
 		GuideDAO.guideDelete(Integer.parseInt(no));	
 
 		return "guide/guideDelete.jsp";
@@ -316,9 +318,14 @@ public class GuideController {
 			TextVO vo = GuideDAO.guideAllArticle(gn);
 			
 			// 3. 여러 사진이 있는 경우
-			StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
-			String imgName = st.nextToken();
-			vo.getGuidevo().setGuide_img(imgName);
+			if(vo.getGuidevo().getGuide_img()!=null){
+				StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
+				String imgName = st.nextToken();
+				vo.getGuidevo().setGuide_img(imgName);
+			}
+			else{
+				vo.getGuidevo().setGuide_img("");
+			}
 			
 			// 4. 리스트에 추가
 			list.add(vo);
@@ -431,7 +438,7 @@ public class GuideController {
 				if(sumTemp==null) sumTemp="0";
 				int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
 				int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
-				System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+				//System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
 				if(total==sum){						//예약불가
 					list.get(i).setResNum(1);
 				}else if(total-sum<=3){					//마감임박
@@ -465,7 +472,7 @@ public class GuideController {
 
 		// 총 페이지
 		int totalpage = GuideDAO.guideSearchDeTotalPage(map);
-		System.out.println("총페이지수:" + totalpage);
+		//System.out.println("총페이지수:" + totalpage);
 		if (totalpage == 0)
 			totalpage = 1;
 
@@ -494,7 +501,7 @@ public class GuideController {
 				if(sumTemp==null) sumTemp="0";
 				int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
 				int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
-				System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+				//System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
 				if(total==sum){						//예약불가
 					list.get(i).setResNum(1);
 				}else if(total-sum<=3){					//마감임박
@@ -532,7 +539,7 @@ public class GuideController {
 			map.put("start", start);		//시작번호와 끝번호 받음
 			map.put("end", end);
 			map.put("place", place);
-			System.out.println("시작번호:"+start+",끝번호:"+end);
+			//System.out.println("시작번호:"+start+",끝번호:"+end);
 			int totalpage=1;
 			List<TextVO> list = new ArrayList<TextVO>();
 			
@@ -561,7 +568,7 @@ public class GuideController {
 				if(sumTemp==null) sumTemp="0";
 				int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
 				int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
-				System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+				//System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
 				if(total==sum){						//예약불가
 					list.get(i).setResNum(1);
 				}else if(total-sum<=3){					//마감임박
@@ -645,7 +652,7 @@ public class GuideController {
 				if(sumTemp==null) sumTemp="0";
 				int sum=Integer.parseInt(sumTemp);							//sum=예약한 인원수
 				int total=ReservationDAO.reserveGuidePossible(guide_no);	//total=예약가능한 인원수
-				System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
+				//System.out.println(i+"예약종합수:"+total+",예약인원수:"+sum+",예약가능수:"+(total-sum));
 				if(total==sum){						//예약불가
 					list.get(i).setResNum(1);
 				}else if(total-sum<=3){					//마감임박
