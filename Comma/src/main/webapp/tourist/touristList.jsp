@@ -243,7 +243,8 @@ $('.letter').click(function(){
 $('.messgaeBtn').click(function(){
 	var id=$(this).attr('id');
 	var no=id.substring(10);
-	$('#message'+no).submit();
+	alert(no)
+	$('#messageBtn'+no).submit();
 })
 </script>
 
