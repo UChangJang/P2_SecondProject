@@ -165,17 +165,20 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 					<span class="image fit a">
 					<!-- <span class="mypictureMain"> -->
 						<div id="main_bn" style="max-height: 16.8em">
-							<li><a href="guide.do"><img src="images/guide_banner.jpg" alt="" /></a></li>		<!-- 이미지 character과 맞추기!!! -->
+							<!-- 이미지 character과 맞추기!!! -->
 							<li><a href="tourist.do"><img src="images/tour_banner.jpg" alt="" /></a></li>
+							<li><a href="guide.do"><img src="images/guide_banner.jpg" alt="" /></a></li>
 							<li><a href="introduceKor.do"><img src="images/korea_banner.jpg" alt="" /></a></li>
-							<li><a href="#"><img src="images/character.png" alt="" /></a></li>
+							<li><a href="board_list.do"><img src="images/question_banner.jpg" alt="" /></a></li>
 						</div>
 					</span>
 				</div>
 				
 				<div class="2u$ 12u$(small) mainRight1">					<!-- 3 오른쪽 -->
 						<table id="mainRight">
-							<tr style="cursor:Pointer;"onclick="">
+
+							<tr style="cursor:Pointer;" onclick="#">
+
 							  <td><span class="mainRight_span"><img src="images/home.png"></span></td>
 							  <th>HOME</th>
 							</tr>

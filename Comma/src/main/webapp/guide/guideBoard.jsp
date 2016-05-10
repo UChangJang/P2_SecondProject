@@ -158,11 +158,11 @@ function gInfo_frm(){
      <form class="white-popup mfp-hide" id="message-form" method="post" action="messageSend.do">
         <h1>Message</h1>
         <div>
-           <font color="pink">
-           <input name="receive_name" id="receive_name" required="" type="text"
-              placeholder="Receive From" style="width:10em;float:left" disabled="disabled" value="${vo.uservo.user_id }"></font>  
-           <input name="send_name" id="send_name" required="" type="text"
-              placeholder="Send To" style="width:10em;float:right" disabled="disabled" value="${sessionScope.id }">
+          	<input name="send_name" id="send_name" required="" type="text"
+              placeholder="Send To" style="width:10em;float:left" disabled="disabled" value="${sessionScope.id }">
+            <font color="pink">
+           	<input name="receive_name" id="receive_name" required="" type="text"
+              placeholder="Receive From" style="width:10em;float:left;margin-left:0.5em;" disabled="disabled" value="${vo.uservo.user_id }"></font>  
         </div>
 		<br><br>
         <div>
@@ -261,15 +261,15 @@ function gInfo_frm(){
 			<div class="row side0">
 				<div class="2u 12u$(small)">								<!-- 1 ¿ÞÂÊ -->
 					<br>
-					<div align=center class="mypictureGuide">
-					<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }">		
+					<div align=center class="mypictureGuide"><a href="#" onclick="gInfo_frm()">
+						<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }">		
 						<div class="topBoardShort">
-						<a href="#" onclick="gInfo_frm()">${vo.uservo.user_nick }</a>
+						${vo.uservo.user_nick }
 						<form method="post" action="guideInfo.do" id="guideInfo_frm">
 							<input type="hidden" name="id" value="${vo.uservo.user_id }">
 							<input type="hidden" name="guide_no" value="${vo.guidevo.guide_no }">
 						</form>
-						</div>							
+						</a></div>							
 					</div>
 				</div>
 				<br>
@@ -319,8 +319,9 @@ function gInfo_frm(){
 					</span>
 					<textarea style="height:20em" readonly="readonly">${vo.guidevo.guide_detail }</textarea>
 					
-					
+					<br><br>
 					<!-- Áöµµ -->
+					<h4>Meeting Place</h4>
 					<div style="height:15em">
 					<jsp:include page="../map.jsp"></jsp:include>
 					<div id="map_canvas" style="width:100%; height:100%"></div>
@@ -417,8 +418,10 @@ function gInfo_frm(){
 							</tr>
 						</table>
 						<div class="BoardSide1">
+						<c:if test="${sessionScope.id ne vo.uservo.user_id }">
 						<c:if test="${soldCheck==false }">
 						<input type="button" value="reserve" id="reserveBtn1">
+						</c:if>
 						</c:if>
 						<c:if test="${soldCheck==true }">
 						<input type="button" value="SoldOut" style="color:white" disabled="disabled" class="BoardBtn">

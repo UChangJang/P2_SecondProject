@@ -158,7 +158,7 @@ function guideContent() {
 							<div class="listTextQuickly" style="font-weight:bold;">HURRY UP!!</div>
 						</c:if>
 						<c:if test="${vo.resNum==1 }">
-							<div class="listTextFinish" style="font-weight:bold;"><h1>Complete<br>Reservation </h1></div>
+							<div class="listTextFinish" style="font-weight:bold;"><h1>SOLD<br>OUT </h1></div>
 						</c:if>
 					</span>
 				</div>
@@ -170,8 +170,8 @@ function guideContent() {
 			<table id="table_content">
 			<tr>
 				<td align=right>
-					<img src="images/prev.png" border=0 id="prevBtn">&nbsp;
-					<img src="images/next.png" border=0 id="nextBtn">&nbsp;&nbsp;
+					<img src="images/prev.png" border=0 id="prevBtn" style="cursor: pointer;">&nbsp;
+					<img src="images/next.png" border=0 id="nextBtn" style="cursor: pointer;">&nbsp;&nbsp;
 					${curpage} page / ${totalpage } pages 
 				</td>
 			</tr>

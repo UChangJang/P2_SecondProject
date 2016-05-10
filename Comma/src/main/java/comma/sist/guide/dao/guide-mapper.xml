@@ -186,7 +186,7 @@
 				FROM (SELECT guide.guide_no,guide.user_id,guide_subject,text_cost,user_name,text_move,guide_img,text_loc,text_time 
 						FROM text,guide,users 
 						WHERE guide.user_id=users.user_id AND guide.text_no=text.text_no AND text_loc=#{place}
-						ORDER BY text_cost ASC))
+						ORDER BY TO_NUMBER(text_cost) ASC))
 		WHERE num BETWEEN #{start} AND #{end}
 	</select>
 	
@@ -212,7 +212,7 @@
 						AND text_tour_date=#{date}
 						AND text_total_person>=#{people}
 						AND text_move=#{method}
-						ORDER BY text_cost ASC))
+						ORDER BY TO_NUMBER(text_cost) ASC))
 		WHERE num BETWEEN #{start} AND #{end}
 	</select>
 	

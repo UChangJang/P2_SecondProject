@@ -14,7 +14,7 @@
 	<header id="mypage_back">
 		<h2>My Page</h2>
 		<center>
-			<p>I will Find You!</p>
+			<p>I will Find You</p>
 			<p>Check the board to guide someone in Korea!</p>
 		</center>
 		<a href="#one" class="more scrolly"><img src="images/triangle.png">
@@ -32,13 +32,16 @@
 					    <h4>Mypage</h4>								<!-- 제목 왼쪽정렬 -->
 					  </thead>
 					  <tr>
+					  	
 					    <td rowspan="4" class="mypic_td">
+					    <a href="mypage_mydetail.do">
 							<div class="mypicture">
 								<img src="http://211.238.142.74:8080/controller/profile/${user_img }">
 							</div>
 							<div class="mypictureCaption">
 								<h3>${sessionScope.id }</h3>
 							</div>
+						</a>
 						</td>
 					  </tr>
 					  <tr>
