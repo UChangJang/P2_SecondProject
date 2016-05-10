@@ -319,8 +319,9 @@ function gInfo_frm(){
 					</span>
 					<textarea style="height:20em" readonly="readonly">${vo.guidevo.guide_detail }</textarea>
 					
-					
+					<br><br>
 					<!-- Áöµµ -->
+					<h4>Meeting Place</h4>
 					<div style="height:15em">
 					<jsp:include page="../map.jsp"></jsp:include>
 					<div id="map_canvas" style="width:100%; height:100%"></div>

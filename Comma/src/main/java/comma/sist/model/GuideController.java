@@ -165,7 +165,6 @@ public class GuideController {
 		String guide_detail3 = mr.getParameter("guide_detail3");
 		
 		String guide_map = mr.getParameter("guide_map");
-		System.out.println(guide_map);
 		
 		guide_detail = guide_detail+"\n-\n"+guide_detail2+"\n-\n"+guide_detail3;
 		
@@ -319,9 +318,14 @@ public class GuideController {
 			TextVO vo = GuideDAO.guideAllArticle(gn);
 			
 			// 3. 여러 사진이 있는 경우
-			StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
-			String imgName = st.nextToken();
-			vo.getGuidevo().setGuide_img(imgName);
+			if(vo.getGuidevo().getGuide_img()!=null){
+				StringTokenizer st = new StringTokenizer(vo.getGuidevo().getGuide_img(), "|");
+				String imgName = st.nextToken();
+				vo.getGuidevo().setGuide_img(imgName);
+			}
+			else{
+				vo.getGuidevo().setGuide_img("");
+			}
 			
 			// 4. 리스트에 추가
 			list.add(vo);
