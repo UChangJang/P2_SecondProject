@@ -99,7 +99,6 @@ ul#tabs {
 	overflow : hidden;
 	vertical-align : middle;
 	margin: 0 auto;	
-	border: 1px solid #2e2e2e;
 	display: inline-block
 	
 }
@@ -114,7 +113,6 @@ ul#tabs {
 	vertical-align : middle;
 	margin: 0 auto;	
 	margin-left:2em;
-	border: 1px solid #fff;
 	display: inline-block
 	
 }
@@ -128,7 +126,6 @@ ul#tabs {
 	overflow : hidden;
 	vertical-align : middle;
 	margin: 0 auto;	
-	border: 1px solid #2e2e2e;
 	display: inline-block
 	
 }
@@ -142,7 +139,6 @@ ul#tabs {
 	overflow : hidden;
 	vertical-align : middle;
 	margin: 0 auto;	
-	border: 1px double #ffffff;
 	display: inline-block
 	
 }
@@ -157,7 +153,6 @@ ul#tabs {
 	overflow : hidden;
 	vertical-align : middle;
 	margin: 0 auto;	
-	border: 2px solid #2e2e2e;
 	display: inline-block
 	
 }
@@ -172,7 +167,6 @@ ul#tabs {
 	overflow : hidden;
 	vertical-align : middle;
 	margin: 0 auto;	
-	border: 1px solid #2e2e2e;
 	display: inline-block
 	
 }
@@ -187,8 +181,7 @@ ul#tabs {
 	-moz-border-radius : 10%;
 	overflow : hidden;
 	vertical-align : middle;
-	margin: 0 auto;	
-	border: 1px solid #2e2e2e;
+	margin: 0 auto;
 	display: inline-block
 	
 }
