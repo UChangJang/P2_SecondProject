@@ -26,22 +26,22 @@ $(function(){
 		<section id="tabs">
 
 		<div class="tab1">
-			<a id="tab1_a" href="#">가이드 위시리스트</a>
+			<a id="tab1_a" href="#">Guide Wish</a>
 		</div>
 		<div class="tab2">
-			<a id="tab2_a" href="#">관광객 위시리스트</a>
+			<a id="tab2_a" href="#">Tour Wish</a>
 		</div>
 
 		<div class="box alt table-wrapper tabscontents t1">
 			<table class="alt">
 				<thead>
 					<tr>
-						<th width="10%">번호</th>
-						<th width="30%">제목</th>
-						<th width="10%">별명</th>
-						<th width="10%">작성일</th>
-						<th width="7%">예약자/총인원</th>
-						<th width="7%">삭제</th>
+						<th width="10%">No</th>
+						<th width="30%">title</th>
+						<th width="10%">Nickname</th>
+						<th width="10%">Date</th>
+						<th width="7%">Subscriber/People</th>
+						<th width="7%">Delete</th>
 					</tr>
 				</thead>
 				<tbody>	  
@@ -82,12 +82,12 @@ $(function(){
 			<table class="alt">
 				<thead>
 					<tr>
-						<th width="10%">번호</th>
-						<th width="30%">제목</th>
-						<th width="10%">별명</th>
-						<th width="10%">날짜</th>
-						<th width="7%">예약자/총인원</th>
-						<th width="7%">삭제</th>
+						<th width="10%">No</th>
+						<th width="30%">title</th>
+						<th width="10%">Nickname</th>
+						<th width="10%">Date</th>
+						<th width="7%">Subscriber/People</th>
+						<th width="7%">Delete</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -143,7 +143,7 @@ $(function(){
 	                     
 	                     	
 	                     	<tr>
-	                     	  <td colspan="2" align="center">내용</td>
+	                     	  <td colspan="2" align="center">Content</td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${tourvo.touristvo.tour_detail}</textarea></td>

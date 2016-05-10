@@ -32,7 +32,7 @@
 						<th width="10%">Gudie</th>
 						<th width="10%">Date</th>
 						<th width="7%">Total</th>
-						<th width="7%">Del</th>
+						<th width="7%">Delete</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,7 +45,7 @@
 						<td width="10%" align="center">${vo.uservo.user_id }</td>
 						<td width="10%" align="center">${vo.text_tour_date }</td>
 						<td width="7%" align="center">${vo.num}/${vo.text_total_person }</td>
-						<td width="7%"><input type="button" value="Del" class="reserve_gDel" id="reserveDelg${vo.guidevo.guide_no }"></td>
+						<td width="7%"><input type="button" value="Delete" class="reserve_gDel" id="reserveDelg${vo.guidevo.guide_no }"></td>
 						<form method="post" name="reserve_gDel_frm" action="mypage_reserve_gDel.do?no=" id="frm_resD"></form>
 					</tr>
 				</c:forEach>
@@ -63,7 +63,7 @@
 						<th width="10%">Tourist</th>
 						<th width="10%">Date</th>
 						<th width="7%">Y/N</th>
-						<th width="7%">Del</th>
+						<th width="7%">Delete</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -75,7 +75,7 @@
 						<td width="10%" align="center">${vo.uservo.user_id }</td>
 						<td width="10%" align="center">${vo.text_tour_date }</td>
 						<td width="7%" align="center">${vo.reservationvo.reservation_check }</td>
-						<td width="7%"><input type="button" value="Del" class="reserve_tDel" id="reserveDelt${vo.touristvo.tour_no }"></td>
+						<td width="7%"><input type="button" value="Delete" class="reserve_tDel" id="reserveDelt${vo.touristvo.tour_no }"></td>
 						<form method="post" name="reserve_tDel_frm" action="mypage_reserve_tDel.do?no=" id="frm_resT"></form>
 					</tr>
 				  </c:forEach>
@@ -115,7 +115,7 @@
 	                     	</tr>	                     
 	                     	
 	                     	<tr>
-	                     	  <td colspan="2" align="center">³»¿ë</td>
+	                     	  <td colspan="2" align="center">Content</td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${tourvo.touristvo.tour_detail}</textarea></td>
@@ -136,7 +136,6 @@
 		$('#tabs div a').on(
 				'click',
 				function() {
-					// alert('');
 					index = $(this).parent().index() + 1;
 					if (index == 3) {
 						index = 2;
@@ -154,10 +153,7 @@
 			
 			var id = $(this).attr('id');
 			var no = id.substring(11);
-			
-			//alert(no);
-			
-			
+
 			var c = $('#frm_resD').attr('action');
 			var param = c+no;
 			$('#frm_resD').attr('action',param);

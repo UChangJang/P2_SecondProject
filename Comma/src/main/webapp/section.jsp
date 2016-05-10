@@ -165,17 +165,20 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
 					<span class="image fit a">
 					<!-- <span class="mypictureMain"> -->
 						<div id="main_bn" style="max-height: 16.8em">
-							<li><a href="guide.do"><img src="images/guide_banner.jpg" alt="" /></a></li>		<!-- 이미지 character과 맞추기!!! -->
+							<!-- 이미지 character과 맞추기!!! -->
 							<li><a href="tourist.do"><img src="images/tour_banner.jpg" alt="" /></a></li>
+							<li><a href="guide.do"><img src="images/guide_banner.jpg" alt="" /></a></li>
 							<li><a href="introduceKor.do"><img src="images/korea_banner.jpg" alt="" /></a></li>
-							<li><a href="#"><img src="images/character.png" alt="" /></a></li>
+							<li><a href="board_list.do"><img src="images/question_banner.jpg" alt="" /></a></li>
 						</div>
 					</span>
 				</div>
 				
 				<div class="2u$ 12u$(small) mainRight1">					<!-- 3 오른쪽 -->
 						<table id="mainRight">
-							<tr style="cursor:Pointer;"onclick="#">
+
+							<tr style="cursor:Pointer;" onclick="#">
+
 							  <td><span class="mainRight_span"><img src="images/home.png"></span></td>
 							  <th>HOME</th>
 							</tr>
@@ -224,29 +227,51 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
                <div id="guideRanking_container">
                   <div id="guideImg">
                   <div class="guideRank_mypicture">
-                     <img id="profile" src="../controller/images/character.png"></div>
-                     <div style="color:#3A2525; font-weight: bold;"><img id="guideRanking_ranker" src="images/guideRanking_ranker_img.png">&nbsp;${vo.num }ST</div>
+                     <img id="profile" src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }"></div>
+                     <div style="color:#3A2525; font-weight: bold;"><img id="guideRanking_ranker" src="images/guideRanking_ranker_img.png">&nbsp;
+                     ${vo.num }
+                     <c:if test="${vo.num=='1' }">
+                     	st
+                     </c:if>
+                     <c:if test="${vo.num=='2' }">
+                     	nd
+                     </c:if>
+                     <c:if test="${vo.num=='3' }">
+                     	rd
+                     </c:if>
+                     </div>
                   </div>
                
                   <div class="guideRanking_review">                  
                   
                   	<c:forEach var="i" begin="1" end="5">
-                  			<c:forEach var="score" items="${scoreList }">
-                              <c:if test="${score==i }">
-                                 <c:forEach var="j" begin="1" end="${i }">
-                               		  ★
+                  			
+                              <c:if test="${vo.reviewvo.review_score<i && vo.reviewvo.review_score>=i-1 }">
+                              
+                                 <c:forEach var="j" begin="1" end="${i-1 }">
+                               		 <i class="fa fa-star" aria-hidden="true"></i>
                                  </c:forEach>
-                                 <c:if test="${i!=5 }">
-                                 <c:forEach var="j" begin="${i+1 }" end="5">
-                                	 ☆
-                                 </c:forEach>
+                                 <c:if test="${i<=5 }">
+                                 	<c:if test="${vo.reviewvo.review_score-i+1>=0.5 }">
+                                 		<i class="fa fa-star-half-o" aria-hidden="true"></i>
+                                 		<c:set var="i" value="${i+1 }"/>
+                                 	</c:if>
+                                 	<c:forEach var="j" begin="${i }" end="5">
+                                		<i class="fa fa-star-o" aria-hidden="true"></i>
+                                 	</c:forEach>
                                  </c:if>
+                            
                               </c:if>
-                          </c:forEach>
+
+ 							
+
                       </c:forEach>
-                      ${vo.reviewvo.review_score }점
-                      가이드의 총 글 수 :${vo.guidevo.guide_no }  
-                      가이드에게 달린 총 리뷰수 : ${vo.reviewvo.review_no }
+                      (${vo.reviewvo.review_score })
+                      The total number of writing:<font size="2pt" color="blue">${vo.guidevo.guide_no }</font>	<i class="fa fa-pencil" aria-hidden="true"></i> <br>
+                      
+                      
+                      The total number of reviews:<font size="2pt" color="blue">${vo.reviewvo.review_no }</font><i class="fa fa-pencil" aria-hidden="true"></i>
+                      
                   </div>
                   <span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">${vo.uservo.user_nick }(${vo.text_loc })</span>
                </div>

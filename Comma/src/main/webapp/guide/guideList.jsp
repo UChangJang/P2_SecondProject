@@ -13,7 +13,9 @@ $(function(){
 	
 	//1.이전버튼 
 	$('#prevBtn').click(function(){		//select_지역선택
-		 if('${curpage}'>1){	 				//이전페이지로 가기 가능
+		
+		var curpage=${curpage};
+		 if(curpage>1){	 				//이전페이지로 가기 가능
 			var place=$('#place').val();							//1.지역값 가져오기
 			var methods = document.getElementsByName('method');		//2.이동수단 가져오기
 			var method_value; // 여기에 선택된 radio 버튼의 값이 담기게 된다.
@@ -62,8 +64,9 @@ $(function(){
 			
 	//2.다음 버튼
 	$('#nextBtn').click(function(){				//select_지역선택
-		
-		if('${curpage}'<'${totalpage}'){		//다음페이지로 가기 가능
+		var totalpage=${totalpage};
+		var curpage=${curpage};
+		if(curpage<totalpage){		//다음페이지로 가기 가능
 			var place=$('#place').val();							//1.지역값 가져오기
 			var methods = document.getElementsByName('method');		//2.이동수단 가져오기
 			var method_value; 					// 여기에 선택된 radio 버튼의 값이 담기게 된다.
@@ -158,7 +161,7 @@ function guideContent() {
 							<div class="listTextQuickly" style="font-weight:bold;">HURRY UP!!</div>
 						</c:if>
 						<c:if test="${vo.resNum==1 }">
-							<div class="listTextFinish" style="font-weight:bold;"><h1>Complete<br>Reservation </h1></div>
+							<div class="listTextFinish" style="font-weight:bold;"><h1>SOLD<br>OUT </h1></div>
 						</c:if>
 					</span>
 				</div>
