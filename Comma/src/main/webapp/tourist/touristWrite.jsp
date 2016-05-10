@@ -3,15 +3,19 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="../controller/assets/css/introKor.css" />
    <title>Customer Write</title>
 </head>
 <body>
 <!-- Main -->
 <article id="main">
-   <header>
+   <header id="header_tour1">
       <h2>Tourist Bulletin board writing</h2>
       <p>post your writing to the bulletin board!</p>
    </header>
+   
+   
+
    
    <section class="wrapper style5">
       <div class="inner">

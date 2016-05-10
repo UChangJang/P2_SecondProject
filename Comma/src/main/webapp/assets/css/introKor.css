@@ -40,6 +40,20 @@ opacity:0.5;}
 	text-align: center;
 	
 }
+
+#main > #header_tour1 {		
+	padding: 7em 0 5em 0 ;		/* 상단이미지 12em 0 10em 0 ; */
+	background-image: url("../../images/tour.jpg");
+	background-attachment: fixed;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	text-align: center;
+	
+}
+#header_tour1 p{
+	margin-bottom: 0;
+}
 #header_siteInto p{
 	margin-bottom: 0;
 } 

@@ -79,7 +79,7 @@
                
                   <!-- 1추가:로그인 레이어 팝업창-->
                   <c:if test="${sessionScope.id!=null }">
-                  		Welcome [${sessionScope.id }]
+                  		Welcome [${sessionScope.name }]
                      <button class="button special log" id="logout-btn">Logout</button>
                      <form method="post" id="logout-frm" action="logout.do" hidden="hidden"></form>
                   </c:if>

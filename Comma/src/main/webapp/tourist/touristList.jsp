@@ -224,7 +224,6 @@ $('.letter').click(function(){
 	
 	var no=id.substring(3);
 	
-	alert(no)
 	  $.magnificPopup.open({
 	        items :{src:'#letPop'+no,type : 'inline'},
 	              preloader: false,focus: '#name',
@@ -241,7 +240,6 @@ $('.letter').click(function(){
 $('.messgaeBtn').click(function(){
 	var id=$(this).attr('id');
 	var no=id.substring(10);
-	alert(no)
 	$('#letPop'+no).submit();
 })
 </script>

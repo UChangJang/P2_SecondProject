@@ -266,11 +266,11 @@ $(function(){         // 스팟 순위권에 마우스 오버 시, 순위 div의 색상 변화
  							
 
                       </c:forEach>
-                      (${vo.reviewvo.review_score })
-                      The total number of writing:<font size="2pt" color="blue">${vo.guidevo.guide_no }</font>	<i class="fa fa-pencil" aria-hidden="true"></i> <br>
+                      (${vo.reviewvo.review_score })<br>
+                      The total number of writing:&nbsp;<font size="2pt" color="blue"><b style="color: #3A2525;text-decoration: underline;">${vo.guidevo.guide_no }</b></font> <i class="fa fa-pencil" aria-hidden="true"></i> <br>
                       
                       
-                      The total number of reviews:<font size="2pt" color="blue">${vo.reviewvo.review_no }</font><i class="fa fa-pencil" aria-hidden="true"></i>
+                      The total number of reviews:&nbsp;<font size="2pt" color="blue"><b style="color: #3A2525;text-decoration: underline;">${vo.reviewvo.review_no }</b></font> <i class="fa fa-pencil" aria-hidden="true"></i>
                       
                   </div>
                   <span style="text-align:center; margin:0; padding:0; font-size:15px; font-weight:bold;">${vo.uservo.user_nick }(${vo.text_loc })</span>

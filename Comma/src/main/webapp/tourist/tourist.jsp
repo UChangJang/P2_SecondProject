@@ -12,7 +12,7 @@ $(function(){
 		$('#tourSearch').click(function(){		//select_지역선택
 			var place=$('#place').val();		//1.지역값 가져오기
 			var date=$('#dt').val();			//2.날짜값 가져오기
-			alert(place+","+date);				//seoul, 31/03/2016
+							//seoul, 31/03/2016
 			if(place=="" || date==""){			//둘 중 하나라도 없으면 검색안돼
 				alert("Place and Date are essential condition in searching.");
 				return;

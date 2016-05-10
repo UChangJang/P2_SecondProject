@@ -1210,7 +1210,9 @@
 	width:100%
 }
 .guideRanking_review{
-	padding:1em;
+	padding-left:5.5em;
+	padding-right:5.5em;
+	padding-top:0.8em;
 	line-height: 180%;
 	background-color: #BAB6A8;
 	border-radius : 1em;
