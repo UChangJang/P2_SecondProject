@@ -261,15 +261,15 @@ function gInfo_frm(){
 			<div class="row side0">
 				<div class="2u 12u$(small)">								<!-- 1 ¿ÞÂÊ -->
 					<br>
-					<div align=center class="mypictureGuide">
-					<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }">		
+					<div align=center class="mypictureGuide"><a href="#" onclick="gInfo_frm()">
+						<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }">		
 						<div class="topBoardShort">
-						<a href="#" onclick="gInfo_frm()">${vo.uservo.user_nick }</a>
+						${vo.uservo.user_nick }
 						<form method="post" action="guideInfo.do" id="guideInfo_frm">
 							<input type="hidden" name="id" value="${vo.uservo.user_id }">
 							<input type="hidden" name="guide_no" value="${vo.guidevo.guide_no }">
 						</form>
-						</div>							
+						</a></div>							
 					</div>
 				</div>
 				<br>

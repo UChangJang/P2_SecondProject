@@ -150,7 +150,7 @@ function tourContent2() {
 								<textarea readonly="readonly">${vo.touristvo.tour_detail }</textarea>
 							</div>
 							<div id="detail_textarea1"> 
-								<span><button class="button tourB letter" id="let${vo.touristvo.tour_no}">Message</button></span>
+								<span><button class="letter" id="let${vo.touristvo.tour_no}">Message</button></span>
 								<span><button class="button tourB wishlist" id="wish${vo.touristvo.tour_no}">WishList</button></span>
 								<span><button class="button tourB reserve" id="res${vo.touristvo.tour_no}">Reserve</button></span>
 							</div>

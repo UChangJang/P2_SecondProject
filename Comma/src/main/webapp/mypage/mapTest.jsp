@@ -1,13 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-
-
-
-
-
 <!DOCTYPE html>
-
-<html>
+ <html>
 <head>
 <title>Google Map 의 클릭한 좌표값을 알아내자</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
@@ -53,3 +47,4 @@ map.setCenter(location);
  <div id="map_canvas" style="width:100%; height:100%"></div>
  </body>
  </html>
+

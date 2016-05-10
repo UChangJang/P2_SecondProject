@@ -98,7 +98,7 @@ Shadowbox.init({
 
                      <td rowspan="3">                     
                         <input type='file' id="profile_img" name="user_img"/>
-                        <img id="blah" src="#" alt="your image" style="height:16em"/>            
+                        <img id="blah" src="#" alt="your image" style="height:16em;border-radius:0.5em;"/>            
                      </td>
                   
                      <th>ID</th>                     

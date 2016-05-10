@@ -20,8 +20,8 @@
 					<thead>					
 						<tr>
 							<th width="10%">Check</th>
-							<th width="40%">Content</th>
-							<th width="10%">Nick</th>
+							<th width="40%">Message</th>
+							<th width="10%">Nickname</th>
 							<th width="10%">Date</th>
 							<th width="7%">Reply</th>
 						</tr>					
@@ -43,7 +43,7 @@
 							<td class="recvomessageText" id="recvo${recvo.message_no }" style="cursor: pointer; ">${recvo.message_text }</td>
 							<td>${recvo.message_send }</td>
 							<td>${recvo.message_time }</td>
-							<td><input type="button" value="´äÀå" class="ReBtn" id="reBtn${recvo.message_no }" ></td>
+							<td><input type="button" value="Reply" class="ReBtn" id="reBtn${recvo.message_no }" ></td>
 						</tr>
 					</c:forEach>
 					</tbody>
@@ -55,8 +55,8 @@
 					<thead>
 						<tr>
 							<th width="10%">Check</th>
-							<th width="40%">Content</th>
-							<th width="10%">Nick</th>
+							<th width="40%">Message</th>
+							<th width="10%">Nickname</th>
 							<th width="10%">Date</th>
 						</tr>
 					</thead>
@@ -64,11 +64,11 @@
 					<c:forEach var="sendvo" items="${sendvo }">
 						<tr>
 							<c:if test="${sendvo.message_check=='n' }">
-								<td style=" color: red; font: bold;">no 
+								<td style=" color: red; font: bold;">NO
 								</td>
 							</c:if>
 								<c:if test="${sendvo.message_check!='n' }">
-								<td style=" color: blue; font: bold;">yes 
+								<td style=" color: blue; font: bold;">YES
 							</td>
 							</c:if>
 							<td class="sendvomessageText" id="send${sendvo.message_no }" style="cursor: pointer; ">${sendvo.message_text }</td>
@@ -88,6 +88,7 @@
 
 	                    <table>
 	                     	<tr>
+
 	                     	  <td width="30%" align="right">From</td>
 	                     	  <td width="70%" align="left" >${recvo.message_send }</td>
 	                     	</tr>
@@ -122,7 +123,7 @@
 	                     	 </td>
 	                     	</tr>
 	                     	<tr>
-	                     	  <td colspan="2" align="center">Content</td>
+	                     	  <td colspan="2" align="center">Message</td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2"><textarea rows="5" name="message_text"></textarea></td>
@@ -149,7 +150,7 @@
 	                     	  <td width="70%" align="left">${sendvo.message_time }</td>
 	                     	</tr>
 	                     	<tr>
-	                     	  <td colspan="2" align="center">Content</td>
+	                     	  <td colspan="2" align="center">Message</td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${sendvo.message_text}</textarea></td>

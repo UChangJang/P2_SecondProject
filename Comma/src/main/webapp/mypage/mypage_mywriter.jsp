@@ -81,7 +81,7 @@
 						<input style="box-shadow: inset 0 0 0;" type="button" value="${guidevo.guidevo.reservation_person }/${guidevo.text_total_person }" 
 							class=guideResViewBtn id="guideResBtn${guidevo.guidevo.guide_no }">
 						</td>
-						<td><input type="button" value="Del" class="guideDelwritten" id="guideDelwrite${guidevo.guidevo.guide_no }"></td>
+						<td><input type="button" value="Delete" class="guideDelwritten" id="guideDelwrite${guidevo.guidevo.guide_no }"></td>
 						<form method="post" action="mypage_mywriter_gDel.do?no=" id="frm_wrgD" name="guideDelmypage"></form>
 					</tr>
 					</c:forEach>
@@ -115,7 +115,7 @@
 								<input style="box-shadow: inset 0 0 0;" type="button" value="${vo.touristvo.reservation_person }"
 								class=tourResViewBtn id="tourResBtn${vo.touristvo.tour_no }">
 							</td>
-							<td><input type="button" value="Del" class="tourDelwritten" id="tourDelwrite${vo.touristvo.tour_no }"></td>
+							<td><input type="button" value="Delete" class="tourDelwritten" id="tourDelwrite${vo.touristvo.tour_no }"></td>
 							<!-- <form method="post" name="tourDelmypage"></form> -->
 							<form method="post" action="mypage_mywriter_tDel.do?no=" id="frm_wrtD" name="tourDelmypage"></form>
 						</tr>
