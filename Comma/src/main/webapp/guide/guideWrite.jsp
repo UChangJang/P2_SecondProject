@@ -329,11 +329,11 @@
 			<div class="10u$ 12u$(xsmall)">
 				<div style="height:15em">
 					<jsp:include page="../map.jsp"></jsp:include>
-					<input type="text" name="guide_map" value="">
+					<input type="hidden" name="guide_map" value="">
 					<div id="map_canvas" style="width:100%; height:100%"></div>
 				</div>
 			</div>
-
+			<br><br>
 			<div class="2u 12u$(xsmall)">
 				<!-- 7 ¿ŞÂÊ : °ü±¤³¯Â¥-->
 				<h5>Tour Date</h5>

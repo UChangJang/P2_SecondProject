@@ -70,7 +70,8 @@ function NewControl(controlDiv, map) {
 function initialize(){
 	
 	if("${vo.guidevo.guide_map}"!=""){//board에서쓰일부분
-		alert("${vo.guidevo.guide_map}");
+		//alert("${vo.guidevo.guide_map}");
+
 		var te = "${vo.guidevo.guide_map}";
 		var t1 = te.substring(0,te.lastIndexOf(','));
 		var t2 = te.substring(te.lastIndexOf(',')+2);
@@ -78,7 +79,7 @@ function initialize(){
 		
 		var latlng = new google.maps.LatLng(t1,t2);
 	 	var myOptions = {
-		  	zoom: 8,
+		  	zoom: 12,
 		  	center:latlng,
 		  	mapTypeId: google.maps.MapTypeId.ROADMAP   
 		};
@@ -94,9 +95,9 @@ function initialize(){
 	 	
 	}
 	else{
-	 	var latlng = new google.maps.LatLng(37.5240220, 127.1065940);
+	 	var latlng = new google.maps.LatLng(37.5640220, 126.9995940);
 	 	var myOptions = {
-		  	zoom: 11,
+		  	zoom: 13,
 		  	center:latlng,
 		  	mapTypeId: google.maps.MapTypeId.ROADMAP   
 		};
@@ -128,7 +129,8 @@ function Setmarker(event) {
    	}));
 
    	document.guideInsertFmt.guide_map.value=event.latLng;
-   	alert(document.guideInsertFmt.guide_map.value);
+   	//alert(document.guideInsertFmt.guide_map.value);
+   	
 	//markers 배열에 클릭한 지점에 위치하는 마커를 추가합니다.
   	//infowindow.setContent("The " + i +"th marker is presented here.");
   	//infowindow.open(map,markers[i]);

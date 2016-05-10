@@ -11,7 +11,9 @@ public class FileConfig {
 
 		
 		try{
+
 			String path = "C:\\Users\\sist\\GIt\\P2_SecondProject\\Comma\\src\\main\\java\\";
+
 
 
 			path = path+pack.replace('.', '\\');

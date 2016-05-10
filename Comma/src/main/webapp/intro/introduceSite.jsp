@@ -59,24 +59,29 @@
       <!-- 배경 색... -->
    <div class="inner">
       <!-- 글자들 간격들 조절 -->
-      <p><img alt="" src="images/WhatisComma.PNG">
-      </p>
+      <iframe width="854" height="480" src="https://www.youtube.com/embed/8k-Qr0Lofss?autoplay=1&loop=1"  
+      frameborder="0" allowfullscreen="true"></iframe>
+      <!-- <p><img alt="" src="images/WhatisComma.PNG">
+      </p> -->
       <h3>1.What is Comma?</h3>
-      <h5><p>Comma,
+      <p>Comma,
          This website is very useful for your trip
-         In Korea</p></h5>
+         In Korea</p>
       </br>
-      <h5>Why we shoud using a Comma?</h5>
-      </br>
-      <p><h6>Convenience</h6>
+      <h5>* Why should we using a Comma?</h5></br></br>
+      
+      <h6>Convenience</h6>
+      <img src="images/w1.png" class=alignleft alt="" hspabe=30/>
       - It is not difficult seeking a guide for your trip, if you choosing a travel destination. 
       You can handle it comfortably.</br></br>
-
+	  
       <h6>Without qualification</h6>
+      <img src="images/w2.png" class=alignleft" alt="" />
       - We don't need to qualification for travel guide. You can doing a travel guide for someone, 
       or sometimes you call a travel guide for your trip. There is no limit for your role.</br></br>
 
       <h6>Safe</h6>
+      <img src="images/w3.png" class=alignleft" alt="" /><span>
       - Although, there is no limit for our travel guide, but we should take a people, identities are confirmed.</p>
       </br>
       <hr/>
@@ -90,10 +95,6 @@
       <!-- 글자들 간격들 조절 -->
 
          <h3>2.How to using Comma?</h3>
-         <p>Easy Search
-         - If you are in main page, please look at left side. You can find a 'Easy Search' section. 
-         You can select What you want to a Spot, Date, and total person in your travel.</p>
-
          <p>Guide
          - If you want to finding a guide, first you need to click 'tour find' in main page. 
          When you in the guide page, you can see the search field. And when you click detail search field, 
@@ -116,15 +117,13 @@
          <hr/>
 
          <h4>If you don't understand it, please watch this video.</h4>
-         <p>[Guide]</p>
-         <p><video width="720" height="600" controls="controls" poster="images/guideposter.png">
-   			<source src="images/Guide.mp4" type="video/mp4"/>
-			</video></p>
-
-         <p>[Traveler]</p>
-         <p><video width="720" height="600" controls="controls" poster="images/travelerposter.jpg">
-         <source src="images/traveler.mp4" type="video/mp4"/></video></p>
-
+         </br>
+         <video width="420" height="300" controls="controls" poster="images/guideposter.png">
+            <source src="images/Guide.mp4" type="video/mp4"/>
+         </video>
+        
+         <video style="float:right;" width="420" height="300" controls="controls" poster="images/travelerposter.jpg">
+         <source src="images/traveler.mp4" type="video/mp4"/></video>
       </div>
    </section>
    <section class="wrapper style5" id="three">
@@ -132,11 +131,26 @@
    <div class="inner">
       <!-- 글자들 간격들 조절 -->
       <h3>3.Use Cases of Celeb</h3>
-      <p><img alt="" src="images/UseCasesCeleb.PNG">
+     <!--  <p><img alt="" src="images/UseCasesCeleb.PNG">
+      </p> -->
+        <p>
+      <img src="images/ma.png" class=alignleft"/>
+      I worried about if my guide so scare or unkindness, but he is very handsome and friendly. Thank you.
+      <p>[Movie Actor, Dongseok Ma]</p></p>
+      <p>
+      <img src="images/song.png" class=alignleft" alt="" />
+      Actually, this is my first time to using a comma. 
+      So I was nervous. But she has a good manner and some humor skill. 
+      Also, she was so cute. Could I re-using a Comma next time? I love it!
+      <p>[TV Actress, Hyegyo Song]</p>
+      <p>
+      <img src="images/cho.png" class=alignleft" alt="" />
+      I often late and absence my appointment, but thanks to my tour guide in Comma, 
+      I don't late and enjoy a trip with my friends. I can't thank you enough. What can I do repay you?
+      <p>[Comedian, Seho Cho]</p>
       </p>
-      
       <hr/>
-
+      
    </div>
 </section>
 </article>
