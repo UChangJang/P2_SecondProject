@@ -61,7 +61,7 @@ $(function(){
 					<br>view more</a>
 		</header>
 
-		<section class="wrapper style5">
+		<section class="wrapper style5" id="one">
 			<div class="inner">
 				<div class="row uniform">
 

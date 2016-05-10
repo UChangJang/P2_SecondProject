@@ -110,10 +110,11 @@
 	text-align: right;
 	color:#f7f7f7;
 }
+
 /* 가이드 board 사이드메뉴 */
 #guideBoardSide{
 	width:100%;
-	height: 25em;
+	height: 30em;
 	background-color: #0264a3;
 	border-radius:0.6em;
 }
@@ -452,11 +453,11 @@
 }
 .listTextFinish h1{				/* 예약종료 */
     letter-spacing: 0em;
-	font-size:2em;
+	font-size:3em;
     position: absolute;
     text-align: center;
     vertical-align: middle;
-    margin:1em;
+    margin:0 1.5em auto;
     top:35%;
     color:white;
 	opacity: 1;
@@ -482,8 +483,6 @@
 	text-align: center;
 	margin-top: 0.1em;
 }
-
-
 
 /*guideWrite.html_테이블 이미지 길이 조정*//*guideWrite.html_테이블 이미지 길이 조정*//*guideWrite.html_테이블 이미지 길이 조정*/
 .table-wrapper .alt .tabPro{				

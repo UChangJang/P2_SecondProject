@@ -4,7 +4,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="../controller/assets/css/introKor.css" />
-	<title>[소개]한국소개</title>
+	<title>ABOUT KOREA</title>
 </head>
 <body>
  

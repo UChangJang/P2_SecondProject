@@ -176,7 +176,7 @@ $(function(){
 					$('.tabscontents').hide();
 
 					$('.t' + index).fadeIn();
-					$(this).css('background-color', '#ee8c7f').addClass('active');
+					$(this).css('background-color', '#000').addClass('active');
 				});
 		$('.tourDetatil').click(function(){
 			

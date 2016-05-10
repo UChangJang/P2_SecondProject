@@ -298,13 +298,33 @@ public class UserController {
 		
 		HttpSession session = request.getSession();
 		String user_id = (String)session.getAttribute("id");
-		System.out.println(user_id);
+		
 		
 		Map map = new HashMap();
 		map.put("no", no);
 		map.put("user_id", user_id);
 		
 		ReservationDAO.reserveGuideDelete(map);
+		
+		
+		return "mypage/myreserve_deleteOk.jsp";
+	}
+	
+	@RequestMapping("mypage_reserve_tDel.do")
+	public String mypage_reserve_tDel(HttpServletRequest request){
+		
+		// 아이디와 가이드 번호 => 나의 예약번호
+		String no = request.getParameter("no"); // 관광객 번호
+		
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("id");
+		
+		
+		Map map = new HashMap();
+		map.put("no", no);
+		map.put("user_id", user_id);
+		
+		ReservationDAO.reserveTourDelete(map);
 		
 		
 		return "mypage/myreserve_deleteOk.jsp";

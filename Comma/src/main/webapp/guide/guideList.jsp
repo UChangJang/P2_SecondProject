@@ -106,7 +106,7 @@ $(function(){
 					sendMessage("POST", "guide_search_detail.do",param,guideContent);
 				}	
 			}	
-		}else{								//이전페이지로 가기 불가능
+		}else{								//이전페이지로 가기 불가능.
 			alert("This is the last page.");
 			return;
 		}
@@ -158,7 +158,7 @@ function guideContent() {
 							<div class="listTextQuickly" style="font-weight:bold;">HURRY UP!!</div>
 						</c:if>
 						<c:if test="${vo.resNum==1 }">
-							<div class="listTextFinish"" style="font-weight:bold;"><h1>Complete<br>Reservation </h1></div>
+							<div class="listTextFinish" style="font-weight:bold;"><h1>SOLD<br>OUT </h1></div>
 						</c:if>
 					</span>
 				</div>

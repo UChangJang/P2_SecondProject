@@ -158,11 +158,11 @@ function gInfo_frm(){
      <form class="white-popup mfp-hide" id="message-form" method="post" action="messageSend.do">
         <h1>Message</h1>
         <div>
-           <font color="pink">
-           <input name="receive_name" id="receive_name" required="" type="text"
-              placeholder="Receive From" style="width:10em;float:left" disabled="disabled" value="${vo.uservo.user_id }"></font>  
-           <input name="send_name" id="send_name" required="" type="text"
-              placeholder="Send To" style="width:10em;float:right" disabled="disabled" value="${sessionScope.id }">
+          	<input name="send_name" id="send_name" required="" type="text"
+              placeholder="Send To" style="width:10em;float:left" disabled="disabled" value="${sessionScope.id }">
+            <font color="pink">
+           	<input name="receive_name" id="receive_name" required="" type="text"
+              placeholder="Receive From" style="width:10em;float:left;margin-left:0.5em;" disabled="disabled" value="${vo.uservo.user_id }"></font>  
         </div>
 		<br><br>
         <div>
@@ -318,7 +318,14 @@ function gInfo_frm(){
 					</div> 
 					</span>
 					<textarea style="height:20em" readonly="readonly">${vo.guidevo.guide_detail }</textarea>
-
+					
+					
+					<!-- 지도 -->
+					<div style="height:15em">
+					<jsp:include page="../map.jsp"></jsp:include>
+					<div id="map_canvas" style="width:100%; height:100%"></div>
+					</div>
+					
 					<hr id="detail" />
 					<h5>Details</h5>
 					<div class="table-wrapper">
@@ -364,35 +371,7 @@ function gInfo_frm(){
 
 
 
-					<%-- <hr id="mention"/>
-					<h5>후기</h5>
-					<div class="box alt">
-						<div class="row uniform 50%">
-						
-						<c:forEach var="i" begin="1" end="5">
-							<div class="2u">
-								<span class="image fit"> <a href="guideWrite.do"><img
-										src="images/banner.jpg" alt="" /></a>
-								</span>
-							</div>
-
-							<div class="10u">
-								<span class="image fit">
-									<table class="alt">
-										<tr>
-											<td>안보영</td>
-											<td>별다섯개</td>
-										</tr>
-										<tr>
-											<td colspan=4>멋진관광이었습니다.멋진관광이었습니다.멋진관광이었습니다.</td>
-										</tr>
-									</table>
-								</span>
-							</div>
-						</c:forEach>
-							
-						</div>
-					</div> --%>
+					
 
 					<hr />
 					<c:if test="${confirmId == false }">

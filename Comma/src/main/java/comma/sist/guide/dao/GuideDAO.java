@@ -350,7 +350,11 @@ private static SqlSessionFactory	ssf;
 		List<TextVO> list = new ArrayList<TextVO>();
 		if (type.equals("cost")) { 			// 1.가격순
 			list = session.selectList("guideSortPrice", map); // 1-5번호까지의
-																// tourist에서모든정보들가져옴
+			System.out.println("cost순정렬완료");
+			for(TextVO vo:list){
+				System.out.println("가격"+vo.getText_cost());
+			}
+			// tourist에서모든정보들가져옴
 		} else if (type.equals("newest")) { // 2.등록일자순
 			list = session.selectList("guideSortNewest", map);
 			
@@ -380,5 +384,12 @@ private static SqlSessionFactory	ssf;
 			costModify(list);
 			return list;
 		}
+		public static int countMyGuide(String id){
+			SqlSession session=ssf.openSession();
+			int countMyGuide=session.selectOne("countMyGuide",id);
+			session.close();
+			return countMyGuide;
+		}
+	
 	
 }

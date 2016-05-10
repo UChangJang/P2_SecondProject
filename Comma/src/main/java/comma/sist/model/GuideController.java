@@ -164,8 +164,9 @@ public class GuideController {
 		String guide_img3 = mr.getOriginalFileName("guide_img3");
 		String guide_detail3 = mr.getParameter("guide_detail3");
 		
+		String guide_map = mr.getParameter("guide_map");
 		
-		guide_detail = guide_detail+"<br>"+guide_detail2+"<br>"+guide_detail3;
+		guide_detail = guide_detail+"\n-\n"+guide_detail2+"\n-\n"+guide_detail3;
 		
 		if(guide_img2!=null && guide_img3==null){
 			guide_img = guide_img + "|" + guide_img2;		
@@ -209,7 +210,10 @@ public class GuideController {
 		String user_id = (String)session.getAttribute("id");
 		vo.getGuidevo().setUser_id(user_id);
 		
-		vo.getGuidevo().setGuide_map("임시용"); // 바꿔야됨
+		//vo.getGuidevo().setGuide_map("임시용"); // 바꿔야됨
+		guide_map = guide_map.substring(1,guide_map.lastIndexOf(')'));
+		System.out.println(guide_map);
+		vo.getGuidevo().setGuide_map(guide_map);
 		
 		if(guide_img==null){
 			vo.getGuidevo().setGuide_img("");
@@ -533,7 +537,8 @@ public class GuideController {
 			List<TextVO> list = new ArrayList<TextVO>();
 			
 		   if(method==null || people=="" || date==""){											//1.지역만 검색
-			   list = GuideDAO.guide_sort_place(map, type); //start,end,place _ type
+			   System.out.println("정렬이름:"+type);
+			   list = GuideDAO.guide_sort_place(map, type); 	 //start,end,place _ type
 			   totalpage=GuideDAO.guideSearchTotalPage(place);   //총페이지수
 			   
 		   }else if(method != null && people!="" && date!=""){									//2.detail도 검색

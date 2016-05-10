@@ -61,7 +61,7 @@
             FROM (SELECT tour_no,user_id,tour.text_no,tour_theme,tour_detail
                   FROM tour,text 
                   WHERE text_loc=#{place} AND text_tour_date=#{date} AND tour.text_no=text.text_no
-                  ORDER BY text_cost DESC)) 
+                  ORDER BY TO_NUMBER(text_cost) DESC)) 
       WHERE num BETWEEN #{start} AND #{end}   
    </select> 
 

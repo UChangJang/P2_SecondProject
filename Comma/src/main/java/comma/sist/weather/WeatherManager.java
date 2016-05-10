@@ -42,7 +42,6 @@ public class WeatherManager {
 					d.setNo(i+1);		//추가
 					
 					// 영어 변환
-					System.out.println("변환 전:"+locem.text()+"/");
 					String loc=locem.text();
 					
 					if(loc.equals("서울")){

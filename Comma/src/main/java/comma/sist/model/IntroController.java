@@ -2,6 +2,7 @@ package comma.sist.model;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.xml.soap.Text;
 
 import comma.sist.common.TextVO;
 import comma.sist.controller.*;
@@ -20,18 +21,19 @@ import comma.sist.weather.*;
 
 @Controller("IC")
 public class IntroController {
-	
+	//
 	@RequestMapping("main.do")
 	public String mainStart(HttpServletRequest req){
 		
 		WeatherManager wm=new WeatherManager();
 		List<WeatherDTO> wlist=wm.weatherAllData();
 		List<TextVO> bestGuide=GuideDAO.bestGuide();
+		
+		
 		List<SearchVO> slist= HotspotDAO.searchLocFind();		// hotspot
 		List<HotspotVO> hlist=new ArrayList<HotspotVO>();
 
 		List<GuideFindVO> flist=GuideFindDAO.guideFind();
-
 		
 		for(int i=0;i<slist.size();i++){
 			String search_loc=slist.get(i).getSearch_loc();
