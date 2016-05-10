@@ -88,12 +88,9 @@ Shadowbox.init({
 
 </head>
 <body>
-   <h3>복구중....</h3>
-
-
    <section class="wrapper style5" id="two">      
       <div class="inner">
-         <h4>기본정보</h4>
+         <h4>Information</h4>
          <div class="table-wrapper">
          <form name="infoCorrection_frm" action="infoCorrection_ok.do" method=post id=infoCorrectionFrm enctype="multipart/form-data">
             <table class="infomodify">              
@@ -133,12 +130,12 @@ Shadowbox.init({
             </table>
             <hr/>
             
-            <h4>추가정보</h4>
+            <h4>More Detail</h4>
             
             <table class="infomodify">
 
                   <tr>
-                     <th>생년월일</th>
+                     <th>Birth</th>
                      <td>
                      <div id="demo">
                         <select name=year id=year>
@@ -192,12 +189,12 @@ Shadowbox.init({
                         
                   </tr>
                    <tr>
-                     <th >성별</th>
+                     <th >Sex</th>
                      <td colspan="3">   
                      <input type="radio" class="gender" id="demo-priority-low" name="demo-priority" value="남자"  ${vo.user_sex eq '남자'?"checked":"" }/>
-                     <label for="demo-priority-low">male</label>
+                     <label for="demo-priority-low">Male</label>
                      <input type="radio" class="gender" id="demo-priority-normal" name="demo-priority" value="여자" ${vo.user_sex eq '여자'?"checked":"" } />
-                     <label for="demo-priority-normal">female</label>
+                     <label for="demo-priority-normal">Female</label>
                      </td>
                   </tr>
                   <tr>
@@ -220,7 +217,7 @@ Shadowbox.init({
                   <tr><b>Introduce Yourself, shortly!</b></tr>
                </thead>
                <tbody>
-                  <textarea rows="4" cols="50" name=introduce>${vo.user_introduce }</textarea>
+                  <textarea readonly="readonly" rows="4" cols="50" name=introduce>${vo.user_introduce }</textarea>
                </tbody>
                
 
@@ -240,14 +237,6 @@ Shadowbox.init({
       </div>
    </section>
 
-   
-<!--          달력 
-         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-         <script src="../assets/js/dcalendar.picker.js"></script>
-            <script>
-            $('#calendar-demo').dcalendar();
-            $('#dt').dcalendarpicker();
-            </script> -->
          
 </body>
 </html>

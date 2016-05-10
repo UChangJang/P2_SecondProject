@@ -11,19 +11,19 @@
 	<div class="inner">
 		<section id="tabs">
 		
-			<div class="tab1"><a href="#">받은 쪽지</a></div>
-			<div class="tab2"><a href="#">보낸 쪽지</a></div>
+			<div class="tab1"><a href="#">Receive</a></div>
+			<div class="tab2"><a href="#">Send</a></div>
 			
 			<!-- 1.받은 쪽지 -->
 			<div class="table-wrapper tabscontents t1">
 				<table class="alt">
 					<thead>					
 						<tr>
-							<th width="10%">확인</th>
-							<th width="40%">내용</th>
-							<th width="10%">보낸 사람 별명</th>
-							<th width="10%">날짜</th>
-							<th width="7%">답장</th>
+							<th width="10%">Check</th>
+							<th width="40%">Content</th>
+							<th width="10%">Nick</th>
+							<th width="10%">Date</th>
+							<th width="7%">Reply</th>
 						</tr>					
 					</thead>
 					
@@ -54,10 +54,10 @@
 				<table class="alt">
 					<thead>
 						<tr>
-							<th width="10%">확인</th>
-							<th width="40%">내용</th>
-							<th width="10%">받는 사람별명</th>
-							<th width="10%">날짜</th>
+							<th width="10%">Check</th>
+							<th width="40%">Content</th>
+							<th width="10%">Nick</th>
+							<th width="10%">Date</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -84,26 +84,26 @@
 
 	          <c:forEach var="recvo" items="${recvo }"  >
 	               <form class="white-popup mfp-hide" id="re${recvo.message_no }" method="post" action="messageDelete.do">
-	                  <h1>Message Detail</h1>
+	                  <h1>Message</h1>
 
 	                    <table>
 	                     	<tr>
-	                     	  <td width="30%" align="right">보낸 사람</td>
+	                     	  <td width="30%" align="right">From</td>
 	                     	  <td width="70%" align="left" >${recvo.message_send }</td>
 	                     	</tr>
 	                     	<tr>
-	                     	  <td width="30%" align="right">시간</td>
+	                     	  <td width="30%" align="right">Time</td>
 	                     	  <td width="70%" align="left">${recvo.message_time }</td>
 	                     	</tr>
 	                     	<tr>
-	                     	  <td colspan="2" align="center">내용</td>
+	                     	  <td colspan="2" align="center">Content</td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${recvo.message_text}</textarea></td>
 	                     	</tr>
 	     					<tr>
 	                     	  <td colspan="2" align="center"> 
-	                     	  	<input type="button" value="삭제" class="DelBtn" id="DelBtn${recvo.message_no }" > 
+	                     	  	<input type="button" value="Del" class="DelBtn" id="DelBtn${recvo.message_no }" > 
 	                     	  	<input type="hidden" value="${recvo.message_no }" name="message_no">
 	                       	  </td>
 	                     	</tr>
@@ -113,23 +113,23 @@
 	               
 	               <!--  -->
 	               	<form class="white-popup mfp-hide" id="send${recvo.message_no }"  method="post" action="messageSend.do" >
-	                  <h1>Message Reple</h1>
+	                  <h1>Message Reply</h1>
 	                    <table>
 	                     	<tr>
-	                     	  <td width="30%" align="right">받는 사람</td>
+	                     	  <td width="30%" align="right">To</td>
 	                     	  <td width="70%" align="left">
 	                     	  <input type="text" name="message_receive" value="${recvo.message_send }">
 	                     	 </td>
 	                     	</tr>
 	                     	<tr>
-	                     	  <td colspan="2" align="center">내용</td>
+	                     	  <td colspan="2" align="center">Content</td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2"><textarea rows="5" name="message_text"></textarea></td>
 	                     	</tr>
 	     					<tr>
 	                     	  <td colspan="2" align="center"> 
-	                     	  	<input type="button" value="답장" class="ReSendBtn" id="reSendBtn${recvo.message_no }" >                  
+	                     	  	<input type="button" value="Send" class="ReSendBtn" id="reSendBtn${recvo.message_no }" >                  
 	                       	  </td>
 	                     	</tr>
 	                     </table>         
@@ -141,22 +141,22 @@
 	                  <h1>Message</h1>
 	                    <table>
 	                     	<tr>
-	                     	  <td width="30%" align="right">받는사람</td>
+	                     	  <td width="30%" align="right">To</td>
 	                     	  <td width="70%" align="left">${sendvo.message_receive }</td>
 	                     	</tr>
 	                     	<tr>
-	                     	  <td width="30%" align="right">시간</td>
+	                     	  <td width="30%" align="right">Time</td>
 	                     	  <td width="70%" align="left">${sendvo.message_time }</td>
 	                     	</tr>
 	                     	<tr>
-	                     	  <td colspan="2" align="center">내용</td>
+	                     	  <td colspan="2" align="center">Content</td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2"><textarea rows="5" readonly="readonly">${sendvo.message_text}</textarea></td>
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2" align="center"> 
-	                     	  	<input type="button" value="삭제" class="sendDelBtn" id="sendDelBtn${sendvo.message_no }" > 
+	                     	  	<input type="button" value="Del" class="sendDelBtn" id="sendDelBtn${sendvo.message_no }" > 
 	                     	  	<input type="hidden" value="${sendvo.message_no }" name="message_no">
 	                       	  </td>
 	                       	 </tr>

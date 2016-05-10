@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
+<title>Mypage</title>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
@@ -17,10 +17,10 @@
 		<section id="tabs">
 
 		<div class="tab1">
-			<a href="#">여행 후기 쓰기</a>
+			<a href="#">Writing a review</a>
 		</div>
 		<div class="tab2">
-			<a href="#">나에게 달린 후기 </a>
+			<a href="#">Review to me</a>
 		</div>
 
 
@@ -28,10 +28,10 @@
 			<table class="alt">
 				<thead>
 					<tr>
-						<th width="7%">번호</th>
-						<th width="30%">글 제목</th>					
-						<th width="10%">가이드이름</th>
-						<th width="10%">쓰기</th>
+						<th width="7%">No</th>
+						<th width="30%">Title</th>					
+						<th width="10%">Guide</th>
+						<th width="10%">Writing</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -40,7 +40,7 @@
 						<td>${guidevo.guide_no }</td>
 						<td>${guidevo.guide_subject }</td>
 						<th>${guidevo.user_id }</th>
-						<td><input type="button" value="쓰기" class =reviewBtn id="reviewBtn${guidevo.guide_no }" ></td>
+						<td><input type="button" value="Writing" class =reviewBtn id="reviewBtn${guidevo.guide_no }" ></td>
 					</tr>	
 				</c:forEach>				
 				</tbody>
@@ -53,11 +53,11 @@
 			<table class="alt">
 				<thead>
 					<tr>
-						<th width="7%">번호</th>
-						<th width="10%">글 제목</th>
-						<th width="10%">작성자 별명</th>
-						<th width="30%">내용</th>
-						<th width="10%">점수</th>						
+						<th width="7%">No</th>
+						<th width="10%">Title</th>
+						<th width="10%">Nick</th>
+						<th width="30%">Content</th>
+						<th width="10%">Score</th>						
 						
 						
 					</tr>
@@ -82,7 +82,7 @@
 	                  <h1>Message</h1>
 	                    <table>	           
 	                     	<tr>
-	                     	  <td align="center">점수</td>
+	                     	  <td align="center">Score</td>
 	                     	  <td>    
 	                     	  	 <select name="score">	                     	  	 
 	                     	    	 <option value="1">★☆☆☆☆</option>
@@ -98,7 +98,7 @@
 	                     	</tr>
 	                     	<tr>
 	                     	  <td colspan="2" align="center"> 
-	                     	  	<input type="button" value="후기달기" class="sendReviwBtn" id="sendReviwBtn${guidevo.guide_no }" > 
+	                     	  	<input type="button" value="Writing" class="sendReviwBtn" id="sendReviwBtn${guidevo.guide_no }" > 
 	                     	  	<input type="hidden" value="${guidevo.guide_no }" name="guide_no">                 	  	
 	                     	  	
 	                       	  </td>
