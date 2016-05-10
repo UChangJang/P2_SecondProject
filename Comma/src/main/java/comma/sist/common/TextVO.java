@@ -32,12 +32,19 @@ public class TextVO {
 	private ReviewVO reviewvo=new ReviewVO();
 	private WishVO wishvo=new WishVO();
 	
+	
 	private List<TouristResVO> tourresvo=new ArrayList<TouristResVO>();	//투어에 예약한 사람-보영추가
+	private int resNum;	//마감임박띄우기
 	
 	private int		text_time;		// 소요시간
 	private int		num;
 	
-	
+	public int getResNum() {
+		return resNum;
+	}
+	public void setResNum(int resNum) {
+		this.resNum = resNum;
+	}	
 	
 	public List<TouristResVO> getTourresvo() {
 		return  tourresvo;

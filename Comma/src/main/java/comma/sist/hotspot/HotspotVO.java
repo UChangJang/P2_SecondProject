@@ -10,6 +10,12 @@ public class HotspotVO {
 	private String text_hit;
 	private int guide_no;
 	
+	public int getGuide_no() {
+		return guide_no;
+	}
+	public void setGuide_no(int guide_no) {
+		this.guide_no = guide_no;
+	}
 	public String getText_hit() {
 		return text_hit;
 	}
@@ -39,11 +45,5 @@ public class HotspotVO {
 	}
 	public void setText_cost(String text_cost) {
 		this.text_cost = text_cost;
-	}
-	public int getGuide_no() {
-		return guide_no;
-	}
-	public void setGuide_no(int guide_no) {
-		this.guide_no = guide_no;
 	}
 }

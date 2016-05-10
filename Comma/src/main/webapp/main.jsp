@@ -71,7 +71,7 @@
             <a href="main.do"><img alt="" src="images/commaLogo(small).png" width="130em" style="margin-top:0.5em;"></a>
          </h1>
          <center>
-           <p id="${jsp }" class="nav2Name"></p>
+           <p id="${jsp }" class="nav2Name" style="padding-top:0.2em;"></p>
          </center>
          <nav id="nav">
             <ul>
@@ -79,7 +79,7 @@
                
                   <!-- 1추가:로그인 레이어 팝업창-->
                   <c:if test="${sessionScope.id!=null }">
-                    Dear ${sessionScope.name }, Welcome to Comma!
+                  		Welcome [${sessionScope.id }]
                      <button class="button special log" id="logout-btn">Logout</button>
                      <form method="post" id="logout-frm" action="logout.do" hidden="hidden"></form>
                   </c:if>
@@ -196,42 +196,42 @@
                   <a href="#menu" class="menuToggle"><span>Menu</span></a>
                   <div id="menu" class="group g1">
                      <ul>
-                        <div class="box">
-                           <li><a href="main.do">Home</a></li>
+                        <div class="box" style="border-top:0px; border-bottom:0px;">
+                           <li style="font-weight: bold;"><a style="" href="main.do">HOME</a></li>
                         </div>
                         <div class="box">
-                           <li><a href="introduceSite.do">소개페이지</a></li>
+                           <li><a href="introduceSite.do"  style="font-weight: bold;">COMMA</a></li>
                         </div>
                         <div class="box">
-                           <li><a href="introduceKor.do">한국소개</a></li>
+                           <li><a href="introduceKor.do"  style="font-weight: bold;">INTRODUCE KOREA</a></li>
                         </div>
 
                         <div class="box">
-                           <li class="title"><a href="#">가이드</a></li>
+                           <li class="title" style="font-weight: bold;"><a href="#" >GUIDE</a></li>
                            <div class="cont">
-                              <li><a href="guide.do">1.가이드목록</a></li>
+                              <li><a href="guide.do">&nbsp;&nbsp;&nbsp;- GUIDE LIST</a></li>
                               <c:if test="${sessionScope.id!=null}">	
-                             	 <li><a href="guideWrite.do">2.가이드글쓰기</a></li>
+                             	 <li><a href="guideWrite.do">&nbsp;&nbsp;&nbsp;- GUIDE WRITE</a></li>
                               </c:if>
                            </div>
                         </div>
 
                         <div class="box">
-                           <li class="title"><a href="#">관광객</a></li>
+                           <li class="title"  style="font-weight: bold;"><a href="#">TOURLIST</a></li>
                            <div class="cont">
-                              <li><a href="tourist.do">1.관광객목록</a></li>
+                              <li><a href="tourist.do">&nbsp;&nbsp;&nbsp;- TOUR REQUEST</a></li>
                               <c:if test="${sessionScope.id!=null}">	
-                              	<li><a href="touristWrite.do">2.관광객글쓰기</a></li>
+                              	<li><a href="touristWrite.do">&nbsp;&nbsp;&nbsp;- TOUR REQUEST WRITE</a></li>
                               </c:if>
                            </div>
                         </div>
                          <c:if test="${sessionScope.id!=null}">
                         <div class="box">
-                           <li><a href="mypage.do">마이페이지</a></li>
+                           <li><a href="mypage.do"  style="font-weight: bold;">MY PAGE</a></li>
                         </div>
                         </c:if>
                         <div class="box">
-                           <li><a href="board_list.do">게시판</a>
+                           <li><a href="board_list.do"  style="font-weight: bold;">Q&A</a>
                         </div>
                      </ul>
                   </div> 

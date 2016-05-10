@@ -37,7 +37,6 @@ public class UserController {
 		String res = UserDAO.userLogin(id,pwd);
 		String name = "";
 		String admin = "";
-		System.out.println(res);
 		if(!(res.equals("NOID")||res.equals("NOPWD"))){
 			name = res;
 			HttpSession session = request.getSession();
@@ -63,7 +62,6 @@ public class UserController {
 		String id=req.getParameter("id");
 		int count=UserDAO.idCheckCount(id);		
 		req.setAttribute("count", count);
-		System.out.println(count);
 		return "idCheck.jsp";
 	}
 	@RequestMapping("join.do")
@@ -98,9 +96,29 @@ public class UserController {
 		String user_img=UserDAO.userProfileImage(id);
 		req.setAttribute("user_img", user_img);
 		UserVO vo = UserDAO.userProfile(id);
+		if(vo.getUser_birth()!=null){
+			StringTokenizer st=new StringTokenizer(vo.getUser_birth(), "/");			
+				String y=st.nextToken();
+				String m=st.nextToken();
+				String d=st.nextToken();
+				req.setAttribute("year", y);
+				req.setAttribute("month", m);
+				req.setAttribute("day", d);	
+				
+			}
+			
+				
+		
+		if(vo.getUser_tel()!=null){	
+			String tel1=vo.getUser_tel().substring(0,3);
+			String tel2=vo.getUser_tel().substring(3,7);
+			String tel3=vo.getUser_tel().substring(7,11);
+			req.setAttribute("tel1", tel1);
+			req.setAttribute("tel2", tel2);
+			req.setAttribute("tel3", tel3);		
+		}
 		req.setAttribute("vo", vo);		
 		req.setAttribute("jsp", "mypage/mypage.jsp");
-		
 		req.setAttribute("mypage", "mypage/mypage_mydetail.jsp");
 		return "main.jsp";
 	}
@@ -280,13 +298,33 @@ public class UserController {
 		
 		HttpSession session = request.getSession();
 		String user_id = (String)session.getAttribute("id");
-		System.out.println(user_id);
+		
 		
 		Map map = new HashMap();
 		map.put("no", no);
 		map.put("user_id", user_id);
 		
 		ReservationDAO.reserveGuideDelete(map);
+		
+		
+		return "mypage/myreserve_deleteOk.jsp";
+	}
+	
+	@RequestMapping("mypage_reserve_tDel.do")
+	public String mypage_reserve_tDel(HttpServletRequest request){
+		
+		// 아이디와 가이드 번호 => 나의 예약번호
+		String no = request.getParameter("no"); // 관광객 번호
+		
+		HttpSession session = request.getSession();
+		String user_id = (String)session.getAttribute("id");
+		
+		
+		Map map = new HashMap();
+		map.put("no", no);
+		map.put("user_id", user_id);
+		
+		ReservationDAO.reserveTourDelete(map);
 		
 		
 		return "mypage/myreserve_deleteOk.jsp";
@@ -337,22 +375,22 @@ public class UserController {
 	@RequestMapping("infoCorrection_ok.do")
 	public String infoCorrection_ok(HttpServletRequest req) throws Exception{
 		req.setCharacterEncoding("EUC-KR");
-		
-		
 		String path = "\\\\211.238.142.74\\Users\\74\\Git\\P2_SecondProject\\Comma\\src\\main\\webapp\\profile";
+
 		String enctype = "EUC-KR";
 		int	size = 1024*1024*100; 
-		
+
 		MultipartRequest mr 
 				= new MultipartRequest(req,path,size,enctype,
 						new DefaultFileRenamePolicy());
-		
+
 		String nick=mr.getParameter("nick");
 		String pwd=mr.getParameter("pwd");
 		String email=mr.getParameter("email");
 		String birth=mr.getParameter("year")+"/"+mr.getParameter("month")+"/"+mr.getParameter("day");
 		String gender=mr.getParameter("demo-priority");
-		String tel=mr.getParameter("tel1")+"-"+mr.getParameter("tel2")+"-"+mr.getParameter("tel3");
+		String tel=mr.getParameter("tel1")+mr.getParameter("tel2")+mr.getParameter("tel3");
+
 		String addr=mr.getParameter("addr1")+"-"+mr.getParameter("addr2");
 		String introduce=mr.getParameter("introduce");
 		String user_img = mr.getOriginalFileName("user_img");
@@ -360,7 +398,7 @@ public class UserController {
 		
 		HttpSession session = req.getSession();
 		String id = (String)session.getAttribute("id");
-		
+
 		
 		
 		/*String nick=req.getParameter("nick");
@@ -383,6 +421,7 @@ public class UserController {
 		vo.setUser_birth(birth);
 		vo.setUser_sex(gender);
 		vo.setUser_addr(addr);
+		vo.setUser_tel(tel);
 		
 		if(user_img==null){
 			vo.setUser_img("");
@@ -390,7 +429,7 @@ public class UserController {
 			File f = new File(path+"\\"+user_img);
 			vo.setUser_img(user_img);
 		}
-
+		System.out.println(vo.getUser_img());
 		UserDAO.infoCorrection(vo);		
 		
 		return "mypage/infoCorrection_ok.jsp";

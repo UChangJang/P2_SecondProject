@@ -50,21 +50,26 @@ $(function(){
 				
 					<tr>
 					
-						<td>${guidevo.wishvo.wish_no }</td>
-						<td id="guideText" class="guideTextTd${guidevo.wishvo.wish_no }" style="cursor: pointer">
-						<a href="../controller/guideBoard.do?no=${guidevo.guidevo.guide_no }" style="background-color: rgb(255, 255, 255);">${guidevo.guidevo.guide_subject }</a>
+						<td>${guidevo.guidevo.guide_no }</td>
+						
+						<td id="guideText${guidevo.guidevo.guide_no }" class="guideText" style="cursor: pointer">
+							<form action="guideBoard.do?no=${guidevo.guidevo.guide_no }" id="wishGuide${guidevo.guidevo.guide_no }" method="post">
+								${guidevo.guidevo.guide_subject }
+							</form>
 						</td>
+						
 						<td>${guidevo.uservo.user_nick }</td>
 						<td>
 						<fmt:formatDate value="${guidevo.text_regdate }" pattern="yy/MM/dd"/>
 						</td>
 
 						<td>${guidevo.reservationvo.reservation_person}/${guidevo.text_total_person}</td>	
-							<!-- 미정 삭제 test요 -->
-						<td><a href="wishlist_guide_delete.do?gwish_no=${guidevo.wishvo.wish_no }" style="background-color: rgb(0, 0, 0);">
-
-						<input type="button" value="Delete"></a></td> 
-
+							
+						<td>
+						<form action="wishlist_guide_delete.do?gwish_no=${guidevo.wishvo.wish_no }"  method="post" id="wishGuideDeleteFrm${guidevo.wishvo.wish_no }">
+							<input type="button" value="Delete" id="wishGuideDelete${guidevo.wishvo.wish_no }" class="wishGuideDelete" > 
+						</form>
+						</td>
 					</tr>
 					
 					</c:forEach>
@@ -96,8 +101,10 @@ $(function(){
 						${tourvo.text_tour_date }
 						</td>
 						<td>${tourvo.reservationvo.reservation_person}/${tourvo.text_total_person}</td>
-						<td><a href="wishlist_tour_delete.do?twish_no=${tourvo.wishvo.wish_no }">
-						<input type="button" value="Delete"></a></td>
+						<td>
+						<form action="wishlist_tour_delete.do?twish_no=${tourvo.wishvo.wish_no }" id="wishTourDeleteFrm${tourvo.wishvo.wish_no }" method="POST">
+							<input type="button" value="Delete" id="wishTourDelete${tourvo.wishvo.wish_no }" class="wishTourDelete">
+						</form></td>
 					</tr>
 					</c:forEach>
 						
@@ -169,7 +176,7 @@ $(function(){
 					$('.tabscontents').hide();
 
 					$('.t' + index).fadeIn();
-					$(this).css('background-color', '#ee8c7f').addClass('active');
+					$(this).css('background-color', '#000').addClass('active');
 				});
 		$('.tourDetatil').click(function(){
 			
@@ -188,6 +195,22 @@ $(function(){
 			        }
 
 			     });
+		})
+		$('.guideText').click(function(){
+			var id=$(this).attr('id');
+			var no=id.substring(9);
+			$('#wishGuide'+no).submit();
+						
+		})
+		$('.wishGuideDelete').click(function(){
+			var id=$(this).attr('id')
+			var no=id.substring(15);
+			$('#wishGuideDeleteFrm'+no).submit();
+		})
+		$('.wishTourDelete').click(function(){
+			var id=$(this).attr('id')
+			var no=id.substring(14);
+			$('#wishTourDeleteFrm'+no).submit();
 		})
 	</script>
 </body>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comma.sist.guide.dao.guideFind_mapper">
+	<select id="guideFind" resultType="GuideFind">
+	<![CDATA[
+		SELECT text_no, text_loc, text_cost, text_tour_date,user_id
+		FROM (SELECT text.text_no, text_loc, text_cost, text_tour_date,user_id, rownum
+				FROM text,tour
+				WHERE tour_no=text.text_no
+				ORDER BY text.text_no DESC)
+		WHERE rownum<=5
+	]]>
+	</select>
+</mapper>

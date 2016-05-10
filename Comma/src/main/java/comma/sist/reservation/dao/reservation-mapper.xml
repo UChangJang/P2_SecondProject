@@ -51,12 +51,16 @@
 	 	select guide_no,reservation.user_id,user_name,reservation_person from reservation,users where reservation.user_id=users.user_id and guide_no=#{guide_no}
 	 </select>
 	 
-	 <!-- 가이드 예약 삭제 -->
-	 <select id="reserveNoSearch" parameterType="java.util.Map" resultType="int">
+	 <!-- 가이드-관광객 예약 삭제 -->
+	 <select id="reserveNoSearch_g" parameterType="java.util.Map" resultType="int">
 	 	select reservation_no from reservation where guide_no=#{no} and user_id=#{user_id}
 	 </select>
-	 <delete id="reserveDeleteGuide" parameterType="int">
+	 <select id="reserveNoSearch_t" parameterType="java.util.Map" resultType="int">
+	 	select reservation_no from reservation where tour_no=#{no} and user_id=#{user_id}
+	 </select>
+	 <delete id="reserveDeleteGT" parameterType="int">
 	 	delete from reservation where reservation_no=#{reservation_no}
 	 </delete>
+	
 	 
 </mapper>

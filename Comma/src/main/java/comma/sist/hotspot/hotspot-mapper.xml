@@ -9,7 +9,7 @@
 	FROM (SELECT search_loc,search_hit, rownum 
 		  FROM search 
 		  ORDER BY search_hit DESC)
-	WHERE rownum<=9
+	WHERE rownum<=10
 	]]>
 </select>
 
