@@ -18,13 +18,11 @@ public class DispatcherServlet extends HttpServlet {
 	private WebApplicationContext		wc;
 	private List<String> 				list;
 	
-	public void init(ServletConfig config) throws ServletException {
-		
+	public void init(ServletConfig config) throws ServletException {		
 		String path = config.getInitParameter("contextConfigLocation");	//path=application.xml의 위치
 		wc = new WebApplicationContext(path);
 		list = wc.getFileName();
 		System.out.println(list);
-
 	}
 
 	
@@ -36,8 +34,8 @@ public class DispatcherServlet extends HttpServlet {
 			cmd = cmd.substring(request.getContextPath().length()+1);
 			for(String strCls:list){
 				
-				Class clsName = Class.forName(strCls);
-				if(clsName.isAnnotationPresent(Controller.class)==false){
+				Class clsName = Class.forName(strCls);			
+				if(clsName.isAnnotationPresent(Controller.class)==false){		//Controller라는 annotation이 존재안하면
 					continue;
 				}
 				
@@ -45,7 +43,7 @@ public class DispatcherServlet extends HttpServlet {
 				for(Method m:methods){
 
 					RequestMapping rm = m.getAnnotation(RequestMapping.class);
-					if(rm.value().equals(cmd)){
+					if(rm.value().equals(cmd)){					//RequestMapping이라는 annotation의 값이 uri와 같으면
 						Object obj = clsName.newInstance();
 						String jsp = (String)m.invoke(obj, request);
 						RequestDispatcher rd = request.getRequestDispatcher(jsp);

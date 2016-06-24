@@ -8,11 +8,10 @@ public class FileConfig {
 	public static List<String> getFileName(String pack){	//pack=comma.sist.model
 		
 		List<String> list = new ArrayList<String>();
-
 		
 		try{
 
-			String path = "C:\\Users\\74\\Git\\P2_SecondProject\\Comma\\src\\main\\java\\";
+			String path = "C:\\Users\\ANBOYOUNG\\git\\P2_SecondProject\\Comma\\src\\main\\java\\";
 			path = path+pack.replace('.', '\\');
 			
 			File dir = new File(path);

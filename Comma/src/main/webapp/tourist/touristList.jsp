@@ -120,7 +120,7 @@ function tourContent2() {
 					<c:forEach var="vo" items="${list }">
 						<div class="3u">					<!-- 사진 -->
 							<span class="mypictureTour">
-								<img src="http://211.238.142.74:8080/controller/profile/${vo.uservo.user_img }" alt=""/><!-- 이미지사진 -->
+								<img src="http://localhost:8080/controller/profile/${vo.uservo.user_img }" alt=""/><!-- 이미지사진 -->
 							</span>	
 						</div>
 						<div class="9u">					<!-- 리스트 -->

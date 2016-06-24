@@ -6,10 +6,11 @@
     <servlet-class>comma.sist.controller.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>C:\Users\74\Git\P2_SecondProject\Comma\src\main\webapp\WEB-INF\application.xml</param-value>
-</init-param>
+      <param-value>C:\Users\ANBOYOUNG\git\P2_SecondProject\Comma\src\main\webapp\WEB-INF\application.xml</param-value>
+	</init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  
   <servlet-mapping>
     <servlet-name>appServlet</servlet-name>
     <url-pattern>*.do</url-pattern>

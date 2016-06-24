@@ -24,7 +24,7 @@ public class IntroController {
 	//
 	@RequestMapping("main.do")
 	public String mainStart(HttpServletRequest req){
-		
+		System.out.println("enter");
 		WeatherManager wm=new WeatherManager();
 		List<WeatherDTO> wlist=wm.weatherAllData();
 		List<TextVO> bestGuide=GuideDAO.bestGuide();

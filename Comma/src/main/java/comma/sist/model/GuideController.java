@@ -134,7 +134,7 @@ public class GuideController {
 		// http://211.238.142.74:8080/controller/image/seoul3.jpg  이미지 파일 읽어올때
 		// C:\springDev\springStudy\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Comma\image
 		//String path = "\\\\211.238.142.74\\springDev\\springStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\Comma\\image";
-		String path = "\\\\211.238.142.74\\Users\\74\\Git\\P2_SecondProject\\Comma\\src\\main\\webapp\\image";
+		String path = "C:\\Users\\ANBOYOUNG\\git\\P2_SecondProject\\Comma\\src\\main\\webapp\\image";
 		String enctype = "EUC-KR";
 		int	size = 1024*1024*100; 
 		
